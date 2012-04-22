@@ -2,7 +2,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{a4paper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -18,29 +18,21 @@
 \defaultfontfeatures{Mapping=tex-text}
 \setromanfont[Mapping=tex-text]{Gill Sans}
 
-
-\title{Final Year Project Proposal: \\ A Location Aware Reminder App for iOS}
-\author{Alex Layton \\ Supervised by Russell Beale}
+\title{{\small Final Year Project Proposal:} \\ A Location Aware Reminder App for iOS}
+\author{Alex Layton \\ {\small Supervised by Russell Beale}}
 \date{19 April, 2012} 
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a velit eget erat interdum gravida et vitae lectus. Vivamus adipiscing ultrices enim eget ornare. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ut nibh lorem, eu aliquet arcu. Vivamus arcu elit, venenatis sit amet pharetra in, sagittis ac erat. Vivamus euismod facilisis euismod. Maecenas vel vestibulum leo. Etiam a purus elit. Vestibulum congue fermentum orci, vel facilisis odio pharetra in. Aliquam hendrerit nunc nec lectus pretium vulputate. Vivamus sagittis molestie leo sit amet suscipit. Nulla facilisi.
-
-	Donec ullamcorper rutrum quam quis sollicitudin. In hac habitasse platea dictumst. Mauris magna risus, euismod ut tristique eu, gravida non justo. Nunc id magna nibh. Curabitur malesuada mollis nisi sed rutrum. Integer vel velit eu mi convallis consequat. Quisque in est at purus sodales tempus. Mauris viverra nisl non est semper sit amet porta sem pharetra. Maecenas suscipit ultrices sem hendrerit dictum. Pellentesque elit nunc, vulputate vitae iaculis vitae, tempus nec neque. Ut nibh nisi, placerat quis tincidunt eget, scelerisque vel massa. Nulla scelerisque, orci eu imperdiet tempus, libero velit mattis tellus, vitae lacinia tellus risus sed justo. Suspendisse potenti. Integer nec gravida ipsum. Vestibulum vel nulla ut nunc congue euismod.
+	Smartphones have become an every day essential item for most people, allowing them to access their data from virtually anywhere. More and more people use the phones to help them with tasks such as calendaring and setting reminders. I propose an idea for an app somewhere between these two things. Apple's iOS was recently updated to include a Reminders app that allows a reminder to be triggered from a specified location. My idea is to create an app that can trigger a reminder at a time, dependant on how far away the user is from their destination specifically targeting students.   
 \end{abstract}
 
-\section{Lipsum}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a velit eget erat interdum gravida et vitae lectus. Vivamus adipiscing ultrices enim eget ornare. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ut nibh lorem, eu aliquet arcu. Vivamus arcu elit, venenatis sit amet pharetra in, sagittis ac erat. Vivamus euismod facilisis euismod. Maecenas vel vestibulum leo. Etiam a purus elit. Vestibulum congue fermentum orci, vel facilisis odio pharetra in. Aliquam hendrerit nunc nec lectus pretium vulputate. Vivamus sagittis molestie leo sit amet suscipit. Nulla facilisi.
+\section*{Description}
+	In this project I wish to create an app for Apple's iOS mobile operating system. The app will be primarily aimed a students, but I hope to create a framework of sorts that can be easily used in other apps to allow for similar location aware reminders.
+	The app will need to connect to a college's database server in order to download a students timetable. Once this has been done the student will be able to see their timetable on their device, as well as select which items they wish to receive location aware remminders for. The GPS in the students device will be used to check how far away from a lecture they are and remind them about their lecture a certain amount of time before, dependant on the students current location. For instance, if the student is 5 minutes away from their lectures. A reminder will be sent at least 5 minutes before the lecture time to tell the student they should head to lecture now.
 
-Donec ullamcorper rutrum quam quis sollicitudin. In hac habitasse platea dictumst. Mauris magna risus, euismod ut tristique eu, gravida non justo. Nunc id magna nibh. Curabitur malesuada mollis nisi sed rutrum. Integer vel velit eu mi convallis consequat. Quisque in est at purus sodales tempus. Mauris viverra nisl non est semper sit amet porta sem pharetra. Maecenas suscipit ultrices sem hendrerit dictum. Pellentesque elit nunc, vulputate vitae iaculis vitae, tempus nec neque. Ut nibh nisi, placerat quis tincidunt eget, scelerisque vel massa. Nulla scelerisque, orci eu imperdiet tempus, libero velit mattis tellus, vitae lacinia tellus risus sed justo. Suspendisse potenti. Integer nec gravida ipsum. Vestibulum vel nulla ut nunc congue euismod.
-
-Pellentesque tincidunt purus ac metus cursus ut pretium arcu venenatis. Suspendisse id nulla at augue aliquet malesuada. Vestibulum ut est diam. Suspendisse posuere scelerisque lacus, ac feugiat nulla gravida vitae. Donec lectus lorem, varius eget semper vel, viverra nec metus. Sed scelerisque vestibulum blandit. Suspendisse sit amet augue vel lacus consequat accumsan.
-
-Vestibulum nec elit nisl, quis interdum massa. Sed vitae elit non metus lobortis placerat vehicula eu orci. Proin vulputate lectus sit amet dolor tincidunt ac sollicitudin odio tincidunt. Donec sit amet sapien sed augue gravida egestas. Maecenas porttitor, ligula vitae tincidunt adipiscing, sem nunc scelerisque risus, eu adipiscing odio felis ut elit. Fusce molestie ornare mauris id faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi libero, suscipit vel porta at, vestibulum et magna. Nulla libero quam, hendrerit at tincidunt ut, euismod ut tellus. Maecenas libero metus, pretium eget mattis et, sollicitudin ac arcu.
-
-Nulla facilisi. Sed nec ipsum quam. Phasellus ullamcorper aliquet felis nec fermentum. Nulla diam odio, ullamcorper vitae ultricies sit amet, luctus in enim. Proin lorem urna, tempus quis sollicitudin nec, posuere aliquam dolor. Curabitur posuere vehicula elementum. Integer lobortis, lectus ac dapibus viverra, mi odio vehicula velit, non ultrices arcu enim et est. Phasellus placerat odio id nisi tincidunt eu fermentum arcu posuere. Morbi tempor ipsum in urna tristique ac posuere quam aliquet. Integer sodales lectus nec leo euismod facilisis. Fusce eget urna vel libero laoreet accumsan commodo vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod metus at velit euismod nec egestas nibh ornare. Morbi dignissim ante eu orci consequat et ultricies velit pretium. Mauris pharetra orci at nisl fermentum porta. In hac habitasse platea dictumst.
+\section*{Approach}
 
 \end{document}  

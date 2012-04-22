@@ -17,3 +17,6 @@ profile
 # TeX shit
 *.aux
 *.log
+docs/proposal/.texpadtmp/Untitled.synctex.gz
+
+docs/proposal/.texpadtmp/proposal.synctex.gz
