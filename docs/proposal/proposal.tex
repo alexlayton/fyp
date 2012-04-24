@@ -2,7 +2,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{a4paper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -30,9 +30,16 @@
 \end{abstract}
 
 \section*{Description}
-	In this project I wish to create an app for Apple's iOS mobile operating system. The app will be primarily aimed a students, but I hope to create a framework of sorts that can be easily used in other apps to allow for similar location aware reminders.
-	The app will need to connect to a college's database server in order to download a students timetable. Once this has been done the student will be able to see their timetable on their device, as well as select which items they wish to receive location aware remminders for. The GPS in the students device will be used to check how far away from a lecture they are and remind them about their lecture a certain amount of time before, dependant on the students current location. For instance, if the student is 5 minutes away from their lectures. A reminder will be sent at least 5 minutes before the lecture time to tell the student they should head to lecture now.
+	In this project I wish to create an app for Apple's iOS mobile operating system. The app will be primarily aimed a students, but I hope to create a framework of sorts that can be easily used in other apps to allow for similar location aware reminders.\\
+	The app will need to connect to a college's database server in order to download a students timetable. Once this has been done the student will be able to see their timetable on their device, as well as select which items they wish to receive location aware reminders for. The GPS in the students device will be used to check how far away from a lecture they are and remind them about their lecture a certain amount of time before, dependant on the students current location. For instance, if the student is 5 minutes away from their lectures. A reminder will be sent at least 5 minutes before the lecture time to tell the student they should head to lecture now.
 
 \section*{Approach}
+	How I approach the project will be dependant on the modules I decide on taking in my final year. I hope to have the basic functionality implemented before the end of the year. This will then allow me to add the extensions and polish to the app during the second term. When creating the app their will be quite a large focus on the actual user interface. I should spend the same amount of time on the design of the app as I do the implementation, but in practice it will be more likely be half the development time. Once the app has been completed I will work on the presentation and report.
+
+\section*{Extensions}
+	Due to the fact that I wish to create an iOS app, an obvious extension would be making the app universal. This would be that the same app binary would work on both Apple's iPhone and iPad devices. This would also mean I would have to create two separate user interfaces specific to each device.
+
+\section*{Feasibility}
+	To create an iOS app there are some prerequisites, these include an OS X based machine that can run Xcode - Apple's IDE for Objective-C apps and devices running iOS which can be used for testing. I have both of these things, so building the application will not require me purchasing any hardware. If I was to release the app on Apple's App Store, I would need a developers license. This is something I plan to buy independently, but is not required to initially build the app.\\	I feel that the idea I have proposed above is very feasible in terms of resources and the time frame given, but if I am not able to fully implement my the app a fallback could be an implementation of the location based reminders functionality packaged as a standalone app which would have reminders set manually as opposed to creating them from a student's timetable. 
 
 \end{document}  
