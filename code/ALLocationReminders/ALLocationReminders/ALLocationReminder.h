@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ALLocationReminder : NSObject
+
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, strong) NSString *payload;
+@property (nonatomic, strong) NSDate *date;
+
+- (id)initWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
 
 @end

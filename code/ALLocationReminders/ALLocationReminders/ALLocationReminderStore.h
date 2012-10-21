@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h> 
 
-@interface ALLocationReminders : NSObject
+@class ALLocationReminder;
+
+@interface ALLocationReminderStore : NSObject <CLLocationManagerDelegate>
+
++ (ALLocationReminderStore *)sharedStore;
+- (void)pushReminder:(ALLocationReminder *)reminder;
+- (ALLocationReminder *)popReminder;
+- (ALLocationReminder *)peekReminder;
+- (NSInteger)count;
+- (void)stateOfReminders; //get rid!
 
 @end

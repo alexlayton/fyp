@@ -6,8 +6,86 @@
 //  Copyright (c) 2012 Alex Layton. All rights reserved.
 //
 
-#import "ALLocationReminders.h"
+#import "ALLocationReminderStore.h"
+#import "ALLocationReminder.h"
 
-@implementation ALLocationReminders
+@interface ALLocationReminderStore ()
+
+@property (nonatomic, strong) NSMutableArray *reminders; //no one needs to see this right?
+
+@end
+
+@implementation ALLocationReminderStore
+
+@synthesize reminders = _reminders;
+
++ (ALLocationReminderStore *)sharedStore
+{
+    static ALLocationReminderStore *sharedStore = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedStore = [[ALLocationReminderStore alloc] init]; //change the designated initialiser later
+    });
+    return sharedStore;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _reminders = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (void)pushReminder:(ALLocationReminder *)reminder
+{
+    //add reminder to the array in its postion sorted by date not first position
+    [_reminders addObject:reminder];
+    [self sort];
+}
+
+- (ALLocationReminder *)popReminder
+{
+    ALLocationReminder *reminder =  [_reminders objectAtIndex:0];
+    [_reminders removeObjectAtIndex:0];
+    return reminder;
+}
+
+- (ALLocationReminder *)peekReminder
+{
+    return [_reminders objectAtIndex:0];
+}
+
+- (void)stateOfReminders //this is for me
+{
+    NSLog(@"Prepare to print reminders!");
+    for (ALLocationReminder *reminder in _reminders) {
+        NSLog(@"%@", reminder.payload); //reminder.reminder??????!!!!
+    }
+    [self popReminder];
+    for (ALLocationReminder *reminder in _reminders) {
+        NSLog(@"%@", reminder.payload); //reminder.reminder??????!!!!
+    }
+}
+
+- (NSInteger)count
+{
+    return _reminders.count;
+}
+
+- (void)sort
+{
+    [_reminders sortUsingComparator:^NSComparisonResult(ALLocationReminder *first, ALLocationReminder *second) {
+        return [first.date compare:second.date];
+    }];
+}
+
+#pragma mark - CLLocation Delegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    //check current location is not the same as location at the top of the stack
+}
 
 @end
