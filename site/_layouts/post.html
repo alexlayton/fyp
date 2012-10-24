@@ -1,0 +1,22 @@
+---
+layout: layout
+root: "../"
+---
+
+<div id="content">
+	<div id="post-title">
+		<h1><span>{{ page.title }}</span></h1>
+		<div id="date">{{ page.date | date: "%B %d, %Y" }}</div>
+	</div>
+    <p>{{ content }}</p>
+	{% if page.author %}
+		<div id="author"> &mdash; {{ page.author }}</div>
+	{% endif %}
+	<!--{% capture day %}{{ page.date | date: "%d" | remove_first:'0'}}{% endcapture %}
+	{% if page.author %}
+		<div id="date">{{ page.author }} &mdash; {{ page.date | date: "%B" }} {{ day }}, {{ page.date | date: "%Y" }}</div>
+	{% else %}
+		<div id="date">{{ page.date | date: "%B" }} {{ day }}, {{ page.date | date: "%Y" }}</div>
+	{% endif %}-->
+	
+</div>

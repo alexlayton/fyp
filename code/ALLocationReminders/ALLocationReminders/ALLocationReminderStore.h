@@ -11,13 +11,15 @@
 
 @class ALLocationReminder;
 
-@interface ALLocationReminderStore : NSObject <CLLocationManagerDelegate>
+@interface ALLocationReminderStore : NSObject
+
+@property (nonatomic, strong) NSMutableArray *reminders;
 
 + (ALLocationReminderStore *)sharedStore;
+
 - (void)pushReminder:(ALLocationReminder *)reminder;
 - (ALLocationReminder *)popReminder;
 - (ALLocationReminder *)peekReminder;
-- (NSInteger)count;
 - (void)stateOfReminders; //get rid!
 
 @end

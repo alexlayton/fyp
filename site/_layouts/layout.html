@@ -1,0 +1,27 @@
+
+---
+root: "../"
+---
+
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Alex Layton" />  
+  	<link rel="stylesheet" type="text/css" href="{{ root }}/css/style.css" /> 
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <header>
+		<h1>Alex Layton</h1>
+    </header>
+    <section>
+      {{ content }}
+    </section>
+    <footer>
+    	
+    </footer>
+	{% include analytics.html %}
+  </body>
+</html>

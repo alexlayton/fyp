@@ -7,17 +7,24 @@
 //
 
 #import "ALAppDelegate.h"
-#import "ALLocationReminder.h"
+#import "ALLocationReminderManager.h"
 #import "ALLocationReminderStore.h"
+#import "ALLocationReminder.h"
 
 @implementation ALAppDelegate
-
-@synthesize locationManager = _locationManager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //[self test];
-    [self startStandardUpdates];
+    ALLocationReminderManager *reminderManager = [[ALLocationReminderManager alloc] init];
+    CLLocationManager *locationManager;
+    if ([CLLocationManager locationServicesEnabled]) {
+        locationManager.delegate = reminderManager;
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; //play with this
+        locationManager.distanceFilter = 10; //10 metres
+        [locationManager startUpdatingLocation];
+    }
+    [reminderManager addReminderAtCurrentLocationWithPayload:@"Testing" date:[[NSDate alloc] init]];
     return YES;
 }
 
@@ -59,39 +66,14 @@
     NSDate *present = [[NSDate alloc] init];
     NSDate *future = [NSDate distantFuture];
     
-    ALLocationReminder *reminder2 = [[ALLocationReminder alloc] initWithLocation:nil reminder:@"Future" date:future];
+    ALLocationReminder *reminder2 = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Future" date:future];
     [store pushReminder:reminder2];
-    ALLocationReminder *reminder = [[ALLocationReminder alloc] initWithLocation:nil reminder:@"Present" date:present];
+    ALLocationReminder *reminder = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Present" date:present];
     [store pushReminder:reminder];
-    ALLocationReminder *reminder1 = [[ALLocationReminder alloc] initWithLocation:nil reminder:@"Past" date:past];
+    ALLocationReminder *reminder1 = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Past" date:past];
     [store pushReminder:reminder1];
     
     [store stateOfReminders];
-}
-    
-#pragma mark - CLLocation
-
-- (void)startStandardUpdates
-{
-    if (!_locationManager) _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self; //change to location store later
-    _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; //play with this
-    _locationManager.distanceFilter = 10; //10 metres
-    [_locationManager startUpdatingLocation];
-}
-
-
-#pragma mark - CLLocation Delegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    CLLocation *location = [locations lastObject];
-    NSDate *timeStamp = location.timestamp;
-    NSTimeInterval howRecent = [timeStamp timeIntervalSinceNow];
-    if (abs(howRecent) < 15.0) {
-        //recent event
-        NSLog(@"latitude %+.6f, longitude %+.6f\n", location.coordinate.latitude, location.coordinate.longitude);
-    }
 }
 
 @end

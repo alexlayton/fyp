@@ -14,6 +14,12 @@
 @synthesize payload = _payload;
 @synthesize date = _date;
 
++ (ALLocationReminder *)reminderWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
+{
+    ALLocationReminder *reminder = [[ALLocationReminder alloc] initWithLocation:location payload:payload date:date];
+    return reminder;
+}
+
 - (id)initWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
 {
     self = [super init];

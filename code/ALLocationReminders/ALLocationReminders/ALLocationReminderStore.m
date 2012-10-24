@@ -9,12 +9,6 @@
 #import "ALLocationReminderStore.h"
 #import "ALLocationReminder.h"
 
-@interface ALLocationReminderStore ()
-
-@property (nonatomic, strong) NSMutableArray *reminders; //no one needs to see this right?
-
-@end
-
 @implementation ALLocationReminderStore
 
 @synthesize reminders = _reminders;
@@ -69,23 +63,11 @@
     }
 }
 
-- (NSInteger)count
-{
-    return _reminders.count;
-}
-
 - (void)sort
 {
     [_reminders sortUsingComparator:^NSComparisonResult(ALLocationReminder *first, ALLocationReminder *second) {
         return [first.date compare:second.date];
     }];
-}
-
-#pragma mark - CLLocation Delegate Methods
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    //check current location is not the same as location at the top of the stack
 }
 
 @end
