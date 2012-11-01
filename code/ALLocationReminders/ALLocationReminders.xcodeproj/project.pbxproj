@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1A92D41641E432009D3B1E /* ALLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1A92D31641E432009D3B1E /* ALLocationTest.m */; };
 		FA94927D1637207400106017 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94927C1637207400106017 /* ALLocationReminderManager.m */; };
 		FA9F5A5316315617006ECACC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A5216315617006ECACC /* UIKit.framework */; };
 		FA9F5A5516315617006ECACC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A5416315617006ECACC /* Foundation.framework */; };
@@ -20,9 +21,13 @@
 		FA9F5A7816316FDE006ECACC /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F5A7716316FDD006ECACC /* ALLocationReminderStore.m */; };
 		FA9F5A7A16317022006ECACC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A7916317022006ECACC /* CoreLocation.framework */; };
 		FA9F5A8D1631A366006ECACC /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */; };
+		FAABD97C16405BA100DFA514 /* ALLocationReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAABD97B16405BA100DFA514 /* ALLocationReminders.storyboard */; };
+		FAABD98016405C3100DFA514 /* ALLocationRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAABD97F16405C3000DFA514 /* ALLocationRemindersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA1A92D21641E432009D3B1E /* ALLocationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationTest.h; sourceTree = "<group>"; };
+		FA1A92D31641E432009D3B1E /* ALLocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationTest.m; sourceTree = "<group>"; };
 		FA94927B1637207400106017 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderManager.h; sourceTree = "<group>"; };
 		FA94927C1637207400106017 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderManager.m; sourceTree = "<group>"; };
 		FA9F5A4E16315617006ECACC /* ALLocationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALLocationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +48,9 @@
 		FA9F5A7916317022006ECACC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FA9F5A8B1631A366006ECACC /* ALLocationReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminder.h; sourceTree = "<group>"; };
 		FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminder.m; sourceTree = "<group>"; };
+		FAABD97B16405BA100DFA514 /* ALLocationReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ALLocationReminders.storyboard; sourceTree = "<group>"; };
+		FAABD97E16405C3000DFA514 /* ALLocationRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationRemindersViewController.h; sourceTree = "<group>"; };
+		FAABD97F16405C3000DFA514 /* ALLocationRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationRemindersViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,12 +101,17 @@
 			children = (
 				FA9F5A6116315617006ECACC /* ALAppDelegate.h */,
 				FA9F5A6216315617006ECACC /* ALAppDelegate.m */,
+				FA1A92D21641E432009D3B1E /* ALLocationTest.h */,
+				FA1A92D31641E432009D3B1E /* ALLocationTest.m */,
 				FA9F5A7616316FDD006ECACC /* ALLocationReminderStore.h */,
 				FA9F5A7716316FDD006ECACC /* ALLocationReminderStore.m */,
 				FA9F5A8B1631A366006ECACC /* ALLocationReminder.h */,
 				FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */,
 				FA94927B1637207400106017 /* ALLocationReminderManager.h */,
 				FA94927C1637207400106017 /* ALLocationReminderManager.m */,
+				FAABD97E16405C3000DFA514 /* ALLocationRemindersViewController.h */,
+				FAABD97F16405C3000DFA514 /* ALLocationRemindersViewController.m */,
+				FAABD97B16405BA100DFA514 /* ALLocationReminders.storyboard */,
 				FA9F5A5916315617006ECACC /* Supporting Files */,
 			);
 			path = ALLocationReminders;
@@ -174,6 +187,7 @@
 				FA9F5A6516315617006ECACC /* Default.png in Resources */,
 				FA9F5A6716315617006ECACC /* Default@2x.png in Resources */,
 				FA9F5A6916315617006ECACC /* Default-568h@2x.png in Resources */,
+				FAABD97C16405BA100DFA514 /* ALLocationReminders.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +203,8 @@
 				FA9F5A7816316FDE006ECACC /* ALLocationReminderStore.m in Sources */,
 				FA9F5A8D1631A366006ECACC /* ALLocationReminder.m in Sources */,
 				FA94927D1637207400106017 /* ALLocationReminderManager.m in Sources */,
+				FAABD98016405C3100DFA514 /* ALLocationRemindersViewController.m in Sources */,
+				FA1A92D41641E432009D3B1E /* ALLocationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

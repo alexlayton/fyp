@@ -23,8 +23,11 @@
 @property (nonatomic, weak) ALLocationReminderStore *store;
 @property (nonatomic, weak) id<ALLocationReminderDelegate> delegate;
 @property (nonatomic, strong) CLLocation *lastLocation;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 - (id)initWithStore:(ALLocationReminderStore *)store;
+- (void)startLocationReminders;
+- (void)stopLocationReminders;
 - (void)addReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
 
 @end

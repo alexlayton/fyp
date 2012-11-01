@@ -8,13 +8,13 @@ root: "../"
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="author" content="Alex Layton" />  
-  	<link rel="stylesheet" type="text/css" href="{{ root }}/css/style.css" /> 
+    <meta name="author" content="Alex Layton" />
+  	<link rel="stylesheet" type="text/css" href="{{ root }}/css/style.css" />
     <title>{{ page.title }}</title>
   </head>
   <body>
     <header>
-		<h1>Alex Layton</h1>
+		<a href="{{ root }}/" title="fyp"><h1>fyp</h1></a>
     </header>
     <section>
       {{ content }}
@@ -22,6 +22,5 @@ root: "../"
     <footer>
     	
     </footer>
-	{% include analytics.html %}
   </body>
 </html>

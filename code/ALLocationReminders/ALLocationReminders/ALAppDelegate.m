@@ -10,22 +10,30 @@
 #import "ALLocationReminderManager.h"
 #import "ALLocationReminderStore.h"
 #import "ALLocationReminder.h"
+#import "ALLocationTest.h"
 
 @implementation ALAppDelegate
+
+@synthesize locationManager = _locationManager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //[self test];
-    ALLocationReminderManager *reminderManager = [[ALLocationReminderManager alloc] init];
-    CLLocationManager *locationManager;
-    if ([CLLocationManager locationServicesEnabled]) {
-        locationManager.delegate = reminderManager;
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; //play with this
-        locationManager.distanceFilter = 10; //10 metres
-        [locationManager startUpdatingLocation];
-    }
-    [reminderManager addReminderAtCurrentLocationWithPayload:@"Testing" date:[[NSDate alloc] init]];
+    NSLog(@"Loading...");
+    ALLocationTest *test = [[ALLocationTest alloc] init];
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = test;
+    //_locationManager.delegate = self;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; //100 metres
+    _locationManager.distanceFilter = 50; //50 metres
+    [_locationManager startUpdatingLocation];
+    NSLog(@"Loaded.");
     return YES;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"At a new location!");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

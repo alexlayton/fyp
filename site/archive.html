@@ -1,0 +1,16 @@
+---
+layout: layout
+root: "../"
+title: archive
+---
+
+<div id="archive">
+    <ul>
+      {% for post in site.posts %}
+      <li>
+      {% capture day %}{{ post.date | date: "%d" | remove_first:'0'}}{% endcapture %}
+        {{ post.date | date: "%B" }} {{ day }}, {{ post.date | date: "%Y" }} &mdash; <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+</div>

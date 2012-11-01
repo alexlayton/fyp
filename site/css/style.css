@@ -1,0 +1,55 @@
+/* @override 
+	http://localhost:4000/css/style.css */
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	color: #727F97;
+	text-shadow: 0 1px #ffffff;
+    -webkit-font-smoothing: antialiased;
+	margin-left: 100px;
+	font: 24px 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	width: 550px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+p {
+	margin-bottom: 40px;
+}
+
+h2 {
+	color: #E86E57; 
+}
+
+h1 {
+	color: #727F97;
+	margin-bottom: 40px;
+}
+
+a {
+	text-decoration: none;
+	color: #E86E57; 
+}
+
+a:active, a:visited {text-decoration: none;}
+a:hover {
+	background-color: #E86E57; 
+	color: white;
+	text-shadow: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#wrapper {
+	width: 550px;
+	margin: auto;
+	margin-top: 150px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
