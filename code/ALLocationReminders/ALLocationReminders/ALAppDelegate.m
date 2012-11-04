@@ -10,30 +10,22 @@
 #import "ALLocationReminderManager.h"
 #import "ALLocationReminderStore.h"
 #import "ALLocationReminder.h"
-#import "ALLocationTest.h"
+#import "ALLocationReminderViewController.h"
 
 @implementation ALAppDelegate
 
-@synthesize locationManager = _locationManager;
+//@synthesize manager = _manager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[self test];
-    NSLog(@"Loading...");
-    ALLocationTest *test = [[ALLocationTest alloc] init];
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = test;
-    //_locationManager.delegate = self;
-    _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; //100 metres
-    _locationManager.distanceFilter = 50; //50 metres
-    [_locationManager startUpdatingLocation];
-    NSLog(@"Loaded.");
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    ALLocationReminderViewController *lrvc = [[ALLocationReminderViewController alloc] init];
+//    self.window.rootViewController = lrvc;
+//    
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    NSLog(@"At a new location!");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

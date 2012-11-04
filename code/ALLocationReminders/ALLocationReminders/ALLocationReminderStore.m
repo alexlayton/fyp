@@ -55,11 +55,11 @@
 {
     NSLog(@"Prepare to print reminders!");
     for (ALLocationReminder *reminder in _reminders) {
-        NSLog(@"%@", reminder.payload); //reminder.reminder??????!!!!
+        NSLog(@"%@", reminder.payload);
     }
     [self popReminder];
     for (ALLocationReminder *reminder in _reminders) {
-        NSLog(@"%@", reminder.payload); //reminder.reminder??????!!!!
+        NSLog(@"%@", reminder.payload);
     }
 }
 

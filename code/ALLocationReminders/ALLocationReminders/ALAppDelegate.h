@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 
-@interface ALAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
+@class ALLocationReminderManager;
+
+@interface ALAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+//@property (strong, nonatomic) ALLocationReminderManager *manager;
 
 @end

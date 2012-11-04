@@ -11,9 +11,6 @@
 #import "ALLocationReminder.h"
 
 @implementation ALLocationReminderManager
-{
-    BOOL update;
-}
 
 @synthesize store = _store;
 @synthesize delegate = _delegate;
@@ -26,8 +23,12 @@
 {
     self = [super init];
     if (self) {
-        NSLog(@"Designated Initialiser...");
         _store = store;
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        _locationManager.distanceFilter = 10;
+        NSLog(@"Designated Initialiser...");
     }
     return self;
 }
@@ -35,20 +36,6 @@
 - (id)init
 {
     return [self initWithStore:[ALLocationReminderStore sharedStore]];
-}
-
-# pragma mark - setters getters
-
-- (CLLocationManager *)locationManager
-{
-    if (!_locationManager) {
-        NSLog(@"Intialising location manager!");
-        _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.delegate = self;
-        _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; //100 metres
-        _locationManager.distanceFilter = 50; //50 metres
-    }
-    return _locationManager;
 }
 
 - (void)startLocationReminders
@@ -76,18 +63,20 @@
 {
     NSLog(@"Updated location");
     CLLocation *currentLocation = [locations lastObject];
-    if ([_store peekReminder]) {
-        ALLocationReminder *reminder = [_store peekReminder];
-        CLLocationDistance distance = [reminder.location distanceFromLocation:currentLocation];
-        NSDate *today = [[NSDate alloc] init];
-        NSInteger days = [self daysBetweensDate:reminder.date andDate:today];
-        if (distance < 50 && days == 0) {
-            //within 50 metres and on the same day
-            NSLog(@"Reminder should be fired");
-            //pop reminder
-        }
-    }
+//    if ([_store peekReminder]) {
+//        ALLocationReminder *reminder = [_store peekReminder];
+//        CLLocationDistance distance = [reminder.location distanceFromLocation:currentLocation];
+//        NSDate *today = [[NSDate alloc] init];
+//        NSInteger days = [self daysBetweensDate:reminder.date andDate:today];
+//        if (distance < 50 && days == 0) {
+//            //within 50 metres and on the same day
+//            NSLog(@"Reminder should be fired");
+//            //pop reminder
+//        }
+//    }
+    
     _lastLocation = currentLocation;
+    [_delegate locationReminderManager:self locationDidChange:currentLocation];
 }
 
 # pragma mark - Date Stuff

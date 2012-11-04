@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@class ALLocationReminderStore, ALLocationReminder;
+@class ALLocationReminderManager, ALLocationReminderStore, ALLocationReminder;
 
 @protocol ALLocationReminderDelegate <NSObject>
 
-//think this is how a protocol works right?
-- (void)reminderFired:(ALLocationReminder *)reminder;
+- (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager locationDidChange:(CLLocation *)location;
+- (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager reminderFired:(ALLocationReminder *)reminder;
 
 @end
 
