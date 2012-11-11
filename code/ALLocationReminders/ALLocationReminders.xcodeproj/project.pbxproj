@@ -21,7 +21,6 @@
 		FA9F5A7A16317022006ECACC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A7916317022006ECACC /* CoreLocation.framework */; };
 		FA9F5A8D1631A366006ECACC /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */; };
 		FAAAD6431646A5F0000A9CF8 /* ALLocationReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAAD6411646A5F0000A9CF8 /* ALLocationReminderViewController.m */; };
-		FAAAD6441646A5F0000A9CF8 /* ALLocationReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAAD6421646A5F0000A9CF8 /* ALLocationReminderViewController.xib */; };
 		FAAAD6461646B521000A9CF8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAAD6451646B521000A9CF8 /* MapKit.framework */; };
 		FAAAD6491646BF18000A9CF8 /* ALAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAAD6481646BF18000A9CF8 /* ALAnnotation.m */; };
 		FAAAD64B1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAAD64A1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard */; };
@@ -50,7 +49,6 @@
 		FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminder.m; sourceTree = "<group>"; };
 		FAAAD6401646A5F0000A9CF8 /* ALLocationReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderViewController.h; sourceTree = "<group>"; };
 		FAAAD6411646A5F0000A9CF8 /* ALLocationReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderViewController.m; sourceTree = "<group>"; };
-		FAAAD6421646A5F0000A9CF8 /* ALLocationReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALLocationReminderViewController.xib; sourceTree = "<group>"; };
 		FAAAD6451646B521000A9CF8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FAAAD6471646BF18000A9CF8 /* ALAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAnnotation.h; sourceTree = "<group>"; };
 		FAAAD6481646BF18000A9CF8 /* ALAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAnnotation.m; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				FAAAD6411646A5F0000A9CF8 /* ALLocationReminderViewController.m */,
 				FAAAD6471646BF18000A9CF8 /* ALAnnotation.h */,
 				FAAAD6481646BF18000A9CF8 /* ALAnnotation.m */,
-				FAAAD6421646A5F0000A9CF8 /* ALLocationReminderViewController.xib */,
 				FAAAD64A1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard */,
 				FA9F5A5916315617006ECACC /* Supporting Files */,
 			);
@@ -194,7 +191,6 @@
 				FA9F5A6516315617006ECACC /* Default.png in Resources */,
 				FA9F5A6716315617006ECACC /* Default@2x.png in Resources */,
 				FA9F5A6916315617006ECACC /* Default-568h@2x.png in Resources */,
-				FAAAD6441646A5F0000A9CF8 /* ALLocationReminderViewController.xib in Resources */,
 				FAAAD64B1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

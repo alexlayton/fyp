@@ -57,23 +57,23 @@
 
 # pragma mark - Tests
 
-- (void)test
-{
-    ALLocationReminderStore *store = [ALLocationReminderStore sharedStore];
-    
-    //add some reminders
-    NSDate *past = [NSDate distantPast];
-    NSDate *present = [[NSDate alloc] init];
-    NSDate *future = [NSDate distantFuture];
-    
-    ALLocationReminder *reminder2 = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Future" date:future];
-    [store pushReminder:reminder2];
-    ALLocationReminder *reminder = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Present" date:present];
-    [store pushReminder:reminder];
-    ALLocationReminder *reminder1 = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Past" date:past];
-    [store pushReminder:reminder1];
-    
-    [store stateOfReminders];
-}
+//- (void)test
+//{
+//    ALLocationReminderStore *store = [ALLocationReminderStore sharedStore];
+//    
+//    //add some reminders
+//    NSDate *past = [NSDate distantPast];
+//    NSDate *present = [[NSDate alloc] init];
+//    NSDate *future = [NSDate distantFuture];
+//    
+//    ALLocationReminder *reminder2 = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Future" date:future];
+//    [store pushReminder:reminder2];
+//    ALLocationReminder *reminder = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Present" date:present];
+//    [store pushReminder:reminder];
+//    ALLocationReminder *reminder1 = [[ALLocationReminder alloc] initWithLocation:nil payload:@"Past" date:past];
+//    [store pushReminder:reminder1];
+//    
+//    [store stateOfReminders];
+//}
 
 @end

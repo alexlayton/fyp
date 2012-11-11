@@ -15,9 +15,11 @@
 
 @property (strong, nonatomic) ALLocationReminderManager *reminderManager;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 - (id)initWithReminderManager:(ALLocationReminderManager *)reminderManager;
 - (IBAction)trackingButtonPressed:(UIButton *)sender;
+- (IBAction)notifyPressed:(UIButton *)sender;
 
 @end

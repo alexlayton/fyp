@@ -9,17 +9,27 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h> 
 
+typedef int ALLocationReminderType;
+extern const ALLocationReminderType kALLocationReminderTypeLocation;
+extern const ALLocationReminderType kALLocationReminderTypeDate;
+extern const ALLocationReminderType kALLocationReminderTypePreemptive;
+
 @class ALLocationReminder;
 
 @interface ALLocationReminderStore : NSObject
 
-@property (nonatomic, strong) NSMutableArray *reminders;
+@property (nonatomic, strong) NSMutableArray *locationReminders;
+@property (nonatomic, strong) NSMutableArray *dateReminders;
+@property (nonatomic, strong) NSMutableArray *preemptiveReminders;
 
 + (ALLocationReminderStore *)sharedStore;
+- (void)pushReminder:(ALLocationReminder *)reminder type:(ALLocationReminderType)reminderType;
+- (ALLocationReminder *)popReminderWithType:(ALLocationReminderType)reminderType;
+- (ALLocationReminder *)peekReminderWithType:(ALLocationReminderType)reminderType;
 
-- (void)pushReminder:(ALLocationReminder *)reminder;
-- (ALLocationReminder *)popReminder;
-- (ALLocationReminder *)peekReminder;
-- (void)stateOfReminders; //get rid!
+//hack
+- (void)pushPreemptiveReminder:(ALLocationReminder *)reminder;
+- (ALLocationReminder *)peekPreemptiveReminder;
+- (ALLocationReminder *)popPreemptiveReminder;
 
 @end

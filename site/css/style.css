@@ -12,10 +12,13 @@ body {
 	text-shadow: 0 1px #ffffff;
     -webkit-font-smoothing: antialiased;
 	margin-left: 100px;
-	font: 24px 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	width: 550px;
+	font: normal 24px 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	width: 600px;
 	padding-left: 20px;
 	padding-right: 20px;
+	text-align: left;
+	text-transform: none;
+	white-space: normal;
 }
 
 li {
@@ -64,10 +67,9 @@ ul {
 	padding-right: 20px;
 }
 
-pre {
-	
-	margin-left: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	font-size: 12pt;
+.highlight {
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 11pt;
 }

@@ -15,6 +15,7 @@
 
 - (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager locationDidChange:(CLLocation *)location;
 - (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager reminderFired:(ALLocationReminder *)reminder;
+- (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager timeFromPreemptiveLocationDidChange:(NSInteger)time;
 
 @end
 
@@ -28,6 +29,10 @@
 - (id)initWithStore:(ALLocationReminderStore *)store;
 - (void)startLocationReminders;
 - (void)stopLocationReminders;
-- (void)addReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
+- (void)addPreemptiveReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
+- (void)addPreemptiveReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
+- (void)addLocationReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
+- (void)addLocationReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
+- (void)addDateBasedReminderWithPayload:(NSString *)payload date:(NSDate *)date;
 
 @end
