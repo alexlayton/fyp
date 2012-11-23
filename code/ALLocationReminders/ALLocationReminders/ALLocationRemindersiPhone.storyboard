@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aD1-jO-xzj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6t6-PV-kRm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
-        <!--Location Reminder View Controller-->
+        <!--Location Reminder View Controller - Test-->
         <scene sceneID="BvT-AM-IUH">
             <objects>
                 <viewController id="aD1-jO-xzj" customClass="ALLocationReminderViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kzl-S1-kO5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EYh-4e-0gK">
@@ -67,18 +67,19 @@
                         <constraints>
                             <constraint firstItem="EYh-4e-0gK" firstAttribute="leading" secondItem="Kzl-S1-kO5" secondAttribute="leading" type="default" id="0nA-La-ZG7"/>
                             <constraint firstItem="Ld0-G1-gpc" firstAttribute="trailing" secondItem="xCO-xO-b4W" secondAttribute="trailing" type="default" id="2st-H0-vb7"/>
+                            <constraint firstItem="0Hq-RY-YXD" firstAttribute="centerX" secondItem="EYh-4e-0gK" secondAttribute="centerX" type="default" id="56K-9W-NaF"/>
                             <constraint firstItem="Ld0-G1-gpc" firstAttribute="leading" secondItem="xCO-xO-b4W" secondAttribute="leading" type="default" id="AnW-h9-qfo"/>
                             <constraint firstItem="Ld0-G1-gpc" firstAttribute="top" secondItem="xCO-xO-b4W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Dty-i2-eQo"/>
-                            <constraint firstAttribute="bottom" secondItem="1b1-RY-512" secondAttribute="bottom" constant="55" id="GXH-nk-nvs"/>
                             <constraint firstItem="0Hq-RY-YXD" firstAttribute="top" secondItem="EYh-4e-0gK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Jin-Dm-vIa"/>
+                            <constraint firstAttribute="bottom" secondItem="1b1-RY-512" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="S6c-nx-djR"/>
                             <constraint firstItem="EYh-4e-0gK" firstAttribute="trailing" secondItem="Kzl-S1-kO5" secondAttribute="trailing" type="default" id="ZLB-E8-5JM"/>
                             <constraint firstItem="0Hq-RY-YXD" firstAttribute="centerX" secondItem="xCO-xO-b4W" secondAttribute="centerX" type="default" id="fHu-ZR-kro"/>
-                            <constraint firstItem="0Hq-RY-YXD" firstAttribute="centerX" secondItem="EYh-4e-0gK" secondAttribute="centerX" type="default" id="hpL-Yj-LJE"/>
                             <constraint firstItem="EYh-4e-0gK" firstAttribute="top" secondItem="Kzl-S1-kO5" secondAttribute="top" type="default" id="kkj-pX-S9S"/>
+                            <constraint firstItem="1b1-RY-512" firstAttribute="leading" secondItem="Kzl-S1-kO5" secondAttribute="leading" constant="134" id="oXI-vr-W76"/>
                             <constraint firstItem="xCO-xO-b4W" firstAttribute="top" secondItem="0Hq-RY-YXD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="s1Q-CV-zM8"/>
-                            <constraint firstItem="1b1-RY-512" firstAttribute="leading" secondItem="Kzl-S1-kO5" secondAttribute="leading" constant="131" id="uBt-oX-pBB"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Test" id="O9Z-H6-tUv"/>
                     <connections>
                         <outlet property="locationLabel" destination="0Hq-RY-YXD" id="pPc-54-3rp"/>
                         <outlet property="mapView" destination="EYh-4e-0gK" id="WhO-8X-SKu"/>
@@ -87,9 +88,167 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vor-zJ-IkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285" y="-98"/>
+            <point key="canvasLocation" x="468" y="-143"/>
+        </scene>
+        <!--Preemptive View Controller - Pre-->
+        <scene sceneID="dGM-Hc-j8U">
+            <objects>
+                <viewController id="ZNa-zi-UoW" customClass="ALPreemptiveViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GJK-iS-gxT">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sop-GE-jxP">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="286" id="mqD-ju-K4o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ek-xz-g7Q">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="Gg8-Gu-1Ji"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPressed:" destination="ZNa-zi-UoW" eventType="touchUpInside" id="23T-qn-ocT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqi-y2-7Tf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="OyN-Y2-bqf"/>
+                                    <constraint firstAttribute="height" constant="45" id="l8c-eH-Bo4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNw-Wh-1yD">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add Location">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addLocationPressed:" destination="ZNa-zi-UoW" eventType="touchUpInside" id="nUh-f7-vc3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNH-4V-AG3">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="mRi-eJ-aPs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minutes until" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xe5-qp-p55">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QNw-Wh-1yD" firstAttribute="leading" secondItem="8Ek-xz-g7Q" secondAttribute="leading" type="default" id="4AU-Na-xZy"/>
+                            <constraint firstItem="Oqi-y2-7Tf" firstAttribute="top" secondItem="GJK-iS-gxT" secondAttribute="top" constant="134" id="5ib-Ld-CqQ"/>
+                            <constraint firstItem="QNw-Wh-1yD" firstAttribute="top" secondItem="GJK-iS-gxT" secondAttribute="top" constant="178" id="9UI-aX-Ezt"/>
+                            <constraint firstItem="QNw-Wh-1yD" firstAttribute="centerX" secondItem="GJK-iS-gxT" secondAttribute="centerX" type="default" id="Jlx-tr-7Qb"/>
+                            <constraint firstItem="Xe5-qp-p55" firstAttribute="leading" secondItem="GJK-iS-gxT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="KxF-dC-DYT"/>
+                            <constraint firstItem="Xe5-qp-p55" firstAttribute="trailing" secondItem="Sop-GE-jxP" secondAttribute="trailing" type="default" id="UWJ-b1-gdV"/>
+                            <constraint firstAttribute="bottom" secondItem="QNH-4V-AG3" secondAttribute="bottom" constant="144" id="gAx-Vo-PFr"/>
+                            <constraint firstItem="Sop-GE-jxP" firstAttribute="top" secondItem="GJK-iS-gxT" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gjP-z7-4hH"/>
+                            <constraint firstItem="Oqi-y2-7Tf" firstAttribute="trailing" secondItem="Xe5-qp-p55" secondAttribute="trailing" type="default" id="l7W-R1-G5d"/>
+                            <constraint firstItem="8Ek-xz-g7Q" firstAttribute="trailing" secondItem="QNw-Wh-1yD" secondAttribute="trailing" type="default" id="lr6-iF-xTs"/>
+                            <constraint firstItem="8Ek-xz-g7Q" firstAttribute="top" secondItem="Xe5-qp-p55" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oAo-jS-Xwb"/>
+                            <constraint firstItem="QNH-4V-AG3" firstAttribute="trailing" secondItem="Oqi-y2-7Tf" secondAttribute="trailing" type="default" id="p1p-oB-QUF"/>
+                            <constraint firstItem="QNH-4V-AG3" firstAttribute="leading" secondItem="Oqi-y2-7Tf" secondAttribute="leading" type="default" id="uP7-RO-LrT"/>
+                            <constraint firstItem="Sop-GE-jxP" firstAttribute="leading" secondItem="GJK-iS-gxT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vfb-Ve-vev"/>
+                            <constraint firstItem="Xe5-qp-p55" firstAttribute="top" secondItem="Sop-GE-jxP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xmq-gn-K21"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Pre" id="eBe-Tt-zbS"/>
+                    <connections>
+                        <outlet property="minutesTextField" destination="Xe5-qp-p55" id="vtt-rJ-vcY"/>
+                        <outlet property="searchLabel" destination="Oqi-y2-7Tf" id="zfJ-PV-Y0i"/>
+                        <outlet property="searchTextField" destination="Sop-GE-jxP" id="cJe-MC-tPH"/>
+                        <outlet property="timeLabel" destination="QNH-4V-AG3" id="tfw-2E-Xdb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uZn-nR-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="439"/>
+        </scene>
+        <!--View Controller - Location-->
+        <scene sceneID="Vn8-Da-24N">
+            <objects>
+                <viewController id="Si1-4K-Q1o" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LqB-Kt-4C5">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Location" id="xG6-ga-Wn8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5k-RR-4VL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="450"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pBY-RI-dxy">
+            <objects>
+                <tabBarController id="6t6-PV-kRm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="z3S-4m-3Mr">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aD1-jO-xzj" kind="relationship" relationship="viewControllers" id="7nn-i6-hH5"/>
+                        <segue destination="ZNa-zi-UoW" kind="relationship" relationship="viewControllers" id="YzS-ef-Mvm"/>
+                        <segue destination="Si1-4K-Q1o" kind="relationship" relationship="viewControllers" id="6b4-Wx-Ogj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9h-Lq-ylA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-72" y="153"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ALLocationReminderViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALLocationReminderViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="notifyPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="trackingButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ALPreemptiveViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALPreemptiveViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addLocationPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="searchPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="minutesTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="searchLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

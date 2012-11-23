@@ -7,9 +7,7 @@
 //
 
 #import "ALAppDelegate.h"
-#import "ALLocationReminderManager.h"
-#import "ALLocationReminderStore.h"
-#import "ALLocationReminder.h"
+#import "ALLocationReminders.h"
 #import "ALLocationReminderViewController.h"
 
 @implementation ALAppDelegate
@@ -36,13 +34,18 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    ALLocationReminderManager *manager = [ALLocationReminderManager sharedManager];
+    //maybe a check here
+    [manager stopLocationReminders];
+    [manager startBackgroundLocationReminders];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    ALLocationReminderManager *manager = [ALLocationReminderManager sharedManager];
+    //maybe a check here
+    [manager stopBackgroundLocationReminders];
+    [manager startLocationReminders]; //use normal location
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

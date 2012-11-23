@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA12D65A16514B350055E129 /* ALPreemptiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA12D65916514B350055E129 /* ALPreemptiveViewController.m */; };
 		FA94927D1637207400106017 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94927C1637207400106017 /* ALLocationReminderManager.m */; };
 		FA9F5A5316315617006ECACC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A5216315617006ECACC /* UIKit.framework */; };
 		FA9F5A5516315617006ECACC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A5416315617006ECACC /* Foundation.framework */; };
@@ -27,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA11E5F01650715200ACB557 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		FA12D65816514B350055E129 /* ALPreemptiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPreemptiveViewController.h; sourceTree = "<group>"; };
+		FA12D65916514B350055E129 /* ALPreemptiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPreemptiveViewController.m; sourceTree = "<group>"; };
+		FA92B72B1656D8B800B27EA4 /* ALLocationReminders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALLocationReminders.h; sourceTree = "<group>"; };
 		FA94927B1637207400106017 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderManager.h; sourceTree = "<group>"; };
 		FA94927C1637207400106017 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderManager.m; sourceTree = "<group>"; };
 		FA9F5A4E16315617006ECACC /* ALLocationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALLocationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +108,7 @@
 		FA9F5A5816315617006ECACC /* ALLocationReminders */ = {
 			isa = PBXGroup;
 			children = (
+				FA92B72B1656D8B800B27EA4 /* ALLocationReminders.h */,
 				FA9F5A6116315617006ECACC /* ALAppDelegate.h */,
 				FA9F5A6216315617006ECACC /* ALAppDelegate.m */,
 				FA9F5A7616316FDD006ECACC /* ALLocationReminderStore.h */,
@@ -113,9 +119,12 @@
 				FA94927C1637207400106017 /* ALLocationReminderManager.m */,
 				FAAAD6401646A5F0000A9CF8 /* ALLocationReminderViewController.h */,
 				FAAAD6411646A5F0000A9CF8 /* ALLocationReminderViewController.m */,
+				FA12D65816514B350055E129 /* ALPreemptiveViewController.h */,
+				FA12D65916514B350055E129 /* ALPreemptiveViewController.m */,
 				FAAAD6471646BF18000A9CF8 /* ALAnnotation.h */,
 				FAAAD6481646BF18000A9CF8 /* ALAnnotation.m */,
 				FAAAD64A1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard */,
+				FA11E5F01650715200ACB557 /* Location.gpx */,
 				FA9F5A5916315617006ECACC /* Supporting Files */,
 			);
 			path = ALLocationReminders;
@@ -209,6 +218,7 @@
 				FA94927D1637207400106017 /* ALLocationReminderManager.m in Sources */,
 				FAAAD6431646A5F0000A9CF8 /* ALLocationReminderViewController.m in Sources */,
 				FAAAD6491646BF18000A9CF8 /* ALAnnotation.m in Sources */,
+				FA12D65A16514B350055E129 /* ALPreemptiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

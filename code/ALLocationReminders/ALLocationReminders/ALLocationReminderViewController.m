@@ -38,23 +38,30 @@
         _reminderManager = [[ALLocationReminderManager alloc] init];
         _reminderManager.delegate = self;
     }
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//
+//    [geocoder geocodeAddressString:@"B62 8JW" completionHandler:^(NSArray* placemarks, NSError* error){
+//        CLPlacemark *placemark = [placemarks objectAtIndex:0];
+//        CLLocation *location = placemark.location;
+//        NSDate *date = [[NSDate alloc] init];
+//        NSDate *newDate = [date dateByAddingTimeInterval:20 * 60]; //20 minutes
+//        NSLog(@"Destination Lat: %f, Lon: %f", location.coordinate.latitude, location.coordinate.longitude);
+//        [_reminderManager addPreemptiveReminderAtLocation:location payload:@"Yea Bitch" date:newDate];
+//        NSLog(@"Reminder: %@", [_reminderManager.store peekPreemptiveReminder]);
+//    }];
+}
 
-    [geocoder geocodeAddressString:@"B62 8JW" completionHandler:^(NSArray* placemarks, NSError* error){
-        CLPlacemark *placemark = [placemarks objectAtIndex:0];
-        CLLocation *location = placemark.location;
-        NSDate *date = [[NSDate alloc] init];
-        NSDate *newDate = [date dateByAddingTimeInterval:20 * 60]; //20 minutes
-        NSLog(@"Destination Lat: %f, Lon: %f", location.coordinate.latitude, location.coordinate.longitude);
-        [_reminderManager addPreemptiveReminderAtLocation:location payload:@"Yea Bitch" date:newDate];
-        NSLog(@"Reminder: %@", [_reminderManager.store peekPreemptiveReminder]);
-    }];
+- (void)viewDidDisappear:(BOOL)animated
+{
+    //maybe have an if here
+    NSLog(@"Stop updating location");
+    //[_reminderManager stopLocationReminders];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _reminderManager = nil;
 }
 
 - (IBAction)trackingButtonPressed:(UIButton *)sender

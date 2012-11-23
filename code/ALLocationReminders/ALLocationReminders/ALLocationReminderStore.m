@@ -9,9 +9,9 @@
 #import "ALLocationReminderStore.h"
 #import "ALLocationReminder.h"
 
-const ALLocationReminderType kALLocationReminderTypeLocation = 1;
-const ALLocationReminderType kALLocationReminderTypeDate = 2;
-const ALLocationReminderType kALLocationReminderTypePreemptive = 3;
+const ALLocationReminderType kALLocationReminderTypeLocation = @"Location";
+const ALLocationReminderType kALLocationReminderTypeDate = @"Date";
+const ALLocationReminderType kALLocationReminderTypePreemptive = @"Preemptive";
 
 @implementation ALLocationReminderStore
 
@@ -57,28 +57,29 @@ const ALLocationReminderType kALLocationReminderTypePreemptive = 3;
 
 - (ALLocationReminder *)popReminderWithType:(ALLocationReminderType)reminderType
 {
-    ALLocationReminder *reminder;
-    if (reminderType == kALLocationReminderTypeDate) {
+    ALLocationReminder *reminder = nil;
+    if (reminderType == kALLocationReminderTypeDate && _dateReminders.count > 0) {
         reminder = [_dateReminders objectAtIndex:0];
         [_dateReminders removeObjectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypeLocation) {
+    } else if (reminderType == kALLocationReminderTypeLocation && _locationReminders.count > 0) {
         reminder = [_locationReminders objectAtIndex:0];
         [_locationReminders removeObjectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypePreemptive) {
+    } else if (reminderType == kALLocationReminderTypePreemptive && _preemptiveReminders.count > 0) {
         reminder = [_preemptiveReminders objectAtIndex:0];
         [_preemptiveReminders removeObjectAtIndex:0];
     }
     return reminder;
 }
 
-- (ALLocationReminder *)peekReminderWithtype:(ALLocationReminderType)reminderType
+- (ALLocationReminder *)peekReminderWithType:(ALLocationReminderType)reminderType
 {
-    ALLocationReminder *reminder;
-    if (reminderType == kALLocationReminderTypeDate) {
+
+    ALLocationReminder *reminder = nil;
+    if (reminderType == kALLocationReminderTypeDate && _dateReminders.count > 0) {
         reminder = [_dateReminders objectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypeLocation) {
+    } else if (reminderType == kALLocationReminderTypeLocation && _locationReminders.count > 0) {
         reminder = [_locationReminders objectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypePreemptive) {
+    } else if (reminderType == kALLocationReminderTypePreemptive && _preemptiveReminders.count > 0) {
         reminder = [_preemptiveReminders objectAtIndex:0];
     }
     return reminder;
@@ -101,11 +102,13 @@ const ALLocationReminderType kALLocationReminderTypePreemptive = 3;
 
 - (ALLocationReminder *)peekPreemptiveReminder
 {
+    if (_preemptiveReminders.count == 0) return nil;
     return [_preemptiveReminders objectAtIndex:0];
 }
 
 - (ALLocationReminder *)popPreemptiveReminder
 {
+    if (_preemptiveReminders.count == 0) return nil;
     ALLocationReminder *reminder = [_preemptiveReminders objectAtIndex:0];
     [_preemptiveReminders removeObjectAtIndex:0];
     return reminder;
