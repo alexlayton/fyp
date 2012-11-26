@@ -11,6 +11,11 @@
 
 @class ALLocationReminderManager, ALLocationReminderStore, ALLocationReminder;
 
+typedef NSString *ALLocationRemindersTransportType;
+extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeWalking;
+extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeCycling;
+extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving;
+
 @protocol ALLocationReminderDelegate <NSObject>
 
 - (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager locationDidChange:(CLLocation *)location;
@@ -23,10 +28,12 @@
 
 @property (nonatomic, weak) ALLocationReminderStore *store;
 @property (nonatomic, weak) id<ALLocationReminderDelegate> delegate;
-@property (nonatomic, strong) CLLocation *lastLocation;
+@property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic) double *speed;
+@property (nonatomic) double speed;
 @property (nonatomic) BOOL remindersAreRunning;
+@property (nonatomic) ALLocationRemindersTransportType transport;
+@property (nonatomic) int interval;
 
 + (ALLocationReminderManager *)sharedManager;
 - (id)initWithStore:(ALLocationReminderStore *)store;

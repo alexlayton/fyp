@@ -49,7 +49,7 @@
     int minutes = [_minutesTextField.text integerValue];
     NSDate *newDate = [date dateByAddingTimeInterval:minutes * 60]; //20 minutes
     NSLog(@"Destination Lat: %f, Lon: %f", location.coordinate.latitude, location.coordinate.longitude);
-    [_reminderManager addPreemptiveReminderAtLocation:location payload:@"Go to destination" date:newDate];
+    [_reminderManager addPreemptiveReminderAtLocation:location payload:[NSString stringWithFormat:@"Go to Destination at %@", newDate] date:newDate];
     NSLog(@"Reminder Added: %@", [_reminderManager.store peekReminderWithType:kALLocationReminderTypePreemptive]);
 }
 

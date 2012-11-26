@@ -9,15 +9,29 @@
 #import "ALLocationReminderManager.h"
 #import "ALLocationReminderStore.h"
 #import "ALLocationReminder.h"
+#import <AFNetworking/AFNetworking.h>
+
+const ALLocationRemindersTransportType kALLocationRemindersTransportTypeWalking = @"walking";
+const ALLocationRemindersTransportType kALLocationRemindersTransportTypeCycling = @"bicycling";
+const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving = @"driving"; //find out what these should be
+
+@interface ALLocationReminderManager ()
+
+@property (nonatomic, strong) NSTimer *timer;
+
+@end
 
 @implementation ALLocationReminderManager
 
 @synthesize store = _store;
 @synthesize delegate = _delegate;
-@synthesize lastLocation = _lastLocation;
+@synthesize currentLocation = _currentLocation;
 @synthesize locationManager = _locationManager;
 @synthesize remindersAreRunning = _remindersAreRunning;
 @synthesize speed = _speed;
+@synthesize transport = _transport;
+@synthesize timer = _timer;
+@synthesize interval = _interval; //timer interval in minutes
 
 # pragma mark - initialisers
 
@@ -40,7 +54,8 @@
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
         _locationManager.distanceFilter = 10;
-        NSLog(@"Designated Initialiser...");
+        _transport = kALLocationRemindersTransportTypeDriving; //default to walking
+        _interval = 5;
     }
     return self;
 }
@@ -60,6 +75,7 @@
 {
     _remindersAreRunning = NO;
     [_locationManager stopUpdatingLocation];
+    if (_timer) [_timer invalidate];
 }
 
 - (void)startBackgroundLocationReminders
@@ -72,17 +88,12 @@
 {
     _remindersAreRunning = NO;
     [_locationManager stopMonitoringSignificantLocationChanges];
-}
-
-- (BOOL)areRemindersRunning
-{
-    //fix...
-    return NO;
+    if (_timer) [_timer invalidate];
 }
 
 - (void)addPreemptiveReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date
 {
-    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_lastLocation payload:payload date:date];
+    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_currentLocation payload:payload date:date];
         [_store pushReminder:reminder type:kALLocationReminderTypePreemptive];
 }
 
@@ -94,7 +105,7 @@
 
 - (void)addLocationReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date
 {
-    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_lastLocation payload:payload date:date];
+    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_currentLocation payload:payload date:date];
     [_store pushReminder:reminder type:kALLocationReminderTypeLocation];
 }
 
@@ -117,17 +128,34 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     NSLog(@"Updated location");
-    CLLocation *currentLocation = [locations lastObject];
-    //if (currentLocation.speed > 0) _speed = (double) currentLocation.speed;
+    _currentLocation = [locations lastObject];
+    if (_currentLocation.speed > 0) _speed = _currentLocation.speed;
     
-    [self processLocationReminder:currentLocation];
+    if (_timer) {
+        NSLog(@"Timer fired premature");
+        [_timer fire]; //if there is a timer active now fire it
+    } else {
+        [self processReminders];
+    }
+    
+    [_delegate locationReminderManager:self locationDidChange:_currentLocation];
+}
+
+- (void)processReminders
+{
+    //reminder logic in here
+    //process location reminders
+    [self processLocationReminder:_currentLocation];
+    
     
     //process current preemptive reminder
-    [self processPreemptiveReminder:currentLocation];
-    [self printPreempriveReminders];
+    //    [self processPreemptiveReminder:currentLocation];
+    //    [self printPreempriveReminders];
+    [self ProcessPreemptiveReminderWithMaps:_currentLocation];
     
-    _lastLocation = currentLocation;
-    [_delegate locationReminderManager:self locationDidChange:currentLocation];
+    //start timer again after processing reminders
+    NSLog(@"Starting timer");
+    _timer = [NSTimer scheduledTimerWithTimeInterval:_interval * 60 target:self selector:@selector(processReminders) userInfo:nil repeats:NO];
 }
 
 - (void)processPreemptiveReminder:(CLLocation *)currentLocation
@@ -149,9 +177,43 @@
     }
 }
 
-- (void)google
+- (void)ProcessPreemptiveReminderWithMaps:(CLLocation *)from
 {
-    
+    ALLocationReminder *reminder = [_store peekReminderWithType:kALLocationReminderTypePreemptive];
+    if (reminder) {
+        NSString *fromString = [NSString stringWithFormat:@"origins=%f,%f", from.coordinate.latitude, from.coordinate.longitude];
+        NSString *toString = [NSString stringWithFormat:@"destinations=%f,%f", reminder.location.coordinate.latitude, reminder.location.coordinate.longitude];
+        NSString *baseUrlString = @"http://maps.googleapis.com/maps/api/distancematrix/json?";
+        NSString *urlString = [NSString stringWithFormat:@"%@%@&%@&sensor=true&mode=%@", baseUrlString, fromString, toString, _transport];
+        
+        NSLog(@"%@", urlString);
+        
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSDictionary *dict = JSON;
+            NSArray *rows = [dict objectForKey:@"rows"];
+            NSDictionary *element = [[[rows objectAtIndex:0] objectForKey:@"elements"] objectAtIndex:0]; //inception
+            double seconds = [[[element valueForKey:@"duration"] valueForKey:@"value"] integerValue];
+            
+            NSDate *projectedDate = [NSDate dateWithTimeIntervalSinceNow:seconds]; //projected time
+            NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * 5]; //remove 5 minutes for now
+            
+            if ([projectedDate compare:goalDate] == NSOrderedDescending) {
+                NSLog(@"Fire the reminder");
+                [self fireReminder:reminder];
+                [_store popReminderWithType:kALLocationReminderTypePreemptive];
+            } else {
+                NSLog(@"Don't fire reminder yet");
+            }
+            
+            [_delegate locationReminderManager:self timeFromPreemptiveLocationDidChange:seconds];
+            
+        } failure:nil];
+        
+        [operation start];
+    }
 }
 
 - (void)processLocationReminder:(CLLocation *)currentLocation
@@ -218,7 +280,7 @@
     //time (seconds) = distance (metres) / speed (metres per second)
     double speed = from.speed;
     double distance = [to distanceFromLocation:from];
-    if (speed <= 0) return (int) distance / 2; //assumes 2m/s if not moving
+    if (speed <= 0) speed = _speed;
     int time = (int) distance / speed;
     NSLog(@"Distance: %f / Speed: %f = Time: %d", distance, speed, time);
     return time;

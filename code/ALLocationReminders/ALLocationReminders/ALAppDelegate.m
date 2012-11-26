@@ -12,17 +12,8 @@
 
 @implementation ALAppDelegate
 
-//@synthesize manager = _manager;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    
-//    ALLocationReminderViewController *lrvc = [[ALLocationReminderViewController alloc] init];
-//    self.window.rootViewController = lrvc;
-//    
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -34,16 +25,18 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    NSLog(@"Entering Background");
     ALLocationReminderManager *manager = [ALLocationReminderManager sharedManager];
-    //maybe a check here
-    [manager stopLocationReminders];
-    [manager startBackgroundLocationReminders];
+        NSLog(@"Moving to significant change");
+        [manager stopLocationReminders];
+        [manager startBackgroundLocationReminders];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    NSLog(@"Entering Foreground");
     ALLocationReminderManager *manager = [ALLocationReminderManager sharedManager];
-    //maybe a check here
+    NSLog(@"Back to foreground location");
     [manager stopBackgroundLocationReminders];
     [manager startLocationReminders]; //use normal location
 }
