@@ -17,7 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *minutesTextField;
 @property (strong, nonatomic) IBOutlet UILabel *searchLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) ALLocationReminderManager *reminderManager;
+@property (strong, nonatomic) ALLocationReminderManager *reminderManager;
 @property (strong, nonatomic) CLPlacemark *placemark;
 
 - (IBAction)searchPressed:(UIButton *)sender;

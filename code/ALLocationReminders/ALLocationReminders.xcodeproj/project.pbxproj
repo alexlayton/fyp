@@ -1,975 +1,372 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>2CBD016D61574F05AD1FCEEA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>81503C57553247AEA605BDF3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>81503C57553247AEA605BDF3</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods.a</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>950954325383450E94F8ABBB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>1</string>
-		</dict>
-		<key>F64A7F3DE63D4C4E86E840B7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>FA11E5F01650715200ACB557</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xml</string>
-			<key>path</key>
-			<string>Location.gpx</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA12D65816514B350055E129</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALPreemptiveViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA12D65916514B350055E129</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALPreemptiveViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA12D65A16514B350055E129</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA12D65916514B350055E129</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA92B72B1656D8B800B27EA4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALLocationReminders.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA94927B1637207400106017</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALLocationReminderManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA94927C1637207400106017</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALLocationReminderManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA94927D1637207400106017</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA94927C1637207400106017</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A4316315617006ECACC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FAAAD6451646B521000A9CF8</string>
-				<string>FA9F5A7916317022006ECACC</string>
-				<string>FA9F5A5816315617006ECACC</string>
-				<string>FA9F5A5116315617006ECACC</string>
-				<string>FA9F5A4F16315617006ECACC</string>
-				<string>F64A7F3DE63D4C4E86E840B7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A4516315617006ECACC</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>AL</string>
-				<key>LastUpgradeCheck</key>
-				<string>0450</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Alex Layton</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>FA9F5A4816315617006ECACC</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>FA9F5A4316315617006ECACC</string>
-			<key>productRefGroup</key>
-			<string>FA9F5A4F16315617006ECACC</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>FA9F5A4D16315617006ECACC</string>
-			</array>
-		</dict>
-		<key>FA9F5A4816315617006ECACC</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>FA9F5A6A16315617006ECACC</string>
-				<string>FA9F5A6B16315617006ECACC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>FA9F5A4A16315617006ECACC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA9F5A5F16315617006ECACC</string>
-				<string>FA9F5A6316315617006ECACC</string>
-				<string>FA9F5A7816316FDE006ECACC</string>
-				<string>FA9F5A8D1631A366006ECACC</string>
-				<string>FA94927D1637207400106017</string>
-				<string>FAAAD6431646A5F0000A9CF8</string>
-				<string>FAAAD6491646BF18000A9CF8</string>
-				<string>FA12D65A16514B350055E129</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA9F5A4B16315617006ECACC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FAAAD6461646B521000A9CF8</string>
-				<string>FA9F5A7A16317022006ECACC</string>
-				<string>FA9F5A5316315617006ECACC</string>
-				<string>FA9F5A5516315617006ECACC</string>
-				<string>FA9F5A5716315617006ECACC</string>
-				<string>2CBD016D61574F05AD1FCEEA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA9F5A4C16315617006ECACC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA9F5A5D16315617006ECACC</string>
-				<string>FA9F5A6516315617006ECACC</string>
-				<string>FA9F5A6716315617006ECACC</string>
-				<string>FA9F5A6916315617006ECACC</string>
-				<string>FAAAD64B1646C7EB000A9CF8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA9F5A4D16315617006ECACC</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>FA9F5A6C16315617006ECACC</string>
-			<key>buildPhases</key>
-			<array>
-				<string>FA9F5A4A16315617006ECACC</string>
-				<string>FA9F5A4B16315617006ECACC</string>
-				<string>FA9F5A4C16315617006ECACC</string>
-				<string>950954325383450E94F8ABBB</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>ALLocationReminders</string>
-			<key>productName</key>
-			<string>ALLocationReminders</string>
-			<key>productReference</key>
-			<string>FA9F5A4E16315617006ECACC</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>FA9F5A4E16315617006ECACC</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ALLocationReminders.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FA9F5A4F16315617006ECACC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA9F5A4E16315617006ECACC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5116315617006ECACC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA9F5A5216315617006ECACC</string>
-				<string>FA9F5A5416315617006ECACC</string>
-				<string>FA9F5A5616315617006ECACC</string>
-				<string>81503C57553247AEA605BDF3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5216315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FA9F5A5316315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A5216315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A5416315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FA9F5A5516315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A5416315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A5616315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FA9F5A5716315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A5616315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A5816315617006ECACC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA92B72B1656D8B800B27EA4</string>
-				<string>FA9F5A6116315617006ECACC</string>
-				<string>FA9F5A6216315617006ECACC</string>
-				<string>FA9F5A7616316FDD006ECACC</string>
-				<string>FA9F5A7716316FDD006ECACC</string>
-				<string>FA9F5A8B1631A366006ECACC</string>
-				<string>FA9F5A8C1631A366006ECACC</string>
-				<string>FA94927B1637207400106017</string>
-				<string>FA94927C1637207400106017</string>
-				<string>FAAAD6401646A5F0000A9CF8</string>
-				<string>FAAAD6411646A5F0000A9CF8</string>
-				<string>FA12D65816514B350055E129</string>
-				<string>FA12D65916514B350055E129</string>
-				<string>FAAAD6471646BF18000A9CF8</string>
-				<string>FAAAD6481646BF18000A9CF8</string>
-				<string>FAAAD64A1646C7EB000A9CF8</string>
-				<string>FA11E5F01650715200ACB557</string>
-				<string>FA9F5A5916315617006ECACC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ALLocationReminders</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5916315617006ECACC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA9F5A5A16315617006ECACC</string>
-				<string>FA9F5A5B16315617006ECACC</string>
-				<string>FA9F5A5E16315617006ECACC</string>
-				<string>FA9F5A6016315617006ECACC</string>
-				<string>FA9F5A6416315617006ECACC</string>
-				<string>FA9F5A6616315617006ECACC</string>
-				<string>FA9F5A6816315617006ECACC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5A16315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>ALLocationReminders-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5B16315617006ECACC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA9F5A5C16315617006ECACC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5C16315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5D16315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A5B16315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A5E16315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A5F16315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A5E16315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A6016315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALLocationReminders-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A6116315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A6216315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A6316315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A6216315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A6416315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Default.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A6516315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A6416315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A6616315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Default@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A6716315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A6616315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A6816315617006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Default-568h@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A6916315617006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A6816315617006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A6A16315617006ECACC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>FA9F5A6B16315617006ECACC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>OTHER_CFLAGS</key>
-				<string>-DNS_BLOCK_ASSERTIONS=1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>FA9F5A6C16315617006ECACC</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>FA9F5A6D16315617006ECACC</string>
-				<string>FA9F5A6E16315617006ECACC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>FA9F5A6D16315617006ECACC</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F64A7F3DE63D4C4E86E840B7</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>ALLocationReminders/ALLocationReminders-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ALLocationReminders/ALLocationReminders-Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>FA9F5A6E16315617006ECACC</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F64A7F3DE63D4C4E86E840B7</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>ALLocationReminders/ALLocationReminders-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ALLocationReminders/ALLocationReminders-Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>FA9F5A7616316FDD006ECACC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALLocationReminderStore.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A7716316FDD006ECACC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALLocationReminderStore.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A7816316FDE006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A7716316FDD006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A7916317022006ECACC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreLocation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreLocation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FA9F5A7A16317022006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A7916317022006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA9F5A8B1631A366006ECACC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALLocationReminder.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A8C1631A366006ECACC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALLocationReminder.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA9F5A8D1631A366006ECACC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA9F5A8C1631A366006ECACC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FAAAD6401646A5F0000A9CF8</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALLocationReminderViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FAAAD6411646A5F0000A9CF8</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALLocationReminderViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FAAAD6431646A5F0000A9CF8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FAAAD6411646A5F0000A9CF8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FAAAD6451646B521000A9CF8</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>MapKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/MapKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FAAAD6461646B521000A9CF8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FAAAD6451646B521000A9CF8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FAAAD6471646BF18000A9CF8</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALAnnotation.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FAAAD6481646BF18000A9CF8</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALAnnotation.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FAAAD6491646BF18000A9CF8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FAAAD6481646BF18000A9CF8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FAAAD64A1646C7EB000A9CF8</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>path</key>
-			<string>ALLocationRemindersiPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FAAAD64B1646C7EB000A9CF8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FAAAD64A1646C7EB000A9CF8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>FA9F5A4516315617006ECACC</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2CBD016D61574F05AD1FCEEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81503C57553247AEA605BDF3 /* libPods.a */; };
+		FA12D65A16514B350055E129 /* ALPreemptiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA12D65916514B350055E129 /* ALPreemptiveViewController.m */; };
+		FA94927D1637207400106017 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94927C1637207400106017 /* ALLocationReminderManager.m */; };
+		FA9F5A5316315617006ECACC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A5216315617006ECACC /* UIKit.framework */; };
+		FA9F5A5516315617006ECACC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A5416315617006ECACC /* Foundation.framework */; };
+		FA9F5A5716315617006ECACC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A5616315617006ECACC /* CoreGraphics.framework */; };
+		FA9F5A5D16315617006ECACC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9F5A5B16315617006ECACC /* InfoPlist.strings */; };
+		FA9F5A5F16315617006ECACC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F5A5E16315617006ECACC /* main.m */; };
+		FA9F5A6316315617006ECACC /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F5A6216315617006ECACC /* ALAppDelegate.m */; };
+		FA9F5A6516315617006ECACC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9F5A6416315617006ECACC /* Default.png */; };
+		FA9F5A6716315617006ECACC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9F5A6616315617006ECACC /* Default@2x.png */; };
+		FA9F5A6916315617006ECACC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9F5A6816315617006ECACC /* Default-568h@2x.png */; };
+		FA9F5A7816316FDE006ECACC /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F5A7716316FDD006ECACC /* ALLocationReminderStore.m */; };
+		FA9F5A7A16317022006ECACC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F5A7916317022006ECACC /* CoreLocation.framework */; };
+		FA9F5A8D1631A366006ECACC /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */; };
+		FAAAD6431646A5F0000A9CF8 /* ALLocationReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAAD6411646A5F0000A9CF8 /* ALLocationReminderViewController.m */; };
+		FAAAD6461646B521000A9CF8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAAD6451646B521000A9CF8 /* MapKit.framework */; };
+		FAAAD6491646BF18000A9CF8 /* ALAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAAD6481646BF18000A9CF8 /* ALAnnotation.m */; };
+		FAAAD64B1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAAD64A1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		81503C57553247AEA605BDF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F64A7F3DE63D4C4E86E840B7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FA11E5F01650715200ACB557 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		FA12D65816514B350055E129 /* ALPreemptiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPreemptiveViewController.h; sourceTree = "<group>"; };
+		FA12D65916514B350055E129 /* ALPreemptiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPreemptiveViewController.m; sourceTree = "<group>"; };
+		FA92B72B1656D8B800B27EA4 /* ALLocationReminders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALLocationReminders.h; sourceTree = "<group>"; };
+		FA94927B1637207400106017 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderManager.h; sourceTree = "<group>"; };
+		FA94927C1637207400106017 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderManager.m; sourceTree = "<group>"; };
+		FA9F5A4E16315617006ECACC /* ALLocationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALLocationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9F5A5216315617006ECACC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA9F5A5416315617006ECACC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA9F5A5616315617006ECACC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA9F5A5A16315617006ECACC /* ALLocationReminders-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALLocationReminders-Info.plist"; sourceTree = "<group>"; };
+		FA9F5A5C16315617006ECACC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA9F5A5E16315617006ECACC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA9F5A6016315617006ECACC /* ALLocationReminders-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALLocationReminders-Prefix.pch"; sourceTree = "<group>"; };
+		FA9F5A6116315617006ECACC /* ALAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAppDelegate.h; sourceTree = "<group>"; };
+		FA9F5A6216315617006ECACC /* ALAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAppDelegate.m; sourceTree = "<group>"; };
+		FA9F5A6416315617006ECACC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FA9F5A6616315617006ECACC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FA9F5A6816315617006ECACC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA9F5A7616316FDD006ECACC /* ALLocationReminderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderStore.h; sourceTree = "<group>"; };
+		FA9F5A7716316FDD006ECACC /* ALLocationReminderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderStore.m; sourceTree = "<group>"; };
+		FA9F5A7916317022006ECACC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FA9F5A8B1631A366006ECACC /* ALLocationReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminder.h; sourceTree = "<group>"; };
+		FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminder.m; sourceTree = "<group>"; };
+		FAAAD6401646A5F0000A9CF8 /* ALLocationReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderViewController.h; sourceTree = "<group>"; };
+		FAAAD6411646A5F0000A9CF8 /* ALLocationReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderViewController.m; sourceTree = "<group>"; };
+		FAAAD6451646B521000A9CF8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FAAAD6471646BF18000A9CF8 /* ALAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAnnotation.h; sourceTree = "<group>"; };
+		FAAAD6481646BF18000A9CF8 /* ALAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAnnotation.m; sourceTree = "<group>"; };
+		FAAAD64A1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ALLocationRemindersiPhone.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA9F5A4B16315617006ECACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAAD6461646B521000A9CF8 /* MapKit.framework in Frameworks */,
+				FA9F5A7A16317022006ECACC /* CoreLocation.framework in Frameworks */,
+				FA9F5A5316315617006ECACC /* UIKit.framework in Frameworks */,
+				FA9F5A5516315617006ECACC /* Foundation.framework in Frameworks */,
+				FA9F5A5716315617006ECACC /* CoreGraphics.framework in Frameworks */,
+				2CBD016D61574F05AD1FCEEA /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA7E19231666960100A3D890 /* ALLocationReminders */ = {
+			isa = PBXGroup;
+			children = (
+				FA94927B1637207400106017 /* ALLocationReminderManager.h */,
+				FA94927C1637207400106017 /* ALLocationReminderManager.m */,
+				FA92B72B1656D8B800B27EA4 /* ALLocationReminders.h */,
+				FA9F5A7616316FDD006ECACC /* ALLocationReminderStore.h */,
+				FA9F5A7716316FDD006ECACC /* ALLocationReminderStore.m */,
+				FA9F5A8B1631A366006ECACC /* ALLocationReminder.h */,
+				FA9F5A8C1631A366006ECACC /* ALLocationReminder.m */,
+			);
+			name = ALLocationReminders;
+			sourceTree = "<group>";
+		};
+		FA9F5A4316315617006ECACC = {
+			isa = PBXGroup;
+			children = (
+				FAAAD6451646B521000A9CF8 /* MapKit.framework */,
+				FA9F5A7916317022006ECACC /* CoreLocation.framework */,
+				FA9F5A5816315617006ECACC /* ALLocationReminders */,
+				FA9F5A5116315617006ECACC /* Frameworks */,
+				FA9F5A4F16315617006ECACC /* Products */,
+				F64A7F3DE63D4C4E86E840B7 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		FA9F5A4F16315617006ECACC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA9F5A4E16315617006ECACC /* ALLocationReminders.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA9F5A5116315617006ECACC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA9F5A5216315617006ECACC /* UIKit.framework */,
+				FA9F5A5416315617006ECACC /* Foundation.framework */,
+				FA9F5A5616315617006ECACC /* CoreGraphics.framework */,
+				81503C57553247AEA605BDF3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA9F5A5816315617006ECACC /* ALLocationReminders */ = {
+			isa = PBXGroup;
+			children = (
+				FA9F5A6116315617006ECACC /* ALAppDelegate.h */,
+				FA9F5A6216315617006ECACC /* ALAppDelegate.m */,
+				FA7E19231666960100A3D890 /* ALLocationReminders */,
+				FAAAD6401646A5F0000A9CF8 /* ALLocationReminderViewController.h */,
+				FAAAD6411646A5F0000A9CF8 /* ALLocationReminderViewController.m */,
+				FA12D65816514B350055E129 /* ALPreemptiveViewController.h */,
+				FA12D65916514B350055E129 /* ALPreemptiveViewController.m */,
+				FAAAD6471646BF18000A9CF8 /* ALAnnotation.h */,
+				FAAAD6481646BF18000A9CF8 /* ALAnnotation.m */,
+				FAAAD64A1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard */,
+				FA11E5F01650715200ACB557 /* Location.gpx */,
+				FA9F5A5916315617006ECACC /* Supporting Files */,
+			);
+			path = ALLocationReminders;
+			sourceTree = "<group>";
+		};
+		FA9F5A5916315617006ECACC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA9F5A5A16315617006ECACC /* ALLocationReminders-Info.plist */,
+				FA9F5A5B16315617006ECACC /* InfoPlist.strings */,
+				FA9F5A5E16315617006ECACC /* main.m */,
+				FA9F5A6016315617006ECACC /* ALLocationReminders-Prefix.pch */,
+				FA9F5A6416315617006ECACC /* Default.png */,
+				FA9F5A6616315617006ECACC /* Default@2x.png */,
+				FA9F5A6816315617006ECACC /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA9F5A4D16315617006ECACC /* ALLocationReminders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA9F5A6C16315617006ECACC /* Build configuration list for PBXNativeTarget "ALLocationReminders" */;
+			buildPhases = (
+				FA9F5A4A16315617006ECACC /* Sources */,
+				FA9F5A4B16315617006ECACC /* Frameworks */,
+				FA9F5A4C16315617006ECACC /* Resources */,
+				950954325383450E94F8ABBB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ALLocationReminders;
+			productName = ALLocationReminders;
+			productReference = FA9F5A4E16315617006ECACC /* ALLocationReminders.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA9F5A4516315617006ECACC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AL;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Alex Layton";
+			};
+			buildConfigurationList = FA9F5A4816315617006ECACC /* Build configuration list for PBXProject "ALLocationReminders" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA9F5A4316315617006ECACC;
+			productRefGroup = FA9F5A4F16315617006ECACC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA9F5A4D16315617006ECACC /* ALLocationReminders */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA9F5A4C16315617006ECACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA9F5A5D16315617006ECACC /* InfoPlist.strings in Resources */,
+				FA9F5A6516315617006ECACC /* Default.png in Resources */,
+				FA9F5A6716315617006ECACC /* Default@2x.png in Resources */,
+				FA9F5A6916315617006ECACC /* Default-568h@2x.png in Resources */,
+				FAAAD64B1646C7EB000A9CF8 /* ALLocationRemindersiPhone.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		950954325383450E94F8ABBB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA9F5A4A16315617006ECACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA9F5A5F16315617006ECACC /* main.m in Sources */,
+				FA9F5A6316315617006ECACC /* ALAppDelegate.m in Sources */,
+				FA9F5A7816316FDE006ECACC /* ALLocationReminderStore.m in Sources */,
+				FA9F5A8D1631A366006ECACC /* ALLocationReminder.m in Sources */,
+				FA94927D1637207400106017 /* ALLocationReminderManager.m in Sources */,
+				FAAAD6431646A5F0000A9CF8 /* ALLocationReminderViewController.m in Sources */,
+				FAAAD6491646BF18000A9CF8 /* ALAnnotation.m in Sources */,
+				FA12D65A16514B350055E129 /* ALPreemptiveViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA9F5A5B16315617006ECACC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA9F5A5C16315617006ECACC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA9F5A6A16315617006ECACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA9F5A6B16315617006ECACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA9F5A6D16315617006ECACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F64A7F3DE63D4C4E86E840B7 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALLocationReminders/ALLocationReminders-Prefix.pch";
+				INFOPLIST_FILE = "ALLocationReminders/ALLocationReminders-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA9F5A6E16315617006ECACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F64A7F3DE63D4C4E86E840B7 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALLocationReminders/ALLocationReminders-Prefix.pch";
+				INFOPLIST_FILE = "ALLocationReminders/ALLocationReminders-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA9F5A4816315617006ECACC /* Build configuration list for PBXProject "ALLocationReminders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA9F5A6A16315617006ECACC /* Debug */,
+				FA9F5A6B16315617006ECACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA9F5A6C16315617006ECACC /* Build configuration list for PBXNativeTarget "ALLocationReminders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA9F5A6D16315617006ECACC /* Debug */,
+				FA9F5A6E16315617006ECACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA9F5A4516315617006ECACC /* Project object */;
+}

@@ -37,6 +37,7 @@
     if (!_reminderManager) {
         _reminderManager = [[ALLocationReminderManager alloc] init];
         _reminderManager.delegate = self;
+        NSLog(@"Reminders: %@", _reminderManager.store.preemptiveReminders);
     }
 }
 

@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D506261E85744CBEB1BB685A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A7442452904C11BD74FEF6 /* libPods.a */; };
+		FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E921166619050048A5C7 /* CMRemindersViewController.m */; };
+		FA49E92616661A550048A5C7 /* CMReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E92516661A550048A5C7 /* CMReminderViewController.m */; };
+		FA7E1932166696A000A3D890 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */; };
+		FA7E1933166696A000A3D890 /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E192F166696A000A3D890 /* ALLocationReminderStore.m */; };
+		FA7E1934166696A000A3D890 /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E1931166696A000A3D890 /* ALLocationReminder.m */; };
+		FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7E19371666999D00A3D890 /* CoreLocation.framework */; };
+		FAB2389316669DF400C1BB88 /* CMAddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB2389216669DF400C1BB88 /* CMAddReminderViewController.m */; };
+		FAB95B7F1663AE8D00A09853 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB95B7E1663AE8D00A09853 /* UIKit.framework */; };
+		FAB95B811663AE8D00A09853 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB95B801663AE8D00A09853 /* Foundation.framework */; };
+		FAB95B831663AE8D00A09853 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB95B821663AE8D00A09853 /* CoreGraphics.framework */; };
+		FAB95B891663AE8D00A09853 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B871663AE8D00A09853 /* InfoPlist.strings */; };
+		FAB95B8B1663AE8D00A09853 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B8A1663AE8D00A09853 /* main.m */; };
+		FAB95B8F1663AE8D00A09853 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */; };
+		FAB95B911663AE8D00A09853 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B901663AE8D00A09853 /* Default.png */; };
+		FAB95B931663AE8D00A09853 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B921663AE8D00A09853 /* Default@2x.png */; };
+		FAB95B951663AE8D00A09853 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B941663AE8D00A09853 /* Default-568h@2x.png */; };
+		FAB95B981663AE8D00A09853 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B961663AE8D00A09853 /* MainStoryboard.storyboard */; };
+		FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B9A1663AE8D00A09853 /* CMViewController.m */; };
+		FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		66AD20DB0DF1487D8D047199 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		F5A7442452904C11BD74FEF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA49E920166619050048A5C7 /* CMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRemindersViewController.h; sourceTree = "<group>"; };
+		FA49E921166619050048A5C7 /* CMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRemindersViewController.m; sourceTree = "<group>"; };
+		FA49E92416661A550048A5C7 /* CMReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderViewController.h; sourceTree = "<group>"; };
+		FA49E92516661A550048A5C7 /* CMReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMReminderViewController.m; sourceTree = "<group>"; };
+		FA7E192B166696A000A3D890 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderManager.h; sourceTree = "<group>"; };
+		FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderManager.m; sourceTree = "<group>"; };
+		FA7E192D166696A000A3D890 /* ALLocationReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminders.h; sourceTree = "<group>"; };
+		FA7E192E166696A000A3D890 /* ALLocationReminderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderStore.h; sourceTree = "<group>"; };
+		FA7E192F166696A000A3D890 /* ALLocationReminderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderStore.m; sourceTree = "<group>"; };
+		FA7E1930166696A000A3D890 /* ALLocationReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminder.h; sourceTree = "<group>"; };
+		FA7E1931166696A000A3D890 /* ALLocationReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminder.m; sourceTree = "<group>"; };
+		FA7E19371666999D00A3D890 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FAB2389116669DF400C1BB88 /* CMAddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddReminderViewController.h; sourceTree = "<group>"; };
+		FAB2389216669DF400C1BB88 /* CMAddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddReminderViewController.m; sourceTree = "<group>"; };
+		FAB95B7A1663AE8D00A09853 /* Class Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Class Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB95B7E1663AE8D00A09853 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FAB95B801663AE8D00A09853 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FAB95B821663AE8D00A09853 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FAB95B861663AE8D00A09853 /* Class Mate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Class Mate-Info.plist"; sourceTree = "<group>"; };
+		FAB95B881663AE8D00A09853 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FAB95B8A1663AE8D00A09853 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FAB95B8C1663AE8D00A09853 /* Class Mate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Class Mate-Prefix.pch"; sourceTree = "<group>"; };
+		FAB95B8D1663AE8D00A09853 /* CMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMAppDelegate.h; sourceTree = "<group>"; };
+		FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMAppDelegate.m; sourceTree = "<group>"; };
+		FAB95B901663AE8D00A09853 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FAB95B921663AE8D00A09853 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FAB95B941663AE8D00A09853 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FAB95B971663AE8D00A09853 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		FAB95B991663AE8D00A09853 /* CMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMViewController.h; sourceTree = "<group>"; };
+		FAB95B9A1663AE8D00A09853 /* CMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMViewController.m; sourceTree = "<group>"; };
+		FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsViewController.h; sourceTree = "<group>"; };
+		FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAB95B771663AE8D00A09853 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */,
+				FAB95B7F1663AE8D00A09853 /* UIKit.framework in Frameworks */,
+				FAB95B811663AE8D00A09853 /* Foundation.framework in Frameworks */,
+				FAB95B831663AE8D00A09853 /* CoreGraphics.framework in Frameworks */,
+				D506261E85744CBEB1BB685A /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA7E1936166696A700A3D890 /* ALLocationReminders */ = {
+			isa = PBXGroup;
+			children = (
+				FA7E192B166696A000A3D890 /* ALLocationReminderManager.h */,
+				FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */,
+				FA7E192D166696A000A3D890 /* ALLocationReminders.h */,
+				FA7E192E166696A000A3D890 /* ALLocationReminderStore.h */,
+				FA7E192F166696A000A3D890 /* ALLocationReminderStore.m */,
+				FA7E1930166696A000A3D890 /* ALLocationReminder.h */,
+				FA7E1931166696A000A3D890 /* ALLocationReminder.m */,
+			);
+			name = ALLocationReminders;
+			sourceTree = "<group>";
+		};
+		FAB95B6F1663AE8D00A09853 = {
+			isa = PBXGroup;
+			children = (
+				FA7E19371666999D00A3D890 /* CoreLocation.framework */,
+				FAB95B841663AE8D00A09853 /* Class Mate */,
+				FAB95B7D1663AE8D00A09853 /* Frameworks */,
+				FAB95B7B1663AE8D00A09853 /* Products */,
+				66AD20DB0DF1487D8D047199 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		FAB95B7B1663AE8D00A09853 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAB95B7A1663AE8D00A09853 /* Class Mate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAB95B7D1663AE8D00A09853 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB95B7E1663AE8D00A09853 /* UIKit.framework */,
+				FAB95B801663AE8D00A09853 /* Foundation.framework */,
+				FAB95B821663AE8D00A09853 /* CoreGraphics.framework */,
+				F5A7442452904C11BD74FEF6 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAB95B841663AE8D00A09853 /* Class Mate */ = {
+			isa = PBXGroup;
+			children = (
+				FAB95B8D1663AE8D00A09853 /* CMAppDelegate.h */,
+				FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */,
+				FAB95B961663AE8D00A09853 /* MainStoryboard.storyboard */,
+				FAB2389116669DF400C1BB88 /* CMAddReminderViewController.h */,
+				FAB2389216669DF400C1BB88 /* CMAddReminderViewController.m */,
+				FAB95B991663AE8D00A09853 /* CMViewController.h */,
+				FAB95B9A1663AE8D00A09853 /* CMViewController.m */,
+				FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */,
+				FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */,
+				FA49E920166619050048A5C7 /* CMRemindersViewController.h */,
+				FA49E921166619050048A5C7 /* CMRemindersViewController.m */,
+				FA49E92416661A550048A5C7 /* CMReminderViewController.h */,
+				FA49E92516661A550048A5C7 /* CMReminderViewController.m */,
+				FAB95B851663AE8D00A09853 /* Supporting Files */,
+			);
+			path = "Class Mate";
+			sourceTree = "<group>";
+		};
+		FAB95B851663AE8D00A09853 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA7E1936166696A700A3D890 /* ALLocationReminders */,
+				FAB95B861663AE8D00A09853 /* Class Mate-Info.plist */,
+				FAB95B871663AE8D00A09853 /* InfoPlist.strings */,
+				FAB95B8A1663AE8D00A09853 /* main.m */,
+				FAB95B8C1663AE8D00A09853 /* Class Mate-Prefix.pch */,
+				FAB95B901663AE8D00A09853 /* Default.png */,
+				FAB95B921663AE8D00A09853 /* Default@2x.png */,
+				FAB95B941663AE8D00A09853 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAB95B791663AE8D00A09853 /* Class Mate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB95B9E1663AE8D00A09853 /* Build configuration list for PBXNativeTarget "Class Mate" */;
+			buildPhases = (
+				FAB95B761663AE8D00A09853 /* Sources */,
+				FAB95B771663AE8D00A09853 /* Frameworks */,
+				FAB95B781663AE8D00A09853 /* Resources */,
+				497ACEB5E716418AB7B04E43 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Class Mate";
+			productName = "Class Mate";
+			productReference = FAB95B7A1663AE8D00A09853 /* Class Mate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAB95B711663AE8D00A09853 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CM;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Alex Layton";
+			};
+			buildConfigurationList = FAB95B741663AE8D00A09853 /* Build configuration list for PBXProject "Class Mate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FAB95B6F1663AE8D00A09853;
+			productRefGroup = FAB95B7B1663AE8D00A09853 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAB95B791663AE8D00A09853 /* Class Mate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAB95B781663AE8D00A09853 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB95B891663AE8D00A09853 /* InfoPlist.strings in Resources */,
+				FAB95B911663AE8D00A09853 /* Default.png in Resources */,
+				FAB95B931663AE8D00A09853 /* Default@2x.png in Resources */,
+				FAB95B951663AE8D00A09853 /* Default-568h@2x.png in Resources */,
+				FAB95B981663AE8D00A09853 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		497ACEB5E716418AB7B04E43 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAB95B761663AE8D00A09853 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB95B8B1663AE8D00A09853 /* main.m in Sources */,
+				FAB95B8F1663AE8D00A09853 /* CMAppDelegate.m in Sources */,
+				FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */,
+				FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */,
+				FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */,
+				FA49E92616661A550048A5C7 /* CMReminderViewController.m in Sources */,
+				FA7E1932166696A000A3D890 /* ALLocationReminderManager.m in Sources */,
+				FA7E1933166696A000A3D890 /* ALLocationReminderStore.m in Sources */,
+				FA7E1934166696A000A3D890 /* ALLocationReminder.m in Sources */,
+				FAB2389316669DF400C1BB88 /* CMAddReminderViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FAB95B871663AE8D00A09853 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB95B881663AE8D00A09853 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FAB95B961663AE8D00A09853 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB95B971663AE8D00A09853 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAB95B9C1663AE8D00A09853 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FAB95B9D1663AE8D00A09853 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAB95B9F1663AE8D00A09853 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66AD20DB0DF1487D8D047199 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
+				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FAB95BA01663AE8D00A09853 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66AD20DB0DF1487D8D047199 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
+				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAB95B741663AE8D00A09853 /* Build configuration list for PBXProject "Class Mate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB95B9C1663AE8D00A09853 /* Debug */,
+				FAB95B9D1663AE8D00A09853 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB95B9E1663AE8D00A09853 /* Build configuration list for PBXNativeTarget "Class Mate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB95B9F1663AE8D00A09853 /* Debug */,
+				FAB95BA01663AE8D00A09853 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAB95B711663AE8D00A09853 /* Project object */;
+}
