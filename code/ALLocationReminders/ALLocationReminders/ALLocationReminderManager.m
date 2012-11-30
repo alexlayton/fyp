@@ -18,6 +18,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 @interface ALLocationReminderManager ()
 
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) int interval;
 
 @end
 
@@ -32,6 +33,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 @synthesize transport = _transport;
 @synthesize timer = _timer;
 @synthesize interval = _interval; //timer interval in minutes
+@synthesize minutesBeforeReminderTime = _minutesBeforeReminderTime;
 
 # pragma mark - initialisers
 
@@ -49,6 +51,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 {
     self = [super init];
     if (self) {
+        [self setupDefaults]; //add defaults if dont exist
         _store = [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]];
         if (!_store) {
             _store = [[ALLocationReminderStore alloc] init];
@@ -57,11 +60,10 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
         _locationManager.distanceFilter = 10;
-        _transport = kALLocationRemindersTransportTypeDriving; //default to walking
         _interval = 1;
-        //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        //_transport = [defaults objectForKey:@"transport"];
-        //_interval = [defaults objectForKey:@"interval"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        _transport = [defaults objectForKey:@"transport"];
+        _minutesBeforeReminderTime = [defaults integerForKey:@"minutes"];
     }
     return self;
 }
@@ -78,6 +80,16 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     return [documentDirectory stringByAppendingPathComponent:@"store.data"];
+}
+
+- (void)setupDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"transport"]) {
+        //setup defaults
+        [defaults setObject:kALLocationRemindersTransportTypeWalking forKey:@"transport"];
+        [defaults setInteger:5 forKey:@"minutes"]; //5 minutes before
+    }
 }
 
 - (void)startLocationReminders
@@ -187,7 +199,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         int time = [self timeBetweenLocationFrom:currentLocation to:reminder.location];
         NSLog(@"Seconds away: %d", time);
         NSDate *projectedDate = [NSDate dateWithTimeIntervalSinceNow:time]; //projected time
-        NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * 5]; //remove 5 minutes for now
+        NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * _minutesBeforeReminderTime];
         
         if ([projectedDate compare:goalDate] == NSOrderedDescending) {
             NSLog(@"Fire the reminder");

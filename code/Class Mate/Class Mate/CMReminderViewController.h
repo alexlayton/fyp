@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMReminderViewController : UIViewController
+@class ALLocationReminder;
+
+@interface CMReminderViewController : UITableViewController
+
+@property (nonatomic, weak) ALLocationReminder *reminder;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *payloadLabel;
+
+- (IBAction)deletePressed:(UIBarButtonItem *)sender;
 
 @end

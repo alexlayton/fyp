@@ -15,15 +15,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-    [lrm addLocationReminderAtCurrentLocationWithPayload:@"Hello" date:[NSDate distantFuture]];
-    [lrm addLocationReminderAtCurrentLocationWithPayload:@"Bye" date:[NSDate distantPast]];
+	//ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    //[lrm startLocationReminders];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -8,6 +8,7 @@
 
 #import "CMRemindersViewController.h"
 #import "ALLocationReminders.h"
+#import "CMReminderViewController.h"
 
 @implementation CMRemindersViewController
 
@@ -35,5 +36,39 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [_reminders removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [ self.tableView indexPathForCell:sender];
+    ALLocationReminder *reminder = [_reminders objectAtIndex:indexPath.row];
+    CMReminderViewController *rvc = segue.destinationViewController;
+    rvc.reminder = reminder;
+}
+
+- (IBAction)editPressed:(UIBarButtonItem *)sender
+{
+    NSLog(@"%@", sender.title);
+    if ([sender.title isEqualToString:@"Edit"]) {
+        NSLog(@"edit");
+        [self.tableView setEditing:YES animated:YES];
+        [sender setTitle:@"Done"];
+    } else if ([sender.title isEqualToString:@"Done"]) {
+        NSLog(@"done");
+        [self.tableView setEditing:NO animated:YES];
+        [sender setTitle:@"Edit"];
+    }
+}
 
 @end

@@ -12,4 +12,6 @@
 
 @property (nonatomic, weak) NSMutableArray *reminders;
 
+- (IBAction)editPressed:(UIBarButtonItem *)sender;
+
 @end

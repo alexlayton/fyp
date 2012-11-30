@@ -7,32 +7,25 @@
 //
 
 #import "CMReminderViewController.h"
-
-@interface CMReminderViewController ()
-
-@end
+#import "ALLocationReminders.h"
 
 @implementation CMReminderViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize reminder = _reminder;
+@synthesize dateLabel = _dateLabel;
+@synthesize locationLabel = _locationLabel;
+@synthesize payloadLabel = _payloadLabel;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    _dateLabel.text = [NSString stringWithFormat:@"%@", _reminder.date];
+    _locationLabel.text = [NSString stringWithFormat:@"Lat: %f, Lon: %f", _reminder.location.coordinate.latitude, _reminder.location.coordinate.longitude];
+    _payloadLabel.text = _reminder.payload;
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)deletePressed:(UIBarButtonItem *)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"Delete Pressed");
 }
-
 @end

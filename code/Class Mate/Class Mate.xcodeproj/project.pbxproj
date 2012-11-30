@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D506261E85744CBEB1BB685A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A7442452904C11BD74FEF6 /* libPods.a */; };
 		FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E921166619050048A5C7 /* CMRemindersViewController.m */; };
-		FA49E92616661A550048A5C7 /* CMReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E92516661A550048A5C7 /* CMReminderViewController.m */; };
 		FA7E1932166696A000A3D890 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */; };
 		FA7E1933166696A000A3D890 /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E192F166696A000A3D890 /* ALLocationReminderStore.m */; };
 		FA7E1934166696A000A3D890 /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E1931166696A000A3D890 /* ALLocationReminder.m */; };
@@ -27,6 +26,7 @@
 		FAB95B981663AE8D00A09853 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B961663AE8D00A09853 /* MainStoryboard.storyboard */; };
 		FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B9A1663AE8D00A09853 /* CMViewController.m */; };
 		FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */; };
+		FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,6 @@
 		F5A7442452904C11BD74FEF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA49E920166619050048A5C7 /* CMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRemindersViewController.h; sourceTree = "<group>"; };
 		FA49E921166619050048A5C7 /* CMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRemindersViewController.m; sourceTree = "<group>"; };
-		FA49E92416661A550048A5C7 /* CMReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderViewController.h; sourceTree = "<group>"; };
-		FA49E92516661A550048A5C7 /* CMReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMReminderViewController.m; sourceTree = "<group>"; };
 		FA7E192B166696A000A3D890 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderManager.h; sourceTree = "<group>"; };
 		FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderManager.m; sourceTree = "<group>"; };
 		FA7E192D166696A000A3D890 /* ALLocationReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminders.h; sourceTree = "<group>"; };
@@ -64,6 +62,8 @@
 		FAB95B9A1663AE8D00A09853 /* CMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMViewController.m; sourceTree = "<group>"; };
 		FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsViewController.h; sourceTree = "<group>"; };
 		FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsViewController.m; sourceTree = "<group>"; };
+		FAD330641666DB3D00CF8DC9 /* CMReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderViewController.h; sourceTree = "<group>"; };
+		FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMReminderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +140,8 @@
 				FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */,
 				FA49E920166619050048A5C7 /* CMRemindersViewController.h */,
 				FA49E921166619050048A5C7 /* CMRemindersViewController.m */,
-				FA49E92416661A550048A5C7 /* CMReminderViewController.h */,
-				FA49E92516661A550048A5C7 /* CMReminderViewController.m */,
+				FAD330641666DB3D00CF8DC9 /* CMReminderViewController.h */,
+				FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */,
 				FAB95B851663AE8D00A09853 /* Supporting Files */,
 			);
 			path = "Class Mate";
@@ -252,11 +252,11 @@
 				FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */,
 				FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */,
 				FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */,
-				FA49E92616661A550048A5C7 /* CMReminderViewController.m in Sources */,
 				FA7E1932166696A000A3D890 /* ALLocationReminderManager.m in Sources */,
 				FA7E1933166696A000A3D890 /* ALLocationReminderStore.m in Sources */,
 				FA7E1934166696A000A3D890 /* ALLocationReminder.m in Sources */,
 				FAB2389316669DF400C1BB88 /* CMAddReminderViewController.m in Sources */,
+				FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
