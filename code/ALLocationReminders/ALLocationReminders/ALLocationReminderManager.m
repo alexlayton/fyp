@@ -63,7 +63,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         _interval = 1;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         _transport = [defaults objectForKey:@"transport"];
-        _minutesBeforeReminderTime = [defaults integerForKey:@"minutes"];
+        _minutesBeforeReminderTime = [[defaults objectForKey:@"minutes"] integerValue];
     }
     return self;
 }
@@ -87,9 +87,15 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"transport"]) {
         //setup defaults
-        [defaults setObject:kALLocationRemindersTransportTypeWalking forKey:@"transport"];
-        [defaults setInteger:5 forKey:@"minutes"]; //5 minutes before
+        [defaults setObject:kALLocationRemindersTransportTypeDriving forKey:@"transport"];
+        [defaults setObject:@5 forKey:@"minutes"]; //5 minutes before
     }
+}
+
+- (void)loadDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //load shit from defaults
 }
 
 - (void)startLocationReminders
@@ -164,6 +170,8 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     _currentLocation = [locations lastObject];
     if (_currentLocation.speed > 0) _speed = _currentLocation.speed;
     
+    NSLog(@"location update reminder count: %d", _store.preemptiveReminders.count);
+
     if (_timer) {
         NSLog(@"Timer fired premature");
         [_timer fire]; //if there is a timer active now fire it
@@ -177,13 +185,14 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 - (void)processReminders
 {
     NSLog(@"Processing Reminders");
+    
     //reminder logic in here
     //process location reminders
     [self processLocationReminder:_currentLocation];
     
     
     //process current preemptive reminder
-    //    [self processPreemptiveReminder:currentLocation];
+    //[self processPreemptiveReminder:_currentLocation];
     //    [self printPreempriveReminders];
     [self ProcessPreemptiveReminderWithMaps:_currentLocation];
     
@@ -227,25 +236,37 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            NSDictionary *dict = JSON;
-            NSArray *rows = [dict objectForKey:@"rows"];
-            NSDictionary *element = [[[rows objectAtIndex:0] objectForKey:@"elements"] objectAtIndex:0]; //inception
-            double seconds = [[[element valueForKey:@"duration"] valueForKey:@"value"] integerValue];
             
-            NSDate *projectedDate = [NSDate dateWithTimeIntervalSinceNow:seconds]; //projected time
-            NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * 5]; //remove 5 minutes for now
+            @synchronized(reminder) {
             
-            if ([projectedDate compare:goalDate] == NSOrderedDescending) {
-                NSLog(@"Fire the reminder");
-                [self fireReminder:reminder];
-                [_store popReminderWithType:kALLocationReminderTypePreemptive];
-                NSLog(@"Store: %@", _store.preemptiveReminders);
-            } else {
-                NSLog(@"Don't fire reminder yet");
+                NSLog(@"Response: %@", JSON);
+                
+                NSDictionary *dict = JSON;
+                NSArray *rows = [dict objectForKey:@"rows"];
+                
+                NSDictionary *element = [[[rows objectAtIndex:0] objectForKey:@"elements"] objectAtIndex:0]; //inception
+                
+                NSString *status = [element valueForKey:@"status"]; //if not okay fallback to no maps
+                NSLog(@"status: %@", status);
+                
+                NSString *secondString = [[element valueForKey:@"duration"] valueForKey:@"value"];
+                int seconds = [secondString integerValue];
+                
+                NSDate *projectedDate = [NSDate dateWithTimeIntervalSinceNow:seconds]; //projected time
+                NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * _minutesBeforeReminderTime]; //remove 5 minutes for now
+                
+                NSLog(@"seconds: %d", seconds);
+                [_delegate locationReminderManager:self timeFromPreemptiveLocationDidChange:seconds];
+                
+                if ([projectedDate compare:goalDate] == NSOrderedDescending) {
+                    NSLog(@"Fire the reminder");
+                    [self fireReminder:reminder];
+                    [_store popReminderWithType:kALLocationReminderTypePreemptive];
+                    NSLog(@"Store: %@", _store.preemptiveReminders);
+                } else {
+                    NSLog(@"Don't fire reminder yet");
+                }
             }
-            
-            [_delegate locationReminderManager:self timeFromPreemptiveLocationDidChange:seconds];
-            
         } failure:nil];
         
         [operation start];
@@ -309,7 +330,6 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     NSDateComponents *components = [calender components:NSDayCalendarUnit fromDate:date1 toDate:date2 options:0];
     return [components day];
 }
-
 
 - (NSInteger)timeBetweenLocationFrom:(CLLocation *)from to:(CLLocation *)to
 {

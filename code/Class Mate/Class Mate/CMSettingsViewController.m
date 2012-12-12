@@ -7,20 +7,47 @@
 //
 
 #import "CMSettingsViewController.h"
+#import "CMSettingsDetailViewController.h"
+#import "ALLocationReminders.h"
 
 @implementation CMSettingsViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    _distanceLabel.text = @"10 Minutes";
-    _methodLabel.text = @"Meters";
-    _reminderLabel.text= @"Car";
+    [super viewWillAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _distanceLabel.text = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"distance"]];
+    _transportLabel.text = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"transport"]];
+    _reminderLabel.text= [NSString stringWithFormat:@"%@ Minutes", [defaults objectForKey:@"minutes"]];
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender
 {
     NSLog(@"Done Pressed!");
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CMSettingsDetailViewController *sdvc = segue.destinationViewController;
+    NSDictionary *dictionary;
+    if ([segue.identifier isEqualToString:@"Reminder"]) {
+        NSLog(@"Reminder");
+        sdvc.settingsType = @"Remind Me";
+        sdvc.defaultsKey = @"minutes";
+        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@5, @"5 Minutes", @10, @"10 Minutes", @15, @"15 Minutes", nil];
+    } else if ([segue.identifier isEqualToString:@"Transport"]) {
+        NSLog(@"Transport");
+        sdvc.settingsType = @"Transport Method";
+        sdvc.defaultsKey = @"transport";
+        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Car", @"Car", @"Walking", @"Walking", @"Cycling", @"Cycling", nil];
+    } else if ([segue.identifier isEqualToString:@"Distance"]) {
+        NSLog(@"Distance");
+        sdvc.settingsType = @"Distance Unit";
+        sdvc.defaultsKey = @"distance";
+        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"meters", @"Meters", @"Kilometers", @"Kilometers", @"Miles", @"Miles", nil];
+    }
+    sdvc.options = dictionary;
 }
 
 @end

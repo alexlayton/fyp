@@ -10,4 +10,6 @@
 
 @interface CMViewController : UITableViewController
 
+- (IBAction)startPressed:(UIBarButtonItem *)sender;
+
 @end

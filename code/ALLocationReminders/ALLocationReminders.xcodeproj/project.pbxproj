@@ -83,8 +83,8 @@
 		FA7E19231666960100A3D890 /* ALLocationReminders */ = {
 			isa = PBXGroup;
 			children = (
-				FA94927B1637207400106017 /* ALLocationReminderManager.h */,
 				FA94927C1637207400106017 /* ALLocationReminderManager.m */,
+				FA94927B1637207400106017 /* ALLocationReminderManager.h */,
 				FA92B72B1656D8B800B27EA4 /* ALLocationReminders.h */,
 				FA9F5A7616316FDD006ECACC /* ALLocationReminderStore.h */,
 				FA9F5A7716316FDD006ECACC /* ALLocationReminderStore.m */,

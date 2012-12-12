@@ -15,8 +15,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-    //[lrm startLocationReminders];
+    
+    self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.tintColor = [UIColor darkGrayColor];
+    
+    ALLocationReminderManager *rm = [ALLocationReminderManager sharedManager]; //init shared manager
+    [rm addPreemptiveReminderAtLocation:nil payload:@"Hello" date:[NSDate distantPast]];
+    [rm addPreemptiveReminderAtLocation:nil payload:@"Bye" date:[NSDate distantFuture]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,14 +35,31 @@
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     if ([segue.identifier isEqualToString:@"Preemptive"]) {
         NSLog(@"Preemptive");
+        rvc.reminderType = @"Preemptive";
         rvc.reminders = lrm.store.preemptiveReminders;
     } else if ([segue.identifier isEqualToString:@"Location"]) {
         NSLog(@"Location");
+        rvc.reminderType = @"Location";
         rvc.reminders = lrm.store.locationReminders;
     } else if ([segue.identifier isEqualToString:@"Date"]) {
         NSLog(@"Date");
+        rvc.reminderType = @"Date";
         rvc.reminders = lrm.store.dateReminders;
     }
+}
+
+- (IBAction)startPressed:(UIBarButtonItem *)sender
+{
+    NSLog(@"Start Pressed");
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    if ([sender.title isEqualToString:@"Start"]) {
+        [lrm startLocationReminders];
+        [sender setTitle:@"Stop"];
+    } else if ([sender.title isEqualToString:@"Stop"]) {
+        [lrm stopLocationReminders];
+        [sender setTitle:@"Start"];
+    }
+
 }
 
 @end

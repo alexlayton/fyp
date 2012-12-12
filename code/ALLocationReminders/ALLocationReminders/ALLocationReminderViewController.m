@@ -10,8 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "ALAnnotation.h"
-#import "ALLocationReminderStore.h"
-#import "ALLocationReminder.h"
+#import "ALLocationReminders.h"
 
 
 @implementation ALLocationReminderViewController
@@ -21,24 +20,11 @@
 @synthesize mapView = _mapView;
 @synthesize timeLabel = _timeLabel;
 
-- (id)initWithReminderManager:(ALLocationReminderManager *)reminderManager
-{
-    self = [super init];
-    if (self) {
-        _reminderManager = reminderManager;
-        _reminderManager.delegate = self;
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!_reminderManager) {
-        _reminderManager = [[ALLocationReminderManager alloc] init];
-        _reminderManager.delegate = self;
-        NSLog(@"Reminders: %@", _reminderManager.store.preemptiveReminders);
-    }
+    _reminderManager = [ALLocationReminderManager sharedManager];
+    _reminderManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning

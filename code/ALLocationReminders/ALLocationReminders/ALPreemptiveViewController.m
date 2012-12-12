@@ -50,6 +50,7 @@
     NSDate *newDate = [date dateByAddingTimeInterval:minutes * 60]; //20 minutes
     NSLog(@"Destination Lat: %f, Lon: %f", location.coordinate.latitude, location.coordinate.longitude);
     [_reminderManager addPreemptiveReminderAtLocation:location payload:[NSString stringWithFormat:@"Go to Destination at %@", newDate] date:newDate];
+    NSLog(@"Count from view: %d", _reminderManager.store.preemptiveReminders.count);
 }
 
 @end

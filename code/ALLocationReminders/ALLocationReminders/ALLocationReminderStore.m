@@ -60,6 +60,7 @@ const ALLocationReminderType kALLocationReminderTypePreemptive = @"Preemptive";
     } else if (reminderType == kALLocationReminderTypePreemptive) {
         [_preemptiveReminders addObject:reminder];
         [self sortArray:_preemptiveReminders];
+        NSLog(@"Preemptive count: %d", _preemptiveReminders.count);
     }
 }
 

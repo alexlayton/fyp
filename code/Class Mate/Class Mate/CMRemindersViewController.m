@@ -13,6 +13,15 @@
 @implementation CMRemindersViewController
 
 @synthesize reminders = _reminders;
+@synthesize reminderType = _reminderType;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@"Title: %@", _reminderType);
+    UINavigationItem *nav = self.navigationItem;
+    nav.title = _reminderType;
+}
 
 #pragma mark - Table view data source
 
@@ -51,7 +60,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [ self.tableView indexPathForCell:sender];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     ALLocationReminder *reminder = [_reminders objectAtIndex:indexPath.row];
     CMReminderViewController *rvc = segue.destinationViewController;
     rvc.reminder = reminder;
@@ -69,6 +78,9 @@
         [self.tableView setEditing:NO animated:YES];
         [sender setTitle:@"Edit"];
     }
+}
+
+- (IBAction)addPressed:(UIBarButtonItem *)sender {
 }
 
 @end

@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		D506261E85744CBEB1BB685A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A7442452904C11BD74FEF6 /* libPods.a */; };
+		FA46B8A01668D50100936AE6 /* CMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA46B89F1668D50100936AE6 /* CMMapViewController.m */; };
+		FA46B8A31668D6C700936AE6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA46B8A21668D6C700936AE6 /* MapKit.framework */; };
 		FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E921166619050048A5C7 /* CMRemindersViewController.m */; };
-		FA7E1932166696A000A3D890 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */; };
-		FA7E1933166696A000A3D890 /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E192F166696A000A3D890 /* ALLocationReminderStore.m */; };
-		FA7E1934166696A000A3D890 /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E1931166696A000A3D890 /* ALLocationReminder.m */; };
+		FA664A2C16788A72007DC494 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2516788A72007DC494 /* ALLocationReminderManager.m */; };
+		FA664A2D16788A72007DC494 /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2916788A72007DC494 /* ALLocationReminderStore.m */; };
+		FA664A2E16788A72007DC494 /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2B16788A72007DC494 /* ALLocationReminder.m */; };
+		FA664A38167899C6007DC494 /* CMFoursquareTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A37167899C6007DC494 /* CMFoursquareTest.m */; };
+		FA664A421678DF9A007DC494 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A411678DF9A007DC494 /* SSTextView.m */; };
+		FA664A4516790ACD007DC494 /* CMDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A4416790ACC007DC494 /* CMDatePickerViewController.m */; };
 		FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7E19371666999D00A3D890 /* CoreLocation.framework */; };
+		FAA9A679166CAFEF009E5D1B /* CMSettingsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */; };
 		FAB2389316669DF400C1BB88 /* CMAddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB2389216669DF400C1BB88 /* CMAddReminderViewController.m */; };
 		FAB95B7F1663AE8D00A09853 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB95B7E1663AE8D00A09853 /* UIKit.framework */; };
 		FAB95B811663AE8D00A09853 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB95B801663AE8D00A09853 /* Foundation.framework */; };
@@ -32,16 +38,27 @@
 /* Begin PBXFileReference section */
 		66AD20DB0DF1487D8D047199 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		F5A7442452904C11BD74FEF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA46B89E1668D50000936AE6 /* CMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMapViewController.h; sourceTree = "<group>"; };
+		FA46B89F1668D50100936AE6 /* CMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMapViewController.m; sourceTree = "<group>"; };
+		FA46B8A21668D6C700936AE6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA49E920166619050048A5C7 /* CMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRemindersViewController.h; sourceTree = "<group>"; };
 		FA49E921166619050048A5C7 /* CMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRemindersViewController.m; sourceTree = "<group>"; };
-		FA7E192B166696A000A3D890 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderManager.h; sourceTree = "<group>"; };
-		FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderManager.m; sourceTree = "<group>"; };
-		FA7E192D166696A000A3D890 /* ALLocationReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminders.h; sourceTree = "<group>"; };
-		FA7E192E166696A000A3D890 /* ALLocationReminderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminderStore.h; sourceTree = "<group>"; };
-		FA7E192F166696A000A3D890 /* ALLocationReminderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminderStore.m; sourceTree = "<group>"; };
-		FA7E1930166696A000A3D890 /* ALLocationReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLocationReminder.h; sourceTree = "<group>"; };
-		FA7E1931166696A000A3D890 /* ALLocationReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLocationReminder.m; sourceTree = "<group>"; };
+		FA664A2516788A72007DC494 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALLocationReminderManager.m; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderManager.m; sourceTree = "<group>"; };
+		FA664A2616788A72007DC494 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminderManager.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderManager.h; sourceTree = "<group>"; };
+		FA664A2716788A72007DC494 /* ALLocationReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminders.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminders.h; sourceTree = "<group>"; };
+		FA664A2816788A72007DC494 /* ALLocationReminderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminderStore.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderStore.h; sourceTree = "<group>"; };
+		FA664A2916788A72007DC494 /* ALLocationReminderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALLocationReminderStore.m; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderStore.m; sourceTree = "<group>"; };
+		FA664A2A16788A72007DC494 /* ALLocationReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminder.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminder.h; sourceTree = "<group>"; };
+		FA664A2B16788A72007DC494 /* ALLocationReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALLocationReminder.m; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminder.m; sourceTree = "<group>"; };
+		FA664A36167899C6007DC494 /* CMFoursquareTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFoursquareTest.h; sourceTree = "<group>"; };
+		FA664A37167899C6007DC494 /* CMFoursquareTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFoursquareTest.m; sourceTree = "<group>"; };
+		FA664A401678DF99007DC494 /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
+		FA664A411678DF9A007DC494 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
+		FA664A4316790ACC007DC494 /* CMDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDatePickerViewController.h; sourceTree = "<group>"; };
+		FA664A4416790ACC007DC494 /* CMDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDatePickerViewController.m; sourceTree = "<group>"; };
 		FA7E19371666999D00A3D890 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FAA9A677166CAFEF009E5D1B /* CMSettingsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsDetailViewController.h; sourceTree = "<group>"; };
+		FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsDetailViewController.m; sourceTree = "<group>"; };
 		FAB2389116669DF400C1BB88 /* CMAddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddReminderViewController.h; sourceTree = "<group>"; };
 		FAB2389216669DF400C1BB88 /* CMAddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddReminderViewController.m; sourceTree = "<group>"; };
 		FAB95B7A1663AE8D00A09853 /* Class Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Class Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA46B8A31668D6C700936AE6 /* MapKit.framework in Frameworks */,
 				FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */,
 				FAB95B7F1663AE8D00A09853 /* UIKit.framework in Frameworks */,
 				FAB95B811663AE8D00A09853 /* Foundation.framework in Frameworks */,
@@ -85,13 +103,13 @@
 		FA7E1936166696A700A3D890 /* ALLocationReminders */ = {
 			isa = PBXGroup;
 			children = (
-				FA7E192B166696A000A3D890 /* ALLocationReminderManager.h */,
-				FA7E192C166696A000A3D890 /* ALLocationReminderManager.m */,
-				FA7E192D166696A000A3D890 /* ALLocationReminders.h */,
-				FA7E192E166696A000A3D890 /* ALLocationReminderStore.h */,
-				FA7E192F166696A000A3D890 /* ALLocationReminderStore.m */,
-				FA7E1930166696A000A3D890 /* ALLocationReminder.h */,
-				FA7E1931166696A000A3D890 /* ALLocationReminder.m */,
+				FA664A2516788A72007DC494 /* ALLocationReminderManager.m */,
+				FA664A2616788A72007DC494 /* ALLocationReminderManager.h */,
+				FA664A2716788A72007DC494 /* ALLocationReminders.h */,
+				FA664A2816788A72007DC494 /* ALLocationReminderStore.h */,
+				FA664A2916788A72007DC494 /* ALLocationReminderStore.m */,
+				FA664A2A16788A72007DC494 /* ALLocationReminder.h */,
+				FA664A2B16788A72007DC494 /* ALLocationReminder.m */,
 			);
 			name = ALLocationReminders;
 			sourceTree = "<group>";
@@ -99,6 +117,7 @@
 		FAB95B6F1663AE8D00A09853 = {
 			isa = PBXGroup;
 			children = (
+				FA46B8A21668D6C700936AE6 /* MapKit.framework */,
 				FA7E19371666999D00A3D890 /* CoreLocation.framework */,
 				FAB95B841663AE8D00A09853 /* Class Mate */,
 				FAB95B7D1663AE8D00A09853 /* Frameworks */,
@@ -138,10 +157,18 @@
 				FAB95B9A1663AE8D00A09853 /* CMViewController.m */,
 				FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */,
 				FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */,
+				FAA9A677166CAFEF009E5D1B /* CMSettingsDetailViewController.h */,
+				FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */,
 				FA49E920166619050048A5C7 /* CMRemindersViewController.h */,
 				FA49E921166619050048A5C7 /* CMRemindersViewController.m */,
 				FAD330641666DB3D00CF8DC9 /* CMReminderViewController.h */,
 				FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */,
+				FA46B89E1668D50000936AE6 /* CMMapViewController.h */,
+				FA46B89F1668D50100936AE6 /* CMMapViewController.m */,
+				FA664A36167899C6007DC494 /* CMFoursquareTest.h */,
+				FA664A37167899C6007DC494 /* CMFoursquareTest.m */,
+				FA664A4316790ACC007DC494 /* CMDatePickerViewController.h */,
+				FA664A4416790ACC007DC494 /* CMDatePickerViewController.m */,
 				FAB95B851663AE8D00A09853 /* Supporting Files */,
 			);
 			path = "Class Mate";
@@ -150,6 +177,8 @@
 		FAB95B851663AE8D00A09853 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA664A401678DF99007DC494 /* SSTextView.h */,
+				FA664A411678DF9A007DC494 /* SSTextView.m */,
 				FA7E1936166696A700A3D890 /* ALLocationReminders */,
 				FAB95B861663AE8D00A09853 /* Class Mate-Info.plist */,
 				FAB95B871663AE8D00A09853 /* InfoPlist.strings */,
@@ -252,11 +281,16 @@
 				FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */,
 				FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */,
 				FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */,
-				FA7E1932166696A000A3D890 /* ALLocationReminderManager.m in Sources */,
-				FA7E1933166696A000A3D890 /* ALLocationReminderStore.m in Sources */,
-				FA7E1934166696A000A3D890 /* ALLocationReminder.m in Sources */,
 				FAB2389316669DF400C1BB88 /* CMAddReminderViewController.m in Sources */,
 				FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */,
+				FA46B8A01668D50100936AE6 /* CMMapViewController.m in Sources */,
+				FAA9A679166CAFEF009E5D1B /* CMSettingsDetailViewController.m in Sources */,
+				FA664A2C16788A72007DC494 /* ALLocationReminderManager.m in Sources */,
+				FA664A2D16788A72007DC494 /* ALLocationReminderStore.m in Sources */,
+				FA664A2E16788A72007DC494 /* ALLocationReminder.m in Sources */,
+				FA664A38167899C6007DC494 /* CMFoursquareTest.m in Sources */,
+				FA664A421678DF9A007DC494 /* SSTextView.m in Sources */,
+				FA664A4516790ACD007DC494 /* CMDatePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

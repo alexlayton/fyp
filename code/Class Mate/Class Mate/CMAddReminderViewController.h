@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMAddReminderViewController : UIViewController
+@class SSTextView;
+
+@interface CMAddReminderViewController : UITableViewController
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (nonatomic, strong) SSTextView *textView;
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender;
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender;

@@ -7,13 +7,18 @@
 //
 
 #import "CMAddReminderViewController.h"
+#import "SSTextView.h"
 
 @implementation CMAddReminderViewController
+
+@synthesize textView = _textView;
+@synthesize doneButton = _doneButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    _textView.placeholder = @"Notes";
+    _doneButton.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning
