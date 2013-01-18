@@ -14,9 +14,30 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self customiseAppearance];
     return YES;
 }
-							
+
+- (void)customiseAppearance
+{
+    UIImage *navbar = [UIImage imageNamed:@"navbar.png"];
+    [[UINavigationBar appearance] setBackgroundImage:navbar forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *backButton = [[UIImage imageNamed:@"backbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 5)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    UIImage *barButton = [[UIImage imageNamed:@"barbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    
+    //done buttons
+    UIImage *barButtonBlue = [[UIImage imageNamed:@"barbuttonblue.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButtonBlue forState:UIControlStateNormal style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
+    
+    //toolbar
+    UIImage *toolbar = [UIImage imageNamed:@"toolbar.png"];
+    [[UIToolbar appearance] setBackgroundImage:toolbar forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -25,12 +46,18 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [[ALLocationReminderManager sharedManager] saveData];
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    [lrm stopLocationReminders];
+    [lrm startBackgroundLocationReminders];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    [lrm stopBackgroundLocationReminders];
+    [lrm startLocationReminders];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

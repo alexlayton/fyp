@@ -10,12 +10,14 @@
 
 @class SSTextView;
 
-@interface CMAddReminderViewController : UITableViewController
+@interface CMAddReminderViewController : UITableViewController <UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (nonatomic, strong) SSTextView *textView;
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender;
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender;
+
+- (IBAction)pickerPressed:(UIButton *)sender;
 
 @end

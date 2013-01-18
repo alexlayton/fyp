@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALLocationReminder;
+@class ALLocationReminder, MKMapView;
 
 @interface CMReminderViewController : UITableViewController
 
 @property (nonatomic, weak) ALLocationReminder *reminder;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *payloadLabel;

@@ -12,6 +12,17 @@
 
 @implementation CMSettingsViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
+    UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
+    CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
+    [backgroundView setBackgroundColor:pattern];
+    self.tableView.backgroundView = backgroundView;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -19,6 +30,17 @@
     _distanceLabel.text = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"distance"]];
     _transportLabel.text = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"transport"]];
     _reminderLabel.text= [NSString stringWithFormat:@"%@ Minutes", [defaults objectForKey:@"minutes"]];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    NSString *footer;
+    if (section == self.tableView.numberOfSections - 1) {
+        NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+        NSString *build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+        footer = [NSString stringWithFormat:@"Class Mate %@ (%@) \n Copyright © Alex Layton 2012. \n All Rights Reserved.", version, build];
+    }
+    return footer;
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender
@@ -48,6 +70,18 @@
         dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"meters", @"Meters", @"Kilometers", @"Kilometers", @"Miles", @"Miles", nil];
     }
     sdvc.options = dictionary;
+}
+
+#pragma mark - Rotation
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

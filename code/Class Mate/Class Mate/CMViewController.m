@@ -14,14 +14,16 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     
-    self.navigationController.toolbarHidden = NO;
-    self.navigationController.toolbar.tintColor = [UIColor darkGrayColor];
+    UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
+    UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
+    CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
+    [backgroundView setBackgroundColor:pattern];
+    self.tableView.backgroundView = backgroundView;
     
-    ALLocationReminderManager *rm = [ALLocationReminderManager sharedManager]; //init shared manager
-    [rm addPreemptiveReminderAtLocation:nil payload:@"Hello" date:[NSDate distantPast]];
-    [rm addPreemptiveReminderAtLocation:nil payload:@"Bye" date:[NSDate distantFuture]];
+    [ALLocationReminderManager sharedManager]; //init shared manager
 }
 
 - (void)didReceiveMemoryWarning

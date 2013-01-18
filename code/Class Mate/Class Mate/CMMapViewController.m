@@ -13,6 +13,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -25,6 +27,18 @@
 {
     NSLog(@"Done Pressed!");
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Rotation
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

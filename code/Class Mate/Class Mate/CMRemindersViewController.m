@@ -80,7 +80,16 @@
     }
 }
 
-- (IBAction)addPressed:(UIBarButtonItem *)sender {
+#pragma mark - Rotation
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
