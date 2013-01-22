@@ -717,12 +717,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="7Ke-UL-D39">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="e7q-u4-gtN" detailTextLabel="OxN-za-xD0" style="IBUITableViewCellStyleSubtitle" id="7Ke-UL-D39">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7q-u4-gtN">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxN-za-xD0">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -1018,82 +1030,6 @@
             <point key="canvasLocation" x="1575" y="-697"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CMAddReminderTestViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMAddReminderTestViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minutesTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="payloadTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CMAddReminderViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMAddReminderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="pickerPressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="CMAddressTestViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMAddressTestViewController.h"/>
-        </class>
-        <class className="CMMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="CMPlacesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMPlacesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="CMReminderViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMReminderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deletePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="payloadLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CMRemindersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMRemindersViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="CMSettingsDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMSettingsDetailViewController.h"/>
-        </class>
-        <class className="CMSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reminderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="transportLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CMViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SSTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSTextView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

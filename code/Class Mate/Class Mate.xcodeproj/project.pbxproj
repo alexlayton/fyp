@@ -22,15 +22,17 @@
 		FA04461D1680862100C47BA8 /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0446171680862100C47BA8 /* toolbar@2x.png */; };
 		FA04462416808E9E00C47BA8 /* pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = FA04462216808E9E00C47BA8 /* pattern.png */; };
 		FA04462516808E9E00C47BA8 /* pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA04462316808E9E00C47BA8 /* pattern@2x.png */; };
+		FA0454AC16AEDD89002EB841 /* CMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454AB16AEDD89002EB841 /* CMAddress.m */; };
+		FA0454BC16AF0C0D002EB841 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454BB16AF0C0D002EB841 /* SSTextView.m */; };
 		FA4683C516A8A2AF007A839C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4683C416A8A2AF007A839C /* AddressBook.framework */; };
 		FA46B8A01668D50100936AE6 /* CMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA46B89F1668D50100936AE6 /* CMMapViewController.m */; };
 		FA46B8A31668D6C700936AE6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA46B8A21668D6C700936AE6 /* MapKit.framework */; };
 		FA48C96C16A1999E008E4F64 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA48C96B16A1999E008E4F64 /* Location.gpx */; };
 		FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E921166619050048A5C7 /* CMRemindersViewController.m */; };
+		FA4B141816AD79910025986A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B141716AD79910025986A /* QuartzCore.framework */; };
 		FA664A2C16788A72007DC494 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2516788A72007DC494 /* ALLocationReminderManager.m */; };
 		FA664A2D16788A72007DC494 /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2916788A72007DC494 /* ALLocationReminderStore.m */; };
 		FA664A2E16788A72007DC494 /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2B16788A72007DC494 /* ALLocationReminder.m */; };
-		FA664A421678DF9A007DC494 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A411678DF9A007DC494 /* SSTextView.m */; };
 		FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7E19371666999D00A3D890 /* CoreLocation.framework */; };
 		FA9E5BD616A3035C005B130E /* searchbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD416A3035C005B130E /* searchbar.png */; };
 		FA9E5BD716A3035C005B130E /* searchbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD516A3035C005B130E /* searchbar@2x.png */; };
@@ -74,6 +76,10 @@
 		FA0446171680862100C47BA8 /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar@2x.png"; sourceTree = "<group>"; };
 		FA04462216808E9E00C47BA8 /* pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pattern.png; sourceTree = "<group>"; };
 		FA04462316808E9E00C47BA8 /* pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pattern@2x.png"; sourceTree = "<group>"; };
+		FA0454AA16AEDD89002EB841 /* CMAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddress.h; sourceTree = "<group>"; };
+		FA0454AB16AEDD89002EB841 /* CMAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddress.m; sourceTree = "<group>"; };
+		FA0454BA16AF0C0D002EB841 /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
+		FA0454BB16AF0C0D002EB841 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		FA4683C416A8A2AF007A839C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FA46B89E1668D50000936AE6 /* CMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMapViewController.h; sourceTree = "<group>"; };
 		FA46B89F1668D50100936AE6 /* CMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMapViewController.m; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 		FA48C96B16A1999E008E4F64 /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		FA49E920166619050048A5C7 /* CMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRemindersViewController.h; sourceTree = "<group>"; };
 		FA49E921166619050048A5C7 /* CMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRemindersViewController.m; sourceTree = "<group>"; };
+		FA4B141716AD79910025986A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FA664A2516788A72007DC494 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALLocationReminderManager.m; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderManager.m; sourceTree = "<group>"; };
 		FA664A2616788A72007DC494 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminderManager.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderManager.h; sourceTree = "<group>"; };
 		FA664A2716788A72007DC494 /* ALLocationReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminders.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminders.h; sourceTree = "<group>"; };
@@ -88,8 +95,6 @@
 		FA664A2916788A72007DC494 /* ALLocationReminderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALLocationReminderStore.m; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderStore.m; sourceTree = "<group>"; };
 		FA664A2A16788A72007DC494 /* ALLocationReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminder.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminder.h; sourceTree = "<group>"; };
 		FA664A2B16788A72007DC494 /* ALLocationReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALLocationReminder.m; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminder.m; sourceTree = "<group>"; };
-		FA664A401678DF99007DC494 /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
-		FA664A411678DF9A007DC494 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		FA7E19371666999D00A3D890 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FA9E5BD416A3035C005B130E /* searchbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbar.png; sourceTree = "<group>"; };
 		FA9E5BD516A3035C005B130E /* searchbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar@2x.png"; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4B141816AD79910025986A /* QuartzCore.framework in Frameworks */,
 				FA4683C516A8A2AF007A839C /* AddressBook.framework in Frameworks */,
 				FA46B8A31668D6C700936AE6 /* MapKit.framework in Frameworks */,
 				FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */,
@@ -173,6 +179,81 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		FA0454AE16AF04E1002EB841 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA0454B916AF09E0002EB841 /* Add Reminders */,
+				FA0454B516AF05EC002EB841 /* Settings */,
+				FAB95B991663AE8D00A09853 /* CMViewController.h */,
+				FAB95B9A1663AE8D00A09853 /* CMViewController.m */,
+				FA49E920166619050048A5C7 /* CMRemindersViewController.h */,
+				FA49E921166619050048A5C7 /* CMRemindersViewController.m */,
+				FAD330641666DB3D00CF8DC9 /* CMReminderViewController.h */,
+				FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */,
+				FA46B89E1668D50000936AE6 /* CMMapViewController.h */,
+				FA46B89F1668D50100936AE6 /* CMMapViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FA0454B516AF05EC002EB841 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */,
+				FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */,
+				FAA9A677166CAFEF009E5D1B /* CMSettingsDetailViewController.h */,
+				FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		FA0454B616AF0609002EB841 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FAB95B8D1663AE8D00A09853 /* CMAppDelegate.h */,
+				FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */,
+				FAB95B961663AE8D00A09853 /* MainStoryboard.storyboard */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		FA0454B716AF062F002EB841 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAECEA3D167A37940024D6D4 /* CMDatePickerView.h */,
+				FAECEA3E167A37940024D6D4 /* CMDatePickerView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FA0454B816AF06DB002EB841 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				FAD322BD1681EBD400FC824C /* CMReminderAnnotation.h */,
+				FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */,
+				FA0454AA16AEDD89002EB841 /* CMAddress.h */,
+				FA0454AB16AEDD89002EB841 /* CMAddress.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		FA0454B916AF09E0002EB841 /* Add Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6D2B116A8994A00E23526 /* CMAddressTestViewController.h */,
+				FAB6D2B216A8994A00E23526 /* CMAddressTestViewController.m */,
+				FAB761D1167F929B001BD9D7 /* CMPlacesViewController.h */,
+				FAB761D2167F929B001BD9D7 /* CMPlacesViewController.m */,
+				FA9E5BD916A30557005B130E /* CMPlaceViewController.h */,
+				FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */,
+				FAB761CD167F8746001BD9D7 /* CMAddReminderTestViewController.h */,
+				FAB761CE167F8746001BD9D7 /* CMAddReminderTestViewController.m */,
+				FAB2389116669DF400C1BB88 /* CMAddReminderViewController.h */,
+				FAB2389216669DF400C1BB88 /* CMAddReminderViewController.m */,
+			);
+			name = "Add Reminders";
+			sourceTree = "<group>";
+		};
 		FA7E1936166696A700A3D890 /* ALLocationReminders */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,10 +271,6 @@
 		FAB95B6F1663AE8D00A09853 = {
 			isa = PBXGroup;
 			children = (
-				FA4683C416A8A2AF007A839C /* AddressBook.framework */,
-				FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */,
-				FA46B8A21668D6C700936AE6 /* MapKit.framework */,
-				FA7E19371666999D00A3D890 /* CoreLocation.framework */,
 				FAB95B841663AE8D00A09853 /* Class Mate */,
 				FAB95B7D1663AE8D00A09853 /* Frameworks */,
 				FAB95B7B1663AE8D00A09853 /* Products */,
@@ -212,6 +289,11 @@
 		FAB95B7D1663AE8D00A09853 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA4B141716AD79910025986A /* QuartzCore.framework */,
+				FA4683C416A8A2AF007A839C /* AddressBook.framework */,
+				FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */,
+				FA46B8A21668D6C700936AE6 /* MapKit.framework */,
+				FA7E19371666999D00A3D890 /* CoreLocation.framework */,
 				FAB95B7E1663AE8D00A09853 /* UIKit.framework */,
 				FAB95B801663AE8D00A09853 /* Foundation.framework */,
 				FAB95B821663AE8D00A09853 /* CoreGraphics.framework */,
@@ -223,35 +305,11 @@
 		FAB95B841663AE8D00A09853 /* Class Mate */ = {
 			isa = PBXGroup;
 			children = (
-				FAB95B8D1663AE8D00A09853 /* CMAppDelegate.h */,
-				FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */,
-				FAB95B961663AE8D00A09853 /* MainStoryboard.storyboard */,
-				FAB761D1167F929B001BD9D7 /* CMPlacesViewController.h */,
-				FAB761D2167F929B001BD9D7 /* CMPlacesViewController.m */,
-				FA9E5BD916A30557005B130E /* CMPlaceViewController.h */,
-				FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */,
-				FAB761CD167F8746001BD9D7 /* CMAddReminderTestViewController.h */,
-				FAB761CE167F8746001BD9D7 /* CMAddReminderTestViewController.m */,
-				FAB2389116669DF400C1BB88 /* CMAddReminderViewController.h */,
-				FAB2389216669DF400C1BB88 /* CMAddReminderViewController.m */,
-				FAB95B991663AE8D00A09853 /* CMViewController.h */,
-				FAB95B9A1663AE8D00A09853 /* CMViewController.m */,
-				FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */,
-				FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */,
-				FAA9A677166CAFEF009E5D1B /* CMSettingsDetailViewController.h */,
-				FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */,
-				FA49E920166619050048A5C7 /* CMRemindersViewController.h */,
-				FA49E921166619050048A5C7 /* CMRemindersViewController.m */,
-				FAD330641666DB3D00CF8DC9 /* CMReminderViewController.h */,
-				FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */,
-				FA46B89E1668D50000936AE6 /* CMMapViewController.h */,
-				FA46B89F1668D50100936AE6 /* CMMapViewController.m */,
-				FAECEA3D167A37940024D6D4 /* CMDatePickerView.h */,
-				FAECEA3E167A37940024D6D4 /* CMDatePickerView.m */,
-				FAD322BD1681EBD400FC824C /* CMReminderAnnotation.h */,
-				FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */,
-				FAB6D2B116A8994A00E23526 /* CMAddressTestViewController.h */,
-				FAB6D2B216A8994A00E23526 /* CMAddressTestViewController.m */,
+				FA0454B616AF0609002EB841 /* Application */,
+				FA0454AE16AF04E1002EB841 /* View Controllers */,
+				FA0454B716AF062F002EB841 /* Views */,
+				FA0454B816AF06DB002EB841 /* Misc */,
+				FA7E1936166696A700A3D890 /* ALLocationReminders */,
 				FA48C96B16A1999E008E4F64 /* Location.gpx */,
 				FAB95B851663AE8D00A09853 /* Supporting Files */,
 			);
@@ -261,10 +319,9 @@
 		FAB95B851663AE8D00A09853 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA0454BA16AF0C0D002EB841 /* SSTextView.h */,
+				FA0454BB16AF0C0D002EB841 /* SSTextView.m */,
 				FA04460D1680832700C47BA8 /* Images */,
-				FA664A401678DF99007DC494 /* SSTextView.h */,
-				FA664A411678DF9A007DC494 /* SSTextView.m */,
-				FA7E1936166696A700A3D890 /* ALLocationReminders */,
 				FAB95B861663AE8D00A09853 /* Class Mate-Info.plist */,
 				FAB95B871663AE8D00A09853 /* InfoPlist.strings */,
 				FAB95B8A1663AE8D00A09853 /* main.m */,
@@ -390,13 +447,14 @@
 				FA664A2C16788A72007DC494 /* ALLocationReminderManager.m in Sources */,
 				FA664A2D16788A72007DC494 /* ALLocationReminderStore.m in Sources */,
 				FA664A2E16788A72007DC494 /* ALLocationReminder.m in Sources */,
-				FA664A421678DF9A007DC494 /* SSTextView.m in Sources */,
 				FAECEA3F167A37940024D6D4 /* CMDatePickerView.m in Sources */,
 				FAB761CF167F8746001BD9D7 /* CMAddReminderTestViewController.m in Sources */,
 				FAB761D3167F929B001BD9D7 /* CMPlacesViewController.m in Sources */,
 				FAD322BF1681EBD400FC824C /* CMReminderAnnotation.m in Sources */,
 				FA9E5BDB16A30557005B130E /* CMPlaceViewController.m in Sources */,
 				FAB6D2B316A8994A00E23526 /* CMAddressTestViewController.m in Sources */,
+				FA0454AC16AEDD89002EB841 /* CMAddress.m in Sources */,
+				FA0454BC16AF0C0D002EB841 /* SSTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

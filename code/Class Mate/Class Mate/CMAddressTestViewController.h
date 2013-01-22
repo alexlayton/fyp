@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMAddressTestViewController : UITableViewController
+@interface CMAddressTestViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *addresses;
 

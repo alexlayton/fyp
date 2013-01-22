@@ -8,13 +8,18 @@
 
 #import "CMAppDelegate.h"
 #import "ALLocationReminders.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation CMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [self customiseAppearance];
+    //[self customiseAppearance];
+    
+    UIToolbar *toolbar = [UIToolbar appearance];
+    toolbar.tintColor = [UIColor darkGrayColor];
+    
     return YES;
 }
 

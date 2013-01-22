@@ -8,24 +8,23 @@
 
 #import "CMAddressTestViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
+#import "CMAddress.h"
 
 @implementation CMAddressTestViewController
 
 @synthesize addresses = _addresses;
 
-- (void)viewDidLoad
+- (void)loadAddresses
 {
-    [super viewDidLoad];
-
-    //load addresses here...
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
     if (ABAddressBookGetAuthorizationStatus() != kABAuthorizationStatusDenied) {
         ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+            NSLog(@"Requesting Access to Address Book");
             if (granted) {
+                NSLog(@"Access Granted!");
                 CFArrayRef people = ABAddressBookCopyArrayOfAllPeople(addressBook);
                 CFIndex count = ABAddressBookGetPersonCount(addressBook);
                 _addresses = [[NSMutableArray alloc] initWithCapacity:count];
-                
                 
                 NSLog(@"Count: %ld", count);
                 for (int i = 0; i < count; i++) {
@@ -33,22 +32,53 @@
                     NSString *first = (__bridge NSString *)ABRecordCopyValue(record, kABPersonFirstNameProperty);
                     NSString *last = (__bridge NSString *)ABRecordCopyValue(record, kABPersonLastNameProperty);
                     NSString *name = [NSString stringWithFormat:@"%@ %@", first, last];
-                    if (name) {
-                        [_addresses addObject:name];
-                    }
+                    
                     ABMultiValueRef addressesRef = ABRecordCopyValue(record, kABPersonAddressProperty);
                     for (int j = 0; j < ABMultiValueGetCount(addressesRef); j++) {
-                        CFDictionaryRef dict = ABMultiValueCopyValueAtIndex(addressesRef, j);
-                        NSString *zip = (NSString *)CFDictionaryGetValue(dict, kABPersonAddressZIPKey);
-                        NSLog(@"Name: %@, Zip: %@", name, zip);
+                        CFDictionaryRef dictRef = ABMultiValueCopyValueAtIndex(addressesRef, j);
+                        CMAddress *address = [[CMAddress alloc] initWithAddressReference:dictRef];
+                        
+                        NSLog(@"%@", [address address]);
+                        
+                        if (name && address.zip) {
+                            NSDictionary *dict = @{ @"name": name, @"zip": address.zip };
+                            [_addresses addObject:dict];
+                        }
                     }
                 }
-                [self.tableView reloadData];
+                NSLog(@"About to reload");
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            } else {
+                NSLog(@"Access Denied!");
+                [self accessDenied];
+                //notify user and pop off view controller
+
             }
         });
     } else { //access denied
         NSLog(@"Access Denied! %ld", ABAddressBookGetAuthorizationStatus());
+        [self accessDenied];
     }
+}
+
+- (void)accessDenied
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Access Denied!" message:@"Could not access Address Book" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self loadAddresses];
+}
+
+#pragma mark - UIAlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"dismissed alertview");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
@@ -63,7 +93,9 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [_addresses objectAtIndex:indexPath.row];
+    NSDictionary *dict = [_addresses objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dict objectForKey:@"name"];
+    cell.detailTextLabel.text = [dict objectForKey:@"zip"];
     
     return cell;
 }
