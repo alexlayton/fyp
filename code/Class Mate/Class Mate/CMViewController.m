@@ -9,6 +9,7 @@
 #import "CMViewController.h"
 #import "ALLocationReminders.h"
 #import "CMRemindersViewController.h"
+#import "CMAppDelegate.h"
 
 @implementation CMViewController
 
@@ -16,6 +17,9 @@
 {
     [super viewDidLoad];    
     
+    [CMAppDelegate customiseAppearance];
+    
+    //change background pattern
     UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
     UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
     CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
@@ -47,6 +51,8 @@
         NSLog(@"Date");
         rvc.reminderType = @"Date";
         rvc.reminders = lrm.store.dateReminders;
+    } else if ([segue.identifier isEqualToString:@"Add"] || [segue.identifier isEqualToString:@"Settings"]) {
+        [CMAppDelegate resetAppearance];
     }
 }
 

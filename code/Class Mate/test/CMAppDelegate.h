@@ -1,9 +1,9 @@
 //
 //  CMAppDelegate.h
-//  Class Mate
+//  test
 //
-//  Created by Alex Layton on 26/11/2012.
-//  Copyright (c) 2012 Alex Layton. All rights reserved.
+//  Created by Alex Layton on 26/01/2013.
+//  Copyright (c) 2013 Alex Layton. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,8 +11,5 @@
 @interface CMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-+ (void)customiseAppearance;
-+ (void)resetAppearance;
 
 @end

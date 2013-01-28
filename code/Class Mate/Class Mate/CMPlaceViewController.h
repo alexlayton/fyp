@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMPlaceViewController : UIViewController
+@interface CMPlaceViewController : UITableViewController
 
 @property (nonatomic, weak) NSDictionary *place;
 

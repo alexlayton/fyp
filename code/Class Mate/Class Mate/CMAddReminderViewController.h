@@ -1,23 +1,27 @@
 //
-//  CMAddReminderViewController.h
+//  CMAddReminderTestViewController.h
 //  Class Mate
 //
-//  Created by Alex Layton on 28/11/2012.
+//  Created by Alex Layton on 17/12/2012.
 //  Copyright (c) 2012 Alex Layton. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "CMPlacesViewController.h"
+#import "CMAddressViewController.h"
+#import "CMFavouritesViewController.h"
 
-@class SSTextView;
+@class CMPlace;
 
-@interface CMAddReminderViewController : UITableViewController <UIActionSheetDelegate>
+@interface CMAddReminderViewController : UITableViewController <UITextFieldDelegate, CMPlacesViewDelegate, CMAddressViewDelegate, CMPlacesViewDelegate, CMFavouritesViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-@property (nonatomic, strong) SSTextView *textView;
+@property (nonatomic, strong) CMPlace *place;
+@property (nonatomic, strong) NSDate *date;
+@property (strong, nonatomic) IBOutlet UITextField *minutesTextField;
+@property (strong, nonatomic) IBOutlet UITextField *payloadTextField;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender;
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender;
-
-- (IBAction)pickerPressed:(UIButton *)sender;
 
 @end

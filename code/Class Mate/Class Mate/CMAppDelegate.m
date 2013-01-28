@@ -15,15 +15,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    //[self customiseAppearance];
-    
-    UIToolbar *toolbar = [UIToolbar appearance];
-    toolbar.tintColor = [UIColor darkGrayColor];
-    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        //load iPad UI here...
+    }
+    [CMAppDelegate customiseAppearance];
     return YES;
 }
 
-- (void)customiseAppearance
++ (void)customiseAppearance
 {
     UIImage *navbar = [UIImage imageNamed:@"navbar.png"];
     [[UINavigationBar appearance] setBackgroundImage:navbar forBarMetrics:UIBarMetricsDefault];
@@ -41,6 +40,21 @@
     //toolbar
     UIImage *toolbar = [UIImage imageNamed:@"toolbar.png"];
     [[UIToolbar appearance] setBackgroundImage:toolbar forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+}
+
++ (void)resetAppearance
+{
+    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    [[UIBarButtonItem appearance] setBackgroundImage:nil forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    
+    //done buttons
+    [[UIBarButtonItem appearance] setBackgroundImage:nil forState:UIControlStateNormal style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
+    
+    //toolbar
+    [[UIToolbar appearance] setBackgroundImage:nil forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -9,6 +9,13 @@
 #import "CMPlacesViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "ALLocationReminders.h"
+#import "CMAddressViewController.h"
+
+@interface CMPlacesViewController ()
+
+@property (nonatomic) NSUInteger selectedIndex;
+
+@end
 
 @implementation CMPlacesViewController
 
@@ -16,12 +23,19 @@
 @synthesize nearbyPlaces = _nearbyPlaces;
 @synthesize filteredPlaces = _filteredPlaces;
 @synthesize delegate = _delegate;
+@synthesize selectedIndex = _selectedIndex;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _searchBar.delegate = self;
-    _searchBar.backgroundImage = [UIImage imageNamed:@"searchbar.png"];
+    
+    //delegates
+    self.tabBarController.delegate = self;
+    self.searchDisplayController.searchBar.delegate = self;
+    
+    _selectedIndex = self.tabBarController.selectedIndex;
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+//    _searchBar.backgroundImage = [UIImage imageNamed:@"searchbar.png"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -48,7 +62,7 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"Date: %@", JSON);
         _nearbyPlaces = [JSON valueForKey:@"results"];
-        [self.tableView reloadData];
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     } failure:nil];
     [operation start];
 }
@@ -73,7 +87,9 @@
         for (NSDictionary *place in _filteredPlaces) {
             NSLog(@"%@", [place objectForKey:@"name"]);
         }
-        [self.searchDisplayController.searchResultsTableView reloadData];
+        //[self.searchDisplayController.searchResultsTableView reloadData];
+        //this should work...
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     } failure:nil];
     [operation start];
 }
@@ -133,6 +149,18 @@
 {
     [self filterContentForSearchString:self.searchDisplayController.searchBar.text scope:[self.searchDisplayController.searchBar.scopeButtonTitles objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
     return YES;
+}
+
+#pragma mark - Tab Bar Delegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if ([viewController isKindOfClass:[CMAddressViewController class]]) {
+        NSLog(@"CMAddress!");
+        CMAddressViewController *avc = (CMAddressViewController *)viewController;
+        NSLog(@"%d", _selectedIndex);
+        avc.previousSelectedIndex = _selectedIndex;
+    }
 }
 
 @end

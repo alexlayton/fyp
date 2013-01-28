@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="3va-bR-HFd">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="hBU-2h-XPq">
+            <objects>
+                <viewController id="eCc-c3-GWf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="48Y-Kv-I7M">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFy-cB-gHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479" y="430"/>
+        </scene>
+        <!--View Controller - Root View Controller-->
+        <scene sceneID="Mcc-HE-U7s">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="6OR-dQ-UdC" customClass="CMViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qjR-8f-XSL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4wu-9V-hj7">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6OR-dQ-UdC" id="LY3-7Q-hzJ"/>
+                            <outlet property="delegate" destination="6OR-dQ-UdC" id="JGR-1W-fqd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="WvH-z7-vNf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rS8-io-mWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013" y="-506"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BbW-fE-vcD">
+            <objects>
+                <navigationController id="AVT-Lj-VS1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rfm-FF-csI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6OR-dQ-UdC" kind="relationship" relationship="rootViewController" id="I20-iB-4DQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYj-1y-9NC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479" y="-507"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="0qP-dm-4bs">
+            <objects>
+                <splitViewController id="3va-bR-HFd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <connections>
+                        <segue destination="AVT-Lj-VS1" kind="relationship" relationship="masterViewController" id="W2D-sf-Sjx"/>
+                        <segue destination="eCc-c3-GWf" kind="relationship" relationship="detailViewController" id="87E-I4-l9G"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwe-5a-JnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-503" y="-40"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="CMViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

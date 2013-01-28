@@ -1,84 +1,151 @@
 //
-//  CMAddReminderViewController.m
+//  CMAddReminderTestViewController.m
 //  Class Mate
 //
-//  Created by Alex Layton on 28/11/2012.
+//  Created by Alex Layton on 17/12/2012.
 //  Copyright (c) 2012 Alex Layton. All rights reserved.
 //
 
 #import "CMAddReminderViewController.h"
-#import "SSTextView.h"
-#import "CMDatePickerView.h"
-
-@interface CMAddReminderViewController ()
-
-@property (nonatomic, strong) CMDatePickerView *pickerView;
-
-@end
+#import "CMPlacesViewController.h"
+#import "ALLocationReminders.h"
+#import "CMAppDelegate.h"
+#import "CMAddress.h"
+#import "CMPlace.h"
 
 @implementation CMAddReminderViewController
 
-@synthesize textView = _textView;
-@synthesize doneButton = _doneButton;
-@synthesize pickerView = _pickerView;
+@synthesize date = _date;
+@synthesize minutesTextField = _minutesTextField;
+@synthesize payloadTextField = _payloadTextField;
+@synthesize locationLabel = _locationLabel;
+@synthesize place = _place;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _textView.placeholder = @"Notes";
-    _doneButton.enabled = NO;
     
-    CGRect test = CGRectMake(0, 0, 320, 480);
-    _pickerView = [[CMDatePickerView alloc] initWithFrame:test];
-    [_pickerView addTargetForDonePressed:self action:@selector(pickerDonePressed)];
-    [_pickerView setHidden:YES animated:YES];
-    [self.view addSubview:_pickerView];
+//    UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
+//    UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
+//    CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
+//    UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
+//    [backgroundView setBackgroundColor:pattern];
+//    self.tableView.backgroundView = backgroundView;
     
+    _minutesTextField.delegate = self;
+    _payloadTextField.delegate = self;
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    _minutesTextField.inputAccessoryView = numberToolbar;
 }
 
-- (void)pickerDonePressed
-{
-    NSLog(@"Picker Pressed: %@", _pickerView.datePicker.date);
-    [_pickerView setHidden:YES animated:YES];
+-(void)cancelNumberPad{
+    [_minutesTextField resignFirstResponder];
+    _minutesTextField.text = @"";
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)doneWithNumberPad{
+    //NSString *numberFromTheKeyboard = numberTextField.text;
+    [_minutesTextField resignFirstResponder];
 }
+    
+#pragma mark - TableView
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 1) {
+        [_minutesTextField becomeFirstResponder];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+#pragma mark - TextField
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark - IBActions
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender
 {
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    
+    int minutes = [_minutesTextField.text integerValue];
+    int seconds = minutes * 60;
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:seconds];
+    
+    CLLocation *location = _place.location;
+    
+    NSString *payload = _payloadTextField.text;
+    [lrm addPreemptiveReminderAtLocation:location payload:payload date:date];
+    
+    [CMAppDelegate customiseAppearance];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender
 {
+    [CMAppDelegate customiseAppearance];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)pickerPressed:(UIButton *)sender
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([sender.titleLabel.text isEqualToString:@"Show Picker"]) {
-        [sender setTitle:@"Hide Picker" forState:UIControlStateNormal];
-        [_pickerView setHidden:NO animated:YES];
-    } else {
-        [sender setTitle:@"Show Picker" forState:UIControlStateNormal];
-        [_pickerView setHidden:YES animated:YES];
+    if ([segue.identifier isEqualToString:@"Places"]) {
+        CMPlacesViewController *pvc = segue.destinationViewController;
+        pvc.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"Tab Bar"]) {
+        UITabBarController *tbc = segue.destinationViewController;
+        NSArray *vcs = tbc.viewControllers;
+        for (id vc in vcs) {
+            if ([vc isKindOfClass:[CMAddressViewController class]]) {
+                CMAddressViewController *avc = vc;
+                avc.delegate = self;
+            } else if ([vc isKindOfClass:[CMPlacesViewController class]]) {
+                CMPlacesViewController *pvc = vc;
+                pvc.delegate = self;
+            } else if ([vc isKindOfClass:[CMFavouritesViewController class]]) {
+                CMFavouritesViewController *fvc = vc;
+                fvc.delegate = self;
+            }
+        }
     }
 }
 
-#pragma mark - Rotation
+#pragma mark - Address Delegate
 
-- (BOOL)shouldAutorotate
+- (void)addressView:(CMAddressViewController *)avc didSelectAddress:(CMAddress *)address
 {
-    return NO;
+    _place = address;
+    _locationLabel.text = address.street;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+#pragma mark - Places Delegate
+
+- (void)placeView:(CMPlacesViewController *)pvc didSelectPlaceDictionary:(NSDictionary *)dict
 {
-    return UIInterfaceOrientationMaskPortrait;
+    //fill this in
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Favourites Delegate
+
+- (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMAddress *)address
+{
+    //fill this in
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

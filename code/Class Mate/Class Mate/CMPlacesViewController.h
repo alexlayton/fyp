@@ -16,7 +16,7 @@
 
 @end
 
-@interface CMPlacesViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface CMPlacesViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSArray *nearbyPlaces;

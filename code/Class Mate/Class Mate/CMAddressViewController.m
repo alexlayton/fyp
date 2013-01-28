@@ -6,13 +6,16 @@
 //  Copyright (c) 2013 Alex Layton. All rights reserved.
 //
 
-#import "CMAddressTestViewController.h"
+#import "CMAddressViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
 #import "CMAddress.h"
 
-@implementation CMAddressTestViewController
+@implementation CMAddressViewController
 
 @synthesize addresses = _addresses;
+@synthesize results = _results;
+@synthesize previousSelectedIndex = _previousSelectedIndex;
+@synthesize delegate = _delegate;
 
 - (void)loadAddresses
 {
@@ -36,13 +39,9 @@
                     ABMultiValueRef addressesRef = ABRecordCopyValue(record, kABPersonAddressProperty);
                     for (int j = 0; j < ABMultiValueGetCount(addressesRef); j++) {
                         CFDictionaryRef dictRef = ABMultiValueCopyValueAtIndex(addressesRef, j);
-                        CMAddress *address = [[CMAddress alloc] initWithAddressReference:dictRef];
-                        
-                        NSLog(@"%@", [address address]);
-                        
-                        if (name && address.zip) {
-                            NSDictionary *dict = @{ @"name": name, @"zip": address.zip };
-                            [_addresses addObject:dict];
+                        if (first) {
+                            CMAddress *address = [[CMAddress alloc] initWithName:name addressReference:dictRef];
+                            if (address.street) [_addresses addObject:address];
                         }
                     }
                 }
@@ -70,6 +69,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.searchDisplayController.searchBar.delegate = self;
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self loadAddresses];
 }
 
@@ -78,24 +84,31 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSLog(@"dismissed alertview");
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"%d", _previousSelectedIndex);
+    self.tabBarController.selectedIndex = _previousSelectedIndex;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _addresses.count;
+    return (tableView == self.searchDisplayController.searchResultsTableView) ? _results.count : _addresses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    NSDictionary *dict = [_addresses objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dict objectForKey:@"name"];
-    cell.detailTextLabel.text = [dict objectForKey:@"zip"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    CMAddress *address = (tableView == self.searchDisplayController.searchResultsTableView) ? [_results objectAtIndex:indexPath.row] : [_addresses objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = address.name;
+    cell.detailTextLabel.text = address.street;
     
     return cell;
 }
@@ -104,7 +117,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //nothing here
+    [_delegate addressView:self didSelectAddress:[_addresses objectAtIndex:indexPath.row]];
+}
+
+#pragma mark - Search
+
+- (void)filterContentForSearchString:(NSString *)searchString scope:(NSString *)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchString];
+    _results = [NSArray arrayWithArray:[_addresses filteredArrayUsingPredicate:resultPredicate]];
+    NSLog(@"Results: %@", _results);
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchString:searchString scope:[self.searchDisplayController.searchBar.scopeButtonTitles objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchString:self.searchDisplayController.searchBar.text scope:[self.searchDisplayController.searchBar.scopeButtonTitles objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
+    return YES;
 }
 
 @end

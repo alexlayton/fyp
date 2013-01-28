@@ -26,12 +26,12 @@
 {
     [super viewDidLoad];
     
-    UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
-    UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
-    CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
-    UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
-    [backgroundView setBackgroundColor:pattern];
-    self.tableView.backgroundView = backgroundView;
+//    UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
+//    UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
+//    CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
+//    UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
+//    [backgroundView setBackgroundColor:pattern];
+//    self.tableView.backgroundView = backgroundView;
     
     UINavigationItem *nav = self.navigationItem;
     nav.title = _settingsType;

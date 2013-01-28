@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMPlace.h"
 
-@interface CMAddress : NSObject
+@class CLLocation;
+
+@interface CMAddress : CMPlace
 
 @property (nonatomic, readonly) NSString *street;
 @property (nonatomic, readonly) NSString *city;
@@ -17,6 +20,8 @@
 @property (nonatomic, readonly) NSString *country;
 
 - (id)initWithAddressReference:(CFDictionaryRef)addressRef;
+- (id)initWithName:(NSString *)name addressReference:(CFDictionaryRef)addressRef;
+- (NSString *)formattedAddress;
 - (NSString *)address;
 
 @end
