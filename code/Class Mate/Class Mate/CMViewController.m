@@ -19,6 +19,11 @@
     
     [CMAppDelegate customiseAppearance];
     
+    //Load toolbar image
+    UIImage *classMate = [UIImage imageNamed:@"class-mate.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:classMate];
+    self.navigationItem.titleView = imageView;
+    
     //change background pattern
     UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
     UIColor *pattern = [UIColor colorWithPatternImage:patternImage];

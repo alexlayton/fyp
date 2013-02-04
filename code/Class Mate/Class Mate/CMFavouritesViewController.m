@@ -8,6 +8,10 @@
 
 #import "CMFavouritesViewController.h"
 #import "CMAddressViewController.h"
+#import "CMFavourites.h"
+#import "CMPlace.h"
+#import "CMAddress.h"
+#import "CMGooglePlace.h"
 
 @implementation CMFavouritesViewController
 
@@ -16,8 +20,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _favourites = [CMFavourites sharedFavourites];
     self.tabBarController.delegate = self;
     self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editPressed:)];
+    self.tabBarController.navigationItem.rightBarButtonItem = edit;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+}
+
+- (void)editPressed:(UIBarButtonItem *)button
+{
+    if (!self.tableView.editing) {
+        button.style = UIBarButtonItemStyleDone;
+        button.title = @"Done";
+        [self.tableView setEditing:YES animated:YES];
+    } else { //not editing
+        button.style = UIBarButtonItemStyleBordered;
+        button.title = @"Edit";
+        [self.tableView setEditing:NO animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,69 +60,74 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _favourites.count;
+    return _favourites.favourites.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
     
     // Configure the cell...
+    CMPlace *place = [_favourites.favourites objectAtIndex:indexPath.row];
+    cell.textLabel.text = place.name;
+    if ([place isKindOfClass:[CMAddress class]]) {
+        cell.detailTextLabel.text = [(CMAddress *)place street];
+    } else if ([place isKindOfClass:[CMGooglePlace class]]) {
+        cell.detailTextLabel.text = [(CMGooglePlace *)place vicinity];
+    }
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
+        [_favourites.favourites removeObjectAtIndex:indexPath.row];
+        [_favourites saveData];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    NSUInteger from = fromIndexPath.row;
+    NSUInteger to = toIndexPath.row;
+    CMPlace *fromPlace = [_favourites.favourites objectAtIndex:from];
+    [_favourites.favourites removeObjectAtIndex:from];
+    [_favourites.favourites insertObject:fromPlace atIndex:to];
+    [_favourites saveData];
 }
-*/
 
-/*
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    //change delegates to CMPlace not address!
+    CMPlace *place = [_favourites.favourites objectAtIndex:indexPath.row];
+    [_delegate favouritesView:self didSelectFavourite:place];
 }
 
 #pragma mark - Tab Bar Delegate

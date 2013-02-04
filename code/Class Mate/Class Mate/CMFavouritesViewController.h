@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class CMFavouritesViewController, CMAddress;
+@class CMFavouritesViewController, CMPlace, CMFavourites;
 
 @protocol CMFavouritesViewDelegate <NSObject>
 
-- (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMAddress *)address;
+- (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMPlace *)place;
 
 @end
 
 @interface CMFavouritesViewController : UITableViewController <UITabBarControllerDelegate>
 
-@property (nonatomic, strong) NSArray *favourites;
+@property (nonatomic, weak) CMFavourites *favourites;
 @property (nonatomic, weak) id<CMFavouritesViewDelegate> delegate;
 
 @end

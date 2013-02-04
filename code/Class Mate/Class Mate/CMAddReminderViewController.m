@@ -57,6 +57,7 @@
     
 #pragma mark - TableView
 
+
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 1) {
@@ -142,7 +143,7 @@
 
 #pragma mark - Favourites Delegate
 
-- (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMAddress *)address
+- (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMPlace *)place
 {
     //fill this in
     [self.navigationController popViewControllerAnimated:YES];

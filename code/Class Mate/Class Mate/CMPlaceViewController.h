@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CMPlace.h>
 
 @interface CMPlaceViewController : UITableViewController
 
-@property (nonatomic, weak) NSDictionary *place;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *addressLabel;
+@property (nonatomic, weak) CMPlace *place;
+
+- (IBAction)favouritePressed:(UIBarButtonItem *)sender;
 
 @end

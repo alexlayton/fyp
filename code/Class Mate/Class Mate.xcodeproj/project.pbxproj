@@ -25,6 +25,8 @@
 		FA0454AC16AEDD89002EB841 /* CMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454AB16AEDD89002EB841 /* CMAddress.m */; };
 		FA0454BC16AF0C0D002EB841 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454BB16AF0C0D002EB841 /* SSTextView.m */; };
 		FA1329F516B402DA00FA5B27 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1329F316B402DA00FA5B27 /* MainStoryboard_iPad.storyboard */; };
+		FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddTestViewController.m */; };
+		FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42401116BBEC2A0092671B /* CMOptionViewController.m */; };
 		FA4683C516A8A2AF007A839C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4683C416A8A2AF007A839C /* AddressBook.framework */; };
 		FA46B8A01668D50100936AE6 /* CMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA46B89F1668D50100936AE6 /* CMMapViewController.m */; };
 		FA46B8A31668D6C700936AE6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA46B8A21668D6C700936AE6 /* MapKit.framework */; };
@@ -45,13 +47,13 @@
 		FA6E7B5D16B15871005EF510 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E7B5B16B15871005EF510 /* gear@2x.png */; };
 		FA6E7B6016B15910005EF510 /* location-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E7B5E16B15910005EF510 /* location-arrow.png */; };
 		FA6E7B6116B15910005EF510 /* location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E7B5F16B15910005EF510 /* location-arrow@2x.png */; };
+		FA6E7FA316B81F8600BCD68E /* CMFavourites.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7FA216B81F8600BCD68E /* CMFavourites.m */; };
 		FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7E19371666999D00A3D890 /* CoreLocation.framework */; };
 		FA9E5BD616A3035C005B130E /* searchbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD416A3035C005B130E /* searchbar.png */; };
 		FA9E5BD716A3035C005B130E /* searchbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD516A3035C005B130E /* searchbar@2x.png */; };
 		FA9E5BDB16A30557005B130E /* CMPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */; };
 		FAA3CEBE16B68BE300BB38A1 /* CMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA3CEBD16B68BE300BB38A1 /* CMPlace.m */; };
 		FAA9A679166CAFEF009E5D1B /* CMSettingsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */; };
-		FAB2389316669DF400C1BB88 /* CMAddReminderOldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB2389216669DF400C1BB88 /* CMAddReminderOldViewController.m */; };
 		FAB6D2B316A8994A00E23526 /* CMAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */; };
 		FAB761CF167F8746001BD9D7 /* CMAddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761CE167F8746001BD9D7 /* CMAddReminderViewController.m */; };
 		FAB761D3167F929B001BD9D7 /* CMPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761D2167F929B001BD9D7 /* CMPlacesViewController.m */; };
@@ -70,7 +72,13 @@
 		FAD322BF1681EBD400FC824C /* CMReminderAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */; };
 		FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */; };
 		FAD4E7BF16B2FFF700ECDC4C /* CMGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */; };
+		FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */; };
 		FAECEA3F167A37940024D6D4 /* CMDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAECEA3E167A37940024D6D4 /* CMDatePickerView.m */; };
+		FAF345A316C057F1003636CC /* navbar-test.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A116C057F1003636CC /* navbar-test.png */; };
+		FAF345A416C057F1003636CC /* navbar-test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A216C057F1003636CC /* navbar-test@2x.png */; };
+		FAF345A716C05A6A003636CC /* class-mate.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A516C05A6A003636CC /* class-mate.png */; };
+		FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A616C05A6A003636CC /* class-mate@2x.png */; };
+		FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +104,10 @@
 		FA0454BB16AF0C0D002EB841 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA1329F416B402DA00FA5B27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		FA42400A16BBDAA50092671B /* CMAddTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddTestViewController.h; sourceTree = "<group>"; };
+		FA42400B16BBDAA50092671B /* CMAddTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddTestViewController.m; sourceTree = "<group>"; };
+		FA42401016BBEC2A0092671B /* CMOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOptionViewController.h; sourceTree = "<group>"; };
+		FA42401116BBEC2A0092671B /* CMOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOptionViewController.m; sourceTree = "<group>"; };
 		FA4683C416A8A2AF007A839C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FA46B89E1668D50000936AE6 /* CMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMapViewController.h; sourceTree = "<group>"; };
 		FA46B89F1668D50100936AE6 /* CMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMapViewController.m; sourceTree = "<group>"; };
@@ -123,6 +135,8 @@
 		FA6E7B5B16B15871005EF510 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
 		FA6E7B5E16B15910005EF510 /* location-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-arrow.png"; sourceTree = "<group>"; };
 		FA6E7B5F16B15910005EF510 /* location-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-arrow@2x.png"; sourceTree = "<group>"; };
+		FA6E7FA116B81F8600BCD68E /* CMFavourites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFavourites.h; sourceTree = "<group>"; };
+		FA6E7FA216B81F8600BCD68E /* CMFavourites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFavourites.m; sourceTree = "<group>"; };
 		FA7E19371666999D00A3D890 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FA9E5BD416A3035C005B130E /* searchbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbar.png; sourceTree = "<group>"; };
 		FA9E5BD516A3035C005B130E /* searchbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar@2x.png"; sourceTree = "<group>"; };
@@ -132,8 +146,6 @@
 		FAA3CEBD16B68BE300BB38A1 /* CMPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPlace.m; sourceTree = "<group>"; };
 		FAA9A677166CAFEF009E5D1B /* CMSettingsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsDetailViewController.h; sourceTree = "<group>"; };
 		FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsDetailViewController.m; sourceTree = "<group>"; };
-		FAB2389116669DF400C1BB88 /* CMAddReminderOldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddReminderOldViewController.h; sourceTree = "<group>"; };
-		FAB2389216669DF400C1BB88 /* CMAddReminderOldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddReminderOldViewController.m; sourceTree = "<group>"; };
 		FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		FAB6D2B116A8994A00E23526 /* CMAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddressViewController.h; sourceTree = "<group>"; };
 		FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddressViewController.m; sourceTree = "<group>"; };
@@ -165,8 +177,16 @@
 		FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMReminderViewController.m; sourceTree = "<group>"; };
 		FAD4E7BD16B2FFF700ECDC4C /* CMGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMGooglePlace.h; sourceTree = "<group>"; };
 		FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGooglePlace.m; sourceTree = "<group>"; };
+		FADAB25F16BD24D800BDC468 /* CMDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDatePickerCell.h; sourceTree = "<group>"; };
+		FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDatePickerCell.m; sourceTree = "<group>"; };
 		FAECEA3D167A37940024D6D4 /* CMDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDatePickerView.h; sourceTree = "<group>"; };
 		FAECEA3E167A37940024D6D4 /* CMDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDatePickerView.m; sourceTree = "<group>"; };
+		FAF345A116C057F1003636CC /* navbar-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test.png"; sourceTree = "<group>"; };
+		FAF345A216C057F1003636CC /* navbar-test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test@2x.png"; sourceTree = "<group>"; };
+		FAF345A516C05A6A003636CC /* class-mate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate.png"; sourceTree = "<group>"; };
+		FAF345A616C05A6A003636CC /* class-mate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate@2x.png"; sourceTree = "<group>"; };
+		FAFD94FB16BFDA2200A5BFA1 /* CMHUDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHUDViewController.h; sourceTree = "<group>"; };
+		FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +211,10 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FAF345A516C05A6A003636CC /* class-mate.png */,
+				FAF345A616C05A6A003636CC /* class-mate@2x.png */,
+				FAF345A116C057F1003636CC /* navbar-test.png */,
+				FAF345A216C057F1003636CC /* navbar-test@2x.png */,
 				FA6E7B5E16B15910005EF510 /* location-arrow.png */,
 				FA6E7B5F16B15910005EF510 /* location-arrow@2x.png */,
 				FA6E7B5A16B15871005EF510 /* gear.png */,
@@ -234,6 +258,8 @@
 				FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */,
 				FA46B89E1668D50000936AE6 /* CMMapViewController.h */,
 				FA46B89F1668D50100936AE6 /* CMMapViewController.m */,
+				FAFD94FB16BFDA2200A5BFA1 /* CMHUDViewController.h */,
+				FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -280,6 +306,8 @@
 				FA0454AB16AEDD89002EB841 /* CMAddress.m */,
 				FAD4E7BD16B2FFF700ECDC4C /* CMGooglePlace.h */,
 				FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */,
+				FADAB25F16BD24D800BDC468 /* CMDatePickerCell.h */,
+				FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -297,10 +325,21 @@
 				FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */,
 				FAB761CD167F8746001BD9D7 /* CMAddReminderViewController.h */,
 				FAB761CE167F8746001BD9D7 /* CMAddReminderViewController.m */,
-				FAB2389116669DF400C1BB88 /* CMAddReminderOldViewController.h */,
-				FAB2389216669DF400C1BB88 /* CMAddReminderOldViewController.m */,
+				FA42400A16BBDAA50092671B /* CMAddTestViewController.h */,
+				FA42400B16BBDAA50092671B /* CMAddTestViewController.m */,
+				FA42401016BBEC2A0092671B /* CMOptionViewController.h */,
+				FA42401116BBEC2A0092671B /* CMOptionViewController.m */,
 			);
 			name = "Add Reminders";
+			sourceTree = "<group>";
+		};
+		FA6E7F9F16B81F6900BCD68E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E7FA116B81F8600BCD68E /* CMFavourites.h */,
+				FA6E7FA216B81F8600BCD68E /* CMFavourites.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		FA7E1936166696A700A3D890 /* ALLocationReminders */ = {
@@ -356,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				FA0454B616AF0609002EB841 /* Application */,
+				FA6E7F9F16B81F6900BCD68E /* Models */,
 				FA0454AE16AF04E1002EB841 /* View Controllers */,
 				FA0454B716AF062F002EB841 /* Views */,
 				FA0454B816AF06DB002EB841 /* Misc */,
@@ -469,6 +509,10 @@
 				FA6E7B6016B15910005EF510 /* location-arrow.png in Resources */,
 				FA6E7B6116B15910005EF510 /* location-arrow@2x.png in Resources */,
 				FA1329F516B402DA00FA5B27 /* MainStoryboard_iPad.storyboard in Resources */,
+				FAF345A316C057F1003636CC /* navbar-test.png in Resources */,
+				FAF345A416C057F1003636CC /* navbar-test@2x.png in Resources */,
+				FAF345A716C05A6A003636CC /* class-mate.png in Resources */,
+				FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +545,6 @@
 				FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */,
 				FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */,
 				FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */,
-				FAB2389316669DF400C1BB88 /* CMAddReminderOldViewController.m in Sources */,
 				FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */,
 				FA46B8A01668D50100936AE6 /* CMMapViewController.m in Sources */,
 				FAA9A679166CAFEF009E5D1B /* CMSettingsDetailViewController.m in Sources */,
@@ -519,6 +562,11 @@
 				FA6E7B4C16B14F09005EF510 /* CMFavouritesViewController.m in Sources */,
 				FAD4E7BF16B2FFF700ECDC4C /* CMGooglePlace.m in Sources */,
 				FAA3CEBE16B68BE300BB38A1 /* CMPlace.m in Sources */,
+				FA6E7FA316B81F8600BCD68E /* CMFavourites.m in Sources */,
+				FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */,
+				FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */,
+				FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */,
+				FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

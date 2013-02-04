@@ -68,28 +68,15 @@
 
 - (IBAction)editPressed:(UIBarButtonItem *)sender
 {
-    NSLog(@"%@", sender.title);
-    if ([sender.title isEqualToString:@"Edit"]) {
-        NSLog(@"edit");
+    if (!self.tableView.editing) {
         [self.tableView setEditing:YES animated:YES];
-        [sender setTitle:@"Done"];
+        sender.title = @"Done";
+        sender.style = UIBarButtonItemStyleDone;
     } else if ([sender.title isEqualToString:@"Done"]) {
-        NSLog(@"done");
         [self.tableView setEditing:NO animated:YES];
-        [sender setTitle:@"Edit"];
+        sender.title = @"Edit";
+        sender.style = UIBarButtonItemStyleBordered;
     }
-}
-
-#pragma mark - Rotation
-
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

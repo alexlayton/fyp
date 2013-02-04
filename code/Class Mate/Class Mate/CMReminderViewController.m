@@ -36,16 +36,4 @@
     NSLog(@"Delete Pressed");
 }
 
-#pragma mark - Rotation
-
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
-
 @end

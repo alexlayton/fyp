@@ -9,6 +9,13 @@
 #import "CMAddressViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
 #import "CMAddress.h"
+#import "CMPlaceViewController.h"
+
+@interface CMAddressViewController ()
+
+@property (nonatomic) NSInteger selectedRow;
+
+@end
 
 @implementation CMAddressViewController
 
@@ -16,6 +23,7 @@
 @synthesize results = _results;
 @synthesize previousSelectedIndex = _previousSelectedIndex;
 @synthesize delegate = _delegate;
+@synthesize selectedRow = _selectedRow;
 
 - (void)loadAddresses
 {
@@ -139,6 +147,17 @@
 {
     [self filterContentForSearchString:self.searchDisplayController.searchBar.text scope:[self.searchDisplayController.searchBar.scopeButtonTitles objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
     return YES;
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UITableViewCell *cell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    CMPlaceViewController *pvc = segue.destinationViewController;
+    NSLog(@"selected row %d", _selectedRow);
+    pvc.place = [_addresses objectAtIndex:indexPath.row];
 }
 
 @end
