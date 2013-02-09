@@ -10,31 +10,37 @@
 #import "ALLocationReminders.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define kTestFlighTeamToken @"5a7b90d8-72ea-4e37-803a-bf93d42a3b99"
+#define kTesting 1
+
 @implementation CMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        //load iPad UI here...
-    }
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//        //load iPad UI here...
+//    }
+    
+    #ifdef kTesting
+        [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    #endif
+    
+    [TestFlight takeOff:kTestFlighTeamToken];
     [CMAppDelegate customiseAppearance];
     return YES;
 }
 
 + (void)customiseAppearance
 {
-    UIImage *navbar = [UIImage imageNamed:@"navbar-test.png"];
+    UIImage *navbar = [UIImage imageNamed:@"navbar.png"];
     [[UINavigationBar appearance] setBackgroundImage:navbar forBarMetrics:UIBarMetricsDefault];
     
     UIImage *backButton = [[UIImage imageNamed:@"backbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 5)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-//    UIImage *barButton = [[UIImage imageNamed:@"barbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-//    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
-//
-    
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.68f green:0.68f blue:0.68f alpha:1.00f]];
+    UIImage *barButton = [[UIImage imageNamed:@"barbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
     
     //done buttons
     UIImage *barButtonBlue = [[UIImage imageNamed:@"barbuttonblue.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
@@ -68,18 +74,18 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-    [lrm saveData];
-    [lrm stopLocationReminders];
-    [lrm startBackgroundLocationReminders];
+//    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+//    [lrm saveData];
+//    [lrm transitionToBackgroundLocationReminders];
+//    NSLog(@"GOing to background...");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-    [lrm saveData];
-    [lrm stopBackgroundLocationReminders];
-    [lrm startLocationReminders];
+//    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+//    [lrm saveData];
+//    [lrm transitionToForegroundLocationReminders];
+//    NSLog(@"Returning to foreground");
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

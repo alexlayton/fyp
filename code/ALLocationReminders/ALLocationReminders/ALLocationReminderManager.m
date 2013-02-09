@@ -58,12 +58,12 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         }
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
-        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-        _locationManager.distanceFilter = 10;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+        _locationManager.distanceFilter = 100;
         _interval = 1;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         _transport = [defaults objectForKey:@"transport"];
-        _minutesBeforeReminderTime = [[defaults objectForKey:@"minutes"] integerValue];
+        _minutesBeforeReminderTime = [[defaults objectForKey:@"minutes"] intValue];
     }
     return self;
 }
@@ -87,15 +87,17 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"transport"]) {
         //setup defaults
+        NSLog(@"setting up defaults...");
         [defaults setObject:kALLocationRemindersTransportTypeDriving forKey:@"transport"];
-        [defaults setObject:@5 forKey:@"minutes"]; //5 minutes before
+        [defaults setObject:@"5" forKey:@"minutes"]; //5 minutes before
     }
 }
 
 - (void)loadDefaults
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //load shit from defaults
+    _transport = [defaults objectForKey:@"transport"];
+    _minutesBeforeReminderTime = [[defaults objectForKey:@"minutes"] intValue];
 }
 
 - (void)startLocationReminders
@@ -117,6 +119,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 - (void)startBackgroundLocationReminders
 {
     _remindersAreRunning = YES;
+    NSLog(@"Starting background reminders...");
     [_locationManager startMonitoringSignificantLocationChanges];
 }
 
@@ -128,6 +131,18 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         [_timer invalidate];
         _timer = nil;
     }
+}
+
+- (void)transitionToBackgroundLocationReminders
+{
+    [_locationManager stopUpdatingLocation];
+    [_locationManager startMonitoringSignificantLocationChanges];
+}
+
+- (void)transitionToForegroundLocationReminders
+{
+    [_locationManager stopMonitoringSignificantLocationChanges];
+    [_locationManager startUpdatingLocation];
 }
 
 - (void)addPreemptiveReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date
@@ -179,7 +194,9 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         [self processReminders];
     }
     
-    [_delegate locationReminderManager:self locationDidChange:_currentLocation];
+    if ([_delegate respondsToSelector:@selector(locationReminderManager:locationDidChange:)]) {
+            [_delegate locationReminderManager:self locationDidChange:_currentLocation];
+    }
 }
 
 - (void)processReminders
@@ -216,7 +233,9 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
             [_store popReminderWithType:kALLocationReminderTypePreemptive];
         }
         //if time has changed call this delegate method
-        [_delegate locationReminderManager:self timeFromPreemptiveLocationDidChange:time];
+        if ([_delegate respondsToSelector:@selector(locationReminderManager:timeFromPreemptiveLocationDidChange:)]) {
+                    [_delegate locationReminderManager:self timeFromPreemptiveLocationDidChange:time];
+        }
     }
 }
 
@@ -256,7 +275,9 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
                 NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * _minutesBeforeReminderTime]; //remove 5 minutes for now
                 
                 NSLog(@"seconds: %d", seconds);
-                [_delegate locationReminderManager:self timeFromPreemptiveLocationDidChange:seconds];
+                if ([_delegate respondsToSelector:@selector(locationReminderManager:timeFromPreemptiveLocationDidChange:)]) {
+                    [_delegate locationReminderManager:self timeFromPreemptiveLocationDidChange:seconds];
+                }
                 
                 if ([projectedDate compare:goalDate] == NSOrderedDescending) {
                     NSLog(@"Fire the reminder");
@@ -311,7 +332,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 {
     //firing!
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
-    if (state == UIApplicationStateActive) { //alert
+    if (state == UIApplicationStateActive) { //alert 
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder" message:reminder.payload delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         [alert show];
     } else { //notification

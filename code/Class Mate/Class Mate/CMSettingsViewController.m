@@ -10,6 +10,7 @@
 #import "CMSettingsDetailViewController.h"
 #import "ALLocationReminders.h"
 #import "CMAppDelegate.h"
+#import "CMPair.h"
 
 @implementation CMSettingsViewController
 
@@ -28,9 +29,9 @@
 {
     [super viewWillAppear:animated];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _distanceLabel.text = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"distance"]];
-    _transportLabel.text = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"transport"]];
-    _reminderLabel.text= [NSString stringWithFormat:@"%@ Minutes", [defaults objectForKey:@"minutes"]];
+    _distanceLabel.text = [[defaults objectForKey:@"distance"] capitalizedString];
+    _transportLabel.text = [[defaults objectForKey:@"transport"] capitalizedString];
+    _reminderLabel.text = [NSString stringWithFormat:@"%@ Minutes", [defaults objectForKey:@"minutes"]];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
@@ -54,36 +55,24 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     CMSettingsDetailViewController *sdvc = segue.destinationViewController;
-    NSDictionary *dictionary;
+    NSArray *options;
     if ([segue.identifier isEqualToString:@"Reminder"]) {
         NSLog(@"Reminder");
         sdvc.settingsType = @"Remind Me";
         sdvc.defaultsKey = @"minutes";
-        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@5, @"5 Minutes", @10, @"10 Minutes", @15, @"15 Minutes", nil];
+        options = @[[CMPair pairWithObj:@"5" description:@"5 Minutes"], [CMPair pairWithObj:@"10" description:@"10 Minutes"], [CMPair pairWithObj:@"15" description:@"15 Minutes"]];
     } else if ([segue.identifier isEqualToString:@"Transport"]) {
         NSLog(@"Transport");
         sdvc.settingsType = @"Transport Method";
         sdvc.defaultsKey = @"transport";
-        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Car", @"Car", @"Walking", @"Walking", @"Cycling", @"Cycling", nil];
+        options = @[[CMPair pairWithObj:kALLocationRemindersTransportTypeDriving description:@"Driving"], [CMPair pairWithObj:kALLocationRemindersTransportTypeWalking description:@"Walking"], [CMPair pairWithObj:kALLocationRemindersTransportTypeCycling description:@"Cycling"]];
     } else if ([segue.identifier isEqualToString:@"Distance"]) {
         NSLog(@"Distance");
         sdvc.settingsType = @"Distance Unit";
         sdvc.defaultsKey = @"distance";
-        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"meters", @"Meters", @"Kilometers", @"Kilometers", @"Miles", @"Miles", nil];
+        options = @[[CMPair pairWithObj:@"meters" description:@"Meters"], [CMPair pairWithObj:@"kilometers" description:@"Kilometers"], [CMPair pairWithObj:@"miles" description:@"Miles"]];
     }
-    sdvc.options = dictionary;
-}
-
-#pragma mark - Rotation
-
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
+    sdvc.options = options;
 }
 
 @end

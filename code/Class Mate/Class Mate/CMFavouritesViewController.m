@@ -20,9 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _favourites = [CMFavourites sharedFavourites];
     self.tabBarController.delegate = self;
-    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -30,12 +28,19 @@
     [super viewWillAppear:animated];
     UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editPressed:)];
     self.tabBarController.navigationItem.rightBarButtonItem = edit;
+    
+    _favourites = [CMFavourites sharedFavourites];
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    [super viewWillDisappear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:self.tabBarController.selectedIndex forKey:@"selectedTab"];
+    [defaults synchronize];
 }
 
 - (void)editPressed:(UIBarButtonItem *)button

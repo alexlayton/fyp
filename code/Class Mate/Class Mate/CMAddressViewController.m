@@ -84,6 +84,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self loadAddresses];
 }
 
@@ -92,9 +98,9 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSLog(@"dismissed alertview");
-    //[self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"%d", _previousSelectedIndex);
-    self.tabBarController.selectedIndex = _previousSelectedIndex;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int selectedTab = [(NSNumber*)[defaults objectForKey:@"selectedTab"] intValue];
+    self.tabBarController.selectedIndex = selectedTab;
 }
 
 #pragma mark - Table view data source

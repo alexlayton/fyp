@@ -18,6 +18,7 @@ extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeD
 
 @protocol ALLocationReminderDelegate <NSObject>
 
+@optional
 - (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager locationDidChange:(CLLocation *)location;
 - (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager reminderFired:(ALLocationReminder *)reminder;
 - (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager timeFromPreemptiveLocationDidChange:(NSInteger)time;
@@ -41,6 +42,8 @@ extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeD
 - (void)stopLocationReminders;
 - (void)startBackgroundLocationReminders;
 - (void)stopBackgroundLocationReminders;
+- (void)transitionToBackgroundLocationReminders;
+- (void)transitionToForegroundLocationReminders;
 - (BOOL)areRemindersRunning;
 - (void)addPreemptiveReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
 - (void)addPreemptiveReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;

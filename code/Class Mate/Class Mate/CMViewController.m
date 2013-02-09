@@ -13,6 +13,13 @@
 
 @implementation CMViewController
 
+@synthesize feedbackCell = _feedbackCell;
+
+- (void)launchFeedback
+{
+    [TestFlight openFeedbackView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
@@ -33,6 +40,22 @@
     self.tableView.backgroundView = backgroundView;
     
     [ALLocationReminderManager sharedManager]; //init shared manager
+    
+    
+    //testflight stuff...
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchFeedback)];
+    [_feedbackCell addGestureRecognizer:tgr];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    BOOL locationIsEnabled = [CLLocationManager locationServicesEnabled];
+    NSLog(@"enabled? %d", locationIsEnabled);
+    if (!locationIsEnabled) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Need Location" message:@"Allow access to location to use this app" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning

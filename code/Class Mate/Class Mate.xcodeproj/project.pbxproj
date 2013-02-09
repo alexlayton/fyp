@@ -54,6 +54,7 @@
 		FA9E5BDB16A30557005B130E /* CMPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */; };
 		FAA3CEBE16B68BE300BB38A1 /* CMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA3CEBD16B68BE300BB38A1 /* CMPlace.m */; };
 		FAA9A679166CAFEF009E5D1B /* CMSettingsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */; };
+		FAAB414616C524CA000B9A6F /* CMPair.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB414516C524CA000B9A6F /* CMPair.m */; };
 		FAB6D2B316A8994A00E23526 /* CMAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */; };
 		FAB761CF167F8746001BD9D7 /* CMAddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761CE167F8746001BD9D7 /* CMAddReminderViewController.m */; };
 		FAB761D3167F929B001BD9D7 /* CMPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761D2167F929B001BD9D7 /* CMPlacesViewController.m */; };
@@ -69,11 +70,12 @@
 		FAB95B981663AE8D00A09853 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B961663AE8D00A09853 /* MainStoryboard_iPhone.storyboard */; };
 		FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B9A1663AE8D00A09853 /* CMViewController.m */; };
 		FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */; };
+		FACC102516C58D5000EADB3F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC102416C58D5000EADB3F /* icon@2x.png */; };
+		FACC102816C58D5700EADB3F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC102716C58D5700EADB3F /* icon.png */; };
 		FAD322BF1681EBD400FC824C /* CMReminderAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */; };
 		FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */; };
 		FAD4E7BF16B2FFF700ECDC4C /* CMGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */; };
 		FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */; };
-		FAECEA3F167A37940024D6D4 /* CMDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAECEA3E167A37940024D6D4 /* CMDatePickerView.m */; };
 		FAF345A316C057F1003636CC /* navbar-test.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A116C057F1003636CC /* navbar-test.png */; };
 		FAF345A416C057F1003636CC /* navbar-test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A216C057F1003636CC /* navbar-test@2x.png */; };
 		FAF345A716C05A6A003636CC /* class-mate.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A516C05A6A003636CC /* class-mate.png */; };
@@ -146,6 +148,8 @@
 		FAA3CEBD16B68BE300BB38A1 /* CMPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPlace.m; sourceTree = "<group>"; };
 		FAA9A677166CAFEF009E5D1B /* CMSettingsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsDetailViewController.h; sourceTree = "<group>"; };
 		FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsDetailViewController.m; sourceTree = "<group>"; };
+		FAAB414416C524CA000B9A6F /* CMPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPair.h; sourceTree = "<group>"; };
+		FAAB414516C524CA000B9A6F /* CMPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPair.m; sourceTree = "<group>"; };
 		FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		FAB6D2B116A8994A00E23526 /* CMAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddressViewController.h; sourceTree = "<group>"; };
 		FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddressViewController.m; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 		FAB95B9A1663AE8D00A09853 /* CMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMViewController.m; sourceTree = "<group>"; };
 		FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsViewController.h; sourceTree = "<group>"; };
 		FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsViewController.m; sourceTree = "<group>"; };
+		FACC102416C58D5000EADB3F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		FACC102716C58D5700EADB3F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		FAD322BD1681EBD400FC824C /* CMReminderAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderAnnotation.h; sourceTree = "<group>"; };
 		FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMReminderAnnotation.m; sourceTree = "<group>"; };
 		FAD330641666DB3D00CF8DC9 /* CMReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderViewController.h; sourceTree = "<group>"; };
@@ -179,8 +185,6 @@
 		FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGooglePlace.m; sourceTree = "<group>"; };
 		FADAB25F16BD24D800BDC468 /* CMDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDatePickerCell.h; sourceTree = "<group>"; };
 		FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDatePickerCell.m; sourceTree = "<group>"; };
-		FAECEA3D167A37940024D6D4 /* CMDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDatePickerView.h; sourceTree = "<group>"; };
-		FAECEA3E167A37940024D6D4 /* CMDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDatePickerView.m; sourceTree = "<group>"; };
 		FAF345A116C057F1003636CC /* navbar-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test.png"; sourceTree = "<group>"; };
 		FAF345A216C057F1003636CC /* navbar-test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test@2x.png"; sourceTree = "<group>"; };
 		FAF345A516C05A6A003636CC /* class-mate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate.png"; sourceTree = "<group>"; };
@@ -289,8 +293,6 @@
 		FA0454B716AF062F002EB841 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAECEA3D167A37940024D6D4 /* CMDatePickerView.h */,
-				FAECEA3E167A37940024D6D4 /* CMDatePickerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -308,6 +310,8 @@
 				FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */,
 				FADAB25F16BD24D800BDC468 /* CMDatePickerCell.h */,
 				FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */,
+				FAAB414416C524CA000B9A6F /* CMPair.h */,
+				FAAB414516C524CA000B9A6F /* CMPair.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -359,6 +363,8 @@
 		FAB95B6F1663AE8D00A09853 = {
 			isa = PBXGroup;
 			children = (
+				FACC102716C58D5700EADB3F /* icon.png */,
+				FACC102416C58D5000EADB3F /* icon@2x.png */,
 				FAB95B841663AE8D00A09853 /* Class Mate */,
 				FAB95B7D1663AE8D00A09853 /* Frameworks */,
 				FAB95B7B1663AE8D00A09853 /* Products */,
@@ -513,6 +519,8 @@
 				FAF345A416C057F1003636CC /* navbar-test@2x.png in Resources */,
 				FAF345A716C05A6A003636CC /* class-mate.png in Resources */,
 				FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */,
+				FACC102516C58D5000EADB3F /* icon@2x.png in Resources */,
+				FACC102816C58D5700EADB3F /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +559,6 @@
 				FA664A2C16788A72007DC494 /* ALLocationReminderManager.m in Sources */,
 				FA664A2D16788A72007DC494 /* ALLocationReminderStore.m in Sources */,
 				FA664A2E16788A72007DC494 /* ALLocationReminder.m in Sources */,
-				FAECEA3F167A37940024D6D4 /* CMDatePickerView.m in Sources */,
 				FAB761CF167F8746001BD9D7 /* CMAddReminderViewController.m in Sources */,
 				FAB761D3167F929B001BD9D7 /* CMPlacesViewController.m in Sources */,
 				FAD322BF1681EBD400FC824C /* CMReminderAnnotation.m in Sources */,
@@ -567,6 +574,7 @@
 				FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */,
 				FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */,
 				FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */,
+				FAAB414616C524CA000B9A6F /* CMPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,7 +667,7 @@
 				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
 				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -672,7 +680,7 @@
 				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
 				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

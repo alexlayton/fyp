@@ -10,6 +10,9 @@
 #import <AFNetworking/AFNetworking.h>
 #import "ALLocationReminders.h"
 #import "CMAddressViewController.h"
+#import "CMPlaceViewController.h"
+#import "CMPlace.h"
+#import "CMGooglePlace.h"
 
 @interface CMPlacesViewController ()
 
@@ -41,7 +44,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self showNearbyPlaces];
+    
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    
+//    UIBarButtonItem *locationButton = [[UIBarButtonItem alloc] initWithTitle:@"loc" style:UIBarButtonItemStyleBordered target:self action:@selector(currentLocationPressed:)];
+//    self.tabBarController.navigationItem.rightBarButtonItem = locationButton;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:self.tabBarController.selectedIndex forKey:@"selectedTab"];
+    [defaults synchronize];
 }
 
 - (void)showNearbyPlaces
@@ -55,13 +73,18 @@
     NSString *ll = [NSString stringWithFormat:@"%f,%f", location.coordinate.latitude, location.coordinate.longitude]; //last location
     NSString *baseURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json";
     
-    NSString *urlString = [NSString stringWithFormat:@"%@?location=%@&radius=500&sensor=true&key=%@", baseURL, ll, key];
+    NSString *urlString = [NSString stringWithFormat:@"%@?location=%@&radius=1000&sensor=true&key=%@", baseURL, ll, key];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"Date: %@", JSON);
-        _nearbyPlaces = [JSON valueForKey:@"results"];
+        NSArray *results = [JSON valueForKey:@"results"];
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithCapacity:results.count];
+        for (NSDictionary *place in results) {
+            CMGooglePlace *gp = [[CMGooglePlace alloc] initWithDictionary:place];
+            [temp addObject:gp];
+        }
+        _nearbyPlaces = [NSArray arrayWithArray:temp];
         [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     } failure:nil];
     [operation start];
@@ -78,18 +101,22 @@
     NSString *ll = [NSString stringWithFormat:@"%f,%f", location.coordinate.latitude, location.coordinate.longitude]; //last location
     NSString *baseURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json";
     
-    NSString *urlString = [NSString stringWithFormat:@"%@?location=%@&radius=500&sensor=true&key=%@&keyword=%@", baseURL, ll, key, searchString];
+    NSString *urlString = [NSString stringWithFormat:@"%@?location=%@&sensor=true&key=%@&keyword=%@&rankby=distance", baseURL, ll, key, searchString];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        _filteredPlaces = [JSON valueForKey:@"results"];
-        for (NSDictionary *place in _filteredPlaces) {
-            NSLog(@"%@", [place objectForKey:@"name"]);
+        NSArray *results = [JSON valueForKey:@"results"];
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithCapacity:results.count];
+        for (NSDictionary *place in results) {
+            CMGooglePlace *gp = [[CMGooglePlace alloc] initWithDictionary:place];
+            [temp addObject:gp];
         }
-        //[self.searchDisplayController.searchResultsTableView reloadData];
-        //this should work...
-        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        _filteredPlaces = [NSArray arrayWithArray:temp];
+        for (CMGooglePlace *place in _nearbyPlaces) {
+            NSLog(@"Place: %@, Vicinity: %@", place.name, place.vicinity);
+        }
+        [self.searchDisplayController.searchResultsTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     } failure:nil];
     [operation start];
 }
@@ -115,10 +142,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    NSDictionary *place = (tableView == self.searchDisplayController.searchResultsTableView) ? [_filteredPlaces objectAtIndex:indexPath.row] : [_nearbyPlaces objectAtIndex:indexPath.row];
+    CMGooglePlace *place = (tableView == self.searchDisplayController.searchResultsTableView) ? [_filteredPlaces objectAtIndex:indexPath.row] : [_nearbyPlaces objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [place valueForKey:@"name"];
-    cell.detailTextLabel.text = [place valueForKey:@"vicinity"];
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    cell.textLabel.text = place.name;
+    cell.detailTextLabel.text = place.vicinity;
     
     return cell;
     
@@ -128,7 +156,8 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    [_delegate placeView:self didSelectPlaceDictionary:[_nearbyPlaces objectAtIndex:indexPath.row]];
+    CMGooglePlace *place = [_nearbyPlaces objectAtIndex:indexPath.row];
+    [_delegate placeView:self didSelectPlace:place];
 }
 
 #pragma mark - Search
@@ -161,6 +190,16 @@
         NSLog(@"%d", _selectedIndex);
         avc.previousSelectedIndex = _selectedIndex;
     }
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UITableViewCell *cell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    CMPlaceViewController *pvc = segue.destinationViewController;
+    pvc.place = (self.searchDisplayController.isActive) ? [_filteredPlaces objectAtIndex:indexPath.row] : [_nearbyPlaces objectAtIndex:indexPath.row];
 }
 
 @end

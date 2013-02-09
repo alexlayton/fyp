@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class CMPlacesViewController, CLLocation;
+@class CMPlacesViewController, CLLocation, CMGooglePlace;
 
 @protocol CMPlacesViewDelegate <NSObject>
 
-- (void)placeView:(CMPlacesViewController *)pvc didSelectPlaceDictionary:(NSDictionary *)dict;
+- (void)placeView:(CMPlacesViewController *)pvc didSelectPlace:(CMGooglePlace *)place;
 
 @end
 
@@ -20,7 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSArray *nearbyPlaces;
-@property (nonatomic, strong) NSMutableArray *filteredPlaces;
+@property (nonatomic, strong) NSArray *filteredPlaces;
 @property (nonatomic, weak) id<CMPlacesViewDelegate> delegate;
 
 @end

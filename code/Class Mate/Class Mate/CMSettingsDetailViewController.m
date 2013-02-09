@@ -7,6 +7,7 @@
 //
 
 #import "CMSettingsDetailViewController.h"
+#import "CMPair.h"
 
 @interface CMSettingsDetailViewController ()
 
@@ -26,13 +27,6 @@
 {
     [super viewDidLoad];
     
-//    UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
-//    UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
-//    CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
-//    UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
-//    [backgroundView setBackgroundColor:pattern];
-//    self.tableView.backgroundView = backgroundView;
-    
     UINavigationItem *nav = self.navigationItem;
     nav.title = _settingsType;
     
@@ -40,10 +34,10 @@
     _currentValue = [defaults objectForKey:_defaultsKey];
 }
 
-- (void)saveSelection:(id)value
+- (void)saveSelection:(CMPair *)pair
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:value forKey:_defaultsKey];
+    [defaults setObject:pair.obj forKey:_defaultsKey];
     [defaults synchronize];
 }
 
@@ -56,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _options.allKeys.count;
+    return _options.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,12 +61,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
-    NSString *key = [_options.allKeys objectAtIndex:indexPath.row];
+    CMPair *pair = [_options objectAtIndex:indexPath.row];
 
-    cell.textLabel.text = key;
+    cell.textLabel.text = pair.objDescription;
     
-    id obj = [_options objectForKey:key];
-    if ([obj isEqual:_currentValue]) {
+    if ([pair.obj isEqualToString:_currentValue]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         _currentValuePostion = indexPath;
     } else {
@@ -91,22 +84,10 @@
     if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         currentValueCell.accessoryType = UITableViewCellAccessoryNone;
-        [self saveSelection:[_options objectForKey:[_options.allKeys objectAtIndex:indexPath.row]]];
+        [self saveSelection:[_options objectAtIndex:indexPath.row]];
         _currentValuePostion = indexPath;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - Rotation
-
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

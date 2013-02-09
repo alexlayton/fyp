@@ -30,8 +30,12 @@
 @synthesize repeatLabel = _repeatLabel;
 @synthesize typeLabel = _typeLabel;
 @synthesize locationLabel = _locationLabel;
+@synthesize transportLabel = _transportLabel;
+@synthesize remindLabel = _remindLabel;
+@synthesize dateLabel = _dateLabel;
 @synthesize datePicker = _datePicker;
 @synthesize toolbar = _toolbar;
+@synthesize doneButton = _doneButton;
 
 - (void)addReminder
 {
@@ -45,14 +49,21 @@
 - (IBAction)donePressed:(UIBarButtonItem *)sender
 {
     [self addReminder];
+    _doneButton.enabled = NO;
     [CMAppDelegate customiseAppearance];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender
 {
+    _doneButton.enabled = NO;
     [CMAppDelegate customiseAppearance];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)titleChanged:(UITextField *)textField
+{
+    _doneButton.enabled = (![textField.text isEqualToString:@""] && _date && _place) ? YES : NO;
 }
 
 #pragma mark - TextField
@@ -60,6 +71,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    if (_date && _place && ![textField.text isEqualToString:@""]) _doneButton.enabled = YES;
     return YES;
 }
 
@@ -67,10 +79,15 @@
 {
     [super viewDidLoad];
     
+    _doneButton.enabled = NO;
+    _repeatLabel.text = @"Never";
+    _dateLabel.text = @" ";
+    
     _titleTextField.delegate = self;
     
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 200, 320, 216)];
     _datePicker.hidden = YES;
+    _datePicker.minimumDate = [NSDate date];
     [_datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     
     _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 156, 320, 44)];
@@ -85,15 +102,17 @@
     [self.view addSubview:_toolbar];
     
     
-    NSLog(@"timecell -> %@", _timeCell);
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timePressed:)];
     [_timeCell addGestureRecognizer:tgr];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _remindLabel.text = [NSString stringWithFormat:@"%@ Minutes", [defaults objectForKey:@"minutes"]];
+    _transportLabel.text = [[defaults objectForKey:@"transport"] capitalizedString];
 }
 
 - (void)timePressed:(id)sender
@@ -131,8 +150,12 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.timeStyle = NSDateFormatterShortStyle;
-    formatter.dateStyle = NSDateFormatterNoStyle;
-    _timeCell.detailTextLabel.text = [formatter stringFromDate:_date];
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    _date = _datePicker.date;
+    NSString *formattedDate = [formatter stringFromDate:_date];
+_dateLabel.text = formattedDate;
+    
+    
     [self hidePicker];
 }
 
@@ -178,14 +201,17 @@
 {
      _place = address;
     _locationLabel.text = address.street;
+    if (_titleTextField.text && _date) _doneButton.enabled = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Places Delegate
 
-- (void)placeView:(CMPlacesViewController *)pvc didSelectPlaceDictionary:(NSDictionary *)dict
+- (void)placeView:(CMPlacesViewController *)pvc didSelectPlace:(CMGooglePlace *)place
 {
-    //fill this in
+    _place = place;
+    _locationLabel.text = place.vicinity;
+    if (_titleTextField.text && _date) _doneButton.enabled = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -193,7 +219,15 @@
 
 - (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMPlace *)place
 {
-    //here too...
+    _place = place;
+    if ([place isKindOfClass:[CMGooglePlace class]]) {
+        CMGooglePlace *gp = (CMGooglePlace *)place;
+        _locationLabel.text = gp.vicinity;
+    } else if ([place isKindOfClass:[CMAddress class]]) {
+        CMAddress *addr = (CMAddress *)place;
+        _locationLabel.text = addr.street;
+    }
+    if (_titleTextField.text && _date) _doneButton.enabled = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

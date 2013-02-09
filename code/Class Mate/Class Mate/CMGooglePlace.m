@@ -21,10 +21,11 @@
     if (self) {
         _name = [dict objectForKey:@"name"];
         _vicinity = [dict objectForKey:@"vicinity"];
-        NSDictionary *geometry = [dict objectForKey:@"geometry"];
+        NSDictionary *geometry = [[dict objectForKey:@"geometry"] objectForKey:@"location"];
         double lat = [[geometry objectForKey:@"lat"] doubleValue];
-        double lon = [[geometry objectForKey:@"lon"] doubleValue];
+        double lon = [[geometry objectForKey:@"lng"] doubleValue];
         _location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+        NSLog(@"Location: %@", _location);
     }
     return self;
 }

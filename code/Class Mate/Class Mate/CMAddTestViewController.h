@@ -23,8 +23,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *repeatLabel;
 @property (strong, nonatomic) IBOutlet UILabel *typeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *transportLabel;
+@property (strong, nonatomic) IBOutlet UILabel *remindLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender;
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender;
+- (IBAction)titleChanged:(UITextField *)textField;
 
 @end

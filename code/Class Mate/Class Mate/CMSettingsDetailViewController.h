@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class ALDefaultsPair;
+
 @interface CMSettingsDetailViewController : UITableViewController
 
 @property (nonatomic, strong) NSString *defaultsKey;
-@property (nonatomic, strong) NSDictionary *options;
-@property (nonatomic, strong) id currentValue;
+@property (nonatomic, strong) NSArray *options;
+@property (nonatomic, strong) NSString *currentValue;
 @property (nonatomic, weak) NSString *settingsType;
 
 @end

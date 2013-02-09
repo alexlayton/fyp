@@ -10,6 +10,8 @@
 
 @interface CMViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UITableViewCell *feedbackCell;
+
 - (IBAction)startPressed:(UIBarButtonItem *)sender;
 
 @end
