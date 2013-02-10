@@ -39,8 +39,8 @@
     [backgroundView setBackgroundColor:pattern];
     self.tableView.backgroundView = backgroundView;
     
-    [ALLocationReminderManager sharedManager]; //init shared manager
-    
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm startLocation];
     
     //testflight stuff...
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchFeedback)];
@@ -87,12 +87,12 @@
 - (IBAction)startPressed:(UIBarButtonItem *)sender
 {
     NSLog(@"Start Pressed");
-    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    //ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     if ([sender.title isEqualToString:@"Start"]) {
-        [lrm startLocationReminders];
+        //[lrm startLocationReminders];
         [sender setTitle:@"Stop"];
     } else if ([sender.title isEqualToString:@"Stop"]) {
-        [lrm stopLocationReminders];
+        //[lrm stopLocationReminders];
         [sender setTitle:@"Start"];
     }
 

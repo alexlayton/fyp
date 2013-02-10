@@ -53,9 +53,11 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     if (self) {
         [self setupDefaults]; //add defaults if dont exist
         _store = [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]];
+        
         if (!_store) {
             _store = [[ALLocationReminderStore alloc] init];
         }
+        
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
@@ -64,6 +66,10 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         _transport = [defaults objectForKey:@"transport"];
         _minutesBeforeReminderTime = [[defaults objectForKey:@"minutes"] intValue];
+        
+        if (_store.preemptiveReminders.count > 0 || _store.locationReminders.count > 0) {
+            [self startLocationReminders];
+        }
     }
     return self;
 }
@@ -116,6 +122,20 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     }
 }
 
+- (void)startLocation
+{
+    if (!_remindersAreRunning) {
+        [_locationManager startUpdatingLocation];
+    }
+}
+
+- (void)stopLocation
+{
+    if (!_remindersAreRunning) {
+        [_locationManager stopUpdatingLocation];
+    }
+}
+
 - (void)startBackgroundLocationReminders
 {
     _remindersAreRunning = YES;
@@ -149,24 +169,36 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 {
     ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_currentLocation payload:payload date:date];
     [_store pushReminder:reminder type:kALLocationReminderTypePreemptive];
+    if (!_remindersAreRunning) {
+        [self startLocationReminders];
+    }
 }
 
 - (void)addPreemptiveReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
 {
     ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:location payload:payload date:date];
     [_store pushReminder:reminder type:kALLocationReminderTypePreemptive];
+    if (!_remindersAreRunning) {
+        [self startLocationReminders];
+    }
 }
 
 - (void)addLocationReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date
 {
     ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_currentLocation payload:payload date:date];
     [_store pushReminder:reminder type:kALLocationReminderTypeLocation];
+    if (!_remindersAreRunning) {
+        [self startLocationReminders];
+    }
 }
 
 - (void)addLocationReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
 {
     ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:location payload:payload date:date];
     [_store pushReminder:reminder type:kALLocationReminderTypeLocation];
+    if (!_remindersAreRunning) {
+        [self startLocationReminders];
+    }
 }
 
 - (void)addDateBasedReminderWithPayload:(NSString *)payload date:(NSDate *)date
@@ -185,13 +217,14 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     _currentLocation = [locations lastObject];
     if (_currentLocation.speed > 0) _speed = _currentLocation.speed;
     
-    NSLog(@"location update reminder count: %d", _store.preemptiveReminders.count);
-
-    if (_timer) {
-        NSLog(@"Timer fired premature");
-        [_timer fire]; //if there is a timer active now fire it
-    } else {
-        [self processReminders];
+    if (_remindersAreRunning) {
+        NSLog(@"location update reminder count: %d", _store.preemptiveReminders.count);
+        if (_timer) {
+            NSLog(@"Timer fired premature");
+            [_timer fire]; //if there is a timer active now fire it
+        } else {
+            [self processReminders];
+        }
     }
     
     if ([_delegate respondsToSelector:@selector(locationReminderManager:locationDidChange:)]) {
@@ -213,9 +246,13 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     //    [self printPreempriveReminders];
     [self ProcessPreemptiveReminderWithMaps:_currentLocation];
     
-    //start timer again after processing reminders
-    NSLog(@"Starting timer");
-    _timer = [NSTimer scheduledTimerWithTimeInterval:_interval * 60 target:self selector:@selector(processReminders) userInfo:nil repeats:NO];
+    if (_store.preemptiveReminders.count == 0 && _store.locationReminders.count == 0) {
+        [self stopLocationReminders];
+    } else {
+        //start timer again after processing reminders
+        NSLog(@"Starting timer");
+        _timer = [NSTimer scheduledTimerWithTimeInterval:_interval * 60 target:self selector:@selector(processReminders) userInfo:nil repeats:NO];
+    }
 }
 
 - (void)processPreemptiveReminder:(CLLocation *)currentLocation
@@ -309,7 +346,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     }
 }
 
-- (void)printPreempriveReminders
+- (void)printPreemptiveReminders
 {
     NSMutableArray *reminders = _store.preemptiveReminders;
     if (reminders.count > 0) {
@@ -323,7 +360,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 - (CLRegion *)makeRegionFromLocation:(CLLocation *)location
 {
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
-    CLLocationDistance radius = 10.0; //10 metres
+    CLLocationDistance radius = 100.0; //100 metres
     CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coord radius:radius identifier:@"region"];
     return region;
 }
@@ -338,6 +375,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
     } else { //notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.alertBody = reminder.payload;
+        notification.soundName = @"sound.wav";
         notification.fireDate = [[NSDate date] dateByAddingTimeInterval:1];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }

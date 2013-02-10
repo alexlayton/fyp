@@ -24,6 +24,7 @@
 		FA04462516808E9E00C47BA8 /* pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA04462316808E9E00C47BA8 /* pattern@2x.png */; };
 		FA0454AC16AEDD89002EB841 /* CMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454AB16AEDD89002EB841 /* CMAddress.m */; };
 		FA0454BC16AF0C0D002EB841 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454BB16AF0C0D002EB841 /* SSTextView.m */; };
+		FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05516C7C2CE00E785F3 /* sound.wav */; };
 		FA1329F516B402DA00FA5B27 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1329F316B402DA00FA5B27 /* MainStoryboard_iPad.storyboard */; };
 		FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddTestViewController.m */; };
 		FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42401116BBEC2A0092671B /* CMOptionViewController.m */; };
@@ -104,6 +105,7 @@
 		FA0454AB16AEDD89002EB841 /* CMAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddress.m; sourceTree = "<group>"; };
 		FA0454BA16AF0C0D002EB841 /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
 		FA0454BB16AF0C0D002EB841 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
+		FA04D05516C7C2CE00E785F3 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA1329F416B402DA00FA5B27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		FA42400A16BBDAA50092671B /* CMAddTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddTestViewController.h; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 		FAB95B851663AE8D00A09853 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA04D05516C7C2CE00E785F3 /* sound.wav */,
 				FA0454BA16AF0C0D002EB841 /* SSTextView.h */,
 				FA0454BB16AF0C0D002EB841 /* SSTextView.m */,
 				FA04460D1680832700C47BA8 /* Images */,
@@ -521,6 +524,7 @@
 				FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */,
 				FACC102516C58D5000EADB3F /* icon@2x.png in Resources */,
 				FACC102816C58D5700EADB3F /* icon.png in Resources */,
+				FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

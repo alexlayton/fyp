@@ -40,6 +40,8 @@ extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeD
 - (void)saveData;
 - (void)startLocationReminders;
 - (void)stopLocationReminders;
+- (void)startLocation;
+- (void)stopLocation;
 - (void)startBackgroundLocationReminders;
 - (void)stopBackgroundLocationReminders;
 - (void)transitionToBackgroundLocationReminders;

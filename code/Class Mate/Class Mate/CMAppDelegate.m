@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define kTestFlighTeamToken @"5a7b90d8-72ea-4e37-803a-bf93d42a3b99"
-#define kTesting 1
+//#define kTesting 1
 
 @implementation CMAppDelegate
 
@@ -74,18 +74,16 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-//    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-//    [lrm saveData];
-//    [lrm transitionToBackgroundLocationReminders];
-//    NSLog(@"GOing to background...");
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    [lrm stopLocation]; //if necessary
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-//    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-//    [lrm saveData];
-//    [lrm transitionToForegroundLocationReminders];
-//    NSLog(@"Returning to foreground");
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    [lrm startLocation]; //if necessary
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -95,7 +93,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [[ALLocationReminderManager sharedManager] saveData];
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    if (lrm.remindersAreRunning) {
+        [lrm stopLocationReminders];
+    }
 }
 
 @end

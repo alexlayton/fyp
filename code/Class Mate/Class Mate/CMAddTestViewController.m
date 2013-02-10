@@ -127,8 +127,16 @@
         CGRect toolbarFrame = _toolbar.frame;
         _datePicker.hidden = NO;
         _toolbar.hidden = NO;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:_timeCell];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        
+        self.tableView.delaysContentTouches = NO;
+        self.tableView.canCancelContentTouches = NO;
+        
         [UIView animateWithDuration:0.3f animations:^{
             //NSLog(@"Animating");
+
             _datePicker.frame = CGRectMake(0, 200, pickerFrame.size.width, pickerFrame.size.height);
             _toolbar.frame = CGRectMake(0, 156, toolbarFrame.size.width, toolbarFrame.size.height);
         }];
@@ -137,6 +145,9 @@
 
 - (void)hidePicker
 {
+    self.tableView.delaysContentTouches = YES;
+    self.tableView.canCancelContentTouches = YES;
+    
     [UIView animateWithDuration:0.3f animations:^{
         _datePicker.frame = CGRectMake(0, self.view.frame.size.height, _datePicker.frame.size.width, _datePicker.frame.size.height);
         _toolbar.frame = CGRectMake(0, self.view.frame.size.height, _toolbar.frame.size.width, _toolbar.frame.size.height);
@@ -174,12 +185,20 @@ _dateLabel.text = formattedDate;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     //NSLog(@"scrolling");
-    CGRect tableBounds = self.tableView.bounds;
-    CGRect pickerFrame = _datePicker.frame;
-    CGRect toolbarFrame = _toolbar.frame;
+//    CGRect tableBounds = self.tableView.bounds;
+//    CGRect pickerFrame = _datePicker.frame;
+//    CGRect toolbarFrame = _toolbar.frame;
+//    
+//    _datePicker.frame = CGRectMake(0, 200 + tableBounds.origin.y, pickerFrame.size.width, pickerFrame.size.height);
+//    _toolbar.frame = CGRectMake(0, 156 + tableBounds.origin.y, toolbarFrame.size.width, toolbarFrame.size.height);
     
-    _datePicker.frame = CGRectMake(0, 200 + tableBounds.origin.y, pickerFrame.size.width, pickerFrame.size.height);
-    _toolbar.frame = CGRectMake(0, 156 + tableBounds.origin.y, toolbarFrame.size.width, toolbarFrame.size.height);
+    if ([_titleTextField isFirstResponder]) {
+        [_titleTextField resignFirstResponder];
+    }
+    
+    if (!_datePicker.hidden) {
+        [self hidePicker];
+    }
 }
 
 #pragma mark - Option Delegate
