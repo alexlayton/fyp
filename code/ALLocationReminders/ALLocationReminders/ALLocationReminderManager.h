@@ -35,6 +35,7 @@ extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeD
 @property (nonatomic) BOOL remindersAreRunning;
 @property (nonatomic) ALLocationRemindersTransportType transport;
 @property (nonatomic) int minutesBeforeReminderTime;
+@property (nonatomic) int seconds;
 
 + (ALLocationReminderManager *)sharedManager;
 - (void)saveData;

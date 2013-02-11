@@ -25,6 +25,8 @@
 		FA0454AC16AEDD89002EB841 /* CMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454AB16AEDD89002EB841 /* CMAddress.m */; };
 		FA0454BC16AF0C0D002EB841 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454BB16AF0C0D002EB841 /* SSTextView.m */; };
 		FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05516C7C2CE00E785F3 /* sound.wav */; };
+		FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D05B16C80EE300E785F3 /* CMHUDView.m */; };
+		FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05D16C80F2300E785F3 /* CMHUDView.xib */; };
 		FA1329F516B402DA00FA5B27 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1329F316B402DA00FA5B27 /* MainStoryboard_iPad.storyboard */; };
 		FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddTestViewController.m */; };
 		FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42401116BBEC2A0092671B /* CMOptionViewController.m */; };
@@ -50,6 +52,8 @@
 		FA6E7B6116B15910005EF510 /* location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E7B5F16B15910005EF510 /* location-arrow@2x.png */; };
 		FA6E7FA316B81F8600BCD68E /* CMFavourites.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7FA216B81F8600BCD68E /* CMFavourites.m */; };
 		FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7E19371666999D00A3D890 /* CoreLocation.framework */; };
+		FA8CCAAB16C9313D00263383 /* hud.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8CCAA916C9313C00263383 /* hud.png */; };
+		FA8CCAAC16C9313D00263383 /* hud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8CCAAA16C9313C00263383 /* hud@2x.png */; };
 		FA9E5BD616A3035C005B130E /* searchbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD416A3035C005B130E /* searchbar.png */; };
 		FA9E5BD716A3035C005B130E /* searchbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD516A3035C005B130E /* searchbar@2x.png */; };
 		FA9E5BDB16A30557005B130E /* CMPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */; };
@@ -106,6 +110,9 @@
 		FA0454BA16AF0C0D002EB841 /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
 		FA0454BB16AF0C0D002EB841 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		FA04D05516C7C2CE00E785F3 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
+		FA04D05A16C80EE300E785F3 /* CMHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHUDView.h; sourceTree = "<group>"; };
+		FA04D05B16C80EE300E785F3 /* CMHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDView.m; sourceTree = "<group>"; };
+		FA04D05D16C80F2300E785F3 /* CMHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHUDView.xib; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA1329F416B402DA00FA5B27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		FA42400A16BBDAA50092671B /* CMAddTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddTestViewController.h; sourceTree = "<group>"; };
@@ -142,6 +149,8 @@
 		FA6E7FA116B81F8600BCD68E /* CMFavourites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFavourites.h; sourceTree = "<group>"; };
 		FA6E7FA216B81F8600BCD68E /* CMFavourites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFavourites.m; sourceTree = "<group>"; };
 		FA7E19371666999D00A3D890 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FA8CCAA916C9313C00263383 /* hud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud.png; sourceTree = "<group>"; };
+		FA8CCAAA16C9313C00263383 /* hud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud@2x.png"; sourceTree = "<group>"; };
 		FA9E5BD416A3035C005B130E /* searchbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbar.png; sourceTree = "<group>"; };
 		FA9E5BD516A3035C005B130E /* searchbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar@2x.png"; sourceTree = "<group>"; };
 		FA9E5BD916A30557005B130E /* CMPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPlaceViewController.h; sourceTree = "<group>"; };
@@ -217,6 +226,8 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA8CCAA916C9313C00263383 /* hud.png */,
+				FA8CCAAA16C9313C00263383 /* hud@2x.png */,
 				FAF345A516C05A6A003636CC /* class-mate.png */,
 				FAF345A616C05A6A003636CC /* class-mate@2x.png */,
 				FAF345A116C057F1003636CC /* navbar-test.png */,
@@ -295,6 +306,9 @@
 		FA0454B716AF062F002EB841 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA04D05A16C80EE300E785F3 /* CMHUDView.h */,
+				FA04D05B16C80EE300E785F3 /* CMHUDView.m */,
+				FA04D05D16C80F2300E785F3 /* CMHUDView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -525,6 +539,9 @@
 				FACC102516C58D5000EADB3F /* icon@2x.png in Resources */,
 				FACC102816C58D5700EADB3F /* icon.png in Resources */,
 				FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */,
+				FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */,
+				FA8CCAAB16C9313D00263383 /* hud.png in Resources */,
+				FA8CCAAC16C9313D00263383 /* hud@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +596,7 @@
 				FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */,
 				FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */,
 				FAAB414616C524CA000B9A6F /* CMPair.m in Sources */,
+				FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

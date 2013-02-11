@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ALLocationReminders.h"
 
-@interface CMViewController : UITableViewController
+@class CMHUDView;
+
+@interface CMViewController : UITableViewController <ALLocationReminderDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *feedbackCell;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *HUDButton;
+@property (strong, nonatomic) CMHUDView *HUDView;
 
 - (IBAction)startPressed:(UIBarButtonItem *)sender;
 

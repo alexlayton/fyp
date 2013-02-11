@@ -995,9 +995,9 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Start" id="agg-kx-EcG">
+                        <barButtonItem title="Show" id="agg-kx-EcG">
                             <connections>
-                                <action selector="startPressed:" destination="Hec-fi-Fj2" id="4aW-m0-6rC"/>
+                                <action selector="startPressed:" destination="Hec-fi-Fj2" id="RPK-Eh-5Mi"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="2pp-to-zQJ"/>
@@ -1008,7 +1008,7 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Reminders" id="PHc-hq-Oeh">
-                        <barButtonItem key="rightBarButtonItem" title="Add" style="done" id="gjL-2Y-IiR">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="gjL-2Y-IiR">
                             <connections>
                                 <segue destination="Juk-yd-g24" kind="modal" identifier="Add" id="ac0-jh-n4f"/>
                             </connections>
@@ -1016,6 +1016,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="HUDButton" destination="agg-kx-EcG" id="i5w-U1-jdf"/>
                         <outlet property="feedbackCell" destination="Kcx-PX-A14" id="9vq-Ev-2ne"/>
                     </connections>
                 </tableViewController>
@@ -1031,7 +1032,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4N5-k7-eRn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="VJp-DT-Tex">

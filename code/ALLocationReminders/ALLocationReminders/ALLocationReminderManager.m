@@ -31,6 +31,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 @synthesize remindersAreRunning = _remindersAreRunning;
 @synthesize speed = _speed;
 @synthesize transport = _transport;
+@synthesize seconds = _seconds;
 @synthesize timer = _timer;
 @synthesize interval = _interval; //timer interval in minutes
 @synthesize minutesBeforeReminderTime = _minutesBeforeReminderTime;
@@ -307,6 +308,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
                 
                 NSString *secondString = [[element valueForKey:@"duration"] valueForKey:@"value"];
                 int seconds = [secondString integerValue];
+                _seconds = seconds;
                 
                 NSDate *projectedDate = [NSDate dateWithTimeIntervalSinceNow:seconds]; //projected time
                 NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * _minutesBeforeReminderTime]; //remove 5 minutes for now
