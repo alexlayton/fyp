@@ -9,10 +9,6 @@
 #import "ALLocationReminderStore.h"
 #import "ALLocationReminder.h"
 
-const ALLocationReminderType kALLocationReminderTypeLocation = @"Location";
-const ALLocationReminderType kALLocationReminderTypeDate = @"Date";
-const ALLocationReminderType kALLocationReminderTypePreemptive = @"Preemptive";
-
 @implementation ALLocationReminderStore
 
 @synthesize locationReminders = _locationReminders;

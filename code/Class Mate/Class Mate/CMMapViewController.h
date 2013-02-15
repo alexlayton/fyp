@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "CMReminderViewController.h"
 
-@interface CMMapViewController : UIViewController
+@interface CMMapViewController : UIViewController <MKMapViewDelegate, CMReminderViewControllerDelegate>
 
-- (IBAction)donePressed:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 @end

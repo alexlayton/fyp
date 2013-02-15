@@ -8,13 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h> 
-
-typedef NSString *ALLocationReminderType;
-extern const ALLocationReminderType kALLocationReminderTypeLocation;
-extern const ALLocationReminderType kALLocationReminderTypeDate;
-extern const ALLocationReminderType kALLocationReminderTypePreemptive;
-
-@class ALLocationReminder;
+#import "ALLocationReminder.h"
 
 @interface ALLocationReminderStore : NSObject <NSCoding>
 

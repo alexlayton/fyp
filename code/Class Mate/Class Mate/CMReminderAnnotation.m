@@ -7,6 +7,7 @@
 //
 
 #import "CMReminderAnnotation.h"
+#import "ALLocationReminders.h"
 
 @implementation CMReminderAnnotation
 

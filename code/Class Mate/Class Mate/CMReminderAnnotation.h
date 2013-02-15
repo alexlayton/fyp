@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
+@class ALLocationReminder;
+
 @interface CMReminderAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly) NSString* title;
 @property (nonatomic, readonly) NSString* subtitle;
+@property (nonatomic, weak) ALLocationReminder *reminder;
 
 - (id)initWithCoordinates:(CLLocationCoordinate2D)location
                 placeName:(NSString *)placeName

@@ -10,19 +10,25 @@
 #import "CMRemindersViewController.h"
 #import "CMAppDelegate.h"
 #import "CMHUDView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CMViewController ()
 
 @property (nonatomic) BOOL showingHUD;
+@property (nonatomic, strong) UIPanGestureRecognizer *pgr;
 
 @end
 
 @implementation CMViewController
+{
+    CGFloat fromY;
+}
 
 @synthesize feedbackCell = _feedbackCell;
 @synthesize HUDButton = _HUDButton;
 @synthesize HUDView = _HUDView;
 @synthesize showingHUD = _showingHUD;
+@synthesize pgr = _pgr;
 
 - (void)launchFeedback
 {
@@ -56,14 +62,33 @@
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchFeedback)];
     [_feedbackCell addGestureRecognizer:tgr];
     
-    UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
-    pgr.minimumNumberOfTouches = 1;
-    pgr.maximumNumberOfTouches = 1;
-    [self.navigationController.toolbar addGestureRecognizer:pgr];
-    
     _HUDView = [[[NSBundle mainBundle] loadNibNamed:@"CMHUDView" owner:self options:nil] objectAtIndex:0];
     NSString *message = [NSString stringWithFormat:@"%@ is %d Seconds Away", [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive].payload, lrm.seconds];
     _HUDView.HUDLabel.text = message;
+    
+    CGRect navRect = self.navigationController.view.frame;
+    NSLog(@"nav: %f, %f, %f, %f", navRect.origin.x, navRect.origin.y, navRect.size.width, navRect.size.height);
+    NSLog(@"nav super view: %@", self.navigationController.view.superview);
+    
+    _showingHUD = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+     [self.navigationController setToolbarHidden:NO animated:animated];
+    
+    UIImage *gripper = [UIImage imageNamed:@"gripper.png"];
+    _HUDButton.customView = [[UIImageView alloc] initWithImage:gripper];
+    
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap)];
+    [_HUDButton.customView addGestureRecognizer:tgr];
+    
+    _pgr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
+    _pgr.minimumNumberOfTouches = 1;
+    _pgr.maximumNumberOfTouches = 1;
+    [_HUDButton.customView addGestureRecognizer:_pgr];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -73,9 +98,9 @@
     UIWindow *window = self.view.window;
     CGRect windowRect = window.frame;
     
-    CGRect HUDRect = CGRectMake(windowRect.origin.x, windowRect.size.height, windowRect.size.width, 100);
+    CGRect HUDRect = CGRectMake(windowRect.origin.x, windowRect.size.height - 100, windowRect.size.width, 100);
     _HUDView.frame = HUDRect;
-    [window addSubview:_HUDView];
+    [window insertSubview:_HUDView belowSubview:self.navigationController.view];
     
     BOOL locationIsEnabled = [CLLocationManager locationServicesEnabled];
     NSLog(@"enabled? %d", locationIsEnabled);
@@ -89,7 +114,13 @@
 {
     [super viewDidDisappear:animated];
     if (_showingHUD) [self hideHUD];
+    [self.navigationController.toolbar removeGestureRecognizer:_pgr];
     [_HUDView removeFromSuperview];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,61 +151,131 @@
     }
 }
 
-- (IBAction)startPressed:(UIBarButtonItem *)sender
+- (void)didTap
 {
-    if ([sender.title isEqualToString:@"Show"]) {
-
-        if (!_showingHUD) [self showHUD];
-        
-        
-        [sender setTitle:@"Hide"];
-    } else if ([sender.title isEqualToString:@"Hide"]) {
-        
-        if (_showingHUD) [self hideHUD];
-    
-        [sender setTitle:@"Show"];
-    }
+    if (!_showingHUD) [self bounceHUD];
 }
 
 - (void)didPan:(id)sender
 {
     UIPanGestureRecognizer *pgr = sender;
-    CGPoint location = [pgr locationInView:self.view];
-    NSLog(@"location: %f, %f", location.x, location.y);
-//    UIWindow* window = [UIApplication sharedApplication].keyWindow;
-//    if (pgr.state == UIGestureRecognizerStateBegan || pgr.state == UIGestureRecognizerStateChanged) {
-//        //move
-//    } else if (pgr.state == UIGestureRecognizerStateEnded) {
-//        //dont move and go back if not moved enough
-//    }
+    UINavigationController *nav = self.navigationController;
+    CGRect navRect = nav.view.frame;
+    CGFloat toY = [pgr locationInView:nav.view].y;
+    
+    if (pgr.state == UIGestureRecognizerStateBegan) {
+        fromY = toY;
+    } else if (pgr.state == UIGestureRecognizerStateChanged) {
+        CGFloat diffY = toY - fromY;
+        CGFloat newY = navRect.origin.y + diffY;
+        NSLog(@"%f", newY);
+        if (newY <= 0.0f && newY >= -100.0f) {
+            CGRect newNavRect = CGRectMake(navRect.origin.x, newY, navRect.size.width, navRect.size.height);
+            [UIView animateWithDuration:0.001f animations:^{
+                nav.view.frame = newNavRect;
+            }];
+        }
+    } else if (pgr.state == UIGestureRecognizerStateEnded) {
+        CGFloat diffY = toY - fromY;
+        CGFloat newY = navRect.origin.y + diffY;
+        (newY <= 0.0f && newY >= -50.0f) ? [self hideHUD] : [self showHUD];
+    }
 }
 
 - (void)showHUD
 {
     _showingHUD = YES;
-    UIWindow* window = [[UIApplication sharedApplication] keyWindow];
-    CGRect windowRect = window.frame;
-    CGRect newWindowRect = CGRectMake(windowRect.origin.x, windowRect.origin.y - 100, windowRect.size.width, windowRect.size.height);
-    CGRect HUDRect = self.view.frame;
-    NSLog(@"hud: %f, %f, %f, %f", HUDRect.origin.x, HUDRect.origin.y, HUDRect.size.width, HUDRect.size.height);
+    
+    self.tableView.userInteractionEnabled = NO;
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    CGRect navRect = self.navigationController.view.frame;
+    
+    NSLog(@"bounds: %f navRect: %f newNavRect: %f", bounds.origin.y, navRect.origin.y, 100 + navRect.origin.y);
+    
+    CGRect newNavRect = CGRectMake(navRect.origin.x, -100.0f, navRect.size.width, navRect.size.height);
+    
     [UIView animateWithDuration:0.3f animations:^{
-        window.frame = newWindowRect;
-        //_HUDView.frame = newHUDRect;
+        //window.frame = newWindowRect;
+        self.navigationController.view.frame = newNavRect;
     }];
 }
 
 - (void)hideHUD
 {
     _showingHUD = NO;
-    UIWindow* window = [UIApplication sharedApplication].keyWindow;
-    CGRect windowRect = window.frame;
-    CGRect newWindowRect = CGRectMake(windowRect.origin.x, windowRect.origin.y + 100, windowRect.size.width, windowRect.size.height);
-    CGRect HUDRect = _HUDView.frame;
-    NSLog(@"hud: %f, %f, %f, %f", HUDRect.origin.x, HUDRect.origin.y, HUDRect.size.width, HUDRect.size.height);
+
+    self.tableView.userInteractionEnabled = YES;
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    CGRect navRect = self.navigationController.view.frame;
+    
+    NSLog(@"bounds: %f navRect: %f newNavRect: %f", bounds.origin.y, navRect.origin.y, 100 + navRect.origin.y);
+    
+    CGRect newNavRect = CGRectMake(navRect.origin.x, 0.0f, navRect.size.width, navRect.size.height);
+    
     [UIView animateWithDuration:0.3f animations:^{
-        window.frame = newWindowRect;
-        //_HUDView.frame = newHUDRect;
+        self.navigationController.view.frame = newNavRect;
     }];
+}
+
+- (CAKeyframeAnimation *)bounceAnimation:(CGFloat)height
+{
+    //taken from; http://www.cocoanetics.com/2012/06/lets-bounce/
+//    CGFloat offset = 128.0f * height;
+//    NSArray *factors = @[@0, @60, @83, @100, @114, @124, @128, @128, @124, @114, @100, @83, @60, @32, @0, @0, @18, @28, @32, @28, @18, @0];
+//    NSMutableArray *transforms;
+//    
+//    for (NSNumber *factor in factors) {
+//        CGFloat position = factor.floatValue / offset;
+//        CATransform3D transform = CATransform3DMakeTranslation(0.0f, -position, 0.0f);
+//        [transforms addObject:[NSValue valueWithCATransform3D:transform]];
+//    }
+//    
+//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+//    animation.repeatCount = 1;
+//    animation.duration = factors.count * 1.0f / 30.0f;
+//    animation.fillMode = kCAFillModeForwards;
+//    animation.values = transforms;
+//    animation.removedOnCompletion = YES;
+//    animation.autoreverses = NO;
+//    
+//    return animation;
+
+
+    NSUInteger const kNumFactors    = 22;
+    CGFloat const kFactorsPerSec    = 30.0f;
+    CGFloat const kFactorsMaxValue  = 128.0f;
+    CGFloat factors[kNumFactors]    = {0,  60, 83, 100, 114, 124, 128, 128, 124, 114, 100, 83, 60, 32, 0, 0, 18, 28, 32, 28, 18, 0};
+    
+    NSMutableArray* transforms = [NSMutableArray array];
+    
+    for(NSUInteger i = 0; i < kNumFactors; i++)
+    {
+        CGFloat positionOffset  = factors[i] / kFactorsMaxValue * height;
+        CATransform3D transform = CATransform3DMakeTranslation(0.0f, -positionOffset, 0.0f);
+        
+        [transforms addObject:[NSValue valueWithCATransform3D:transform]];
+    }
+    
+    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    animation.repeatCount           = 1;
+    animation.duration              = kNumFactors * 1.0f/kFactorsPerSec;
+    animation.fillMode              = kCAFillModeForwards;
+    animation.values                = transforms;
+    animation.removedOnCompletion   = YES; // final stage is equal to starting stage
+    animation.autoreverses          = NO;
+    
+    return animation;
+}
+
+- (void)bounceHUD
+{
+    if (!_showingHUD) {
+        CGFloat height = 30.0f;
+        CAKeyframeAnimation *animation = [self bounceAnimation:height];
+        [self.navigationController.view.layer addAnimation:animation forKey:@"bounce"];
+    }
 }
 
 #pragma mark - Location Reminders Delegate

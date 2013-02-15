@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALLocationReminder, MKMapView;
+@class ALLocationReminder, MKMapView, CMReminderViewController;
+
+@protocol CMReminderViewControllerDelegate <NSObject>
+
+- (void)reminderViewController:(CMReminderViewController *)rvc didDeleteReminder:(ALLocationReminder *)reminder;
+
+@end
 
 @interface CMReminderViewController : UITableViewController
 
@@ -17,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *payloadLabel;
+@property (nonatomic, weak) id<CMReminderViewControllerDelegate> delegate;
 
 - (IBAction)deletePressed:(UIBarButtonItem *)sender;
 

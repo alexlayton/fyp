@@ -7,38 +7,125 @@
 //
 
 #import "CMMapViewController.h"
+#import "CMReminderAnnotation.h"
+#import "ALLocationReminders.h"
+#import <CoreLocation/CoreLocation.h>
+#import "CMReminderViewController.h"
+
+@interface CMMapViewController ()
+
+@property (nonatomic, strong) CMReminderAnnotation *lastSelectedAnnotation;
+
+@end
 
 @implementation CMMapViewController
+
+@synthesize mapView = _mapView;
+@synthesize lastSelectedAnnotation = _lastSelectedAnnotation;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    _mapView.delegate = self;
     self.view.backgroundColor = [UIColor blackColor];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
-- (IBAction)donePressed:(UIBarButtonItem *)sender
+- (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"Done Pressed!");
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [super viewDidAppear:animated];
+    //[_mapView setUserTrackingMode:MKUserTrackingModeFollow animated:NO];
+    [self performSelectorInBackground:@selector(loadMapAnnotations) withObject:nil];
 }
 
-#pragma mark - Rotation
-
-- (BOOL)shouldAutorotate
+- (void)loadMapAnnotations
 {
-    return NO;
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    NSArray *preemptive = lrm.store.preemptiveReminders;
+    NSArray *location = lrm.store.locationReminders;
+    
+    for (ALLocationReminder *reminder in preemptive) {
+        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Preemptive" description:reminder.payload];
+        annotation.reminder = reminder;
+        [_mapView addAnnotation:annotation];
+    }
+    
+    for (ALLocationReminder *reminder in location) {
+        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Location" description:reminder.payload];
+        annotation.reminder = reminder;
+        [_mapView addAnnotation:annotation];
+    }
+    
+    [self performSelectorOnMainThread:@selector(zoomMap) withObject:nil waitUntilDone:NO];
+    
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (void)zoomMap
 {
-    return UIInterfaceOrientationMaskPortrait;
+    //taken from http://brianreiter.org/2012/03/02/size-an-mkmapview-to-fit-its-annotations-in-ios-without-futzing-with-coordinate-systems/
+    
+    CLLocation *currentLocation = [[ALLocationReminderManager sharedManager] currentLocation];
+    
+    NSArray *annotations = _mapView.annotations;
+    if (annotations.count == 0) return;
+    
+    MKMapPoint points[annotations.count]; //old school
+    for (int i = 0; i < annotations.count; i++) {
+        CLLocationCoordinate2D coord = [(id<MKAnnotation>)[annotations objectAtIndex:i] coordinate];
+        points[i] =  MKMapPointForCoordinate(coord);
+    }
+    
+    //add current location to zoom level!
+    points[annotations.count] = MKMapPointForCoordinate(currentLocation.coordinate);
+    
+    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:annotations.count];
+    MKMapRect mapRect = [polygon boundingMapRect];
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect(mapRect);
+    //region.center = currentLocation.coordinate;
+    
+    double latDelta = region.span.latitudeDelta * 1.15;
+    double lonDelta = region.span.latitudeDelta * 1.15;
+    region.span.latitudeDelta = (latDelta > 360) ? 360 : latDelta;
+    region.span.longitudeDelta = (lonDelta > 360) ? 360 : lonDelta;
+    
+    if (region.span.latitudeDelta < 0.014) region.span.latitudeDelta = 0.014;
+    if (region.span.longitudeDelta < 0.014) region.span.longitudeDelta = 0.014;
+    
+    if (annotations.count == 1) {
+        region.span.latitudeDelta = 0.014;
+        region.span.longitudeDelta = 0.014;
+    }
+    
+    [_mapView setRegion:region animated:YES];
+}
+
+#pragma mark - Map Delegate
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    CMReminderAnnotation *annotation = view.annotation;
+    _lastSelectedAnnotation = annotation;
+    CMReminderViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"ReminderViewController"];
+    rvc.reminder = annotation.reminder;
+    rvc.delegate = self;
+    [self.navigationController pushViewController:rvc animated:YES];
+}
+
+#pragma mark - Reminder View Delegate
+
+- (void)reminderViewController:(CMReminderViewController *)rvc didDeleteReminder:(ALLocationReminder *)reminder
+{
+    [_mapView removeAnnotation:_lastSelectedAnnotation];
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    if ([_lastSelectedAnnotation.title isEqualToString:@"Preemptive"]) {
+        [lrm.store.preemptiveReminders removeObject:_lastSelectedAnnotation.reminder];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

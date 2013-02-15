@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMReminderViewController.h"
 
-@interface CMRemindersViewController : UITableViewController
+@interface CMRemindersViewController : UITableViewController <CMReminderViewControllerDelegate>
 
 @property (nonatomic, weak) NSMutableArray *reminders;
 @property (nonatomic, strong) NSString *reminderType;

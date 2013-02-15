@@ -17,6 +17,7 @@
 @synthesize locationLabel = _locationLabel;
 @synthesize payloadLabel = _payloadLabel;
 @synthesize mapView = _mapView;
+@synthesize delegate = _delegate;
 
 - (void)viewDidLoad
 {
@@ -29,11 +30,28 @@
     
     CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:location.coordinate placeName:@"Place!" description:_reminder.payload];
     [_mapView addAnnotation:annotation];
+    
+    //change background pattern
+    UIImage *patternImage = [UIImage imageNamed:@"pattern.png"];
+    UIColor *pattern = [UIColor colorWithPatternImage:patternImage];
+    CGRect backgroundRect = [[UIScreen mainScreen] applicationFrame];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
+    [backgroundView setBackgroundColor:pattern];
+    self.tableView.backgroundView = backgroundView;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 - (IBAction)deletePressed:(UIBarButtonItem *)sender
 {
     NSLog(@"Delete Pressed");
+    if ([_delegate respondsToSelector:@selector(reminderViewController:didDeleteReminder:)]) {
+        [_delegate reminderViewController:self didDeleteReminder:_reminder];
+    }
 }
 
 @end

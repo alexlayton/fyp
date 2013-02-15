@@ -156,7 +156,7 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    CMGooglePlace *place = [_nearbyPlaces objectAtIndex:indexPath.row];
+    CMGooglePlace *place = (tableView == self.searchDisplayController.searchResultsTableView) ? [_filteredPlaces objectAtIndex:indexPath.row] : [_nearbyPlaces objectAtIndex:indexPath.row];
     [_delegate placeView:self didSelectPlace:place];
 }
 

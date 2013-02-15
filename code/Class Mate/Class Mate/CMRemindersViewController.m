@@ -8,7 +8,6 @@
 
 #import "CMRemindersViewController.h"
 #import "ALLocationReminders.h"
-#import "CMReminderViewController.h"
 
 @implementation CMRemindersViewController
 
@@ -21,6 +20,13 @@
     NSLog(@"Title: %@", _reminderType);
     UINavigationItem *nav = self.navigationItem;
     nav.title = _reminderType;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    [self.navigationController setToolbarHidden:NO animated:animated];
 }
 
 #pragma mark - Table view data source
@@ -54,7 +60,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_reminders removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
@@ -63,6 +69,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     ALLocationReminder *reminder = [_reminders objectAtIndex:indexPath.row];
     CMReminderViewController *rvc = segue.destinationViewController;
+    rvc.delegate = self;
     rvc.reminder = reminder;
 }
 
@@ -77,6 +84,16 @@
         sender.title = @"Edit";
         sender.style = UIBarButtonItemStyleBordered;
     }
+}
+
+#pragma mark - Reminder View Delegate
+
+- (void)reminderViewController:(CMReminderViewController *)rvc didDeleteReminder:(ALLocationReminder *)reminder
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    [_reminders removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

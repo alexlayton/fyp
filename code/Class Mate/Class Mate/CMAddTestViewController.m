@@ -115,6 +115,14 @@
     _transportLabel.text = [[defaults objectForKey:@"transport"] capitalizedString];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (!_datePicker.hidden) {
+        [self hidePicker];
+    }
+}
+
 - (void)timePressed:(id)sender
 {
     [_titleTextField resignFirstResponder];
@@ -196,9 +204,9 @@ _dateLabel.text = formattedDate;
         [_titleTextField resignFirstResponder];
     }
     
-    if (!_datePicker.hidden) {
-        [self hidePicker];
-    }
+//    if (!_datePicker.hidden) {
+//        [self hidePicker];
+//    }
 }
 
 #pragma mark - Option Delegate

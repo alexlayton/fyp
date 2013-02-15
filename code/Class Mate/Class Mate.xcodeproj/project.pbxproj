@@ -28,6 +28,8 @@
 		FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D05B16C80EE300E785F3 /* CMHUDView.m */; };
 		FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05D16C80F2300E785F3 /* CMHUDView.xib */; };
 		FA1329F516B402DA00FA5B27 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1329F316B402DA00FA5B27 /* MainStoryboard_iPad.storyboard */; };
+		FA371AC916CE4FA8005EE6F5 /* gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371AC816CE4FA8005EE6F5 /* gripper.png */; };
+		FA371ACB16CE4FB8005EE6F5 /* gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */; };
 		FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddTestViewController.m */; };
 		FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42401116BBEC2A0092671B /* CMOptionViewController.m */; };
 		FA4683C516A8A2AF007A839C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4683C416A8A2AF007A839C /* AddressBook.framework */; };
@@ -75,6 +77,8 @@
 		FAB95B981663AE8D00A09853 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B961663AE8D00A09853 /* MainStoryboard_iPhone.storyboard */; };
 		FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B9A1663AE8D00A09853 /* CMViewController.m */; };
 		FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */; };
+		FAC0599016CC305300CA78F5 /* CMApplePlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC0598F16CC305300CA78F5 /* CMApplePlacesViewController.m */; };
+		FAC0599316CC41B100CA78F5 /* CMGeocodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC0599216CC41B100CA78F5 /* CMGeocodeViewController.m */; };
 		FACC102516C58D5000EADB3F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC102416C58D5000EADB3F /* icon@2x.png */; };
 		FACC102816C58D5700EADB3F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC102716C58D5700EADB3F /* icon.png */; };
 		FAD322BF1681EBD400FC824C /* CMReminderAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */; };
@@ -115,6 +119,8 @@
 		FA04D05D16C80F2300E785F3 /* CMHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHUDView.xib; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA1329F416B402DA00FA5B27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		FA371AC816CE4FA8005EE6F5 /* gripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gripper.png; sourceTree = "<group>"; };
+		FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gripper@2x.png"; sourceTree = "<group>"; };
 		FA42400A16BBDAA50092671B /* CMAddTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddTestViewController.h; sourceTree = "<group>"; };
 		FA42400B16BBDAA50092671B /* CMAddTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddTestViewController.m; sourceTree = "<group>"; };
 		FA42401016BBEC2A0092671B /* CMOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOptionViewController.h; sourceTree = "<group>"; };
@@ -186,6 +192,10 @@
 		FAB95B9A1663AE8D00A09853 /* CMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMViewController.m; sourceTree = "<group>"; };
 		FAB95BA11663B2C000A09853 /* CMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsViewController.h; sourceTree = "<group>"; };
 		FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsViewController.m; sourceTree = "<group>"; };
+		FAC0598E16CC305300CA78F5 /* CMApplePlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMApplePlacesViewController.h; sourceTree = "<group>"; };
+		FAC0598F16CC305300CA78F5 /* CMApplePlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMApplePlacesViewController.m; sourceTree = "<group>"; };
+		FAC0599116CC41B100CA78F5 /* CMGeocodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMGeocodeViewController.h; sourceTree = "<group>"; };
+		FAC0599216CC41B100CA78F5 /* CMGeocodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGeocodeViewController.m; sourceTree = "<group>"; };
 		FACC102416C58D5000EADB3F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		FACC102716C58D5700EADB3F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		FAD322BD1681EBD400FC824C /* CMReminderAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderAnnotation.h; sourceTree = "<group>"; };
@@ -226,6 +236,8 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */,
+				FA371AC816CE4FA8005EE6F5 /* gripper.png */,
 				FA8CCAA916C9313C00263383 /* hud.png */,
 				FA8CCAAA16C9313C00263383 /* hud@2x.png */,
 				FAF345A516C05A6A003636CC /* class-mate.png */,
@@ -349,6 +361,10 @@
 				FA42400B16BBDAA50092671B /* CMAddTestViewController.m */,
 				FA42401016BBEC2A0092671B /* CMOptionViewController.h */,
 				FA42401116BBEC2A0092671B /* CMOptionViewController.m */,
+				FAC0598E16CC305300CA78F5 /* CMApplePlacesViewController.h */,
+				FAC0598F16CC305300CA78F5 /* CMApplePlacesViewController.m */,
+				FAC0599116CC41B100CA78F5 /* CMGeocodeViewController.h */,
+				FAC0599216CC41B100CA78F5 /* CMGeocodeViewController.m */,
 			);
 			name = "Add Reminders";
 			sourceTree = "<group>";
@@ -457,6 +473,7 @@
 				FAB95B771663AE8D00A09853 /* Frameworks */,
 				FAB95B781663AE8D00A09853 /* Resources */,
 				497ACEB5E716418AB7B04E43 /* Copy Pods Resources */,
+				FAC5057716CD013D006ED9EF /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -542,6 +559,8 @@
 				FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */,
 				FA8CCAAB16C9313D00263383 /* hud.png in Resources */,
 				FA8CCAAC16C9313D00263383 /* hud@2x.png in Resources */,
+				FA371AC916CE4FA8005EE6F5 /* gripper.png in Resources */,
+				FA371ACB16CE4FB8005EE6F5 /* gripper@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +580,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		FAC5057716CD013D006ED9EF /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 3d0645f271b14f649463785d7edcbf17df2e837e";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -597,6 +630,8 @@
 				FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */,
 				FAAB414616C524CA000B9A6F /* CMPair.m in Sources */,
 				FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */,
+				FAC0599016CC305300CA78F5 /* CMApplePlacesViewController.m in Sources */,
+				FAC0599316CC41B100CA78F5 /* CMGeocodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
