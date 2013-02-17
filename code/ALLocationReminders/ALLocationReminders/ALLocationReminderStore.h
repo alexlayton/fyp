@@ -20,9 +20,4 @@
 - (ALLocationReminder *)popReminderWithType:(ALLocationReminderType)reminderType;
 - (ALLocationReminder *)peekReminderWithType:(ALLocationReminderType)reminderType;
 
-//hack
-- (void)pushPreemptiveReminder:(ALLocationReminder *)reminder;
-- (ALLocationReminder *)peekPreemptiveReminder;
-- (ALLocationReminder *)popPreemptiveReminder;
-
 @end

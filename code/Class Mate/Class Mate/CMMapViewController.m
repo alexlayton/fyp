@@ -106,7 +106,15 @@
 
 #pragma mark - Map Delegate
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    for (MKAnnotationView *view in views) {
+        view.rightCalloutAccessoryView = button;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     CMReminderAnnotation *annotation = view.annotation;
     _lastSelectedAnnotation = annotation;

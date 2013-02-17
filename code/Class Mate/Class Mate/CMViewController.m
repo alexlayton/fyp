@@ -29,6 +29,7 @@
 @synthesize HUDView = _HUDView;
 @synthesize showingHUD = _showingHUD;
 @synthesize pgr = _pgr;
+@synthesize addButton = _addButton;
 
 - (void)launchFeedback
 {
@@ -53,6 +54,10 @@
     UIView *backgroundView = [[UIView alloc] initWithFrame:backgroundRect];
     [backgroundView setBackgroundColor:pattern];
     self.tableView.backgroundView = backgroundView;
+    
+    //turn add button blue
+    UIImage *barButtonBlue = [[UIImage imageNamed:@"barbuttonblue.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [_addButton setBackgroundImage:barButtonBlue forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     lrm.delegate = self;
@@ -153,7 +158,11 @@
 
 - (void)didTap
 {
-    if (!_showingHUD) [self bounceHUD];
+    if (!_showingHUD) {
+        [self bounceHUD];
+    } else {
+        [self hideHUD];
+    }
 }
 
 - (void)didPan:(id)sender

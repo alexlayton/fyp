@@ -8,11 +8,28 @@
 
 #import "ALLocationReminder.h"
 
+const ALLocationReminderType kALLocationReminderTypeLocation = @"Location";
+const ALLocationReminderType kALLocationReminderTypeDate = @"Date";
+const ALLocationReminderType kALLocationReminderTypePreemptive = @"Preemptive";
+
+const ALLocationRemindersTransportType kALLocationRemindersTransportTypeWalking = @"walking";
+const ALLocationRemindersTransportType kALLocationRemindersTransportTypeCycling = @"bicycling";
+const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving = @"driving";
+
+const ALLocationRemindersRepeatType kALRepeatTypeNever = -1;
+const ALLocationRemindersRepeatType kALRepeatTypeHour = 60 * 60;
+const ALLocationRemindersRepeatType kALRepeatTypeDay = 60 * 60 * 24;
+const ALLocationRemindersRepeatType kALRepeatTypeWeek = 60 * 60 * 7;
+const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit yo
+
 @implementation ALLocationReminder
 
 @synthesize location = _location;
 @synthesize payload = _payload;
 @synthesize date = _date;
+@synthesize repeat = _repeat;
+@synthesize reminderType = _reminderType;
+@synthesize transport = _transport;
 
 + (ALLocationReminder *)reminderWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
 {

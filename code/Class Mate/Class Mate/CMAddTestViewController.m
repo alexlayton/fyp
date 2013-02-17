@@ -13,11 +13,15 @@
 #import "CMAddress.h"
 #import "CMGooglePlace.h"
 #import "ALLocationReminders.h"
+#import "CMPair.h"
 
 @interface CMAddTestViewController ()
 
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIToolbar *toolbar;
+@property (nonatomic, strong) ALLocationRemindersRepeatType repeatType;
+@property (nonatomic, strong) ALLocationRemindersTransportType transportType;
+@property (nonatomic, strong) ALLocationReminderType reminderType; //synthesise these...
 
 @end
 
@@ -81,7 +85,7 @@
     
     _doneButton.enabled = NO;
     _repeatLabel.text = @"Never";
-    _dateLabel.text = @" ";
+    _dateLabel.text = @" "; //hacks on hacks on hacks
     
     _titleTextField.delegate = self;
     
@@ -172,8 +176,7 @@
     formatter.dateStyle = NSDateFormatterShortStyle;
     _date = _datePicker.date;
     NSString *formattedDate = [formatter stringFromDate:_date];
-_dateLabel.text = formattedDate;
-    
+    _dateLabel.text = formattedDate;
     
     [self hidePicker];
 }
@@ -193,12 +196,12 @@ _dateLabel.text = formattedDate;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     //NSLog(@"scrolling");
-//    CGRect tableBounds = self.tableView.bounds;
-//    CGRect pickerFrame = _datePicker.frame;
-//    CGRect toolbarFrame = _toolbar.frame;
-//    
-//    _datePicker.frame = CGRectMake(0, 200 + tableBounds.origin.y, pickerFrame.size.width, pickerFrame.size.height);
-//    _toolbar.frame = CGRectMake(0, 156 + tableBounds.origin.y, toolbarFrame.size.width, toolbarFrame.size.height);
+    CGRect tableBounds = self.tableView.bounds;
+    CGRect pickerFrame = _datePicker.frame;
+    CGRect toolbarFrame = _toolbar.frame;
+    
+    _datePicker.frame = CGRectMake(0, 200 + tableBounds.origin.y, pickerFrame.size.width, pickerFrame.size.height);
+    _toolbar.frame = CGRectMake(0, 156 + tableBounds.origin.y, toolbarFrame.size.width, toolbarFrame.size.height);
     
     if ([_titleTextField isFirstResponder]) {
         [_titleTextField resignFirstResponder];
@@ -211,15 +214,18 @@ _dateLabel.text = formattedDate;
 
 #pragma mark - Option Delegate
 
-- (void)optionViewController:(CMOptionViewController *)ovc didSelectOption:(NSString *)option
+- (void)optionViewController:(CMOptionViewController *)ovc didSelectOption:(CMPair *)option
 {
     if ([ovc.title isEqualToString:@"Reminder Type"]) {
-        _typeLabel.text = option;
-        [self.navigationController popViewControllerAnimated:YES];
+        _typeLabel.text = option.objDescription;
     } else if ([ovc.title isEqualToString:@"Repeat"]) {
-        _repeatLabel.text = option;
-        [self.navigationController popViewControllerAnimated:YES];
+        _repeatLabel.text = option.objDescription;
+    } else if ([ovc.title isEqualToString:@"Reminder Before"]) {
+        _remindLabel.text = option.objDescription;
+    } else if ([ovc.title isEqualToString:@"Transport"]) {
+        _transportLabel.text = option.objDescription;
     }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Address Delegate
@@ -267,12 +273,22 @@ _dateLabel.text = formattedDate;
         CMOptionViewController *ovc = segue.destinationViewController;
         ovc.delegate = self;
         ovc.title = @"Repeat";
-        ovc.options = @[@"Never", @"1 Hour", @"1 Day", @"1 Week", @"1 Month"];
+        ovc.options = [self repeatOptions];
     } else if ([segue.identifier isEqualToString:@"Type"]) {
         CMOptionViewController *ovc = segue.destinationViewController;
         ovc.delegate = self;
         ovc.title = @"Reminder Type";
-        ovc.options = @[@"Pre-emptive", @"Location", @"Date"];
+        ovc.options = [self reminderOptions];
+    } else if ([segue.identifier isEqualToString:@"Remind"]) {
+        CMOptionViewController *ovc = segue.destinationViewController;
+        ovc.delegate = self;
+        ovc.title = @"Remind Before";
+        ovc.options = [self reminderMinutesOptions];
+    } else if ([segue.identifier isEqualToString:@"Transport"]) {
+        CMOptionViewController *ovc = segue.destinationViewController;
+        ovc.delegate = self;
+        ovc.title = @"Transport";
+        ovc.options = [self transportOptions];
     } else if ([segue.identifier isEqualToString:@"Tab Bar"]) {
         UITabBarController *tbc = segue.destinationViewController;
         NSArray *vcs = tbc.viewControllers;
@@ -289,6 +305,44 @@ _dateLabel.text = formattedDate;
             }
         }
     }
+}
+
+#pragma mark - option arrays
+
+- (NSArray *)repeatOptions
+{
+    CMPair *never = [CMPair pairWithObj:[NSString stringWithFormat:@"%d", kALRepeatTypeNever] description:@"Never"];
+    CMPair *hour = [CMPair pairWithObj:[NSString stringWithFormat:@"%d", kALRepeatTypeHour] description:@"Hour"];
+    CMPair *day = [CMPair pairWithObj:[NSString stringWithFormat:@"%d", kALRepeatTypeDay] description:@"Day"];
+    CMPair *week = [CMPair pairWithObj:[NSString stringWithFormat:@"%d", kALRepeatTypeWeek] description:@"Week"];
+    CMPair *month = [CMPair pairWithObj:[NSString stringWithFormat:@"%d", kALRepeatTypeMonth] description:@"Month"];
+    return @[never, hour, day, week, month];
+}
+
+- (NSArray *)reminderOptions
+{
+    CMPair *preemptive = [CMPair pairWithObj:kALLocationReminderTypePreemptive description:@"Preemptive"];
+    CMPair *location = [CMPair pairWithObj:kALLocationReminderTypeLocation description:@"Location"];
+    CMPair *date = [CMPair pairWithObj:kALLocationReminderTypeDate description:@"Date"];
+    return @[preemptive, location, date];
+}
+
+- (NSArray *)transportOptions
+{
+    CMPair *driving = [CMPair pairWithObj:kALLocationRemindersTransportTypeDriving description:@"Driving"];
+    CMPair *walking = [CMPair pairWithObj:kALLocationRemindersTransportTypeWalking description:@"Walking"];
+    CMPair *cycling = [CMPair pairWithObj:kALLocationRemindersTransportTypeCycling description:@"Cycling"];
+    return @[driving, walking, cycling];
+}
+
+- (NSArray *)reminderMinutesOptions
+{
+    CMPair *five = [CMPair pairWithObj:@"5" description:@"5 Minutes"];
+    CMPair *ten = [CMPair pairWithObj:@"10" description:@"10 Minutes"];
+    CMPair *fifteen = [CMPair pairWithObj:@"15" description:@"15 Minutes"];
+    CMPair *thirty = [CMPair pairWithObj:@"30" description:@"30 Minutes"];
+    CMPair *sixty = [CMPair pairWithObj:@"60" description:@"60 Minutes"];
+    return @[five, ten, fifteen, thirty, sixty];
 }
 
 @end

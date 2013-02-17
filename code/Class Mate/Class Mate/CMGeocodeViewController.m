@@ -8,6 +8,7 @@
 
 #import "CMGeocodeViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 @implementation CMGeocodeViewController
 
@@ -55,9 +56,9 @@
     }
     
     CLPlacemark *placemark = [_places objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = placemark.name;
-    cell.detailTextLabel.text = placemark.thoroughfare;
+    NSString *address = ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO);
+    cell.textLabel.text = address;
+    cell.detailTextLabel.text = placemark.country;
     
     return cell;
 }
@@ -66,7 +67,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CLPlacemark *placemark = [_places objectAtIndex:indexPath.row];
+    NSLog(@"%@", placemark.location);
 }
 
 #pragma mark - Search

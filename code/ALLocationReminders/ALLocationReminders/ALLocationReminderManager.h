@@ -8,13 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "ALLocationReminder.h"
 
-@class ALLocationReminderManager, ALLocationReminderStore, ALLocationReminder;
-
-typedef NSString *ALLocationRemindersTransportType;
-extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeWalking;
-extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeCycling;
-extern const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving;
+@class ALLocationReminderManager, ALLocationReminderStore;
 
 @protocol ALLocationReminderDelegate <NSObject>
 

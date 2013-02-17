@@ -7,6 +7,7 @@
 //
 
 #import "CMOptionViewController.h"
+#import "CMPair.h"
 
 @implementation CMOptionViewController
 
@@ -17,12 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -39,7 +34,8 @@
     
     if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    cell.textLabel.text = [_options objectAtIndex:indexPath.row];
+    CMPair *pair = [_options objectAtIndex:indexPath.row];
+    cell.textLabel.text = pair.objDescription;
     
     return cell;
 }
@@ -48,7 +44,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *option = [_options objectAtIndex:indexPath.row];
+    CMPair *option = [_options objectAtIndex:indexPath.row];
     
     if (_selectedIndex) {
         NSIndexPath *oldIndexPath = [[NSIndexPath alloc] initWithIndex:_selectedIndex];

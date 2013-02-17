@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class CMOptionViewController;
+@class CMOptionViewController, CMPair;
 
 @protocol CMOptionDelegate <NSObject>
 
-- (void)optionViewController:(CMOptionViewController *)ovc didSelectOption:(NSString *)option;
+- (void)optionViewController:(CMOptionViewController *)ovc didSelectOption:(CMPair *)option;
 
 @end
 

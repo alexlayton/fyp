@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *feedbackCell;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *HUDButton;
 @property (strong, nonatomic) CMHUDView *HUDView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @end

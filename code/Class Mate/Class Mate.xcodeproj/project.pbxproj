@@ -12,6 +12,7 @@
 		FA02147A16A19D30002245C2 /* backbuttonblue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA02147816A19D2F002245C2 /* backbuttonblue@2x.png */; };
 		FA02147E16A19D3B002245C2 /* barbuttonblue.png in Resources */ = {isa = PBXBuildFile; fileRef = FA02147C16A19D3B002245C2 /* barbuttonblue.png */; };
 		FA02147F16A19D3B002245C2 /* barbuttonblue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA02147D16A19D3B002245C2 /* barbuttonblue@2x.png */; };
+		FA033A0916CFE4A600895FD7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */; };
 		FA0446101680832700C47BA8 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA04460E1680832700C47BA8 /* navbar.png */; };
 		FA0446111680832700C47BA8 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA04460F1680832700C47BA8 /* navbar@2x.png */; };
 		FA0446181680862100C47BA8 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0446121680862100C47BA8 /* backbutton.png */; };
@@ -27,7 +28,6 @@
 		FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05516C7C2CE00E785F3 /* sound.wav */; };
 		FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D05B16C80EE300E785F3 /* CMHUDView.m */; };
 		FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05D16C80F2300E785F3 /* CMHUDView.xib */; };
-		FA1329F516B402DA00FA5B27 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1329F316B402DA00FA5B27 /* MainStoryboard_iPad.storyboard */; };
 		FA371AC916CE4FA8005EE6F5 /* gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371AC816CE4FA8005EE6F5 /* gripper.png */; };
 		FA371ACB16CE4FB8005EE6F5 /* gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */; };
 		FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddTestViewController.m */; };
@@ -118,7 +118,6 @@
 		FA04D05B16C80EE300E785F3 /* CMHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDView.m; sourceTree = "<group>"; };
 		FA04D05D16C80F2300E785F3 /* CMHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHUDView.xib; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		FA1329F416B402DA00FA5B27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		FA371AC816CE4FA8005EE6F5 /* gripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gripper.png; sourceTree = "<group>"; };
 		FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gripper@2x.png"; sourceTree = "<group>"; };
 		FA42400A16BBDAA50092671B /* CMAddTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddTestViewController.h; sourceTree = "<group>"; };
@@ -219,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA033A0916CFE4A600895FD7 /* AddressBookUI.framework in Frameworks */,
 				FA4B141816AD79910025986A /* QuartzCore.framework in Frameworks */,
 				FA4683C516A8A2AF007A839C /* AddressBook.framework in Frameworks */,
 				FA46B8A31668D6C700936AE6 /* MapKit.framework in Frameworks */,
@@ -310,7 +310,6 @@
 				FAB95B8D1663AE8D00A09853 /* CMAppDelegate.h */,
 				FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */,
 				FAB95B961663AE8D00A09853 /* MainStoryboard_iPhone.storyboard */,
-				FA1329F316B402DA00FA5B27 /* MainStoryboard_iPad.storyboard */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -548,7 +547,6 @@
 				FA6E7B5D16B15871005EF510 /* gear@2x.png in Resources */,
 				FA6E7B6016B15910005EF510 /* location-arrow.png in Resources */,
 				FA6E7B6116B15910005EF510 /* location-arrow@2x.png in Resources */,
-				FA1329F516B402DA00FA5B27 /* MainStoryboard_iPad.storyboard in Resources */,
 				FAF345A316C057F1003636CC /* navbar-test.png in Resources */,
 				FAF345A416C057F1003636CC /* navbar-test@2x.png in Resources */,
 				FAF345A716C05A6A003636CC /* class-mate.png in Resources */,
@@ -638,14 +636,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA1329F316B402DA00FA5B27 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA1329F416B402DA00FA5B27 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		FAB95B871663AE8D00A09853 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

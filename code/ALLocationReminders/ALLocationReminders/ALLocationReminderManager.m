@@ -11,10 +11,6 @@
 #import "ALLocationReminder.h"
 #import <AFNetworking/AFNetworking.h>
 
-const ALLocationRemindersTransportType kALLocationRemindersTransportTypeWalking = @"walking";
-const ALLocationRemindersTransportType kALLocationRemindersTransportTypeCycling = @"bicycling";
-const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving = @"driving"; //find out what these should be
-
 @interface ALLocationReminderManager ()
 
 @property (nonatomic, strong) NSTimer *timer;
@@ -362,7 +358,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 - (CLRegion *)makeRegionFromLocation:(CLLocation *)location
 {
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
-    CLLocationDistance radius = 100.0; //100 metres
+    CLLocationDistance radius = 300.0; //300 metres
     CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coord radius:radius identifier:@"region"];
     return region;
 }
@@ -385,11 +381,27 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 
 # pragma mark - Date Stuff
 
-- (NSInteger)daysBetweensDate:(NSDate *)date1 andDate:(NSDate *)date2
+- (NSInteger)daysBetweenDate:(NSDate *)date1 andDate:(NSDate *)date2
 {
     NSCalendar *calender = [NSCalendar currentCalendar];
     NSDateComponents *components = [calender components:NSDayCalendarUnit fromDate:date1 toDate:date2 options:0];
     return [components day];
+}
+
+- (NSInteger)secondsBetweenDate:(NSDate *)date1 andDate:(NSDate *)date2
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSSecondCalendarUnit fromDate:date1 toDate:date2 options:0];
+    return [components second];
+}
+
+- (NSDate *)addMonthToDate:(NSDate *)date
+{
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    dateComponents.month = 1;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *newDate = [calendar dateByAddingComponents:dateComponents toDate:date options:0];
+    return newDate;
 }
 
 - (NSInteger)timeBetweenLocationFrom:(CLLocation *)from to:(CLLocation *)to
