@@ -30,6 +30,7 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
 @synthesize repeat = _repeat;
 @synthesize reminderType = _reminderType;
 @synthesize transport = _transport;
+@synthesize minutesBefore = _minutesBefore;
 
 + (ALLocationReminder *)reminderWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
 {
@@ -61,6 +62,12 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
         _date = date;
     }
     return self;
+}
+
+- (NSString *)description
+{
+    NSString *description = [NSString stringWithFormat:@"Location: %@, Payload: %@, Date: %@, Type: %@", _location, _payload, _date, _reminderType];
+    return description;
 }
 
 @end

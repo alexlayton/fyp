@@ -19,13 +19,16 @@
 
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIToolbar *toolbar;
-@property (nonatomic, strong) ALLocationRemindersRepeatType repeatType;
-@property (nonatomic, strong) ALLocationRemindersTransportType transportType;
-@property (nonatomic, strong) ALLocationReminderType reminderType; //synthesise these...
 
 @end
 
 @implementation CMAddTestViewController
+{
+    ALLocationRemindersRepeatType _repeatType;
+    ALLocationRemindersTransportType _transportType;
+    ALLocationReminderType _reminderType;
+    int _minutes;
+}
 
 @synthesize titleTextField = _titleTextField;
 @synthesize date = _date;
@@ -44,10 +47,42 @@
 - (void)addReminder
 {
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-    CLLocation *location = _place.location;
-    NSLog(@"Adding Reminder at: %@", location);
-    NSString *payload = _titleTextField.text;
-    [lrm addPreemptiveReminderAtLocation:location payload:payload date:_date];
+//    CLLocation *location = _place.location;
+//    NSLog(@"Adding Reminder at: %@", location);
+//    NSString *payload = _titleTextField.text;
+//    [lrm addPreemptiveReminderAtLocation:location payload:payload date:_date];
+    ALLocationReminder *reminder = [[ALLocationReminder alloc] init];
+    reminder.location = _place.location;
+    reminder.payload = _titleTextField.text;
+    reminder.date = _date;
+    reminder.repeat = _repeatType;
+    reminder.reminderType = _reminderType;
+    reminder.transport = _transportType;
+    reminder.minutesBefore = _minutes;
+    
+    NSLog(@"Reminder: %@", reminder);
+    
+    [lrm addReminder:reminder];
+}
+
+- (void)loadReminderDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *defaultString = [defaults objectForKey:@"minutes"];
+    _remindLabel.text = [NSString stringWithFormat:@"%@ Minutes", defaultString];
+    _minutes = [defaultString intValue];
+    
+    defaultString = [defaults objectForKey:@"transport"];
+    _transportLabel.text = [defaultString capitalizedString];
+    _transportType = defaultString;
+    
+    defaultString = [defaults objectForKey:@"reminderType"];
+    _reminderType = defaultString;
+    _typeLabel.text = [defaultString capitalizedString];
+    
+    _repeatLabel.text = @"Never";
+    _repeatType = kALRepeatTypeNever;
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender
@@ -83,8 +118,9 @@
 {
     [super viewDidLoad];
     
+    
+    [self loadReminderDefaults];
     _doneButton.enabled = NO;
-    _repeatLabel.text = @"Never";
     _dateLabel.text = @" "; //hacks on hacks on hacks
     
     _titleTextField.delegate = self;
@@ -113,10 +149,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _remindLabel.text = [NSString stringWithFormat:@"%@ Minutes", [defaults objectForKey:@"minutes"]];
-    _transportLabel.text = [[defaults objectForKey:@"transport"] capitalizedString];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -218,12 +250,16 @@
 {
     if ([ovc.title isEqualToString:@"Reminder Type"]) {
         _typeLabel.text = option.objDescription;
+        _reminderType = option.obj;
     } else if ([ovc.title isEqualToString:@"Repeat"]) {
         _repeatLabel.text = option.objDescription;
+        _repeatType = [option.obj intValue]; //repeat is int
     } else if ([ovc.title isEqualToString:@"Reminder Before"]) {
         _remindLabel.text = option.objDescription;
+        //set somrthing here...
     } else if ([ovc.title isEqualToString:@"Transport"]) {
         _transportLabel.text = option.objDescription;
+        _transportType = option.obj;
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

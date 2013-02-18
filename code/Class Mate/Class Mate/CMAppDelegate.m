@@ -9,31 +9,42 @@
 #import "CMAppDelegate.h"
 #import "ALLocationReminders.h"
 #import <QuartzCore/QuartzCore.h>
+#import <Crashlytics/Crashlytics.h>
 
 #define kTestFlighTeamToken @"5a7b90d8-72ea-4e37-803a-bf93d42a3b99"
-//#define kTesting 1
+#define kTesting 1
 
 @implementation CMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        //load iPad UI here...
-//    }
+    [Crashlytics startWithAPIKey:@"3d0645f271b14f649463785d7edcbf17df2e837e"];
     
     #ifdef kTesting
         [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+        [TestFlight takeOff:kTestFlighTeamToken];
     #endif
     
-    [TestFlight takeOff:kTestFlighTeamToken];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstRun"]) {
+        NSLog(@"Loading user defaults");
+        [self setupUserDefaults];
+    }
+    
     [CMAppDelegate customiseAppearance];
     return YES;
 }
 
+- (void)setupUserDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSDate date] forKey:@"firstRun"];
+    //other defaults here...
+    [defaults synchronize];
+}
+
 + (void)customiseAppearance
 {
-    UIImage *navbar = [UIImage imageNamed:@"navbar.png"];
+    UIImage *navbar = [UIImage imageNamed:@"navbar-test.png"];
     [[UINavigationBar appearance] setBackgroundImage:navbar forBarMetrics:UIBarMetricsDefault];
     
     UIImage *backButton = [[UIImage imageNamed:@"backbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 5)];
@@ -47,7 +58,7 @@
     [[UIBarButtonItem appearance] setBackgroundImage:barButtonBlue forState:UIControlStateNormal style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
     
     //toolbar
-    UIImage *toolbar = [UIImage imageNamed:@"toolbar.png"];
+    UIImage *toolbar = [UIImage imageNamed:@"toolbar-test.png"];
     [[UIToolbar appearance] setBackgroundImage:toolbar forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 }
 

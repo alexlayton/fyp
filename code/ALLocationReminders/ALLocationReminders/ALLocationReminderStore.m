@@ -47,13 +47,13 @@
 - (void)pushReminder:(ALLocationReminder *)reminder type:(ALLocationReminderType)reminderType
 {
     //add reminder to the array in its postion sorted by date not first position
-    if (reminderType == kALLocationReminderTypeDate) {
+    if ([reminderType isEqualToString:kALLocationReminderTypeDate]) {
         [_dateReminders addObject:reminder];
         [self sortArray:_dateReminders];
-    } else if (reminderType == kALLocationReminderTypeLocation) {
+    } else if ([reminderType isEqualToString:kALLocationReminderTypeLocation]) {
         [_locationReminders addObject:reminder];
         [self sortArray:_locationReminders];
-    } else if (reminderType == kALLocationReminderTypePreemptive) {
+    } else if ([reminderType isEqualToString:kALLocationReminderTypePreemptive]) {
         [_preemptiveReminders addObject:reminder];
         [self sortArray:_preemptiveReminders];
         NSLog(@"Preemptive count: %d", _preemptiveReminders.count);
@@ -63,13 +63,13 @@
 - (ALLocationReminder *)popReminderWithType:(ALLocationReminderType)reminderType
 {
     ALLocationReminder *reminder = nil;
-    if (reminderType == kALLocationReminderTypeDate && _dateReminders.count > 0) {
+    if ([reminderType isEqualToString:kALLocationReminderTypeDate] && _dateReminders.count > 0) {
         reminder = [_dateReminders objectAtIndex:0];
         [_dateReminders removeObjectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypeLocation && _locationReminders.count > 0) {
+    } else if ([reminderType isEqualToString:kALLocationReminderTypeLocation] && _locationReminders.count > 0) {
         reminder = [_locationReminders objectAtIndex:0];
         [_locationReminders removeObjectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypePreemptive && _preemptiveReminders.count > 0) {
+    } else if ([reminderType isEqualToString:kALLocationReminderTypePreemptive] && _preemptiveReminders.count > 0) {
         reminder = [_preemptiveReminders objectAtIndex:0];
         [_preemptiveReminders removeObjectAtIndex:0];
     }
@@ -80,11 +80,11 @@
 {
 
     ALLocationReminder *reminder = nil;
-    if (reminderType == kALLocationReminderTypeDate && _dateReminders.count > 0) {
+    if ([reminderType isEqualToString:kALLocationReminderTypeDate] && _dateReminders.count > 0) {
         reminder = [_dateReminders objectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypeLocation && _locationReminders.count > 0) {
+    } else if ([reminderType isEqualToString:kALLocationReminderTypeLocation] && _locationReminders.count > 0) {
         reminder = [_locationReminders objectAtIndex:0];
-    } else if (reminderType == kALLocationReminderTypePreemptive && _preemptiveReminders.count > 0) {
+    } else if ([reminderType isEqualToString:kALLocationReminderTypePreemptive] && _preemptiveReminders.count > 0) {
         reminder = [_preemptiveReminders objectAtIndex:0];
     }
     return reminder;

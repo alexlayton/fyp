@@ -27,12 +27,12 @@
 {
     [super viewDidLoad];
     _mapView.delegate = self;
-    self.view.backgroundColor = [UIColor blackColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [_mapView setUserTrackingMode:MKUserTrackingModeFollow animated:animated];
     [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
@@ -41,6 +41,11 @@
     [super viewDidAppear:animated];
     //[_mapView setUserTrackingMode:MKUserTrackingModeFollow animated:NO];
     [self performSelectorInBackground:@selector(loadMapAnnotations) withObject:nil];
+}
+
+- (void)dealloc
+{
+    _mapView.delegate = nil;
 }
 
 - (void)loadMapAnnotations
@@ -74,7 +79,7 @@
     NSArray *annotations = _mapView.annotations;
     if (annotations.count == 0) return;
     
-    MKMapPoint points[annotations.count]; //old school
+    MKMapPoint points[annotations.count + 1]; //add 1 for current location
     for (int i = 0; i < annotations.count; i++) {
         CLLocationCoordinate2D coord = [(id<MKAnnotation>)[annotations objectAtIndex:i] coordinate];
         points[i] =  MKMapPointForCoordinate(coord);
@@ -83,7 +88,7 @@
     //add current location to zoom level!
     points[annotations.count] = MKMapPointForCoordinate(currentLocation.coordinate);
     
-    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:annotations.count];
+    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:annotations.count + 1];
     MKMapRect mapRect = [polygon boundingMapRect];
     MKCoordinateRegion region = MKCoordinateRegionForMapRect(mapRect);
     //region.center = currentLocation.coordinate;
@@ -101,6 +106,7 @@
         region.span.longitudeDelta = 0.014;
     }
     
+    NSLog(@"Map View: %@", _mapView);
     [_mapView setRegion:region animated:YES];
 }
 
@@ -110,7 +116,9 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     for (MKAnnotationView *view in views) {
-        view.rightCalloutAccessoryView = button;
+        if ([view.annotation isKindOfClass:[CMReminderAnnotation class]]) {
+            view.rightCalloutAccessoryView = button;
+        }
     }
 }
 

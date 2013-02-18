@@ -29,15 +29,33 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    [self checkFavourites];
+}
+
+- (void)checkFavourites
+{
+    CMFavourites *favourites = [CMFavourites sharedFavourites];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name == %@)", _place.name];
+    NSArray *filteredArray = [favourites.favourites filteredArrayUsingPredicate:predicate];
+    if (filteredArray.count > 0) {
+        //change to an image;
+        self.navigationItem.rightBarButtonItem.title = @"Unfav";
+    }
 }
 
 - (IBAction)favouritePressed:(UIBarButtonItem *)sender {
     CMFavourites *favourites = [CMFavourites sharedFavourites];
-    [favourites.favourites addObject:_place];
+    if ([sender.title isEqualToString:@"Fav"]) {
+        [favourites.favourites addObject:_place];
+        sender.title = @"Unfav";
+    } else if ([sender.title isEqualToString:@"Unfav"]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name != %@)", _place.name];
+        [favourites.favourites filterUsingPredicate:predicate];
+        sender.title = @"Fav";
+    }
     [favourites saveData];
 }
 

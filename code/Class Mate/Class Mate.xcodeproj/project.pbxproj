@@ -56,6 +56,10 @@
 		FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7E19371666999D00A3D890 /* CoreLocation.framework */; };
 		FA8CCAAB16C9313D00263383 /* hud.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8CCAA916C9313C00263383 /* hud.png */; };
 		FA8CCAAC16C9313D00263383 /* hud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8CCAAA16C9313C00263383 /* hud@2x.png */; };
+		FA99FD0916D14371007A0FA7 /* navbar-test.png in Resources */ = {isa = PBXBuildFile; fileRef = FA99FD0716D14371007A0FA7 /* navbar-test.png */; };
+		FA99FD0A16D14371007A0FA7 /* navbar-test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA99FD0816D14371007A0FA7 /* navbar-test@2x.png */; };
+		FA99FD0D16D1437B007A0FA7 /* toolbar-test.png in Resources */ = {isa = PBXBuildFile; fileRef = FA99FD0B16D1437B007A0FA7 /* toolbar-test.png */; };
+		FA99FD0E16D1437B007A0FA7 /* toolbar-test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA99FD0C16D1437B007A0FA7 /* toolbar-test@2x.png */; };
 		FA9E5BD616A3035C005B130E /* searchbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD416A3035C005B130E /* searchbar.png */; };
 		FA9E5BD716A3035C005B130E /* searchbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9E5BD516A3035C005B130E /* searchbar@2x.png */; };
 		FA9E5BDB16A30557005B130E /* CMPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */; };
@@ -85,10 +89,9 @@
 		FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */; };
 		FAD4E7BF16B2FFF700ECDC4C /* CMGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */; };
 		FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */; };
-		FAF345A316C057F1003636CC /* navbar-test.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A116C057F1003636CC /* navbar-test.png */; };
-		FAF345A416C057F1003636CC /* navbar-test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A216C057F1003636CC /* navbar-test@2x.png */; };
 		FAF345A716C05A6A003636CC /* class-mate.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A516C05A6A003636CC /* class-mate.png */; };
 		FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A616C05A6A003636CC /* class-mate@2x.png */; };
+		FAF3EF4016D265B70089179E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3EF3F16D265B70089179E /* Crashlytics.framework */; };
 		FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +159,10 @@
 		FA7E19371666999D00A3D890 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FA8CCAA916C9313C00263383 /* hud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud.png; sourceTree = "<group>"; };
 		FA8CCAAA16C9313C00263383 /* hud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud@2x.png"; sourceTree = "<group>"; };
+		FA99FD0716D14371007A0FA7 /* navbar-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test.png"; sourceTree = "<group>"; };
+		FA99FD0816D14371007A0FA7 /* navbar-test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test@2x.png"; sourceTree = "<group>"; };
+		FA99FD0B16D1437B007A0FA7 /* toolbar-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-test.png"; sourceTree = "<group>"; };
+		FA99FD0C16D1437B007A0FA7 /* toolbar-test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-test@2x.png"; sourceTree = "<group>"; };
 		FA9E5BD416A3035C005B130E /* searchbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbar.png; sourceTree = "<group>"; };
 		FA9E5BD516A3035C005B130E /* searchbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar@2x.png"; sourceTree = "<group>"; };
 		FA9E5BD916A30557005B130E /* CMPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPlaceViewController.h; sourceTree = "<group>"; };
@@ -205,10 +212,9 @@
 		FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGooglePlace.m; sourceTree = "<group>"; };
 		FADAB25F16BD24D800BDC468 /* CMDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDatePickerCell.h; sourceTree = "<group>"; };
 		FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDatePickerCell.m; sourceTree = "<group>"; };
-		FAF345A116C057F1003636CC /* navbar-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test.png"; sourceTree = "<group>"; };
-		FAF345A216C057F1003636CC /* navbar-test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-test@2x.png"; sourceTree = "<group>"; };
 		FAF345A516C05A6A003636CC /* class-mate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate.png"; sourceTree = "<group>"; };
 		FAF345A616C05A6A003636CC /* class-mate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate@2x.png"; sourceTree = "<group>"; };
+		FAF3EF3F16D265B70089179E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FAFD94FB16BFDA2200A5BFA1 /* CMHUDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHUDViewController.h; sourceTree = "<group>"; };
 		FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +233,7 @@
 				FAB95B811663AE8D00A09853 /* Foundation.framework in Frameworks */,
 				FAB95B831663AE8D00A09853 /* CoreGraphics.framework in Frameworks */,
 				D506261E85744CBEB1BB685A /* libPods.a in Frameworks */,
+				FAF3EF4016D265B70089179E /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +243,16 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA99FD0B16D1437B007A0FA7 /* toolbar-test.png */,
+				FA99FD0C16D1437B007A0FA7 /* toolbar-test@2x.png */,
+				FA99FD0716D14371007A0FA7 /* navbar-test.png */,
+				FA99FD0816D14371007A0FA7 /* navbar-test@2x.png */,
 				FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */,
 				FA371AC816CE4FA8005EE6F5 /* gripper.png */,
 				FA8CCAA916C9313C00263383 /* hud.png */,
 				FA8CCAAA16C9313C00263383 /* hud@2x.png */,
 				FAF345A516C05A6A003636CC /* class-mate.png */,
 				FAF345A616C05A6A003636CC /* class-mate@2x.png */,
-				FAF345A116C057F1003636CC /* navbar-test.png */,
-				FAF345A216C057F1003636CC /* navbar-test@2x.png */,
 				FA6E7B5E16B15910005EF510 /* location-arrow.png */,
 				FA6E7B5F16B15910005EF510 /* location-arrow@2x.png */,
 				FA6E7B5A16B15871005EF510 /* gear.png */,
@@ -414,6 +423,7 @@
 		FAB95B7D1663AE8D00A09853 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAF3EF3F16D265B70089179E /* Crashlytics.framework */,
 				FA4B141716AD79910025986A /* QuartzCore.framework */,
 				FA4683C416A8A2AF007A839C /* AddressBook.framework */,
 				FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */,
@@ -472,7 +482,7 @@
 				FAB95B771663AE8D00A09853 /* Frameworks */,
 				FAB95B781663AE8D00A09853 /* Resources */,
 				497ACEB5E716418AB7B04E43 /* Copy Pods Resources */,
-				FAC5057716CD013D006ED9EF /* Crashlytics */,
+				FAF3EF3E16D2655A0089179E /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -547,8 +557,6 @@
 				FA6E7B5D16B15871005EF510 /* gear@2x.png in Resources */,
 				FA6E7B6016B15910005EF510 /* location-arrow.png in Resources */,
 				FA6E7B6116B15910005EF510 /* location-arrow@2x.png in Resources */,
-				FAF345A316C057F1003636CC /* navbar-test.png in Resources */,
-				FAF345A416C057F1003636CC /* navbar-test@2x.png in Resources */,
 				FAF345A716C05A6A003636CC /* class-mate.png in Resources */,
 				FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */,
 				FACC102516C58D5000EADB3F /* icon@2x.png in Resources */,
@@ -559,6 +567,10 @@
 				FA8CCAAC16C9313D00263383 /* hud@2x.png in Resources */,
 				FA371AC916CE4FA8005EE6F5 /* gripper.png in Resources */,
 				FA371ACB16CE4FB8005EE6F5 /* gripper@2x.png in Resources */,
+				FA99FD0916D14371007A0FA7 /* navbar-test.png in Resources */,
+				FA99FD0A16D14371007A0FA7 /* navbar-test@2x.png in Resources */,
+				FA99FD0D16D1437B007A0FA7 /* toolbar-test.png in Resources */,
+				FA99FD0E16D1437B007A0FA7 /* toolbar-test@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +591,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
-		FAC5057716CD013D006ED9EF /* Crashlytics */ = {
+		FAF3EF3E16D2655A0089179E /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -710,6 +722,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 66AD20DB0DF1487D8D047199 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
 				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";
@@ -723,6 +739,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 66AD20DB0DF1487D8D047199 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
 				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";

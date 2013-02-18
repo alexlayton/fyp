@@ -31,7 +31,7 @@ extern const ALLocationRemindersRepeatType kALRepeatTypeMonth;
 @property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) NSString *payload;
 @property (nonatomic, strong) NSDate *date;
-
+@property (nonatomic) int minutesBefore;
 @property (nonatomic) ALLocationRemindersRepeatType repeat;
 @property (nonatomic) ALLocationReminderType reminderType;
 @property (nonatomic) ALLocationRemindersTransportType transport;

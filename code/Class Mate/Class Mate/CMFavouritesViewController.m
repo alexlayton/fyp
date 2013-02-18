@@ -12,6 +12,7 @@
 #import "CMPlace.h"
 #import "CMAddress.h"
 #import "CMGooglePlace.h"
+#import "CMPlaceViewController.h"
 
 @implementation CMFavouritesViewController
 
@@ -28,9 +29,10 @@
     [super viewWillAppear:animated];
     UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editPressed:)];
     self.tabBarController.navigationItem.rightBarButtonItem = edit;
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
     
     _favourites = [CMFavourites sharedFavourites];
-    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    [self.tableView reloadData];
     
 }
 
@@ -144,6 +146,16 @@
         NSLog(@"Setting Previous!");
         avc.previousSelectedIndex = self.tabBarController.selectedIndex;
     }
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    CMPlace *place = [_favourites.favourites objectAtIndex:indexPath.row];
+    CMPlaceViewController *pvc = segue.destinationViewController;
+    pvc.place = place;
 }
 
 @end

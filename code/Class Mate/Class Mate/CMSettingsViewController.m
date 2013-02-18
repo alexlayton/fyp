@@ -40,7 +40,7 @@
     if (section == self.tableView.numberOfSections - 1) {
         NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
         NSString *build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
-        footer = [NSString stringWithFormat:@"Class Mate %@ (%@) \n Copyright © Alex Layton 2012. \n All Rights Reserved.", version, build];
+        footer = [NSString stringWithFormat:@"Class Mate %@ (%@) \n Copyright © Alex Layton 2013. \n All Rights Reserved.", version, build];
     }
     return footer;
 }
@@ -71,6 +71,10 @@
         sdvc.settingsType = @"Distance Unit";
         sdvc.defaultsKey = @"distance";
         options = @[[CMPair pairWithObj:@"meters" description:@"Meters"], [CMPair pairWithObj:@"kilometers" description:@"Kilometers"], [CMPair pairWithObj:@"miles" description:@"Miles"]];
+    } else if ([segue.identifier isEqualToString:@"Type"]) {
+        sdvc.settingsType = @"Reminder Type";
+        sdvc.defaultsKey = @"reminderType";
+        options = @[[CMPair pairWithObj:kALLocationReminderTypePreemptive description:@"Preemptive"], [CMPair pairWithObj:kALLocationReminderTypeLocation description:@"Location"], [CMPair pairWithObj:kALLocationReminderTypeDate description:@"Date"]];
     }
     sdvc.options = options;
 }

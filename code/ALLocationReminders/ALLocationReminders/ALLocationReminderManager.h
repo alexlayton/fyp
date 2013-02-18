@@ -39,16 +39,12 @@
 - (void)stopLocationReminders;
 - (void)startLocation;
 - (void)stopLocation;
-- (void)startBackgroundLocationReminders;
-- (void)stopBackgroundLocationReminders;
-- (void)transitionToBackgroundLocationReminders;
-- (void)transitionToForegroundLocationReminders;
 - (BOOL)areRemindersRunning;
 - (void)addPreemptiveReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
 - (void)addPreemptiveReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
 - (void)addLocationReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
 - (void)addLocationReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
 - (void)addDateBasedReminderWithPayload:(NSString *)payload date:(NSDate *)date;
-- (void)fireReminder:(ALLocationReminder *)reminder;
+- (void)addReminder:(ALLocationReminder *)reminder;
 
 @end

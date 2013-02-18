@@ -59,6 +59,13 @@
     UIImage *barButtonBlue = [[UIImage imageNamed:@"barbuttonblue.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     [_addButton setBackgroundImage:barButtonBlue forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+    //shadow
+    CALayer *layer = self.navigationController.view.layer;
+    layer.masksToBounds = NO;
+    layer.shadowOffset = CGSizeMake(0, 5);
+    layer.shadowRadius = 5;
+    layer.shadowOpacity = 0.70;
+    
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     lrm.delegate = self;
     [lrm startLocation];
@@ -126,11 +133,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
