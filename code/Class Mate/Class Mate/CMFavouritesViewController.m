@@ -137,6 +137,14 @@
     [_delegate favouritesView:self didSelectFavourite:place];
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    CMPlace *place = [_favourites.favourites objectAtIndex:indexPath.row];
+    CMPlaceViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PlaceViewController"];
+    pvc.place = place;
+    [self.navigationController pushViewController:pvc animated:YES];
+}
+
 #pragma mark - Tab Bar Delegate
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController

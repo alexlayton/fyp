@@ -28,6 +28,7 @@
 		FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05516C7C2CE00E785F3 /* sound.wav */; };
 		FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D05B16C80EE300E785F3 /* CMHUDView.m */; };
 		FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05D16C80F2300E785F3 /* CMHUDView.xib */; };
+		FA14D17A16D398D100D03400 /* CMGeocodePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14D17916D398D100D03400 /* CMGeocodePlace.m */; };
 		FA371AC916CE4FA8005EE6F5 /* gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371AC816CE4FA8005EE6F5 /* gripper.png */; };
 		FA371ACB16CE4FB8005EE6F5 /* gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */; };
 		FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddTestViewController.m */; };
@@ -66,6 +67,8 @@
 		FAA3CEBE16B68BE300BB38A1 /* CMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA3CEBD16B68BE300BB38A1 /* CMPlace.m */; };
 		FAA9A679166CAFEF009E5D1B /* CMSettingsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */; };
 		FAAB414616C524CA000B9A6F /* CMPair.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB414516C524CA000B9A6F /* CMPair.m */; };
+		FAB4756B16D565260031C11F /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB4756916D565260031C11F /* house.png */; };
+		FAB4756C16D565260031C11F /* house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB4756A16D565260031C11F /* house@2x.png */; };
 		FAB6D2B316A8994A00E23526 /* CMAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */; };
 		FAB761CF167F8746001BD9D7 /* CMAddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761CE167F8746001BD9D7 /* CMAddReminderViewController.m */; };
 		FAB761D3167F929B001BD9D7 /* CMPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761D2167F929B001BD9D7 /* CMPlacesViewController.m */; };
@@ -121,6 +124,8 @@
 		FA04D05B16C80EE300E785F3 /* CMHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDView.m; sourceTree = "<group>"; };
 		FA04D05D16C80F2300E785F3 /* CMHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHUDView.xib; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FA14D17816D398D100D03400 /* CMGeocodePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMGeocodePlace.h; sourceTree = "<group>"; };
+		FA14D17916D398D100D03400 /* CMGeocodePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGeocodePlace.m; sourceTree = "<group>"; };
 		FA371AC816CE4FA8005EE6F5 /* gripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gripper.png; sourceTree = "<group>"; };
 		FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gripper@2x.png"; sourceTree = "<group>"; };
 		FA42400A16BBDAA50092671B /* CMAddTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddTestViewController.h; sourceTree = "<group>"; };
@@ -173,6 +178,8 @@
 		FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsDetailViewController.m; sourceTree = "<group>"; };
 		FAAB414416C524CA000B9A6F /* CMPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPair.h; sourceTree = "<group>"; };
 		FAAB414516C524CA000B9A6F /* CMPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPair.m; sourceTree = "<group>"; };
+		FAB4756916D565260031C11F /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
+		FAB4756A16D565260031C11F /* house@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house@2x.png"; sourceTree = "<group>"; };
 		FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		FAB6D2B116A8994A00E23526 /* CMAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddressViewController.h; sourceTree = "<group>"; };
 		FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddressViewController.m; sourceTree = "<group>"; };
@@ -243,6 +250,8 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FAB4756916D565260031C11F /* house.png */,
+				FAB4756A16D565260031C11F /* house@2x.png */,
 				FA99FD0B16D1437B007A0FA7 /* toolbar-test.png */,
 				FA99FD0C16D1437B007A0FA7 /* toolbar-test@2x.png */,
 				FA99FD0716D14371007A0FA7 /* navbar-test.png */,
@@ -344,6 +353,8 @@
 				FA0454AB16AEDD89002EB841 /* CMAddress.m */,
 				FAD4E7BD16B2FFF700ECDC4C /* CMGooglePlace.h */,
 				FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */,
+				FA14D17816D398D100D03400 /* CMGeocodePlace.h */,
+				FA14D17916D398D100D03400 /* CMGeocodePlace.m */,
 				FADAB25F16BD24D800BDC468 /* CMDatePickerCell.h */,
 				FADAB26016BD24D800BDC468 /* CMDatePickerCell.m */,
 				FAAB414416C524CA000B9A6F /* CMPair.h */,
@@ -571,6 +582,8 @@
 				FA99FD0A16D14371007A0FA7 /* navbar-test@2x.png in Resources */,
 				FA99FD0D16D1437B007A0FA7 /* toolbar-test.png in Resources */,
 				FA99FD0E16D1437B007A0FA7 /* toolbar-test@2x.png in Resources */,
+				FAB4756B16D565260031C11F /* house.png in Resources */,
+				FAB4756C16D565260031C11F /* house@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +655,7 @@
 				FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */,
 				FAC0599016CC305300CA78F5 /* CMApplePlacesViewController.m in Sources */,
 				FAC0599316CC41B100CA78F5 /* CMGeocodeViewController.m in Sources */,
+				FA14D17A16D398D100D03400 /* CMGeocodePlace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

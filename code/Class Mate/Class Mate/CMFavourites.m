@@ -30,7 +30,6 @@
     [NSKeyedArchiver archiveRootObject:_favourites toFile:path];
 }
 
-
 - (id)init
 {
     self = [super init];

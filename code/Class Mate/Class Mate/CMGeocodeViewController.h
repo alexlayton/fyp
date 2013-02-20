@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class CMGeocodeViewController, CMGeocodePlace;
+
+@protocol CMGecodeViewDelegate <NSObject>
+
+- (void)geocodeViewController:(CMGeocodeViewController *)gvc didSelectPlace:(CMGeocodePlace *)place;
+
+@end
+
 @interface CMGeocodeViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSMutableArray *places;
+@property (nonatomic, strong) NSArray *searchPlaces;
+@property (nonatomic, weak) id<CMGecodeViewDelegate> delegate;
 
 @end

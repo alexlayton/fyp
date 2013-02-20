@@ -10,11 +10,12 @@
 #import "CMPlacesViewController.h"
 #import "CMAddressViewController.h"
 #import "CMFavouritesViewController.h"
+#import "CMGeocodeViewController.h"
 #import "CMOptionViewController.h"
 
 @class CMPlace;
 
-@interface CMAddTestViewController : UITableViewController <UITextFieldDelegate, CMPlacesViewDelegate, CMAddressViewDelegate, CMPlacesViewDelegate, CMFavouritesViewDelegate, CMOptionDelegate>
+@interface CMAddTestViewController : UITableViewController <UITextFieldDelegate, CMPlacesViewDelegate, CMAddressViewDelegate, CMPlacesViewDelegate, CMFavouritesViewDelegate, CMOptionDelegate, CMGecodeViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *titleTextField;
 @property (strong, nonatomic) NSDate *date;

@@ -7,7 +7,11 @@
 //
 
 #import "CMPlace.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation CMPlace
+
+@synthesize name = _name;
+@synthesize location = _location;
 
 @end

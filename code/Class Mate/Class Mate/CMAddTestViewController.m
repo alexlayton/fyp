@@ -11,6 +11,7 @@
 #import "CMAppDelegate.h"
 #import "CMPlace.h"
 #import "CMAddress.h"
+#import "CMGeocodePlace.h"
 #import "CMGooglePlace.h"
 #import "ALLocationReminders.h"
 #import "CMPair.h"
@@ -300,6 +301,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - Geocode Delegate
+
+- (void)geocodeViewController:(CMGeocodeViewController *)gvc didSelectPlace:(CMGeocodePlace *)place
+{
+    _place = place;
+    _locationLabel.text = place.name;
+    if (_titleTextField.text && _date) _doneButton.enabled = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - Segue
 
@@ -338,6 +348,9 @@
             } else if ([vc isKindOfClass:[CMFavouritesViewController class]]) {
                 CMFavouritesViewController *fvc = vc;
                 fvc.delegate = self;
+            } else if ([vc isKindOfClass:[CMGeocodeViewController class]]) {
+                CMGeocodeViewController *gvc = vc;
+                gvc.delegate = self;
             }
         }
     }

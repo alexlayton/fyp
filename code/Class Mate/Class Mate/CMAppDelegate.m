@@ -38,7 +38,9 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[NSDate date] forKey:@"firstRun"];
-    //other defaults here...
+    [defaults setObject:@"5" forKey:@"minutes"]; //change to 0?
+    [defaults setObject:kALLocationRemindersTransportTypeWalking forKey:@"transport"];
+    [defaults setObject:kALLocationReminderTypePreemptive forKey:@"reminderType"];
     [defaults synchronize];
 }
 

@@ -10,6 +10,7 @@
 #import "CMAddress.h"
 #import "CMGooglePlace.h"
 #import "CMFavourites.h"
+#import "CMGeocodePlace.h"
 
 @implementation CMPlaceViewController
 
@@ -24,8 +25,11 @@
     _nameLabel.text = _place.name;
 	if ([_place isKindOfClass:[CMAddress class]]) {
         _addressLabel.text = [(CMAddress *)_place formattedAddress];
-    } else { //google place
+    } else if ([_place isKindOfClass:[CMGooglePlace class]]) { //google place
         _addressLabel.text = [(CMGooglePlace *)_place vicinity];
+    } else if ([_place isKindOfClass:[CMGeocodePlace class]]) {
+        //change this later!
+        _addressLabel.text = _place.name;
     }
 }
 

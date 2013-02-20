@@ -160,6 +160,14 @@
     [_delegate placeView:self didSelectPlace:place];
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    CMGooglePlace *place = (tableView == self.searchDisplayController.searchResultsTableView) ? [_filteredPlaces objectAtIndex:indexPath.row] : [_nearbyPlaces objectAtIndex:indexPath.row];
+    CMPlaceViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PlaceViewController"];
+    pvc.place = place;
+    [self.navigationController pushViewController:pvc animated:YES];
+}
+
 #pragma mark - Search
 
 - (void)filterContentForSearchString:(NSString *)searchString scope:(NSString *)scope

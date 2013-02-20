@@ -60,11 +60,11 @@
     [_addButton setBackgroundImage:barButtonBlue forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     //shadow
-    CALayer *layer = self.navigationController.view.layer;
-    layer.masksToBounds = NO;
-    layer.shadowOffset = CGSizeMake(0, 5);
-    layer.shadowRadius = 5;
-    layer.shadowOpacity = 0.70;
+//    CALayer *layer = self.navigationController.view.layer;
+//    layer.masksToBounds = NO;
+//    layer.shadowOffset = CGSizeMake(0, 5);
+//    layer.shadowRadius = 5;
+//    layer.shadowOpacity = 0.70;
     
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     lrm.delegate = self;

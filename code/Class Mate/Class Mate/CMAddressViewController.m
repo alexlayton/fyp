@@ -134,6 +134,14 @@
     [_delegate addressView:self didSelectAddress:[_addresses objectAtIndex:indexPath.row]];
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    CMAddress *place = (tableView == self.searchDisplayController.searchResultsTableView) ? [_results objectAtIndex:indexPath.row] : [_addresses objectAtIndex:indexPath.row];
+    CMPlaceViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PlaceViewController"];
+    pvc.place = place;
+    [self.navigationController pushViewController:pvc animated:YES];
+}
+
 #pragma mark - Search
 
 - (void)filterContentForSearchString:(NSString *)searchString scope:(NSString *)scope
