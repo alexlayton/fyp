@@ -50,6 +50,7 @@
     if (self) {
         [self setupDefaults]; //add defaults if dont exist
         _store = [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]];
+        [self removeOldReminders];
         
         if (!_store) {
             _store = [[ALLocationReminderStore alloc] init];
@@ -133,42 +134,6 @@
     }
 }
 
-- (void)addPreemptiveReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date
-{
-    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_currentLocation payload:payload date:date];
-    [_store pushReminder:reminder type:kALLocationReminderTypePreemptive];
-    if (!_remindersAreRunning) {
-        [self startLocationReminders];
-    }
-}
-
-- (void)addPreemptiveReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
-{
-    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:location payload:payload date:date];
-    [_store pushReminder:reminder type:kALLocationReminderTypePreemptive];
-    if (!_remindersAreRunning) {
-        [self startLocationReminders];
-    }
-}
-
-- (void)addLocationReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date
-{
-    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:_currentLocation payload:payload date:date];
-    [_store pushReminder:reminder type:kALLocationReminderTypeLocation];
-    if (!_remindersAreRunning) {
-        [self startLocationReminders];
-    }
-}
-
-- (void)addLocationReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
-{
-    ALLocationReminder *reminder = [ALLocationReminder reminderWithLocation:location payload:payload date:date];
-    [_store pushReminder:reminder type:kALLocationReminderTypeLocation];
-    if (!_remindersAreRunning) {
-        [self startLocationReminders];
-    }
-}
-
 - (void)addDateBasedReminderWithPayload:(NSString *)payload date:(NSDate *)date
 {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
@@ -186,7 +151,76 @@
         }
     } else {
         //for now
-        [self addDateBasedReminderWithPayload:reminder.payload date:reminder.date];
+        [_store pushReminder:reminder type:reminder.reminderType];
+        NSDate *newDate = [reminder.date dateByAddingTimeInterval:-60 * reminder.minutesBefore];
+        [self addDateBasedReminderWithPayload:reminder.payload date:newDate];
+    }
+}
+
+- (void)addReminder:(ALLocationReminder *)reminder success:(void (^)(void))successBlock failure:(void (^)(void))failureBlock
+{
+    if ([reminder.reminderType isEqualToString:kALLocationReminderTypePreemptive]) {
+        
+        NSString *locationString = [NSString stringWithFormat:@"origins=%f,%f&destinations=%f,%f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude, reminder.location.coordinate.latitude, reminder.location.coordinate.longitude];
+        NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/distancematrix/json?%@&sensor=true&mode=%@", locationString, reminder.reminderType];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            
+            NSDictionary *dict = JSON;
+            NSArray *rows = [dict objectForKey:@"rows"];
+            
+            NSDictionary *element = [[[rows objectAtIndex:0] objectForKey:@"elements"] objectAtIndex:0]; //inception
+            
+            NSString *secondString = [[element valueForKey:@"duration"] valueForKey:@"value"];
+            int seconds = [secondString intValue];
+            
+            NSDate *projected = [NSDate dateWithTimeIntervalSinceNow:seconds + reminder.minutesBefore];
+            
+            if ([projected compare:reminder.date] == NSOrderedAscending) {
+                //add reminder
+                [self addReminder:reminder];
+                if (successBlock) successBlock();
+            } else {
+                if (failureBlock) failureBlock();
+            }
+        } failure:nil];
+        [operation start];
+        
+    } else if ([reminder.reminderType isEqualToString:kALLocationReminderTypeLocation]) {
+        
+        CLRegion *region = [self makeRegionFromLocation:reminder.location];
+        if ([region containsCoordinate:_currentLocation.coordinate]) {
+            if (failureBlock) failureBlock();
+        } else {
+            [self addReminder:reminder];
+            if (successBlock) successBlock();
+        }
+        
+    } else {
+        [self addReminder:reminder];
+        if (successBlock) successBlock();
+    }
+}
+
+
+- (void)processLocalNotification:(UILocalNotification *)notification
+{
+    ALLocationReminder *reminder = [_store peekReminderWithType:kALLocationReminderTypeDate];
+    NSDate *newDate = [reminder.date dateByAddingTimeInterval:-60 * reminder.minutesBefore];
+    if ([newDate isEqualToDate:notification.fireDate]) {
+        [_store popReminderWithType:kALLocationReminderTypeDate];
+        if (reminder.repeat != kALRepeatTypeNever) {
+            NSDate *newDate;
+            if (reminder.repeat == kALRepeatTypeMonth) {
+                newDate = [self addMonthToDate:reminder.date];
+            } else {
+                newDate = [NSDate dateWithTimeInterval:reminder.repeat sinceDate:reminder.date];
+            }
+            reminder.date = newDate;
+            [self addReminder:reminder];
+        }
     }
 }
 
@@ -243,7 +277,7 @@
         int time = [self timeBetweenLocationFrom:currentLocation to:reminder.location];
         NSLog(@"Seconds away: %d", time);
         NSDate *projectedDate = [NSDate dateWithTimeIntervalSinceNow:time]; //projected time
-        NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * _minutesBeforeReminderTime];
+        NSDate *goalDate = [reminder.date dateByAddingTimeInterval:-60 * reminder.minutesBefore];
         
         if ([projectedDate compare:goalDate] == NSOrderedDescending) {
             NSLog(@"Fire the reminder");
@@ -287,7 +321,7 @@
                 NSLog(@"status: %@", status);
                 
                 NSString *secondString = [[element valueForKey:@"duration"] valueForKey:@"value"];
-                int seconds = [secondString integerValue];
+                int seconds = [secondString intValue];
                 _seconds = seconds;
                 
                 NSDate *projectedDate = [NSDate dateWithTimeIntervalSinceNow:seconds]; //projected time
@@ -328,13 +362,47 @@
     }
 }
 
-- (void)printPreemptiveReminders
+- (void)removeOldReminders
 {
-    NSMutableArray *reminders = _store.preemptiveReminders;
-    if (reminders.count > 0) {
-        for (int i = 0; i < reminders.count; i++) {
-            ALLocationReminder *reminder = [reminders objectAtIndex:i];
-            NSLog(@"Reminder %d, with Payload %@", i, reminder.payload);
+    NSDate *now = [NSDate date];
+    //preemptive
+    for (int i = 0; i < _store.preemptiveReminders.count; i++) {
+        ALLocationReminder *reminder = [_store.preemptiveReminders objectAtIndex:i];
+        if ([reminder.date compare:now] != NSOrderedDescending) {
+            [_store.preemptiveReminders removeObjectAtIndex:i];
+        } else {
+            break;
+        }
+    }
+    //location
+    for (int i = 0; i < _store.locationReminders.count; i++) {
+        ALLocationReminder *reminder = [_store.locationReminders objectAtIndex:i];
+        if ([reminder.date compare:now] != NSOrderedDescending) {
+            [_store.locationReminders removeObjectAtIndex:i];
+        } else {
+            break;
+        }
+    }
+    //date
+    for (int i = 0; i < _store.dateReminders.count; i++) {
+        ALLocationReminder *reminder = [_store.dateReminders objectAtIndex:i];
+        if ([reminder.date compare:now] != NSOrderedDescending) {
+            [_store.dateReminders removeObjectAtIndex:i];
+        } else {
+            break;
+        }
+    }
+}
+
+- (void)updateDateReminders
+{
+    NSDate *now = [NSDate date];
+    for (int i = 0; i < _store.dateReminders.count; i++) {
+        ALLocationReminder *reminder = [_store.dateReminders objectAtIndex:i];
+        if ([reminder.date compare:now] != NSOrderedDescending) {
+            [_store.dateReminders removeObjectAtIndex:i];
+        } else {
+            break;
         }
     }
 }

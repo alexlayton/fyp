@@ -18,4 +18,6 @@
 @property (strong, nonatomic) CMHUDView *HUDView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
+- (IBAction)testPressed:(UIBarButtonItem *)sender;
+
 @end

@@ -297,4 +297,12 @@
     _HUDView.HUDLabel.text = message;
 }
 
+- (IBAction)testPressed:(UIBarButtonItem *)sender
+{
+    NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *notification in notifications) {
+        NSLog(@"Notification: %@, Date: %@", notification.alertBody, notification.fireDate);
+    }
+}
+
 @end

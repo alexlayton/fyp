@@ -8,11 +8,20 @@
 
 #import "CMRemindersViewController.h"
 #import "ALLocationReminders.h"
+#import "CMAppDelegate.h"
+#import "CMAddTestViewController.h"
+
+@interface CMRemindersViewController ()
+
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
+@end
 
 @implementation CMRemindersViewController
 
 @synthesize reminders = _reminders;
 @synthesize reminderType = _reminderType;
+@synthesize dateFormatter = _dateFormatter;
 
 - (void)viewDidLoad
 {
@@ -20,6 +29,11 @@
     NSLog(@"Title: %@", _reminderType);
     UINavigationItem *nav = self.navigationItem;
     nav.title = _reminderType;
+    
+    //date formatter
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    _dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,8 +60,7 @@
    
     ALLocationReminder *reminder = [_reminders objectAtIndex:indexPath.row];
     cell.textLabel.text = reminder.payload;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", reminder.date];
-    
+    cell.detailTextLabel.text = [_dateFormatter stringFromDate:reminder.date];
     return cell;
 }
 
@@ -59,18 +72,26 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_reminders removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self deleteReminder:[_reminders objectAtIndex:indexPath.row] indexPath:indexPath];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    ALLocationReminder *reminder = [_reminders objectAtIndex:indexPath.row];
-    CMReminderViewController *rvc = segue.destinationViewController;
-    rvc.delegate = self;
-    rvc.reminder = reminder;
+    if ([segue.identifier isEqualToString:@"Add"]) {
+        NSLog(@"Add pressed.");
+        [CMAppDelegate resetAppearance];
+        //CMAddTestViewController *arvc = segue.destinationViewController;
+        //change the reminder type
+        
+    } else {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        ALLocationReminder *reminder = [_reminders objectAtIndex:indexPath.row];
+        CMReminderViewController *rvc = segue.destinationViewController;
+        rvc.delegate = self;
+        rvc.reminder = reminder;
+        rvc.dateLabel.text = [_dateFormatter stringFromDate:reminder.date];
+    }
 }
 
 - (IBAction)editPressed:(UIBarButtonItem *)sender
@@ -86,13 +107,29 @@
     }
 }
 
+- (void)deleteReminder:(ALLocationReminder *)reminder indexPath:(NSIndexPath *)indexPath
+{
+    if ([reminder.reminderType isEqualToString:kALLocationReminderTypeDate]) {
+        //delete notification too!
+        NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        NSDate *newDate = [reminder.date dateByAddingTimeInterval:-60 * reminder.minutesBefore];
+        for (UILocalNotification *notification in notifications) {
+            if ([notification.fireDate isEqualToDate:newDate]) {
+                NSLog(@"Removed Local Notification!");
+                [[UIApplication sharedApplication] cancelLocalNotification:notification];
+            }
+        }
+    }
+    [_reminders removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 #pragma mark - Reminder View Delegate
 
 - (void)reminderViewController:(CMReminderViewController *)rvc didDeleteReminder:(ALLocationReminder *)reminder
 {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    [_reminders removeObjectAtIndex:indexPath.row];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self deleteReminder:reminder indexPath:indexPath];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

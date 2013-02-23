@@ -94,9 +94,16 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     [lrm saveData];
     [lrm startLocation]; //if necessary
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm processLocalNotification:notification];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

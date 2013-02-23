@@ -15,6 +15,7 @@
 #import "CMGooglePlace.h"
 #import "ALLocationReminders.h"
 #import "CMPair.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
 
 @interface CMAddTestViewController ()
 
@@ -29,6 +30,7 @@
     ALLocationRemindersTransportType _transportType;
     ALLocationReminderType _reminderType;
     int _minutes;
+    BOOL _canAddReminder;
 }
 
 @synthesize titleTextField = _titleTextField;
@@ -48,10 +50,6 @@
 - (void)addReminder
 {
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-//    CLLocation *location = _place.location;
-//    NSLog(@"Adding Reminder at: %@", location);
-//    NSString *payload = _titleTextField.text;
-//    [lrm addPreemptiveReminderAtLocation:location payload:payload date:_date];
     ALLocationReminder *reminder = [[ALLocationReminder alloc] init];
     reminder.location = _place.location;
     reminder.payload = _titleTextField.text;
@@ -61,9 +59,38 @@
     reminder.transport = _transportType;
     reminder.minutesBefore = _minutes;
     
-    NSLog(@"Reminder: %@", reminder);
+    void (^successBlock)(void) = ^{
+        [self performSelectorOnMainThread:@selector(reminderAdded) withObject:nil waitUntilDone:NO];
+    };
     
-    [lrm addReminder:reminder];
+    void (^failureBlock)(void);
+    
+    if ([reminder.reminderType isEqualToString:kALLocationReminderTypePreemptive]) {
+        failureBlock = ^{
+            NSString *message = @"Choose a later date";
+            [self performSelectorOnMainThread:@selector(showAlert:) withObject:message waitUntilDone:NO];
+        };
+    } else if ([reminder.reminderType isEqualToString:kALLocationReminderTypeLocation]) {
+        failureBlock = ^{
+            NSString *message = @"Already at location";
+            [self performSelectorOnMainThread:@selector(showAlert:) withObject:message waitUntilDone:NO];
+        };
+    }
+    
+    [lrm addReminder:reminder success:successBlock failure:failureBlock];
+}
+
+- (void)showAlert:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't add Reminder" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)reminderAdded
+{
+    _doneButton.enabled = NO;
+    [CMAppDelegate customiseAppearance];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)loadReminderDefaults
@@ -89,9 +116,6 @@
 - (IBAction)donePressed:(UIBarButtonItem *)sender
 {
     [self addReminder];
-    _doneButton.enabled = NO;
-    [CMAppDelegate customiseAppearance];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender
@@ -255,9 +279,10 @@
     } else if ([ovc.title isEqualToString:@"Repeat"]) {
         _repeatLabel.text = option.objDescription;
         _repeatType = [option.obj intValue]; //repeat is int
-    } else if ([ovc.title isEqualToString:@"Reminder Before"]) {
+    } else if ([ovc.title isEqualToString:@"Remind Before"]) {
+        NSLog(@"Reminder Before!");
         _remindLabel.text = option.objDescription;
-        //set somrthing here...
+        _minutes = [option.obj intValue];
     } else if ([ovc.title isEqualToString:@"Transport"]) {
         _transportLabel.text = option.objDescription;
         _transportType = option.obj;
@@ -386,12 +411,13 @@
 
 - (NSArray *)reminderMinutesOptions
 {
+    CMPair *zero = [CMPair pairWithObj:@"0" description:@"0 Minutes"];
     CMPair *five = [CMPair pairWithObj:@"5" description:@"5 Minutes"];
     CMPair *ten = [CMPair pairWithObj:@"10" description:@"10 Minutes"];
     CMPair *fifteen = [CMPair pairWithObj:@"15" description:@"15 Minutes"];
     CMPair *thirty = [CMPair pairWithObj:@"30" description:@"30 Minutes"];
     CMPair *sixty = [CMPair pairWithObj:@"60" description:@"60 Minutes"];
-    return @[five, ten, fifteen, thirty, sixty];
+    return @[zero, five, ten, fifteen, thirty, sixty];
 }
 
 @end

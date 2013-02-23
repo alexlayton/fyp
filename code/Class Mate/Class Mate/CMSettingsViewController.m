@@ -60,7 +60,7 @@
         NSLog(@"Reminder");
         sdvc.settingsType = @"Remind Me";
         sdvc.defaultsKey = @"minutes";
-        options = @[[CMPair pairWithObj:@"5" description:@"5 Minutes"], [CMPair pairWithObj:@"10" description:@"10 Minutes"], [CMPair pairWithObj:@"15" description:@"15 Minutes"]];
+        options = @[[CMPair pairWithObj:@"0" description:@"0 Minutes"], [CMPair pairWithObj:@"5" description:@"5 Minutes"], [CMPair pairWithObj:@"10" description:@"10 Minutes"], [CMPair pairWithObj:@"15" description:@"15 Minutes"]];
     } else if ([segue.identifier isEqualToString:@"Transport"]) {
         NSLog(@"Transport");
         sdvc.settingsType = @"Transport Method";

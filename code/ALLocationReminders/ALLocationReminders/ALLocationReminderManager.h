@@ -40,11 +40,7 @@
 - (void)startLocation;
 - (void)stopLocation;
 - (BOOL)areRemindersRunning;
-- (void)addPreemptiveReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
-- (void)addPreemptiveReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
-- (void)addLocationReminderAtCurrentLocationWithPayload:(NSString *)payload date:(NSDate *)date;
-- (void)addLocationReminderAtLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
-- (void)addDateBasedReminderWithPayload:(NSString *)payload date:(NSDate *)date;
-- (void)addReminder:(ALLocationReminder *)reminder;
+- (void)processLocalNotification:(UILocalNotification *)notification;
+- (void)addReminder:(ALLocationReminder *)reminder success:(void (^)(void))successBlock failure:(void (^)(void))failureBlock;
 
 @end

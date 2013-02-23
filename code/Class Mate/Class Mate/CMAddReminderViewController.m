@@ -87,7 +87,7 @@
     CLLocation *location = _place.location;
     
     NSString *payload = _payloadTextField.text;
-    [lrm addPreemptiveReminderAtLocation:location payload:payload date:date];
+    //[lrm addPreemptiveReminderAtLocation:location payload:payload date:date];
     
     [CMAppDelegate customiseAppearance];
     [self dismissViewControllerAnimated:YES completion:nil];

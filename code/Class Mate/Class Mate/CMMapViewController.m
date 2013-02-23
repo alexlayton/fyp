@@ -53,6 +53,7 @@
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     NSArray *preemptive = lrm.store.preemptiveReminders;
     NSArray *location = lrm.store.locationReminders;
+    NSArray *date = lrm.store.dateReminders;
     
     for (ALLocationReminder *reminder in preemptive) {
         CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Preemptive" description:reminder.payload];
@@ -62,6 +63,12 @@
     
     for (ALLocationReminder *reminder in location) {
         CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Location" description:reminder.payload];
+        annotation.reminder = reminder;
+        [_mapView addAnnotation:annotation];
+    }
+    
+    for (ALLocationReminder *reminder in date) {
+        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Date" description:reminder.payload];
         annotation.reminder = reminder;
         [_mapView addAnnotation:annotation];
     }
@@ -140,6 +147,18 @@
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     if ([_lastSelectedAnnotation.title isEqualToString:@"Preemptive"]) {
         [lrm.store.preemptiveReminders removeObject:_lastSelectedAnnotation.reminder];
+    } else if ([_lastSelectedAnnotation.title isEqualToString:@"Location"]) {
+        [lrm.store.locationReminders removeObject:_lastSelectedAnnotation.reminder];
+    } else if ([_lastSelectedAnnotation.title isEqualToString:@"Date"]) {
+        [lrm.store.dateReminders removeObject:_lastSelectedAnnotation.reminder];
+        NSDate *newDate = [_lastSelectedAnnotation.reminder.date dateByAddingTimeInterval:-60 * _lastSelectedAnnotation.reminder.minutesBefore];
+        NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        for (UILocalNotification *notification in notifications) {
+            if ([notification.fireDate isEqualToDate:newDate]) {
+                NSLog(@"Removed Local Notification!");
+                [[UIApplication sharedApplication] cancelLocalNotification:notification];
+            }
+        }
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
