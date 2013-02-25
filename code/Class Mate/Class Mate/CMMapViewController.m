@@ -101,7 +101,7 @@
     //region.center = currentLocation.coordinate;
     
     double latDelta = region.span.latitudeDelta * 1.15;
-    double lonDelta = region.span.latitudeDelta * 1.15;
+    double lonDelta = region.span.longitudeDelta * 1.15;
     region.span.latitudeDelta = (latDelta > 360) ? 360 : latDelta;
     region.span.longitudeDelta = (lonDelta > 360) ? 360 : lonDelta;
     
@@ -147,6 +147,7 @@
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     if ([_lastSelectedAnnotation.title isEqualToString:@"Preemptive"]) {
         [lrm.store.preemptiveReminders removeObject:_lastSelectedAnnotation.reminder];
+        [[ALLocationReminderManager sharedManager] updatePreemptiveReminders];
     } else if ([_lastSelectedAnnotation.title isEqualToString:@"Location"]) {
         [lrm.store.locationReminders removeObject:_lastSelectedAnnotation.reminder];
     } else if ([_lastSelectedAnnotation.title isEqualToString:@"Date"]) {

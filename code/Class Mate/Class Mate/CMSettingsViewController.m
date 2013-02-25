@@ -32,6 +32,7 @@
     _distanceLabel.text = [[defaults objectForKey:@"distance"] capitalizedString];
     _transportLabel.text = [[defaults objectForKey:@"transport"] capitalizedString];
     _reminderLabel.text = [NSString stringWithFormat:@"%@ Minutes", [defaults objectForKey:@"minutes"]];
+    _reminderTypeLabel.text = [defaults objectForKey:@"reminderType"];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section

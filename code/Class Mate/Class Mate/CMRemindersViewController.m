@@ -9,7 +9,7 @@
 #import "CMRemindersViewController.h"
 #import "ALLocationReminders.h"
 #import "CMAppDelegate.h"
-#import "CMAddTestViewController.h"
+#import "CMAddReminderViewController.h"
 
 @interface CMRemindersViewController ()
 
@@ -119,9 +119,16 @@
                 [[UIApplication sharedApplication] cancelLocalNotification:notification];
             }
         }
+        [_reminders removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else if ([reminder.reminderType isEqualToString:kALLocationReminderTypePreemptive]) {
+        [_reminders removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [[ALLocationReminderManager sharedManager] updatePreemptiveReminders];
+    } else {
+        [_reminders removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-    [_reminders removeObjectAtIndex:indexPath.row];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Reminder View Delegate

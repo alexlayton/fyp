@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D506261E85744CBEB1BB685A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A7442452904C11BD74FEF6 /* libPods.a */; };
+		FA0075FD16DBBDD70044D7A1 /* class-mate-new.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0075FB16DBBDD70044D7A1 /* class-mate-new.png */; };
+		FA0075FE16DBBDD70044D7A1 /* class-mate-new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0075FC16DBBDD70044D7A1 /* class-mate-new@2x.png */; };
+		FA00760016DBC0750044D7A1 /* icon-new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0075FF16DBC0750044D7A1 /* icon-new@2x.png */; };
+		FA00760216DBC0790044D7A1 /* icon-new.png in Resources */ = {isa = PBXBuildFile; fileRef = FA00760116DBC0790044D7A1 /* icon-new.png */; };
 		FA02147916A19D30002245C2 /* backbuttonblue.png in Resources */ = {isa = PBXBuildFile; fileRef = FA02147716A19D2F002245C2 /* backbuttonblue.png */; };
 		FA02147A16A19D30002245C2 /* backbuttonblue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA02147816A19D2F002245C2 /* backbuttonblue@2x.png */; };
 		FA02147E16A19D3B002245C2 /* barbuttonblue.png in Resources */ = {isa = PBXBuildFile; fileRef = FA02147C16A19D3B002245C2 /* barbuttonblue.png */; };
@@ -25,13 +29,15 @@
 		FA04462516808E9E00C47BA8 /* pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA04462316808E9E00C47BA8 /* pattern@2x.png */; };
 		FA0454AC16AEDD89002EB841 /* CMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454AB16AEDD89002EB841 /* CMAddress.m */; };
 		FA0454BC16AF0C0D002EB841 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454BB16AF0C0D002EB841 /* SSTextView.m */; };
-		FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05516C7C2CE00E785F3 /* sound.wav */; };
 		FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D05B16C80EE300E785F3 /* CMHUDView.m */; };
 		FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05D16C80F2300E785F3 /* CMHUDView.xib */; };
+		FA0AB56316D92D200053E11E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56216D92D200053E11E /* Default-568h@2x.png */; };
+		FA0AB56516D92D240053E11E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56416D92D240053E11E /* Default.png */; };
+		FA0AB56716D92D2B0053E11E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56616D92D2B0053E11E /* Default@2x.png */; };
 		FA14D17A16D398D100D03400 /* CMGeocodePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14D17916D398D100D03400 /* CMGeocodePlace.m */; };
 		FA371AC916CE4FA8005EE6F5 /* gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371AC816CE4FA8005EE6F5 /* gripper.png */; };
 		FA371ACB16CE4FB8005EE6F5 /* gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */; };
-		FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddTestViewController.m */; };
+		FA42400C16BBDAA60092671B /* CMAddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42400B16BBDAA50092671B /* CMAddReminderViewController.m */; };
 		FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42401116BBEC2A0092671B /* CMOptionViewController.m */; };
 		FA4683C516A8A2AF007A839C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4683C416A8A2AF007A839C /* AddressBook.framework */; };
 		FA46B8A01668D50100936AE6 /* CMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA46B89F1668D50100936AE6 /* CMMapViewController.m */; };
@@ -70,7 +76,6 @@
 		FAB4756B16D565260031C11F /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB4756916D565260031C11F /* house.png */; };
 		FAB4756C16D565260031C11F /* house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB4756A16D565260031C11F /* house@2x.png */; };
 		FAB6D2B316A8994A00E23526 /* CMAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */; };
-		FAB761CF167F8746001BD9D7 /* CMAddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761CE167F8746001BD9D7 /* CMAddReminderViewController.m */; };
 		FAB761D3167F929B001BD9D7 /* CMPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB761D2167F929B001BD9D7 /* CMPlacesViewController.m */; };
 		FAB95B7F1663AE8D00A09853 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB95B7E1663AE8D00A09853 /* UIKit.framework */; };
 		FAB95B811663AE8D00A09853 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB95B801663AE8D00A09853 /* Foundation.framework */; };
@@ -78,16 +83,11 @@
 		FAB95B891663AE8D00A09853 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B871663AE8D00A09853 /* InfoPlist.strings */; };
 		FAB95B8B1663AE8D00A09853 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B8A1663AE8D00A09853 /* main.m */; };
 		FAB95B8F1663AE8D00A09853 /* CMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */; };
-		FAB95B911663AE8D00A09853 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B901663AE8D00A09853 /* Default.png */; };
-		FAB95B931663AE8D00A09853 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B921663AE8D00A09853 /* Default@2x.png */; };
-		FAB95B951663AE8D00A09853 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B941663AE8D00A09853 /* Default-568h@2x.png */; };
 		FAB95B981663AE8D00A09853 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB95B961663AE8D00A09853 /* MainStoryboard_iPhone.storyboard */; };
 		FAB95B9B1663AE8D00A09853 /* CMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95B9A1663AE8D00A09853 /* CMViewController.m */; };
 		FAB95BA31663B2C000A09853 /* CMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB95BA21663B2C000A09853 /* CMSettingsViewController.m */; };
 		FAC0599016CC305300CA78F5 /* CMApplePlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC0598F16CC305300CA78F5 /* CMApplePlacesViewController.m */; };
 		FAC0599316CC41B100CA78F5 /* CMGeocodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC0599216CC41B100CA78F5 /* CMGeocodeViewController.m */; };
-		FACC102516C58D5000EADB3F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC102416C58D5000EADB3F /* icon@2x.png */; };
-		FACC102816C58D5700EADB3F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC102716C58D5700EADB3F /* icon.png */; };
 		FAD322BF1681EBD400FC824C /* CMReminderAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */; };
 		FAD330661666DB3D00CF8DC9 /* CMReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */; };
 		FAD4E7BF16B2FFF700ECDC4C /* CMGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD4E7BE16B2FFF700ECDC4C /* CMGooglePlace.m */; };
@@ -101,6 +101,10 @@
 /* Begin PBXFileReference section */
 		66AD20DB0DF1487D8D047199 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		F5A7442452904C11BD74FEF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0075FB16DBBDD70044D7A1 /* class-mate-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate-new.png"; sourceTree = "<group>"; };
+		FA0075FC16DBBDD70044D7A1 /* class-mate-new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate-new@2x.png"; sourceTree = "<group>"; };
+		FA0075FF16DBC0750044D7A1 /* icon-new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-new@2x.png"; sourceTree = "<group>"; };
+		FA00760116DBC0790044D7A1 /* icon-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-new.png"; sourceTree = "<group>"; };
 		FA02147716A19D2F002245C2 /* backbuttonblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbuttonblue.png; sourceTree = "<group>"; };
 		FA02147816A19D2F002245C2 /* backbuttonblue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbuttonblue@2x.png"; sourceTree = "<group>"; };
 		FA02147C16A19D3B002245C2 /* barbuttonblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonblue.png; sourceTree = "<group>"; };
@@ -119,17 +123,19 @@
 		FA0454AB16AEDD89002EB841 /* CMAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddress.m; sourceTree = "<group>"; };
 		FA0454BA16AF0C0D002EB841 /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
 		FA0454BB16AF0C0D002EB841 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
-		FA04D05516C7C2CE00E785F3 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		FA04D05A16C80EE300E785F3 /* CMHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHUDView.h; sourceTree = "<group>"; };
 		FA04D05B16C80EE300E785F3 /* CMHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDView.m; sourceTree = "<group>"; };
 		FA04D05D16C80F2300E785F3 /* CMHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHUDView.xib; sourceTree = "<group>"; };
+		FA0AB56216D92D200053E11E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA0AB56416D92D240053E11E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FA0AB56616D92D2B0053E11E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA14D17816D398D100D03400 /* CMGeocodePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMGeocodePlace.h; sourceTree = "<group>"; };
 		FA14D17916D398D100D03400 /* CMGeocodePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGeocodePlace.m; sourceTree = "<group>"; };
 		FA371AC816CE4FA8005EE6F5 /* gripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gripper.png; sourceTree = "<group>"; };
 		FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gripper@2x.png"; sourceTree = "<group>"; };
-		FA42400A16BBDAA50092671B /* CMAddTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddTestViewController.h; sourceTree = "<group>"; };
-		FA42400B16BBDAA50092671B /* CMAddTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddTestViewController.m; sourceTree = "<group>"; };
+		FA42400A16BBDAA50092671B /* CMAddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddReminderViewController.h; sourceTree = "<group>"; };
+		FA42400B16BBDAA50092671B /* CMAddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddReminderViewController.m; sourceTree = "<group>"; };
 		FA42401016BBEC2A0092671B /* CMOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOptionViewController.h; sourceTree = "<group>"; };
 		FA42401116BBEC2A0092671B /* CMOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOptionViewController.m; sourceTree = "<group>"; };
 		FA4683C416A8A2AF007A839C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -183,8 +189,6 @@
 		FAB6D2AB16A897A000E23526 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		FAB6D2B116A8994A00E23526 /* CMAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddressViewController.h; sourceTree = "<group>"; };
 		FAB6D2B216A8994A00E23526 /* CMAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddressViewController.m; sourceTree = "<group>"; };
-		FAB761CD167F8746001BD9D7 /* CMAddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddReminderViewController.h; sourceTree = "<group>"; };
-		FAB761CE167F8746001BD9D7 /* CMAddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddReminderViewController.m; sourceTree = "<group>"; };
 		FAB761D1167F929B001BD9D7 /* CMPlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPlacesViewController.h; sourceTree = "<group>"; };
 		FAB761D2167F929B001BD9D7 /* CMPlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPlacesViewController.m; sourceTree = "<group>"; };
 		FAB95B7A1663AE8D00A09853 /* Class Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Class Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,9 +201,6 @@
 		FAB95B8C1663AE8D00A09853 /* Class Mate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Class Mate-Prefix.pch"; sourceTree = "<group>"; };
 		FAB95B8D1663AE8D00A09853 /* CMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMAppDelegate.h; sourceTree = "<group>"; };
 		FAB95B8E1663AE8D00A09853 /* CMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMAppDelegate.m; sourceTree = "<group>"; };
-		FAB95B901663AE8D00A09853 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		FAB95B921663AE8D00A09853 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		FAB95B941663AE8D00A09853 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FAB95B971663AE8D00A09853 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FAB95B991663AE8D00A09853 /* CMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMViewController.h; sourceTree = "<group>"; };
 		FAB95B9A1663AE8D00A09853 /* CMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMViewController.m; sourceTree = "<group>"; };
@@ -209,8 +210,6 @@
 		FAC0598F16CC305300CA78F5 /* CMApplePlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMApplePlacesViewController.m; sourceTree = "<group>"; };
 		FAC0599116CC41B100CA78F5 /* CMGeocodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMGeocodeViewController.h; sourceTree = "<group>"; };
 		FAC0599216CC41B100CA78F5 /* CMGeocodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGeocodeViewController.m; sourceTree = "<group>"; };
-		FACC102416C58D5000EADB3F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		FACC102716C58D5700EADB3F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		FAD322BD1681EBD400FC824C /* CMReminderAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderAnnotation.h; sourceTree = "<group>"; };
 		FAD322BE1681EBD400FC824C /* CMReminderAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMReminderAnnotation.m; sourceTree = "<group>"; };
 		FAD330641666DB3D00CF8DC9 /* CMReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReminderViewController.h; sourceTree = "<group>"; };
@@ -250,6 +249,8 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA0075FB16DBBDD70044D7A1 /* class-mate-new.png */,
+				FA0075FC16DBBDD70044D7A1 /* class-mate-new@2x.png */,
 				FAB4756916D565260031C11F /* house.png */,
 				FAB4756A16D565260031C11F /* house@2x.png */,
 				FA99FD0B16D1437B007A0FA7 /* toolbar-test.png */,
@@ -374,10 +375,8 @@
 				FA6E7B4B16B14F09005EF510 /* CMFavouritesViewController.m */,
 				FA9E5BD916A30557005B130E /* CMPlaceViewController.h */,
 				FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */,
-				FAB761CD167F8746001BD9D7 /* CMAddReminderViewController.h */,
-				FAB761CE167F8746001BD9D7 /* CMAddReminderViewController.m */,
-				FA42400A16BBDAA50092671B /* CMAddTestViewController.h */,
-				FA42400B16BBDAA50092671B /* CMAddTestViewController.m */,
+				FA42400A16BBDAA50092671B /* CMAddReminderViewController.h */,
+				FA42400B16BBDAA50092671B /* CMAddReminderViewController.m */,
 				FA42401016BBEC2A0092671B /* CMOptionViewController.h */,
 				FA42401116BBEC2A0092671B /* CMOptionViewController.m */,
 				FAC0598E16CC305300CA78F5 /* CMApplePlacesViewController.h */,
@@ -414,8 +413,11 @@
 		FAB95B6F1663AE8D00A09853 = {
 			isa = PBXGroup;
 			children = (
-				FACC102716C58D5700EADB3F /* icon.png */,
-				FACC102416C58D5000EADB3F /* icon@2x.png */,
+				FA00760116DBC0790044D7A1 /* icon-new.png */,
+				FA0075FF16DBC0750044D7A1 /* icon-new@2x.png */,
+				FA0AB56616D92D2B0053E11E /* Default@2x.png */,
+				FA0AB56416D92D240053E11E /* Default.png */,
+				FA0AB56216D92D200053E11E /* Default-568h@2x.png */,
 				FAB95B841663AE8D00A09853 /* Class Mate */,
 				FAB95B7D1663AE8D00A09853 /* Frameworks */,
 				FAB95B7B1663AE8D00A09853 /* Products */,
@@ -467,7 +469,6 @@
 		FAB95B851663AE8D00A09853 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FA04D05516C7C2CE00E785F3 /* sound.wav */,
 				FA0454BA16AF0C0D002EB841 /* SSTextView.h */,
 				FA0454BB16AF0C0D002EB841 /* SSTextView.m */,
 				FA04460D1680832700C47BA8 /* Images */,
@@ -475,9 +476,6 @@
 				FAB95B871663AE8D00A09853 /* InfoPlist.strings */,
 				FAB95B8A1663AE8D00A09853 /* main.m */,
 				FAB95B8C1663AE8D00A09853 /* Class Mate-Prefix.pch */,
-				FAB95B901663AE8D00A09853 /* Default.png */,
-				FAB95B921663AE8D00A09853 /* Default@2x.png */,
-				FAB95B941663AE8D00A09853 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -537,9 +535,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB95B891663AE8D00A09853 /* InfoPlist.strings in Resources */,
-				FAB95B911663AE8D00A09853 /* Default.png in Resources */,
-				FAB95B931663AE8D00A09853 /* Default@2x.png in Resources */,
-				FAB95B951663AE8D00A09853 /* Default-568h@2x.png in Resources */,
 				FAB95B981663AE8D00A09853 /* MainStoryboard_iPhone.storyboard in Resources */,
 				FA0446101680832700C47BA8 /* navbar.png in Resources */,
 				FA0446111680832700C47BA8 /* navbar@2x.png in Resources */,
@@ -570,9 +565,6 @@
 				FA6E7B6116B15910005EF510 /* location-arrow@2x.png in Resources */,
 				FAF345A716C05A6A003636CC /* class-mate.png in Resources */,
 				FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */,
-				FACC102516C58D5000EADB3F /* icon@2x.png in Resources */,
-				FACC102816C58D5700EADB3F /* icon.png in Resources */,
-				FA04D05616C7C2CE00E785F3 /* sound.wav in Resources */,
 				FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */,
 				FA8CCAAB16C9313D00263383 /* hud.png in Resources */,
 				FA8CCAAC16C9313D00263383 /* hud@2x.png in Resources */,
@@ -584,6 +576,13 @@
 				FA99FD0E16D1437B007A0FA7 /* toolbar-test@2x.png in Resources */,
 				FAB4756B16D565260031C11F /* house.png in Resources */,
 				FAB4756C16D565260031C11F /* house@2x.png in Resources */,
+				FA0AB56316D92D200053E11E /* Default-568h@2x.png in Resources */,
+				FA0AB56516D92D240053E11E /* Default.png in Resources */,
+				FA0AB56716D92D2B0053E11E /* Default@2x.png in Resources */,
+				FA0075FD16DBBDD70044D7A1 /* class-mate-new.png in Resources */,
+				FA0075FE16DBBDD70044D7A1 /* class-mate-new@2x.png in Resources */,
+				FA00760016DBC0750044D7A1 /* icon-new@2x.png in Resources */,
+				FA00760216DBC0790044D7A1 /* icon-new.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,7 +635,6 @@
 				FA664A2C16788A72007DC494 /* ALLocationReminderManager.m in Sources */,
 				FA664A2D16788A72007DC494 /* ALLocationReminderStore.m in Sources */,
 				FA664A2E16788A72007DC494 /* ALLocationReminder.m in Sources */,
-				FAB761CF167F8746001BD9D7 /* CMAddReminderViewController.m in Sources */,
 				FAB761D3167F929B001BD9D7 /* CMPlacesViewController.m in Sources */,
 				FAD322BF1681EBD400FC824C /* CMReminderAnnotation.m in Sources */,
 				FA9E5BDB16A30557005B130E /* CMPlaceViewController.m in Sources */,
@@ -647,7 +645,7 @@
 				FAD4E7BF16B2FFF700ECDC4C /* CMGooglePlace.m in Sources */,
 				FAA3CEBE16B68BE300BB38A1 /* CMPlace.m in Sources */,
 				FA6E7FA316B81F8600BCD68E /* CMFavourites.m in Sources */,
-				FA42400C16BBDAA60092671B /* CMAddTestViewController.m in Sources */,
+				FA42400C16BBDAA60092671B /* CMAddReminderViewController.m in Sources */,
 				FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */,
 				FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */,
 				FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */,

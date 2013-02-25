@@ -85,11 +85,25 @@
     _showingHUD = NO;
 }
 
+- (void)hideCells
+{
+    for (int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        cell.hidden = YES;
+    }
+    for (int i = 0; i < [self.tableView numberOfRowsInSection:1]; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        cell.hidden = YES;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-     [self.navigationController setToolbarHidden:NO animated:animated];
+    [self.navigationController setToolbarHidden:NO animated:animated];
     
     UIImage *gripper = [UIImage imageNamed:@"gripper.png"];
     _HUDButton.customView = [[UIImageView alloc] initWithImage:gripper];
@@ -173,12 +187,12 @@
     UINavigationController *nav = self.navigationController;
     CGRect navRect = nav.view.frame;
     CGFloat toY = [pgr locationInView:nav.view].y;
+    CGFloat diffY = toY - fromY;
+    CGFloat newY = navRect.origin.y + diffY;
     
     if (pgr.state == UIGestureRecognizerStateBegan) {
         fromY = toY;
     } else if (pgr.state == UIGestureRecognizerStateChanged) {
-        CGFloat diffY = toY - fromY;
-        CGFloat newY = navRect.origin.y + diffY;
         NSLog(@"%f", newY);
         if (newY <= 0.0f && newY >= -100.0f) {
             CGRect newNavRect = CGRectMake(navRect.origin.x, newY, navRect.size.width, navRect.size.height);
@@ -187,8 +201,7 @@
             }];
         }
     } else if (pgr.state == UIGestureRecognizerStateEnded) {
-        CGFloat diffY = toY - fromY;
-        CGFloat newY = navRect.origin.y + diffY;
+        NSLog(@"New Y: %f", newY);
         (newY <= 0.0f && newY >= -50.0f) ? [self hideHUD] : [self showHUD];
     }
 }
@@ -199,14 +212,13 @@
     
     self.tableView.userInteractionEnabled = NO;
     
-    CGRect bounds = [[UIScreen mainScreen] bounds];
     CGRect navRect = self.navigationController.view.frame;
-    
-    NSLog(@"bounds: %f navRect: %f newNavRect: %f", bounds.origin.y, navRect.origin.y, 100 + navRect.origin.y);
-    
     CGRect newNavRect = CGRectMake(navRect.origin.x, -100.0f, navRect.size.width, navRect.size.height);
     
-    [UIView animateWithDuration:0.3f animations:^{
+    CGFloat diffY = newNavRect.origin.y - navRect.origin.y;
+    CGFloat duration = ABS(diffY) * 0.005;
+    
+    [UIView animateWithDuration:duration animations:^{
         //window.frame = newWindowRect;
         self.navigationController.view.frame = newNavRect;
     }];
@@ -218,14 +230,14 @@
 
     self.tableView.userInteractionEnabled = YES;
     
-    CGRect bounds = [[UIScreen mainScreen] bounds];
     CGRect navRect = self.navigationController.view.frame;
-    
-    NSLog(@"bounds: %f navRect: %f newNavRect: %f", bounds.origin.y, navRect.origin.y, 100 + navRect.origin.y);
-    
     CGRect newNavRect = CGRectMake(navRect.origin.x, 0.0f, navRect.size.width, navRect.size.height);
     
-    [UIView animateWithDuration:0.3f animations:^{
+    CGFloat diffY = newNavRect.origin.y - navRect.origin.y;
+    NSLog(@"Abs DiffY: %f", ABS(diffY));
+    CGFloat duration = ABS(diffY) * 0.005;
+    
+    [UIView animateWithDuration:duration animations:^{
         self.navigationController.view.frame = newNavRect;
     }];
 }
@@ -233,26 +245,6 @@
 - (CAKeyframeAnimation *)bounceAnimation:(CGFloat)height
 {
     //taken from; http://www.cocoanetics.com/2012/06/lets-bounce/
-//    CGFloat offset = 128.0f * height;
-//    NSArray *factors = @[@0, @60, @83, @100, @114, @124, @128, @128, @124, @114, @100, @83, @60, @32, @0, @0, @18, @28, @32, @28, @18, @0];
-//    NSMutableArray *transforms;
-//    
-//    for (NSNumber *factor in factors) {
-//        CGFloat position = factor.floatValue / offset;
-//        CATransform3D transform = CATransform3DMakeTranslation(0.0f, -position, 0.0f);
-//        [transforms addObject:[NSValue valueWithCATransform3D:transform]];
-//    }
-//    
-//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-//    animation.repeatCount = 1;
-//    animation.duration = factors.count * 1.0f / 30.0f;
-//    animation.fillMode = kCAFillModeForwards;
-//    animation.values = transforms;
-//    animation.removedOnCompletion = YES;
-//    animation.autoreverses = NO;
-//    
-//    return animation;
-
 
     NSUInteger const kNumFactors    = 22;
     CGFloat const kFactorsPerSec    = 30.0f;

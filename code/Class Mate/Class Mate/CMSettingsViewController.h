@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transportLabel;
 @property (strong, nonatomic) IBOutlet UILabel *reminderLabel;
+@property (strong, nonatomic) IBOutlet UILabel *reminderTypeLabel;
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender;
 
