@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *HUDButton;
 @property (strong, nonatomic) CMHUDView *HUDView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 - (IBAction)testPressed:(UIBarButtonItem *)sender;
 

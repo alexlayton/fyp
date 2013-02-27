@@ -35,6 +35,7 @@ extern const ALLocationRemindersRepeatType kALRepeatTypeMonth;
 @property (nonatomic) ALLocationRemindersRepeatType repeat;
 @property (nonatomic) ALLocationReminderType reminderType;
 @property (nonatomic) ALLocationRemindersTransportType transport;
+@property (nonatomic, strong) NSString *locationString;
 
 + (ALLocationReminder *)reminderWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
 - (id)initWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;

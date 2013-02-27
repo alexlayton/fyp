@@ -12,6 +12,7 @@
 #import "CMFavouritesViewController.h"
 #import "CMGeocodeViewController.h"
 #import "CMOptionViewController.h"
+#import "ALLocationReminders.h"
 
 @class CMPlace;
 
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *remindLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (strong, nonatomic) ALLocationReminderType senderType;
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender;
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender;

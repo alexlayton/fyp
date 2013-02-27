@@ -46,6 +46,7 @@
 @synthesize datePicker = _datePicker;
 @synthesize toolbar = _toolbar;
 @synthesize doneButton = _doneButton;
+@synthesize senderType = _senderType;
 
 - (void)addReminder
 {
@@ -58,6 +59,7 @@
     reminder.reminderType = _reminderType;
     reminder.transport = _transportType;
     reminder.minutesBefore = _minutes;
+    reminder.locationString = _place.name;
     
     void (^successBlock)(void) = ^{
         [self performSelectorOnMainThread:@selector(reminderAdded) withObject:nil waitUntilDone:NO];
@@ -105,7 +107,7 @@
     _transportLabel.text = [defaultString capitalizedString];
     _transportType = defaultString;
     
-    defaultString = [defaults objectForKey:@"reminderType"];
+    defaultString = (_senderType) ? _senderType : [defaults objectForKey:@"reminderType"];
     _reminderType = defaultString;
     _typeLabel.text = [defaultString capitalizedString];
     
@@ -142,7 +144,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     [self loadReminderDefaults];
     _doneButton.enabled = NO;
@@ -203,17 +204,21 @@
         _datePicker.hidden = NO;
         _toolbar.hidden = NO;
         
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:_timeCell];
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:_timeCell];
+//        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
         
         self.tableView.delaysContentTouches = NO;
         self.tableView.canCancelContentTouches = NO;
         
+        NSLog(@"Starting Origin Y: %f", pickerFrame.origin.y);
+        
+        CGFloat newPickerYOrigin = self.view.frame.size.height - pickerFrame.size.height;
+        CGFloat newToolbarYOrigin = newPickerYOrigin - toolbarFrame.size.height;
+        
         [UIView animateWithDuration:0.3f animations:^{
             //NSLog(@"Animating");
-
-            _datePicker.frame = CGRectMake(0, 200, pickerFrame.size.width, pickerFrame.size.height);
-            _toolbar.frame = CGRectMake(0, 156, toolbarFrame.size.width, toolbarFrame.size.height);
+            _datePicker.frame = CGRectMake(0, newPickerYOrigin, pickerFrame.size.width, pickerFrame.size.height);
+            _toolbar.frame = CGRectMake(0, newToolbarYOrigin, toolbarFrame.size.width, toolbarFrame.size.height);
         }];
     }
 }

@@ -31,6 +31,7 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
 @synthesize reminderType = _reminderType;
 @synthesize transport = _transport;
 @synthesize minutesBefore = _minutesBefore;
+@synthesize locationString = _locationString;
 
 + (ALLocationReminder *)reminderWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
 {
@@ -43,14 +44,27 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
     [aCoder encodeObject:_location forKey:@"location"];
     [aCoder encodeObject:_payload forKey:@"payload"];
     [aCoder encodeObject:_date forKey:@"date"];
+    [aCoder encodeInt:_repeat forKey:@"repeat"];
+    [aCoder encodeObject:_reminderType forKey:@"reminderType"];
+    [aCoder encodeObject:_transport forKey:@"transport"];
+    [aCoder encodeInt:_minutesBefore forKey:@"minutesBefore"];
+    [aCoder encodeObject:_locationString forKey:@"locationString"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    CLLocation *location = [aDecoder decodeObjectForKey:@"location"];
-    NSString *payload = [aDecoder decodeObjectForKey:@"payload"];
-    NSDate *date = [aDecoder decodeObjectForKey:@"date"];
-    return [self initWithLocation:location payload:payload date:date];
+    self = [super init];
+    if (self) {
+        _location = [aDecoder decodeObjectForKey:@"location"];
+        _payload = [aDecoder decodeObjectForKey:@"payload"];
+        _date = [aDecoder decodeObjectForKey:@"date"];
+        _repeat = [aDecoder decodeIntForKey:@"repeat"];
+        _reminderType = [aDecoder decodeObjectForKey:@"reminderType"];
+        _transport = [aDecoder decodeObjectForKey:@"transport"];
+        _minutesBefore = [aDecoder decodeIntForKey:@"minutesBefore"];
+        _locationString = [aDecoder decodeObjectForKey:@"locationString"];
+    }
+    return self;
 }
 
 - (id)initWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date

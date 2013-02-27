@@ -95,7 +95,9 @@
 		FAF345A716C05A6A003636CC /* class-mate.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A516C05A6A003636CC /* class-mate.png */; };
 		FAF345A816C05A6A003636CC /* class-mate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF345A616C05A6A003636CC /* class-mate@2x.png */; };
 		FAF3EF4016D265B70089179E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3EF3F16D265B70089179E /* Crashlytics.framework */; };
-		FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */; };
+		FAFDA3BD16DD351B00A8579B /* hud-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFDA3BB16DD351B00A8579B /* hud-shadow.png */; };
+		FAFDA3BE16DD351B00A8579B /* hud-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFDA3BC16DD351B00A8579B /* hud-shadow@2x.png */; };
+		FAFDA3C116DD38CA00A8579B /* CMAcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDA3C016DD38C900A8579B /* CMAcknowledgementsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,8 +223,10 @@
 		FAF345A516C05A6A003636CC /* class-mate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate.png"; sourceTree = "<group>"; };
 		FAF345A616C05A6A003636CC /* class-mate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mate@2x.png"; sourceTree = "<group>"; };
 		FAF3EF3F16D265B70089179E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		FAFD94FB16BFDA2200A5BFA1 /* CMHUDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHUDViewController.h; sourceTree = "<group>"; };
-		FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDViewController.m; sourceTree = "<group>"; };
+		FAFDA3BB16DD351B00A8579B /* hud-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud-shadow.png"; sourceTree = "<group>"; };
+		FAFDA3BC16DD351B00A8579B /* hud-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud-shadow@2x.png"; sourceTree = "<group>"; };
+		FAFDA3BF16DD38C900A8579B /* CMAcknowledgementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAcknowledgementsViewController.h; sourceTree = "<group>"; };
+		FAFDA3C016DD38C900A8579B /* CMAcknowledgementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAcknowledgementsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,8 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDA3BB16DD351B00A8579B /* hud-shadow.png */,
+				FAFDA3BC16DD351B00A8579B /* hud-shadow@2x.png */,
 				FA0075FB16DBBDD70044D7A1 /* class-mate-new.png */,
 				FA0075FC16DBBDD70044D7A1 /* class-mate-new@2x.png */,
 				FAB4756916D565260031C11F /* house.png */,
@@ -306,8 +312,8 @@
 				FAD330651666DB3D00CF8DC9 /* CMReminderViewController.m */,
 				FA46B89E1668D50000936AE6 /* CMMapViewController.h */,
 				FA46B89F1668D50100936AE6 /* CMMapViewController.m */,
-				FAFD94FB16BFDA2200A5BFA1 /* CMHUDViewController.h */,
-				FAFD94FC16BFDA2200A5BFA1 /* CMHUDViewController.m */,
+				FAFDA3BF16DD38C900A8579B /* CMAcknowledgementsViewController.h */,
+				FAFDA3C016DD38C900A8579B /* CMAcknowledgementsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -583,6 +589,8 @@
 				FA0075FE16DBBDD70044D7A1 /* class-mate-new@2x.png in Resources */,
 				FA00760016DBC0750044D7A1 /* icon-new@2x.png in Resources */,
 				FA00760216DBC0790044D7A1 /* icon-new.png in Resources */,
+				FAFDA3BD16DD351B00A8579B /* hud-shadow.png in Resources */,
+				FAFDA3BE16DD351B00A8579B /* hud-shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,12 +656,12 @@
 				FA42400C16BBDAA60092671B /* CMAddReminderViewController.m in Sources */,
 				FA42401216BBEC2A0092671B /* CMOptionViewController.m in Sources */,
 				FADAB26116BD24D800BDC468 /* CMDatePickerCell.m in Sources */,
-				FAFD94FD16BFDA2300A5BFA1 /* CMHUDViewController.m in Sources */,
 				FAAB414616C524CA000B9A6F /* CMPair.m in Sources */,
 				FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */,
 				FAC0599016CC305300CA78F5 /* CMApplePlacesViewController.m in Sources */,
 				FAC0599316CC41B100CA78F5 /* CMGeocodeViewController.m in Sources */,
 				FA14D17A16D398D100D03400 /* CMGeocodePlace.m in Sources */,
+				FAFDA3C116DD38CA00A8579B /* CMAcknowledgementsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

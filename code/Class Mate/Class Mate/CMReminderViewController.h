@@ -16,10 +16,10 @@
 
 @end
 
-@interface CMReminderViewController : UITableViewController
+@interface CMReminderViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (nonatomic, weak) ALLocationReminder *reminder;
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *payloadLabel;

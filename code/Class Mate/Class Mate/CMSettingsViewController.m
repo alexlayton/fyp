@@ -55,29 +55,33 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    CMSettingsDetailViewController *sdvc = segue.destinationViewController;
-    NSArray *options;
-    if ([segue.identifier isEqualToString:@"Reminder"]) {
-        NSLog(@"Reminder");
-        sdvc.settingsType = @"Remind Me";
-        sdvc.defaultsKey = @"minutes";
-        options = @[[CMPair pairWithObj:@"0" description:@"0 Minutes"], [CMPair pairWithObj:@"5" description:@"5 Minutes"], [CMPair pairWithObj:@"10" description:@"10 Minutes"], [CMPair pairWithObj:@"15" description:@"15 Minutes"]];
-    } else if ([segue.identifier isEqualToString:@"Transport"]) {
-        NSLog(@"Transport");
-        sdvc.settingsType = @"Transport Method";
-        sdvc.defaultsKey = @"transport";
-        options = @[[CMPair pairWithObj:kALLocationRemindersTransportTypeDriving description:@"Driving"], [CMPair pairWithObj:kALLocationRemindersTransportTypeWalking description:@"Walking"], [CMPair pairWithObj:kALLocationRemindersTransportTypeCycling description:@"Cycling"]];
-    } else if ([segue.identifier isEqualToString:@"Distance"]) {
-        NSLog(@"Distance");
-        sdvc.settingsType = @"Distance Unit";
-        sdvc.defaultsKey = @"distance";
-        options = @[[CMPair pairWithObj:@"meters" description:@"Meters"], [CMPair pairWithObj:@"kilometers" description:@"Kilometers"], [CMPair pairWithObj:@"miles" description:@"Miles"]];
-    } else if ([segue.identifier isEqualToString:@"Type"]) {
-        sdvc.settingsType = @"Reminder Type";
-        sdvc.defaultsKey = @"reminderType";
-        options = @[[CMPair pairWithObj:kALLocationReminderTypePreemptive description:@"Preemptive"], [CMPair pairWithObj:kALLocationReminderTypeLocation description:@"Location"], [CMPair pairWithObj:kALLocationReminderTypeDate description:@"Date"]];
+    if ([segue.identifier isEqualToString:@"Acknowledgments"]) {
+        //do something here?
+    } else {
+        CMSettingsDetailViewController *sdvc = segue.destinationViewController;
+        NSArray *options;
+        if ([segue.identifier isEqualToString:@"Reminder"]) {
+            NSLog(@"Reminder");
+            sdvc.settingsType = @"Remind Me";
+            sdvc.defaultsKey = @"minutes";
+            options = @[[CMPair pairWithObj:@"0" description:@"0 Minutes"], [CMPair pairWithObj:@"5" description:@"5 Minutes"], [CMPair pairWithObj:@"10" description:@"10 Minutes"], [CMPair pairWithObj:@"15" description:@"15 Minutes"]];
+        } else if ([segue.identifier isEqualToString:@"Transport"]) {
+            NSLog(@"Transport");
+            sdvc.settingsType = @"Transport Method";
+            sdvc.defaultsKey = @"transport";
+            options = @[[CMPair pairWithObj:kALLocationRemindersTransportTypeDriving description:@"Driving"], [CMPair pairWithObj:kALLocationRemindersTransportTypeWalking description:@"Walking"], [CMPair pairWithObj:kALLocationRemindersTransportTypeCycling description:@"Cycling"]];
+        } else if ([segue.identifier isEqualToString:@"Distance"]) {
+            NSLog(@"Distance");
+            sdvc.settingsType = @"Distance Unit";
+            sdvc.defaultsKey = @"distance";
+            options = @[[CMPair pairWithObj:@"meters" description:@"Meters"], [CMPair pairWithObj:@"kilometers" description:@"Kilometers"], [CMPair pairWithObj:@"miles" description:@"Miles"]];
+        } else if ([segue.identifier isEqualToString:@"Type"]) {
+            sdvc.settingsType = @"Reminder Type";
+            sdvc.defaultsKey = @"reminderType";
+            options = @[[CMPair pairWithObj:kALLocationReminderTypePreemptive description:@"Preemptive"], [CMPair pairWithObj:kALLocationReminderTypeLocation description:@"Location"], [CMPair pairWithObj:kALLocationReminderTypeDate description:@"Date"]];
+        }
+        sdvc.options = options;
     }
-    sdvc.options = options;
 }
 
 @end

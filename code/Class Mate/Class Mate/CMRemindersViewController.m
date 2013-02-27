@@ -33,7 +33,7 @@
     //date formatter
     _dateFormatter = [[NSDateFormatter alloc] init];
     _dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    _dateFormatter.timeStyle = ([_reminderType isEqualToString:kALLocationReminderTypeLocation]) ? NSDateFormatterNoStyle : NSDateFormatterShortStyle;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -81,7 +81,10 @@
     if ([segue.identifier isEqualToString:@"Add"]) {
         NSLog(@"Add pressed.");
         [CMAppDelegate resetAppearance];
-        //CMAddTestViewController *arvc = segue.destinationViewController;
+        UINavigationController *addNav = segue.destinationViewController;
+        CMAddReminderViewController *arvc = [addNav.viewControllers objectAtIndex:0];
+        arvc.senderType = _reminderType;
+        
         //change the reminder type
         
     } else {

@@ -16,6 +16,7 @@
 
 @property (nonatomic) BOOL showingHUD;
 @property (nonatomic, strong) UIPanGestureRecognizer *pgr;
+@property (nonatomic, strong) UIImageView *shadowView;
 
 @end
 
@@ -29,7 +30,9 @@
 @synthesize HUDView = _HUDView;
 @synthesize showingHUD = _showingHUD;
 @synthesize pgr = _pgr;
+@synthesize settingsButton = _settingsButton;
 @synthesize addButton = _addButton;
+@synthesize shadowView = _shadowView;
 
 - (void)launchFeedback
 {
@@ -78,6 +81,9 @@
     NSString *message = [NSString stringWithFormat:@"%@ is %d Seconds Away", [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive].payload, lrm.seconds];
     _HUDView.HUDLabel.text = message;
     
+    UIImage *shadow = [UIImage imageNamed:@"hud-shadow.png"];
+    _shadowView = [[UIImageView alloc] initWithImage:shadow];
+    
     CGRect navRect = self.navigationController.view.frame;
     NSLog(@"nav: %f, %f, %f, %f", navRect.origin.x, navRect.origin.y, navRect.size.width, navRect.size.height);
     NSLog(@"nav super view: %@", self.navigationController.view.superview);
@@ -115,6 +121,12 @@
     _pgr.minimumNumberOfTouches = 1;
     _pgr.maximumNumberOfTouches = 1;
     [_HUDButton.customView addGestureRecognizer:_pgr];
+    
+    //add shadow to navigation view
+    CGRect shadowFrame = _shadowView.frame;
+    shadowFrame.origin.y = self.navigationController.view.frame.size.height;
+    _shadowView.frame = shadowFrame;
+    [self.navigationController.view addSubview:_shadowView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -142,6 +154,7 @@
     if (_showingHUD) [self hideHUD];
     [self.navigationController.toolbar removeGestureRecognizer:_pgr];
     [_HUDView removeFromSuperview];
+    [_shadowView removeFromSuperview];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -211,6 +224,7 @@
     _showingHUD = YES;
     
     self.tableView.userInteractionEnabled = NO;
+    _settingsButton.enabled = NO;
     
     CGRect navRect = self.navigationController.view.frame;
     CGRect newNavRect = CGRectMake(navRect.origin.x, -100.0f, navRect.size.width, navRect.size.height);
@@ -229,6 +243,7 @@
     _showingHUD = NO;
 
     self.tableView.userInteractionEnabled = YES;
+    _settingsButton.enabled = YES;
     
     CGRect navRect = self.navigationController.view.frame;
     CGRect newNavRect = CGRectMake(navRect.origin.x, 0.0f, navRect.size.width, navRect.size.height);

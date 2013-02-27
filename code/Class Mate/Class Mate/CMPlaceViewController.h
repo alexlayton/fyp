@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CMPlace.h>
 
+@class MKMapView;
+
 @interface CMPlaceViewController : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (nonatomic, weak) CMPlace *place;
+@property (nonatomic, strong) MKMapView *mapView;
 
 - (IBAction)favouritePressed:(UIBarButtonItem *)sender;
 
