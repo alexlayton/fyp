@@ -10,6 +10,31 @@
 
 @implementation CMHUDView
 
+@synthesize preemptiveHeaderLabel = _preemptiveHeaderLabel;
+@synthesize preemptiveSubLabel = _preemptiveSubLabel;
+@synthesize locationHeaderLabel = _locationHeaderLabel;
+@synthesize locationSubLabel = _locationSubLabel;
+@synthesize dateHeaderLabel = _dateHeaderLabel;
+@synthesize dateSubLabel = _dateSubLabel;
+@synthesize labels = _labels;
+
+#pragma mark - Accessors
+
+- (NSArray *)labels
+{
+    return @[_preemptiveHeaderLabel, _preemptiveSubLabel, _locationHeaderLabel, _locationSubLabel, _dateHeaderLabel, _dateSubLabel];
+}
+
++ (CMHUDView *)hudView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"CMHUDView" owner:self options:nil] objectAtIndex:0];
+}
+
+- (void)dealloc
+{
+    NSLog(@"Killed HUD VIEW!!!!!!");
+}
+
 - (void)awakeFromNib
 {
     //stuff here...

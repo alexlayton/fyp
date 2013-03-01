@@ -60,6 +60,10 @@
 		FA6E7B6016B15910005EF510 /* location-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E7B5E16B15910005EF510 /* location-arrow.png */; };
 		FA6E7B6116B15910005EF510 /* location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E7B5F16B15910005EF510 /* location-arrow@2x.png */; };
 		FA6E7FA316B81F8600BCD68E /* CMFavourites.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7FA216B81F8600BCD68E /* CMFavourites.m */; };
+		FA77664916DE948A004150D6 /* hud-new.png in Resources */ = {isa = PBXBuildFile; fileRef = FA77664716DE948A004150D6 /* hud-new.png */; };
+		FA77664A16DE948A004150D6 /* hud-new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA77664816DE948A004150D6 /* hud-new@2x.png */; };
+		FA77664D16DE9CEB004150D6 /* hud-test.png in Resources */ = {isa = PBXBuildFile; fileRef = FA77664B16DE9CEB004150D6 /* hud-test.png */; };
+		FA77664E16DE9CEB004150D6 /* hud-test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA77664C16DE9CEB004150D6 /* hud-test@2x.png */; };
 		FA7E19381666999D00A3D890 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7E19371666999D00A3D890 /* CoreLocation.framework */; };
 		FA8CCAAB16C9313D00263383 /* hud.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8CCAA916C9313C00263383 /* hud.png */; };
 		FA8CCAAC16C9313D00263383 /* hud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8CCAAA16C9313C00263383 /* hud@2x.png */; };
@@ -169,6 +173,10 @@
 		FA6E7B5F16B15910005EF510 /* location-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-arrow@2x.png"; sourceTree = "<group>"; };
 		FA6E7FA116B81F8600BCD68E /* CMFavourites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFavourites.h; sourceTree = "<group>"; };
 		FA6E7FA216B81F8600BCD68E /* CMFavourites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFavourites.m; sourceTree = "<group>"; };
+		FA77664716DE948A004150D6 /* hud-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud-new.png"; sourceTree = "<group>"; };
+		FA77664816DE948A004150D6 /* hud-new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud-new@2x.png"; sourceTree = "<group>"; };
+		FA77664B16DE9CEB004150D6 /* hud-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud-test.png"; sourceTree = "<group>"; };
+		FA77664C16DE9CEB004150D6 /* hud-test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud-test@2x.png"; sourceTree = "<group>"; };
 		FA7E19371666999D00A3D890 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FA8CCAA916C9313C00263383 /* hud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud.png; sourceTree = "<group>"; };
 		FA8CCAAA16C9313C00263383 /* hud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud@2x.png"; sourceTree = "<group>"; };
@@ -253,6 +261,10 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA77664B16DE9CEB004150D6 /* hud-test.png */,
+				FA77664C16DE9CEB004150D6 /* hud-test@2x.png */,
+				FA77664716DE948A004150D6 /* hud-new.png */,
+				FA77664816DE948A004150D6 /* hud-new@2x.png */,
 				FAFDA3BB16DD351B00A8579B /* hud-shadow.png */,
 				FAFDA3BC16DD351B00A8579B /* hud-shadow@2x.png */,
 				FA0075FB16DBBDD70044D7A1 /* class-mate-new.png */,
@@ -591,6 +603,10 @@
 				FA00760216DBC0790044D7A1 /* icon-new.png in Resources */,
 				FAFDA3BD16DD351B00A8579B /* hud-shadow.png in Resources */,
 				FAFDA3BE16DD351B00A8579B /* hud-shadow@2x.png in Resources */,
+				FA77664916DE948A004150D6 /* hud-new.png in Resources */,
+				FA77664A16DE948A004150D6 /* hud-new@2x.png in Resources */,
+				FA77664D16DE9CEB004150D6 /* hud-test.png in Resources */,
+				FA77664E16DE9CEB004150D6 /* hud-test@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

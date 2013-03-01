@@ -16,6 +16,7 @@
 
 @property (nonatomic) BOOL showingHUD;
 @property (nonatomic, strong) UIPanGestureRecognizer *pgr;
+@property (nonatomic, strong) UITapGestureRecognizer *hideHUDGesture;
 @property (nonatomic, strong) UIImageView *shadowView;
 
 @end
@@ -30,6 +31,7 @@
 @synthesize HUDView = _HUDView;
 @synthesize showingHUD = _showingHUD;
 @synthesize pgr = _pgr;
+@synthesize hideHUDGesture = _hideHUDGesture;
 @synthesize settingsButton = _settingsButton;
 @synthesize addButton = _addButton;
 @synthesize shadowView = _shadowView;
@@ -74,12 +76,15 @@
     [lrm startLocation];
     
     //testflight stuff...
-    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchFeedback)];
-    [_feedbackCell addGestureRecognizer:tgr];
+    UITapGestureRecognizer *testFlightTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchFeedback)];
+    [_feedbackCell addGestureRecognizer:testFlightTap];
     
-    _HUDView = [[[NSBundle mainBundle] loadNibNamed:@"CMHUDView" owner:self options:nil] objectAtIndex:0];
-    NSString *message = [NSString stringWithFormat:@"%@ is %d Seconds Away", [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive].payload, lrm.seconds];
-    _HUDView.HUDLabel.text = message;
+    _hideHUDGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD)];
+    
+    _HUDView = [CMHUDView hudView];
+    NSLog(@"%@", [_HUDView class]);
+    //NSString *message = [NSString stringWithFormat:@"%@ is %d Seconds Away", [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive].payload, lrm.seconds];
+    //_HUDView.HUDLabel.text = message;
     
     UIImage *shadow = [UIImage imageNamed:@"hud-shadow.png"];
     _shadowView = [[UIImageView alloc] initWithImage:shadow];
@@ -89,6 +94,55 @@
     NSLog(@"nav super view: %@", self.navigationController.view.superview);
     
     _showingHUD = NO;
+}
+
+- (void)updateHUD
+{
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    ALLocationReminder *preemptive = [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive];
+    ALLocationReminder *location = [lrm.store peekReminderWithType:kALLocationReminderTypeLocation];
+    ALLocationReminder *date = [lrm.store peekReminderWithType:kALLocationReminderTypeDate];
+    NSArray *reminders = @[(preemptive) ? preemptive : [NSNull null], (location) ? location : [NSNull null], (date) ? date : [NSNull null]];
+    NSArray *labels = _HUDView.labels;
+    NSLog(@"Labels %@", labels);
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    
+    int labelPosition = 0;
+    for (int i = 0; i < reminders.count; i++) {
+        if ([reminders objectAtIndex:i] != [NSNull null]) {
+            ALLocationReminder *reminder = [reminders objectAtIndex:i];
+            dateFormatter.timeStyle = ([reminder.reminderType isEqualToString:kALLocationReminderTypeLocation]) ? NSDateFormatterNoStyle : NSDateFormatterShortStyle;
+            NSString *dateString = [dateFormatter stringFromDate:reminder.date];
+            NSString *header = [NSString stringWithFormat:@"%@ - %@", reminder.payload, reminder.locationString];
+            NSString *subHeader = [NSString stringWithFormat:@"%@ - %@", reminder.reminderType, dateString];
+            
+            UILabel *headerLabel = [labels objectAtIndex:labelPosition];
+            UILabel *subLabel = [labels objectAtIndex:labelPosition + 1];
+            
+            headerLabel.text = header;
+            subLabel.text = subHeader;
+            
+            labelPosition += 2;
+        }
+    }
+    //no reminders
+    if (labelPosition == 0) {
+        UILabel *headerLabel = [labels objectAtIndex:0];
+        UILabel *subLabel = [labels objectAtIndex:1];
+        headerLabel.text = @"No Reminders";
+        subLabel.text = @"Try adding one.";
+        labelPosition += 2;
+    }
+    if (labelPosition < labels.count) {
+        for (int i = labelPosition; i < labels.count; i += 2) {
+            UILabel *headerLabel = [labels objectAtIndex:i];
+            UILabel *subLabel = [labels objectAtIndex:i + 1];
+            headerLabel.text = @"";
+            subLabel.text = @"";
+        }
+    }
 }
 
 - (void)hideCells
@@ -127,6 +181,7 @@
     shadowFrame.origin.y = self.navigationController.view.frame.size.height;
     _shadowView.frame = shadowFrame;
     [self.navigationController.view addSubview:_shadowView];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -136,9 +191,10 @@
     UIWindow *window = self.view.window;
     CGRect windowRect = window.frame;
     
-    CGRect HUDRect = CGRectMake(windowRect.origin.x, windowRect.size.height - 100, windowRect.size.width, 100);
+    CGRect HUDRect = CGRectMake(windowRect.origin.x, windowRect.size.height - 150, windowRect.size.width, 150);
     _HUDView.frame = HUDRect;
     [window insertSubview:_HUDView belowSubview:self.navigationController.view];
+    [self updateHUD];
     
     BOOL locationIsEnabled = [CLLocationManager locationServicesEnabled];
     NSLog(@"enabled? %d", locationIsEnabled);
@@ -206,8 +262,7 @@
     if (pgr.state == UIGestureRecognizerStateBegan) {
         fromY = toY;
     } else if (pgr.state == UIGestureRecognizerStateChanged) {
-        NSLog(@"%f", newY);
-        if (newY <= 0.0f && newY >= -100.0f) {
+        if (newY <= 0.0f && newY >= -150.0f) {
             CGRect newNavRect = CGRectMake(navRect.origin.x, newY, navRect.size.width, navRect.size.height);
             [UIView animateWithDuration:0.001f animations:^{
                 nav.view.frame = newNavRect;
@@ -215,7 +270,7 @@
         }
     } else if (pgr.state == UIGestureRecognizerStateEnded) {
         NSLog(@"New Y: %f", newY);
-        (newY <= 0.0f && newY >= -50.0f) ? [self hideHUD] : [self showHUD];
+        (newY <= 0.0f && newY >= -75.0f) ? [self hideHUD] : [self showHUD];
     }
 }
 
@@ -226,8 +281,11 @@
     self.tableView.userInteractionEnabled = NO;
     _settingsButton.enabled = NO;
     
+    //add gesture recognizer
+    [self.navigationController.view addGestureRecognizer:_hideHUDGesture];
+    
     CGRect navRect = self.navigationController.view.frame;
-    CGRect newNavRect = CGRectMake(navRect.origin.x, -100.0f, navRect.size.width, navRect.size.height);
+    CGRect newNavRect = CGRectMake(navRect.origin.x, -150.0f, navRect.size.width, navRect.size.height);
     
     CGFloat diffY = newNavRect.origin.y - navRect.origin.y;
     CGFloat duration = ABS(diffY) * 0.005;
@@ -245,6 +303,9 @@
     self.tableView.userInteractionEnabled = YES;
     _settingsButton.enabled = YES;
     
+    //remove gesture recognizer
+    [self.navigationController.view removeGestureRecognizer:_hideHUDGesture];
+    
     CGRect navRect = self.navigationController.view.frame;
     CGRect newNavRect = CGRectMake(navRect.origin.x, 0.0f, navRect.size.width, navRect.size.height);
     
@@ -256,6 +317,8 @@
         self.navigationController.view.frame = newNavRect;
     }];
 }
+
+
 
 - (CAKeyframeAnimation *)bounceAnimation:(CGFloat)height
 {
@@ -300,9 +363,11 @@
 
 - (void)locationReminderManager:(ALLocationReminderManager *)lrm timeFromPreemptiveLocationDidChange:(NSInteger)time
 {
-    NSString *message = [NSString stringWithFormat:@"%@ is %d Seconds Away", [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive].payload, time];
-    _HUDView.HUDLabel.text = message;
-}
+//    NSString *message = [NSString stringWithFormat:@"%@ is %d Seconds Away", [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive].payload, time];
+//    ALLocationReminder *reminder = [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive];
+//    _HUDView.PreemptiveHeaderLabel = [NSString stringWithFormat:@"%@, %@", reminder.payload, reminder.locationString];
+//    _HUDView.preemptiveSubLabel.text = message;
+ }
 
 - (IBAction)testPressed:(UIBarButtonItem *)sender
 {

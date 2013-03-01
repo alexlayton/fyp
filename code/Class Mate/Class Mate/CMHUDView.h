@@ -10,6 +10,14 @@
 
 @interface CMHUDView : UIView
 
-@property (strong, nonatomic) IBOutlet UILabel *HUDLabel;
+@property (strong, nonatomic) IBOutlet UILabel *preemptiveHeaderLabel;
+@property (strong, nonatomic) IBOutlet UILabel *preemptiveSubLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationHeaderLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationSubLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateHeaderLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateSubLabel;
+@property (readonly, nonatomic) NSArray *labels;
+
++ (CMHUDView *)hudView;
 
 @end
