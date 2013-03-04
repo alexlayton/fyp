@@ -147,6 +147,7 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         place = [_searchPlaces objectAtIndex:indexPath.row];
         [_places insertObject:place atIndex:0];
+        if (_places.count > 10) [_places removeLastObject];
         NSLog(@"Places: %@", _places);
     } else {
         place = [_places objectAtIndex:indexPath.row];

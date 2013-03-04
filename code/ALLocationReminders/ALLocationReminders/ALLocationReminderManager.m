@@ -137,11 +137,12 @@
     }
 }
 
-- (void)addDateBasedReminderWithPayload:(NSString *)payload date:(NSDate *)date
+- (void)addDateBasedReminderWithReminder:(ALLocationReminder *)reminder date:(NSDate *)date
 {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = payload;
+    notification.alertBody = reminder.payload;
     notification.fireDate = date;
+    notification.userInfo = [reminder userInfoForReminder];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
@@ -159,7 +160,7 @@
         //for now
         [_store pushReminder:reminder type:reminder.reminderType];
         NSDate *newDate = [reminder.date dateByAddingTimeInterval:-60 * reminder.minutesBefore];
-        [self addDateBasedReminderWithPayload:reminder.payload date:newDate];
+        [self addDateBasedReminderWithReminder:reminder date:newDate];
     }
 }
 
@@ -426,6 +427,7 @@
         notification.alertBody = reminder.payload;
         notification.soundName = UILocalNotificationDefaultSoundName;
         notification.fireDate = [[NSDate date] dateByAddingTimeInterval:1];
+        notification.userInfo = [reminder userInfoForReminder];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
 }

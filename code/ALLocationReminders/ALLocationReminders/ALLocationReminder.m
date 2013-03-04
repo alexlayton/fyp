@@ -75,13 +75,28 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
 
 - (NSDictionary *)userInfoForReminder
 {
-    NSDictionary *dict;
-    NSNumber *lat = [NSNumber numberWithFloat:_location.coordinate.latitude];
-    NSNumber *lon = [NSNumber numberWithFloat:_location.coordinate.longitude];
-    NSNumber *repeat = [NSNumber numberWithInt:_repeat];
-    NSNumber *minutesBefore = [NSNumber numberWithInt:_minutesBefore];
-    dict = @{_payload : @"payload", _date : @"date", lat : @"lat", lon: @"lon", repeat : @"repeat", _reminderType : @"reminderType", _transport : @"transport", minutesBefore : @"minutes", _locationString : @"locationString"};
-    return dict;
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    if (_date) [dict setObject:_date.copy forKey:@"date"];
+    if (_payload) [dict setObject:_payload.copy forKey:@"payload"];
+    if (_location) {
+        NSNumber *lat = [NSNumber numberWithFloat:_location.coordinate.latitude];
+        NSNumber *lon = [NSNumber numberWithFloat:_location.coordinate.longitude];
+        [dict setObject:lat forKey:@"lat"];
+        [dict setObject:lon forKey:@"lon"];
+    }
+    if (_reminderType) [dict setObject:_reminderType.copy forKey:@"reminderType"];
+    if (_transport) [dict setObject:_transport.copy forKey:@"transport"];
+    if (_repeat) {
+        NSNumber *repeat = [NSNumber numberWithInt:_repeat];
+        [dict setObject:repeat forKey:@"repeat"];
+    }
+    if (_minutesBefore) {
+        NSNumber *minutesBefore = [NSNumber numberWithInt:_minutesBefore];
+        [dict setObject:minutesBefore forKey:@"minutes"];
+    }
+    if (_locationString) [dict setObject:_locationString.copy forKey:@"locationString"];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithDictionary:dict];
+    return userInfo;
 }
 
 - (NSString *)description

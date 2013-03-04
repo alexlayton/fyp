@@ -128,6 +128,10 @@
     }
 }
 
+- (IBAction)donePressed:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)loadGoogleMapsWithLocation:(CLLocation *)currentLocation;
 {
     NSString *startAddress = [NSString stringWithFormat:@"%f,%f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
