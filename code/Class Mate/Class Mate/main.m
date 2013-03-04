@@ -2,12 +2,11 @@
 //  main.m
 //  Class Mate
 //
-//  Created by Alex Layton on 04/03/2013.
-//  Copyright (c) 2013 Alex Layton. All rights reserved.
+//  Created by Alex Layton on 26/11/2012.
+//  Copyright (c) 2012 Alex Layton. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
 #import "CMAppDelegate.h"
 
 int main(int argc, char *argv[])

@@ -2,21 +2,82 @@
 //  CMAppDelegate.m
 //  Class Mate
 //
-//  Created by Alex Layton on 04/03/2013.
-//  Copyright (c) 2013 Alex Layton. All rights reserved.
+//  Created by Alex Layton on 26/11/2012.
+//  Copyright (c) 2012 Alex Layton. All rights reserved.
 //
 
 #import "CMAppDelegate.h"
+#import "ALLocationReminders.h"
+#import <QuartzCore/QuartzCore.h>
+#import <Crashlytics/Crashlytics.h>
+
+#define kTestFlighTeamToken @"5a7b90d8-72ea-4e37-803a-bf93d42a3b99"
+#define kTesting 1
 
 @implementation CMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    [Crashlytics startWithAPIKey:@"3d0645f271b14f649463785d7edcbf17df2e837e"];
+    
+    #ifdef kTesting
+        [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+        [TestFlight takeOff:kTestFlighTeamToken];
+    #endif
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstRun"]) {
+        NSLog(@"Loading user defaults");
+        [self setupUserDefaults];
+    }
+    
+    [CMAppDelegate customiseAppearance];
     return YES;
+}
+
+- (void)setupUserDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSDate date] forKey:@"firstRun"];
+    [defaults setObject:@"5" forKey:@"minutes"]; //change to 0?
+    [defaults setObject:kALLocationRemindersTransportTypeWalking forKey:@"transport"];
+    [defaults setObject:kALLocationReminderTypePreemptive forKey:@"reminderType"];
+    [defaults setObject:@"Apple Maps" forKey:@"navigation"];
+    [defaults synchronize];
+}
+
++ (void)customiseAppearance
+{
+    UIImage *navbar = [UIImage imageNamed:@"navbar-test.png"];
+    [[UINavigationBar appearance] setBackgroundImage:navbar forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *backButton = [[UIImage imageNamed:@"backbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 5)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    UIImage *barButton = [[UIImage imageNamed:@"barbutton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    
+    //done buttons
+    UIImage *barButtonBlue = [[UIImage imageNamed:@"barbuttonblue.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButtonBlue forState:UIControlStateNormal style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
+    
+    //toolbar
+    UIImage *toolbar = [UIImage imageNamed:@"toolbar-test.png"];
+    [[UIToolbar appearance] setBackgroundImage:toolbar forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+}
+
++ (void)resetAppearance
+{
+    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    [[UIBarButtonItem appearance] setBackgroundImage:nil forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    
+    //done buttons
+    [[UIBarButtonItem appearance] setBackgroundImage:nil forState:UIControlStateNormal style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
+    
+    //toolbar
+    [[UIToolbar appearance] setBackgroundImage:nil forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -27,13 +88,23 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    [lrm stopLocation]; //if necessary
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    [lrm startLocation]; //if necessary
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm processLocalNotification:notification];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -43,7 +114,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm saveData];
+    if (lrm.remindersAreRunning) {
+        [lrm stopLocationReminders];
+    }
 }
 
 @end

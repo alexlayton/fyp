@@ -135,7 +135,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYR-XC-gb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2545" y="-169"/>
+            <point key="canvasLocation" x="2019" y="-169"/>
         </scene>
         <!--Reminders View Controller-->
         <scene sceneID="RdJ-81-M5U">
@@ -195,7 +195,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2x9-4U-oJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095" y="-169"/>
+            <point key="canvasLocation" x="1569" y="-169"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="6Ru-Bx-QcD">
@@ -246,7 +246,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9A-Ok-dTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2021" y="548"/>
+            <point key="canvasLocation" x="1495" y="548"/>
         </scene>
         <!--Acknowledgements View Controller - Acknowledgments-->
         <scene sceneID="9FY-fh-znj">
@@ -295,7 +295,7 @@ THE SOFTWARE.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJA-n3-ALv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="969"/>
+            <point key="canvasLocation" x="2013" y="969"/>
         </scene>
         <!--Settings Detail View Controller-->
         <scene sceneID="0iL-hX-rMq">
@@ -325,7 +325,7 @@ THE SOFTWARE.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkF-Ip-fEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437" y="408"/>
+            <point key="canvasLocation" x="2019" y="408"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="sjt-lM-9hP">
@@ -341,7 +341,7 @@ THE SOFTWARE.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8L-hn-x3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="408"/>
+            <point key="canvasLocation" x="695" y="408"/>
         </scene>
         <!--Add Reminder View Controller - Add Reminder-->
         <scene sceneID="dnj-1O-O8m">
@@ -772,7 +772,7 @@ THE SOFTWARE.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZL-2S-WHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="-184"/>
+            <point key="canvasLocation" x="1133" y="-184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yXe-Ws-GJJ">
@@ -794,7 +794,7 @@ THE SOFTWARE.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAq-hd-vF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="-169"/>
+            <point key="canvasLocation" x="695" y="-169"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AqG-bD-cws">
@@ -812,7 +812,7 @@ THE SOFTWARE.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsG-Aq-xeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="564"/>
+            <point key="canvasLocation" x="1122" y="564"/>
         </scene>
         <!--Place View Controller-->
         <scene sceneID="GQG-YB-h0W">
@@ -1292,157 +1292,6 @@ THE SOFTWARE.</string>
             </objects>
             <point key="canvasLocation" x="629" y="-805"/>
         </scene>
-        <!--Reminder View Controller - Reminder-->
-        <scene sceneID="Iuq-kW-edd">
-            <objects>
-                <tableViewController storyboardIdentifier="" id="Qk2-Of-1vT" customClass="CMReminderViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="pzb-jG-Xw7">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="vqS-Ns-2Pu">
-                            <rect key="frame" x="0.0" y="154" width="320" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMp-AG-267">
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="300" id="Wfq-gA-0L3"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Navigate" backgroundImage="big-button.png">
-                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="navigatePressed:" destination="Qk2-Of-1vT" eventType="touchUpInside" id="tLC-ya-Agn"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="sMp-AG-267" firstAttribute="centerX" secondItem="vqS-Ns-2Pu" secondAttribute="centerX" type="default" id="2AQ-lS-gFY"/>
-                                <constraint firstItem="sMp-AG-267" firstAttribute="top" secondItem="vqS-Ns-2Pu" secondAttribute="top" constant="7" id="9Xf-ig-xPD"/>
-                            </constraints>
-                        </view>
-                        <sections>
-                            <tableViewSection id="Sq8-hb-Ag5">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="sag-yT-1Nm" detailTextLabel="TON-Dc-P9g" style="IBUITableViewCellStyleValue2" id="OAX-bT-jfY">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sag-yT-1Nm">
-                                                    <rect key="frame" x="10" y="15" width="67" height="15"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TON-Dc-P9g">
-                                                    <rect key="frame" x="83" y="12" width="41" height="19"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="CfC-YP-ofJ" detailTextLabel="C6h-Fk-7qh" style="IBUITableViewCellStyleValue2" id="Ls1-46-Nyf">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CfC-YP-ofJ">
-                                                    <rect key="frame" x="10" y="15" width="67" height="15"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C6h-Fk-7qh">
-                                                    <rect key="frame" x="83" y="12" width="41" height="19"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="GWc-jv-FbU" detailTextLabel="zMT-51-bez" style="IBUITableViewCellStyleValue2" id="naJ-3S-XBL">
-                                        <rect key="frame" x="0.0" y="99" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Location" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GWc-jv-FbU">
-                                                    <rect key="frame" x="10" y="15" width="67" height="15"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zMT-51-bez">
-                                                    <rect key="frame" x="83" y="12" width="41" height="19"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="Qk2-Of-1vT" id="Izc-j2-q1O"/>
-                            <outlet property="delegate" destination="Qk2-Of-1vT" id="LdS-Cf-I5J"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Reminder" id="WYs-Ge-obH">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="Nb1-eB-z0K">
-                            <connections>
-                                <action selector="donePressed:" destination="Qk2-Of-1vT" id="CeM-ut-u5f"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="dateLabel" destination="C6h-Fk-7qh" id="dL9-lv-LuZ"/>
-                        <outlet property="locationLabel" destination="zMT-51-bez" id="ttS-LS-21a"/>
-                        <outlet property="navigateButton" destination="sMp-AG-267" id="PuN-Mk-O1a"/>
-                        <outlet property="payloadLabel" destination="TON-Dc-P9g" id="9Gk-Zy-x6M"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CUG-hY-Gjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="710" y="217"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="OoO-mD-hZF">
-            <objects>
-                <navigationController storyboardIdentifier="ModalReminderViewController" id="cNV-Jw-kn5" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WX1-qL-EYZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Qk2-Of-1vT" kind="relationship" relationship="rootViewController" id="KJR-dz-Uks"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Spq-AB-gUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="184" y="217"/>
-        </scene>
     </scenes>
     <resources>
         <image name="big-button.png" width="280" height="48"/>
@@ -1451,112 +1300,6 @@ THE SOFTWARE.</string>
         <image name="places.png" width="16" height="26"/>
         <image name="star.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="CMAcknowledgementsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMAcknowledgementsViewController.h"/>
-        </class>
-        <class className="CMAddReminderTestViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMAddReminderTestViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="CMAddReminderViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMAddReminderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="titleChanged:" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="remindLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="repeatLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="transportLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CMAddressViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMAddressViewController.h"/>
-        </class>
-        <class className="CMFavouritesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMFavouritesViewController.h"/>
-        </class>
-        <class className="CMGeocodeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMGeocodeViewController.h"/>
-        </class>
-        <class className="CMMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="CMOptionViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMOptionViewController.h"/>
-        </class>
-        <class className="CMPlaceViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMPlaceViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="favouritePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CMPlacesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMPlacesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="CMReminderViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMReminderViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deletePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="navigatePressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navigateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="payloadLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CMRemindersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMRemindersViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="CMSettingsDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMSettingsDetailViewController.h"/>
-        </class>
-        <class className="CMSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reminderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reminderTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="transportLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CMViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CMViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="testPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="HUDButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="feedbackCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="settingsButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
