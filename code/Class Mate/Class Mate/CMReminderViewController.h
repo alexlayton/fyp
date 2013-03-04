@@ -28,5 +28,6 @@
 
 - (IBAction)deletePressed:(UIBarButtonItem *)sender;
 - (IBAction)navigatePressed:(UIButton *)sender;
+- (IBAction)doneButton:(UIBarButtonItem *)sender;
 
 @end

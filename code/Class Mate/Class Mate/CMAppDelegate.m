@@ -10,6 +10,7 @@
 #import "ALLocationReminders.h"
 #import <QuartzCore/QuartzCore.h>
 #import <Crashlytics/Crashlytics.h>
+#import "CMReminderViewController.h"
 
 #define kTestFlighTeamToken @"5a7b90d8-72ea-4e37-803a-bf93d42a3b99"
 #define kTesting 1
@@ -103,6 +104,18 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
+    ALLocationReminder *reminder = [[ALLocationReminder alloc] initWithUserInfo:notification.userInfo];
+    NSLog(@"fired reminder: %@", reminder);
+    
+    UIViewController *vc = self.window.rootViewController;
+    NSLog(@"VC: %@", vc);
+    UINavigationController *nav = [vc.storyboard instantiateViewControllerWithIdentifier:@"ModalReminderViewController"];
+    CMReminderViewController *rvc = [nav.viewControllers objectAtIndex:0];
+    NSLog(@"RVC: %@", rvc);
+    rvc.reminder = reminder;
+    
+    [vc presentViewController:nav animated:YES completion:nil];
+    
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     [lrm processLocalNotification:notification];
 }

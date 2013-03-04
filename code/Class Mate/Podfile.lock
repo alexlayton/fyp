@@ -1,14 +1,14 @@
 
-COCOAPODS: 0.16.0
-
-PODS: 
-- AFNetworking (1.0.1)
-- TestFlightSDK (1.2.3.beta1)
+SPEC CHECKSUMS: 
+  TestFlightSDK: f638b08651a37af099e40c47241fc58fd3cb1a66
+  AFNetworking: 0bce3ae41023e080e96b8a2e0d07c94709f72a81
 
 DEPENDENCIES: 
 - AFNetworking
 - TestFlightSDK (~> 1.2.3.beta1)
 
-SPEC CHECKSUMS: 
-  TestFlightSDK: f638b08651a37af099e40c47241fc58fd3cb1a66
-  AFNetworking: 0bce3ae41023e080e96b8a2e0d07c94709f72a81
+COCOAPODS: 0.16.0
+
+PODS: 
+- AFNetworking (1.0.1)
+- TestFlightSDK (1.2.3.beta1)

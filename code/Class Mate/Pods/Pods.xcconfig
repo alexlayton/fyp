@@ -1,8 +1,8 @@
-PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/TestFlightSDK"
-OTHER_LDFLAGS = -ObjC -lTestFlight -lz -framework MobileCoreServices -framework SystemConfiguration -framework UIKit
-ALWAYS_SEARCH_USER_PATHS = YES
+PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
 PODS_ROOT = ${SRCROOT}/Pods
 HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}
-PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/TestFlightSDK"
 LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/TestFlightSDK"
+OTHER_LDFLAGS = -ObjC -lTestFlight -lz -framework MobileCoreServices -framework SystemConfiguration -framework UIKit
+ALWAYS_SEARCH_USER_PATHS = YES
 PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/TestFlightSDK"
