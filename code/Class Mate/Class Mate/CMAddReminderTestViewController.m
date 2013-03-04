@@ -1,12 +1,12 @@
 //
-//  CMAddTestViewController.m
+//  CMAddReminderTestViewController.m
 //  Class Mate
 //
-//  Created by Alex Layton on 01/02/2013.
+//  Created by Alex Layton on 01/03/2013.
 //  Copyright (c) 2013 Alex Layton. All rights reserved.
 //
 
-#import "CMAddReminderViewController.h"
+#import "CMAddReminderTestViewController.h"
 #import "CMOptionViewController.h"
 #import "CMAppDelegate.h"
 #import "CMPlace.h"
@@ -17,43 +17,41 @@
 #import "CMPair.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 
-@interface CMAddReminderViewController ()
+@interface CMAddReminderTestViewController ()
 
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIToolbar *toolbar;
+@property (nonatomic, weak) UITextField *editingTextField;
+@property (nonatomic, weak) UIDatePicker *editingDatePicker;
+@property (nonatomic, strong) NSString *repeatString;
 
 @end
 
-@implementation CMAddReminderViewController
+@implementation CMAddReminderTestViewController
 {
     ALLocationRemindersRepeatType _repeatType;
     ALLocationRemindersTransportType _transportType;
-    ALLocationReminderType _reminderType;
     int _minutes;
     BOOL _canAddReminder;
 }
 
-@synthesize titleTextField = _titleTextField;
 @synthesize date = _date;
 @synthesize place = _place;
-@synthesize timeCell = _timeCell;
-@synthesize repeatLabel = _repeatLabel;
-@synthesize typeLabel = _typeLabel;
-@synthesize locationLabel = _locationLabel;
-@synthesize transportLabel = _transportLabel;
-@synthesize remindLabel = _remindLabel;
-@synthesize dateLabel = _dateLabel;
+@synthesize reminderTitle = _reminderTitle;
 @synthesize datePicker = _datePicker;
 @synthesize toolbar = _toolbar;
 @synthesize doneButton = _doneButton;
-@synthesize senderType = _senderType;
+@synthesize reminderType = _reminderType;
+@synthesize editingTextField = _editingTextField;
+@synthesize editingDatePicker = _editingDatePicker;
+@synthesize repeatString = _repeatString;
 
 - (void)addReminder
 {
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     ALLocationReminder *reminder = [[ALLocationReminder alloc] init];
     reminder.location = _place.location;
-    reminder.payload = _titleTextField.text;
+    reminder.payload = _reminderTitle;
     reminder.date = _date;
     reminder.repeat = _repeatType;
     reminder.reminderType = _reminderType;
@@ -100,56 +98,25 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *defaultString = [defaults objectForKey:@"minutes"];
-    _remindLabel.text = [NSString stringWithFormat:@"%@ Minutes", defaultString];
     _minutes = [defaultString intValue];
     
     defaultString = [defaults objectForKey:@"transport"];
-    _transportLabel.text = [defaultString capitalizedString];
     _transportType = defaultString;
     
-    defaultString = (_senderType) ? _senderType : [defaults objectForKey:@"reminderType"];
+    defaultString = (_reminderType) ? _reminderType : [defaults objectForKey:@"reminderType"];
     _reminderType = defaultString;
-    _typeLabel.text = [defaultString capitalizedString];
     
-    _repeatLabel.text = @"Never";
     _repeatType = kALRepeatTypeNever;
+    _repeatString = @"Never";
 }
 
-- (IBAction)donePressed:(UIBarButtonItem *)sender
-{
-    [self addReminder];
-}
 
-- (IBAction)cancelPressed:(UIBarButtonItem *)sender
-{
-    _doneButton.enabled = NO;
-    [CMAppDelegate customiseAppearance];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)titleChanged:(UITextField *)textField
-{
-    _doneButton.enabled = (![textField.text isEqualToString:@""] && _date && _place) ? YES : NO;
-}
-
-#pragma mark - TextField
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    if (_date && _place && ![textField.text isEqualToString:@""]) _doneButton.enabled = YES;
-    return YES;
-}
+#pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self loadReminderDefaults];
     _doneButton.enabled = NO;
-    _dateLabel.text = @" "; //hacks on hacks on hacks
-    
-    _titleTextField.delegate = self;
     
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 200, 320, 216)];
     _datePicker.hidden = YES;
@@ -167,9 +134,14 @@
     [self.view addSubview:_datePicker];
     [self.view addSubview:_toolbar];
     
+    [self loadReminderDefaults];
     
-    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timePressed:)];
-    [_timeCell addGestureRecognizer:tgr];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -180,17 +152,18 @@
     }
 }
 
-- (void)timePressed:(id)sender
+#pragma mark - Date Picker
+
+- (void)showPicker
 {
-    [_titleTextField resignFirstResponder];
-    //NSLog(@"Time Pressed!");
     if (_datePicker.hidden) {
-        
         if ([_reminderType isEqualToString:kALLocationReminderTypeLocation]) {
             _datePicker.datePickerMode = UIDatePickerModeDate;
         } else {
             _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
         }
+        
+        _editingDatePicker = _datePicker;
         
         _datePicker.frame = CGRectMake(0, self.view.frame.size.height, _datePicker.frame.size.width, _datePicker.frame.size.height);
         _toolbar.frame = CGRectMake(0, self.view.frame.size.height, _toolbar.frame.size.width, _toolbar.frame.size.height);
@@ -198,9 +171,6 @@
         CGRect toolbarFrame = _toolbar.frame;
         _datePicker.hidden = NO;
         _toolbar.hidden = NO;
-        
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:_timeCell];
-//        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
         
         self.tableView.delaysContentTouches = NO;
         self.tableView.canCancelContentTouches = NO;
@@ -223,6 +193,8 @@
     self.tableView.delaysContentTouches = YES;
     self.tableView.canCancelContentTouches = YES;
     
+    _editingDatePicker = nil;
+    
     [UIView animateWithDuration:0.3f animations:^{
         _datePicker.frame = CGRectMake(0, self.view.frame.size.height, _datePicker.frame.size.width, _datePicker.frame.size.height);
         _toolbar.frame = CGRectMake(0, self.view.frame.size.height, _toolbar.frame.size.width, _toolbar.frame.size.height);
@@ -234,13 +206,8 @@
 
 - (void)pickerDonePressed:(id)sender
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.timeStyle = ([_reminderType isEqualToString:kALLocationReminderTypeLocation]) ? NSDateFormatterNoStyle : NSDateFormatterShortStyle;
-    formatter.dateStyle = NSDateFormatterShortStyle;
     _date = _datePicker.date;
-    NSString *formattedDate = [formatter stringFromDate:_date];
-    _dateLabel.text = formattedDate;
-    
+    [self.tableView reloadData];
     [self hidePicker];
 }
 
@@ -254,120 +221,117 @@
     _date = _datePicker.date;
 }
 
-#pragma mark - Scroll View Delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+#pragma mark - IBOutlets
+
+- (IBAction)donePressed:(UIBarButtonItem *)sender
 {
-    //NSLog(@"scrolling");
-    CGRect tableBounds = self.tableView.bounds;
-    CGRect pickerFrame = _datePicker.frame;
-    CGRect toolbarFrame = _toolbar.frame;
-    
-    _datePicker.frame = CGRectMake(0, 200 + tableBounds.origin.y, pickerFrame.size.width, pickerFrame.size.height);
-    _toolbar.frame = CGRectMake(0, 156 + tableBounds.origin.y, toolbarFrame.size.width, toolbarFrame.size.height);
-    
-    if ([_titleTextField isFirstResponder]) {
-        [_titleTextField resignFirstResponder];
+    [self addReminder];
+}
+
+- (IBAction)cancelPressed:(UIBarButtonItem *)sender
+{
+    _doneButton.enabled = NO;
+    [CMAppDelegate customiseAppearance];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger rows = 0;
+    if (section == 0) {
+        rows = 4;
+    } else {
+        if ([_reminderType isEqualToString:kALLocationReminderTypePreemptive]) {
+            rows = 3;
+        } else {
+            rows = 1;
+        }
+    }
+    return rows;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *identifier;
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) identifier = @"Title Cell";
+        else if (indexPath.row == 2) identifier = @"Time Cell";
+        else identifier = @"Cell";
+    } else {
+        identifier = @"Cell";
     }
     
-//    if (!_datePicker.hidden) {
-//        [self hidePicker];
-//    }
-}
-
-#pragma mark - Option Delegate
-
-- (void)optionViewController:(CMOptionViewController *)ovc didSelectOption:(CMPair *)option
-{
-    if ([ovc.title isEqualToString:@"Reminder Type"]) {
-        _typeLabel.text = option.objDescription;
-        _reminderType = option.obj;
-    } else if ([ovc.title isEqualToString:@"Repeat"]) {
-        _repeatLabel.text = option.objDescription;
-        _repeatType = [option.obj intValue]; //repeat is int
-    } else if ([ovc.title isEqualToString:@"Remind Before"]) {
-        NSLog(@"Reminder Before!");
-        _remindLabel.text = option.objDescription;
-        _minutes = [option.obj intValue];
-    } else if ([ovc.title isEqualToString:@"Transport"]) {
-        _transportLabel.text = option.objDescription;
-        _transportType = option.obj;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            NSArray *views = cell.contentView.subviews;
+            for (UIView *view in views) {
+                if ([view isKindOfClass:[UITextField class]]) {
+                    UITextField *textField = (UITextField *)view;
+                    textField.delegate = self;
+                }
+            }
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = @"Type";
+            cell.detailTextLabel.text = [_reminderType capitalizedString];
+        } else if (indexPath.row == 2) {
+            cell.textLabel.text = @"Date";
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.timeStyle = ([_reminderType isEqualToString:kALLocationReminderTypeLocation]) ? NSDateFormatterNoStyle : NSDateFormatterShortStyle;
+            formatter.dateStyle = NSDateFormatterShortStyle;
+            cell.detailTextLabel.text = [formatter stringFromDate:_date];
+        } else {
+            cell.textLabel.text = @"Location";
+            cell.detailTextLabel.text = _place.name;
+        }
+    } else { //section == 1
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"Repeat";
+            cell.detailTextLabel.text = _repeatString;
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = @"Transport";
+            cell.detailTextLabel.text = [_transportType capitalizedString];
+        } else {
+            cell.textLabel.text = @"Remind";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d minutes", _minutes];
+        }
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    return cell;
 }
 
-#pragma mark - Address Delegate
 
-- (void)addressView:(CMAddressViewController *)avc didSelectAddress:(CMAddress *)address
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     _place = address;
-    _locationLabel.text = address.street;
-    if (_titleTextField.text && _date) _doneButton.enabled = YES;
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Places Delegate
-
-- (void)placeView:(CMPlacesViewController *)pvc didSelectPlace:(CMGooglePlace *)place
-{
-    _place = place;
-    _locationLabel.text = place.vicinity;
-    if (_titleTextField.text && _date) _doneButton.enabled = YES;
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Favourites Delegate
-
-- (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMPlace *)place
-{
-    _place = place;
-    if ([place isKindOfClass:[CMGooglePlace class]]) {
-        CMGooglePlace *gp = (CMGooglePlace *)place;
-        _locationLabel.text = gp.vicinity;
-    } else if ([place isKindOfClass:[CMAddress class]]) {
-        CMAddress *addr = (CMAddress *)place;
-        _locationLabel.text = addr.street;
+    if (_editingTextField) {
+        [_editingTextField resignFirstResponder];
     }
-    if (_titleTextField.text && _date) _doneButton.enabled = YES;
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Geocode Delegate
-
-- (void)geocodeViewController:(CMGeocodeViewController *)gvc didSelectPlace:(CMGeocodePlace *)place
-{
-    _place = place;
-    _locationLabel.text = place.name;
-    if (_titleTextField.text && _date) _doneButton.enabled = YES;
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Segue
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Repeat"]) {
-        CMOptionViewController *ovc = segue.destinationViewController;
-        ovc.delegate = self;
-        ovc.title = @"Repeat";
-        ovc.options = [self repeatOptions];
-    } else if ([segue.identifier isEqualToString:@"Type"]) {
-        CMOptionViewController *ovc = segue.destinationViewController;
+    if (_editingDatePicker) {
+        [self hidePicker];
+    }
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *title = cell.textLabel.text;
+    if ([title isEqualToString:@"Type"]) {
+        CMOptionViewController *ovc = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
         ovc.delegate = self;
         ovc.title = @"Reminder Type";
         ovc.options = [self reminderOptions];
-    } else if ([segue.identifier isEqualToString:@"Remind"]) {
-        CMOptionViewController *ovc = segue.destinationViewController;
-        ovc.delegate = self;
-        ovc.title = @"Remind Before";
-        ovc.options = [self reminderMinutesOptions];
-    } else if ([segue.identifier isEqualToString:@"Transport"]) {
-        CMOptionViewController *ovc = segue.destinationViewController;
-        ovc.delegate = self;
-        ovc.title = @"Transport";
-        ovc.options = [self transportOptions];
-    } else if ([segue.identifier isEqualToString:@"Tab Bar"]) {
-        UITabBarController *tbc = segue.destinationViewController;
+        [self.navigationController pushViewController:ovc animated:YES];
+    } else if ([title isEqualToString:@"Date"]) {
+        [self showPicker];
+    } else if ([title isEqualToString:@"Location"]) {
+        UITabBarController *tbc = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         NSArray *vcs = tbc.viewControllers;
         for (id vc in vcs) {
             if ([vc isKindOfClass:[CMAddressViewController class]]) {
@@ -384,10 +348,112 @@
                 gvc.delegate = self;
             }
         }
+        [self.navigationController pushViewController:tbc animated:YES];
+    } else if ([title isEqualToString:@"Repeat"]) {
+        CMOptionViewController *ovc = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+        ovc.delegate = self;
+        ovc.title = @"Repeat";
+        ovc.options = [self repeatOptions];
+        [self.navigationController pushViewController:ovc animated:YES];
+    } else if ([title isEqualToString:@"Transport"]) {
+        CMOptionViewController *ovc = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+        ovc.delegate = self;
+        ovc.title = @"Transport";
+        ovc.options = [self transportOptions];
+        [self.navigationController pushViewController:ovc animated:YES];
+    } else if ([title isEqualToString:@"Remind"]) { //"Remind"
+        CMOptionViewController *ovc = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+        ovc.delegate = self;
+        ovc.title = @"Remind Before";
+        ovc.options = [self reminderMinutesOptions];
+        [self.navigationController pushViewController:ovc animated:YES];
     }
 }
 
-#pragma mark - option arrays
+#pragma mark - TextField
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (_editingDatePicker) {
+        [self hidePicker];
+    }
+    _editingTextField = textField;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _editingTextField = nil;
+    if (_date && _place && ![textField.text isEqualToString:@""]) _doneButton.enabled = YES;
+    _reminderTitle = textField.text;
+}
+
+#pragma mark - Address Delegate
+
+- (void)addressView:(CMAddressViewController *)avc didSelectAddress:(CMAddress *)address
+{
+    _place = address;
+    if (_reminderTitle && _date) _doneButton.enabled = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Places Delegate
+
+- (void)placeView:(CMPlacesViewController *)pvc didSelectPlace:(CMGooglePlace *)place
+{
+    _place = place;
+    if (_reminderTitle && _date) _doneButton.enabled = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Favourites Delegate
+
+- (void)favouritesView:(CMFavouritesViewController *)fvc didSelectFavourite:(CMPlace *)place
+{
+    _place = place;
+//    if ([place isKindOfClass:[CMGooglePlace class]]) {
+//        CMGooglePlace *gp = (CMGooglePlace *)place;
+//        _locationLabel.text = gp.vicinity;
+//    } else if ([place isKindOfClass:[CMAddress class]]) {
+//        CMAddress *addr = (CMAddress *)place;
+//        _locationLabel.text = addr.street;
+//    }
+    if (_reminderTitle && _date) _doneButton.enabled = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Geocode Delegate
+
+- (void)geocodeViewController:(CMGeocodeViewController *)gvc didSelectPlace:(CMGeocodePlace *)place
+{
+    _place = place;
+    if (_reminderTitle && _date) _doneButton.enabled = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Option Delegate
+
+- (void)optionViewController:(CMOptionViewController *)ovc didSelectOption:(CMPair *)option
+{
+    if ([ovc.title isEqualToString:@"Reminder Type"]) {
+        _reminderType = option.obj;
+    } else if ([ovc.title isEqualToString:@"Repeat"]) {
+        _repeatString = option.objDescription;
+        _repeatType = [option.obj intValue]; //repeat is int
+    } else if ([ovc.title isEqualToString:@"Remind Before"]) {
+        _minutes = [option.obj intValue];
+    } else if ([ovc.title isEqualToString:@"Transport"]) {
+        _transportType = option.obj;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Option Arrays
 
 - (NSArray *)repeatOptions
 {

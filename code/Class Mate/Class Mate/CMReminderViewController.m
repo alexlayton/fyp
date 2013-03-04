@@ -18,6 +18,7 @@
 @synthesize payloadLabel = _payloadLabel;
 @synthesize mapView = _mapView;
 @synthesize delegate = _delegate;
+@synthesize navigateButton = _navigateButton;
 
 - (void)viewDidLoad
 {
@@ -43,7 +44,9 @@
     CGRect mapRect = CGRectMake(0, 0, 320, 200);
     _mapView = [[MKMapView alloc] initWithFrame:mapRect];
     
-    CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:location.coordinate placeName:@"Place!" description:_reminder.payload];
+    NSString *title = [NSString stringWithFormat:@"%@ - %@", [_reminder.reminderType capitalizedString], _reminder.payload];
+    NSString *dateString = [dateFormatter stringFromDate:_reminder.date];
+    CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:location.coordinate placeName:title description:dateString];
     [_mapView addAnnotation:annotation];
     
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
@@ -51,7 +54,6 @@
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 200, 320, 1)];
     line.backgroundColor = [UIColor colorWithRed:0.67f green:0.67f blue:0.67f alpha:1.00f];
     [self.tableView.tableHeaderView addSubview:line];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -112,6 +114,39 @@
     NSLog(@"Delete Pressed");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Reminder" message:@"Are you sure you want to delete the reminder?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
     [alert show];
+}
+
+- (IBAction)navigatePressed:(UIButton *)sender
+{
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    CLLocation *currentLocation = lrm.currentLocation;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:@"navigation"] isEqualToString:@"Google Maps"]) {
+        [self loadGoogleMapsWithLocation:currentLocation];
+    } else {
+        [self loadAppleMapsWithLocation:currentLocation];
+    }
+}
+
+- (void)loadGoogleMapsWithLocation:(CLLocation *)currentLocation;
+{
+    NSString *startAddress = [NSString stringWithFormat:@"%f,%f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
+    NSString *destinationAddress = [NSString stringWithFormat:@"%f,%f", _reminder.location.coordinate.latitude, _reminder.location.coordinate.longitude];
+    NSString *transport = ([_reminder.transport isEqualToString:kALLocationRemindersTransportTypeCycling]) ? @"walking" : _reminder.transport;
+    NSString *urlString = [NSString stringWithFormat:@"comgooglemaps://?saddr=%@&daddr=%@&directionsmode=%@", startAddress, destinationAddress, transport];
+    NSLog(@"UrlString: %@", urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void)loadAppleMapsWithLocation:(CLLocation *)currentLocation;
+{
+    NSString *startAddress = [NSString stringWithFormat:@"%f,%f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
+    NSString *destinationAddress = [NSString stringWithFormat:@"%f,%f", _reminder.location.coordinate.latitude, _reminder.location.coordinate.longitude];
+    NSString *urlString = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%@&daddr=%@&", startAddress, destinationAddress];
+    NSLog(@"UrlString: %@", urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - Alert View Delegate

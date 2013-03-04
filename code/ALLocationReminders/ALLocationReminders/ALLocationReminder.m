@@ -39,6 +39,59 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
     return reminder;
 }
 
+- (id)initWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
+{
+    self = [super init];
+    if (self) {
+        _location = location;
+        _payload = payload;
+        _date = date;
+    }
+    return self;
+}
+
+- (id)initWithUserInfo:(NSDictionary *)userInfo
+{
+    self = [super init];
+    if (self) {
+        [self loadUserInfo:userInfo];
+    }
+    return self;
+}
+
+- (void)loadUserInfo:(NSDictionary *)userInfo
+{
+    _payload = [userInfo objectForKey:@"payload"];
+    _date = [userInfo objectForKey:@"date"];
+    CGFloat lat = [[userInfo objectForKey:@"lat"] floatValue];
+    CGFloat lon = [[userInfo objectForKey:@"lon"] floatValue];
+    _location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+    _repeat = [[userInfo objectForKey:@"repeat"] intValue];
+    _reminderType = [userInfo objectForKey:@"reminderType"];
+    _transport = [userInfo objectForKey:@"transport"];
+    _minutesBefore = [[userInfo objectForKey:@"minutes"] intValue];
+    _locationString = [userInfo objectForKey:@"locationString"];
+}
+
+- (NSDictionary *)userInfoForReminder
+{
+    NSDictionary *dict;
+    NSNumber *lat = [NSNumber numberWithFloat:_location.coordinate.latitude];
+    NSNumber *lon = [NSNumber numberWithFloat:_location.coordinate.longitude];
+    NSNumber *repeat = [NSNumber numberWithInt:_repeat];
+    NSNumber *minutesBefore = [NSNumber numberWithInt:_minutesBefore];
+    dict = @{_payload : @"payload", _date : @"date", lat : @"lat", lon: @"lon", repeat : @"repeat", _reminderType : @"reminderType", _transport : @"transport", minutesBefore : @"minutes", _locationString : @"locationString"};
+    return dict;
+}
+
+- (NSString *)description
+{
+    NSString *description = [NSString stringWithFormat:@"Location: %@, Payload: %@, Date: %@, Type: %@", _location, _payload, _date, _reminderType];
+    return description;
+}
+
+#pragma mark - NSCoding
+
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:_location forKey:@"location"];
@@ -65,23 +118,6 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
         _locationString = [aDecoder decodeObjectForKey:@"locationString"];
     }
     return self;
-}
-
-- (id)initWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date
-{
-    self = [super init];
-    if (self) {
-        _location = location;
-        _payload = payload;
-        _date = date;
-    }
-    return self;
-}
-
-- (NSString *)description
-{
-    NSString *description = [NSString stringWithFormat:@"Location: %@, Payload: %@, Date: %@, Type: %@", _location, _payload, _date, _reminderType];
-    return description;
 }
 
 @end

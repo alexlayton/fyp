@@ -132,7 +132,7 @@
         UILabel *headerLabel = [labels objectAtIndex:0];
         UILabel *subLabel = [labels objectAtIndex:1];
         headerLabel.text = @"No Reminders";
-        subLabel.text = @"Try adding one.";
+        subLabel.text = @"";
         labelPosition += 2;
     }
     if (labelPosition < labels.count) {
@@ -363,11 +363,13 @@
 
 - (void)locationReminderManager:(ALLocationReminderManager *)lrm timeFromPreemptiveLocationDidChange:(NSInteger)time
 {
-//    NSString *message = [NSString stringWithFormat:@"%@ is %d Seconds Away", [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive].payload, time];
-//    ALLocationReminder *reminder = [lrm.store peekReminderWithType:kALLocationReminderTypePreemptive];
-//    _HUDView.PreemptiveHeaderLabel = [NSString stringWithFormat:@"%@, %@", reminder.payload, reminder.locationString];
-//    _HUDView.preemptiveSubLabel.text = message;
- }
+    [self updateHUD];
+}
+
+- (void)locationReminderManager:(ALLocationReminderManager *)locationReminderManager reminderFired:(ALLocationReminder *)reminder
+{
+    [self updateHUD];
+}
 
 - (IBAction)testPressed:(UIBarButtonItem *)sender
 {

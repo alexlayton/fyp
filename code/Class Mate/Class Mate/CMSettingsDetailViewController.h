@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALDefaultsPair;
-
 @interface CMSettingsDetailViewController : UITableViewController
 
 @property (nonatomic, strong) NSString *defaultsKey;

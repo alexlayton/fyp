@@ -10,6 +10,7 @@
 #import "ALLocationReminders.h"
 #import "CMAppDelegate.h"
 #import "CMAddReminderViewController.h"
+#import "CMAddReminderTestViewController.h"
 
 @interface CMRemindersViewController ()
 
@@ -79,14 +80,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Add"]) {
-        NSLog(@"Add pressed.");
         [CMAppDelegate resetAppearance];
         UINavigationController *addNav = segue.destinationViewController;
-        CMAddReminderViewController *arvc = [addNav.viewControllers objectAtIndex:0];
-        arvc.senderType = _reminderType;
-        
-        //change the reminder type
-        
+        CMAddReminderTestViewController *arvc = [addNav.viewControllers objectAtIndex:0];
+        arvc.reminderType = _reminderType;
     } else {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         ALLocationReminder *reminder = [_reminders objectAtIndex:indexPath.row];

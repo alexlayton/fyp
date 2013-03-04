@@ -24,7 +24,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *payloadLabel;
 @property (nonatomic, weak) id<CMReminderViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIButton *navigateButton;
 
 - (IBAction)deletePressed:(UIBarButtonItem *)sender;
+- (IBAction)navigatePressed:(UIButton *)sender;
 
 @end

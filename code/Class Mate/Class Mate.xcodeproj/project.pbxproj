@@ -34,6 +34,8 @@
 		FA0AB56316D92D200053E11E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56216D92D200053E11E /* Default-568h@2x.png */; };
 		FA0AB56516D92D240053E11E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56416D92D240053E11E /* Default.png */; };
 		FA0AB56716D92D2B0053E11E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56616D92D2B0053E11E /* Default@2x.png */; };
+		FA0C37DD16E3E00600AD6D61 /* big-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C37DB16E3E00600AD6D61 /* big-button.png */; };
+		FA0C37DE16E3E00600AD6D61 /* big-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0C37DC16E3E00600AD6D61 /* big-button@2x.png */; };
 		FA14D17A16D398D100D03400 /* CMGeocodePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14D17916D398D100D03400 /* CMGeocodePlace.m */; };
 		FA371AC916CE4FA8005EE6F5 /* gripper.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371AC816CE4FA8005EE6F5 /* gripper.png */; };
 		FA371ACB16CE4FB8005EE6F5 /* gripper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA371ACA16CE4FB8005EE6F5 /* gripper@2x.png */; };
@@ -45,6 +47,7 @@
 		FA48C96C16A1999E008E4F64 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA48C96B16A1999E008E4F64 /* Location.gpx */; };
 		FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E921166619050048A5C7 /* CMRemindersViewController.m */; };
 		FA4B141816AD79910025986A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B141716AD79910025986A /* QuartzCore.framework */; };
+		FA55451F16E0E0E200E94DE5 /* CMAddReminderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA55451E16E0E0E200E94DE5 /* CMAddReminderTestViewController.m */; };
 		FA664A2C16788A72007DC494 /* ALLocationReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2516788A72007DC494 /* ALLocationReminderManager.m */; };
 		FA664A2D16788A72007DC494 /* ALLocationReminderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2916788A72007DC494 /* ALLocationReminderStore.m */; };
 		FA664A2E16788A72007DC494 /* ALLocationReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA664A2B16788A72007DC494 /* ALLocationReminder.m */; };
@@ -135,6 +138,8 @@
 		FA0AB56216D92D200053E11E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA0AB56416D92D240053E11E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FA0AB56616D92D2B0053E11E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FA0C37DB16E3E00600AD6D61 /* big-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-button.png"; sourceTree = "<group>"; };
+		FA0C37DC16E3E00600AD6D61 /* big-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-button@2x.png"; sourceTree = "<group>"; };
 		FA13298516B4015D00FA5B27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA14D17816D398D100D03400 /* CMGeocodePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMGeocodePlace.h; sourceTree = "<group>"; };
 		FA14D17916D398D100D03400 /* CMGeocodePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGeocodePlace.m; sourceTree = "<group>"; };
@@ -152,6 +157,8 @@
 		FA49E920166619050048A5C7 /* CMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRemindersViewController.h; sourceTree = "<group>"; };
 		FA49E921166619050048A5C7 /* CMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRemindersViewController.m; sourceTree = "<group>"; };
 		FA4B141716AD79910025986A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FA55451D16E0E0E200E94DE5 /* CMAddReminderTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAddReminderTestViewController.h; sourceTree = "<group>"; };
+		FA55451E16E0E0E200E94DE5 /* CMAddReminderTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAddReminderTestViewController.m; sourceTree = "<group>"; };
 		FA664A2516788A72007DC494 /* ALLocationReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALLocationReminderManager.m; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderManager.m; sourceTree = "<group>"; };
 		FA664A2616788A72007DC494 /* ALLocationReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminderManager.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminderManager.h; sourceTree = "<group>"; };
 		FA664A2716788A72007DC494 /* ALLocationReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALLocationReminders.h; path = ../../ALLocationReminders/ALLocationReminders/ALLocationReminders.h; sourceTree = "<group>"; };
@@ -261,6 +268,8 @@
 		FA04460D1680832700C47BA8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA0C37DB16E3E00600AD6D61 /* big-button.png */,
+				FA0C37DC16E3E00600AD6D61 /* big-button@2x.png */,
 				FA77664B16DE9CEB004150D6 /* hud-test.png */,
 				FA77664C16DE9CEB004150D6 /* hud-test@2x.png */,
 				FA77664716DE948A004150D6 /* hud-new.png */,
@@ -395,6 +404,8 @@
 				FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */,
 				FA42400A16BBDAA50092671B /* CMAddReminderViewController.h */,
 				FA42400B16BBDAA50092671B /* CMAddReminderViewController.m */,
+				FA55451D16E0E0E200E94DE5 /* CMAddReminderTestViewController.h */,
+				FA55451E16E0E0E200E94DE5 /* CMAddReminderTestViewController.m */,
 				FA42401016BBEC2A0092671B /* CMOptionViewController.h */,
 				FA42401116BBEC2A0092671B /* CMOptionViewController.m */,
 				FAC0598E16CC305300CA78F5 /* CMApplePlacesViewController.h */,
@@ -607,6 +618,8 @@
 				FA77664A16DE948A004150D6 /* hud-new@2x.png in Resources */,
 				FA77664D16DE9CEB004150D6 /* hud-test.png in Resources */,
 				FA77664E16DE9CEB004150D6 /* hud-test@2x.png in Resources */,
+				FA0C37DD16E3E00600AD6D61 /* big-button.png in Resources */,
+				FA0C37DE16E3E00600AD6D61 /* big-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +691,7 @@
 				FAC0599316CC41B100CA78F5 /* CMGeocodeViewController.m in Sources */,
 				FA14D17A16D398D100D03400 /* CMGeocodePlace.m in Sources */,
 				FAFDA3C116DD38CA00A8579B /* CMAcknowledgementsViewController.m in Sources */,
+				FA55451F16E0E0E200E94DE5 /* CMAddReminderTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

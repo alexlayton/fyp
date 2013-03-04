@@ -39,5 +39,7 @@ extern const ALLocationRemindersRepeatType kALRepeatTypeMonth;
 
 + (ALLocationReminder *)reminderWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
 - (id)initWithLocation:(CLLocation *)location payload:(NSString *)payload date:(NSDate *)date;
+- (id)initWithUserInfo:(NSDictionary *)userInfo;
+- (NSDictionary *)userInfoForReminder;
 
 @end

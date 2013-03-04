@@ -54,21 +54,32 @@
     NSArray *preemptive = lrm.store.preemptiveReminders;
     NSArray *location = lrm.store.locationReminders;
     NSArray *date = lrm.store.dateReminders;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
     
     for (ALLocationReminder *reminder in preemptive) {
-        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Preemptive" description:reminder.payload];
+        NSString *title = [NSString stringWithFormat:@"Preemptive - %@", reminder.payload];
+        NSString *dateString = [dateFormatter stringFromDate:reminder.date];
+        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:title description:dateString];
         annotation.reminder = reminder;
         [_mapView addAnnotation:annotation];
     }
     
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
     for (ALLocationReminder *reminder in location) {
-        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Location" description:reminder.payload];
+        NSString *title = [NSString stringWithFormat:@"Location - %@", reminder.payload];
+        NSString *dateString = [dateFormatter stringFromDate:reminder.date];
+        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:title description:dateString];
         annotation.reminder = reminder;
         [_mapView addAnnotation:annotation];
     }
     
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
     for (ALLocationReminder *reminder in date) {
-        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:@"Date" description:reminder.payload];
+        NSString *title = [NSString stringWithFormat:@"Date - %@", reminder.payload];
+        NSString *dateString = [dateFormatter stringFromDate:reminder.date];
+        CMReminderAnnotation *annotation = [[CMReminderAnnotation alloc] initWithCoordinates:reminder.location.coordinate placeName:title description:dateString];
         annotation.reminder = reminder;
         [_mapView addAnnotation:annotation];
     }

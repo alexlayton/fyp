@@ -41,6 +41,7 @@
     [defaults setObject:@"5" forKey:@"minutes"]; //change to 0?
     [defaults setObject:kALLocationRemindersTransportTypeWalking forKey:@"transport"];
     [defaults setObject:kALLocationReminderTypePreemptive forKey:@"reminderType"];
+    [defaults setObject:@"Apple Maps" forKey:@"navigation"];
     [defaults synchronize];
 }
 
