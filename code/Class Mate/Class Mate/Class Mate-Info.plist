@@ -14,8 +14,6 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon-test@2x.png</string>
-				<string>icon-test.png</string>
 				<string>icon-new@2x.png</string>
 				<string>icon-new.png</string>
 			</array>
@@ -32,11 +30,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.9</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>11</string>
+	<string>13</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIBackgroundModes</key>

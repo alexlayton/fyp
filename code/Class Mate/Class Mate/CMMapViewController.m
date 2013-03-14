@@ -156,12 +156,12 @@
 {
     [_mapView removeAnnotation:_lastSelectedAnnotation];
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-    if ([_lastSelectedAnnotation.title isEqualToString:@"Preemptive"]) {
+    if ([_lastSelectedAnnotation.title hasPrefix:@"Preemptive"]) {
         [lrm.store.preemptiveReminders removeObject:_lastSelectedAnnotation.reminder];
         [[ALLocationReminderManager sharedManager] updatePreemptiveReminders];
-    } else if ([_lastSelectedAnnotation.title isEqualToString:@"Location"]) {
+    } else if ([_lastSelectedAnnotation.title hasPrefix:@"Location"]) {
         [lrm.store.locationReminders removeObject:_lastSelectedAnnotation.reminder];
-    } else if ([_lastSelectedAnnotation.title isEqualToString:@"Date"]) {
+    } else if ([_lastSelectedAnnotation.title hasPrefix:@"Date"]) {
         [lrm.store.dateReminders removeObject:_lastSelectedAnnotation.reminder];
         NSDate *newDate = [_lastSelectedAnnotation.reminder.date dateByAddingTimeInterval:-60 * _lastSelectedAnnotation.reminder.minutesBefore];
         NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];

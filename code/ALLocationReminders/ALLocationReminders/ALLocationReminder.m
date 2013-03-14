@@ -105,6 +105,20 @@ const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit
     return description;
 }
 
+- (id)copy
+{
+    ALLocationReminder *reminder = [[ALLocationReminder alloc] init];
+    reminder.payload = _payload.copy;
+    reminder.date = _date.copy;
+    reminder.location = _location.copy;
+    reminder.repeat = _repeat;
+    reminder.reminderType = _reminderType.copy;
+    reminder.transport = _transport.copy;
+    reminder.minutesBefore = _minutesBefore;
+    reminder.locationString = _locationString.copy;
+    return reminder;
+}
+
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder

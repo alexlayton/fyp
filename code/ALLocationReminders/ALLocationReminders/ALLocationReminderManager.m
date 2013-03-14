@@ -387,7 +387,20 @@
     for (int i = 0; i < _store.dateReminders.count; i++) {
         ALLocationReminder *reminder = [_store.dateReminders objectAtIndex:i];
         if ([reminder.date compare:now] != NSOrderedDescending) {
-            [_store.dateReminders removeObjectAtIndex:i];
+            if (reminder.repeat != kALRepeatTypeNever) {
+                NSDate *newDate;
+                if (reminder.repeat == kALRepeatTypeMonth) {
+                    newDate = [self addMonthToDate:reminder.date];
+                } else {
+                    newDate = [NSDate dateWithTimeInterval:reminder.repeat sinceDate:reminder.date];
+                }
+                ALLocationReminder *newReminder = reminder.copy;
+                newReminder.date = newDate;
+                [_store.dateReminders removeObjectAtIndex:i];
+                [self addReminder:newReminder];
+            } else {
+                [_store.dateReminders removeObjectAtIndex:i];
+            }
         } else {
             break;
         }

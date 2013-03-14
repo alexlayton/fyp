@@ -42,6 +42,7 @@
 - (BOOL)areRemindersRunning;
 - (void)processLocalNotification:(UILocalNotification *)notification;
 - (void)updatePreemptiveReminders;
+- (void)updateDateReminders;
 - (void)addReminder:(ALLocationReminder *)reminder success:(void (^)(void))successBlock failure:(void (^)(void))failureBlock;
 
 @end

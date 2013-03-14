@@ -13,7 +13,7 @@
 #import "CMReminderViewController.h"
 
 #define kTestFlighTeamToken @"5a7b90d8-72ea-4e37-803a-bf93d42a3b99"
-#define kTesting 1
+//#define kTesting 1
 
 @implementation CMAppDelegate
 
@@ -32,6 +32,11 @@
     }
     
     [CMAppDelegate customiseAppearance];
+    
+    ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
+    [lrm updateDateReminders];
+    //maybe update other stuff
+    
     return YES;
 }
 
@@ -99,6 +104,7 @@
     
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
     [lrm saveData];
+    [lrm updateDateReminders];
     [lrm startLocation]; //if necessary
 }
 

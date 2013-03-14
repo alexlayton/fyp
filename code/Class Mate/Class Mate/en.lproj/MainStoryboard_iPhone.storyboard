@@ -699,7 +699,7 @@ THE SOFTWARE.</string>
                             <tableViewSection id="sqp-vT-p9E">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Zu6-Dd-yGt" style="IBUITableViewCellStyleDefault" id="ck6-Bc-eD5">
-                                        <rect key="frame" x="0.0" y="164" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="164" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -718,24 +718,6 @@ THE SOFTWARE.</string>
                                         <connections>
                                             <segue destination="y5p-Ua-62v" kind="push" id="1Kl-sG-iGA"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qyO-KV-mUe" style="IBUITableViewCellStyleDefault" id="SEM-k3-TN7">
-                                        <rect key="frame" x="0.0" y="209" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qyO-KV-mUe">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -766,7 +748,6 @@ THE SOFTWARE.</string>
                     <connections>
                         <outlet property="HUDButton" destination="nyd-wM-Tyc" id="E8z-4d-Jj4"/>
                         <outlet property="addButton" destination="gjL-2Y-IiR" id="WNH-GX-mbh"/>
-                        <outlet property="feedbackCell" destination="SEM-k3-TN7" id="hy3-Jt-ATc"/>
                         <outlet property="settingsButton" destination="pkM-bF-hbU" id="WCr-cV-6aK"/>
                     </connections>
                 </tableViewController>
@@ -1274,7 +1255,7 @@ THE SOFTWARE.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zR4-Zg-ueb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="-805"/>
+            <point key="canvasLocation" x="1108" y="-796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ynd-KL-w2h">
