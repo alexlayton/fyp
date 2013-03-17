@@ -118,12 +118,18 @@
     UINavigationController *nav = [vc.storyboard instantiateViewControllerWithIdentifier:@"ModalReminderViewController"];
     CMReminderViewController *rvc = [nav.viewControllers objectAtIndex:0];
     NSLog(@"RVC: %@", rvc);
+    
+    NSLog(@"reminder location: %@", reminder.location);
+    
     rvc.reminder = reminder;
+    if ([reminder.reminderType isEqualToString:kALLocationReminderTypeLocation]) {
+        rvc.hideNavigation = YES;
+    }
     
     [vc presentViewController:nav animated:YES completion:nil];
     
     ALLocationReminderManager *lrm = [ALLocationReminderManager sharedManager];
-    [lrm processLocalNotification:notification];
+    [lrm updateDateReminders];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

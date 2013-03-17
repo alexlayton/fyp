@@ -344,7 +344,7 @@
     animation.duration              = kNumFactors * 1.0f/kFactorsPerSec;
     animation.fillMode              = kCAFillModeForwards;
     animation.values                = transforms;
-    animation.removedOnCompletion   = YES; // final stage is equal to starting stage
+    animation.removedOnCompletion   = YES;
     animation.autoreverses          = NO;
     
     return animation;

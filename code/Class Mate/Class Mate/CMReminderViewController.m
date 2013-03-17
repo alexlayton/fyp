@@ -19,6 +19,7 @@
 @synthesize mapView = _mapView;
 @synthesize delegate = _delegate;
 @synthesize navigateButton = _navigateButton;
+@synthesize hideNavigation = _hideNavigation;
 
 - (void)viewDidLoad
 {
@@ -54,6 +55,12 @@
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 200, 320, 1)];
     line.backgroundColor = [UIColor colorWithRed:0.67f green:0.67f blue:0.67f alpha:1.00f];
     [self.tableView.tableHeaderView addSubview:line];
+    
+    if (_hideNavigation) {
+        _navigateButton.hidden = YES;
+    } else {
+        _navigateButton.hidden = NO;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -136,6 +143,8 @@
 {
     NSString *startAddress = [NSString stringWithFormat:@"%f,%f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
     NSString *destinationAddress = [NSString stringWithFormat:@"%f,%f", _reminder.location.coordinate.latitude, _reminder.location.coordinate.longitude];
+    NSLog(@"Lat: %f, Lon: %f", _reminder.location.coordinate.latitude, _reminder.location.coordinate.longitude);
+    
     NSString *transport = ([_reminder.transport isEqualToString:kALLocationRemindersTransportTypeCycling]) ? @"walking" : _reminder.transport;
     NSString *urlString = [NSString stringWithFormat:@"comgooglemaps://?saddr=%@&daddr=%@&directionsmode=%@", startAddress, destinationAddress, transport];
     NSLog(@"UrlString: %@", urlString);

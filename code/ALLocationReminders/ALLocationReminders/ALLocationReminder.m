@@ -19,7 +19,7 @@ const ALLocationRemindersTransportType kALLocationRemindersTransportTypeDriving 
 const ALLocationRemindersRepeatType kALRepeatTypeNever = -1;
 const ALLocationRemindersRepeatType kALRepeatTypeHour = 60 * 60;
 const ALLocationRemindersRepeatType kALRepeatTypeDay = 60 * 60 * 24;
-const ALLocationRemindersRepeatType kALRepeatTypeWeek = 60 * 60 * 7;
+const ALLocationRemindersRepeatType kALRepeatTypeWeek = 60 * 60 * 24 * 7;
 const ALLocationRemindersRepeatType kALRepeatTypeMonth = 1; //override this shit yo
 
 @implementation ALLocationReminder

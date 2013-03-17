@@ -18,13 +18,14 @@
 
 @interface CMReminderViewController : UITableViewController <UIAlertViewDelegate>
 
-@property (nonatomic, weak) ALLocationReminder *reminder;
+@property (nonatomic, strong) ALLocationReminder *reminder;
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *payloadLabel;
 @property (nonatomic, weak) id<CMReminderViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIButton *navigateButton;
+@property (nonatomic) BOOL hideNavigation;
 
 - (IBAction)deletePressed:(UIBarButtonItem *)sender;
 - (IBAction)navigatePressed:(UIButton *)sender;

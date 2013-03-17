@@ -44,7 +44,7 @@
 		FA4683C516A8A2AF007A839C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4683C416A8A2AF007A839C /* AddressBook.framework */; };
 		FA46B8A01668D50100936AE6 /* CMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA46B89F1668D50100936AE6 /* CMMapViewController.m */; };
 		FA46B8A31668D6C700936AE6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA46B8A21668D6C700936AE6 /* MapKit.framework */; };
-		FA48C96C16A1999E008E4F64 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA48C96B16A1999E008E4F64 /* Location.gpx */; };
+		FA48C96C16A1999E008E4F64 /* Olive Hill.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA48C96B16A1999E008E4F64 /* Olive Hill.gpx */; };
 		FA49E922166619050048A5C7 /* CMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA49E921166619050048A5C7 /* CMRemindersViewController.m */; };
 		FA4B141816AD79910025986A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B141716AD79910025986A /* QuartzCore.framework */; };
 		FA55451F16E0E0E200E94DE5 /* CMAddReminderTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA55451E16E0E0E200E94DE5 /* CMAddReminderTestViewController.m */; };
@@ -153,7 +153,7 @@
 		FA46B89E1668D50000936AE6 /* CMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMapViewController.h; sourceTree = "<group>"; };
 		FA46B89F1668D50100936AE6 /* CMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMapViewController.m; sourceTree = "<group>"; };
 		FA46B8A21668D6C700936AE6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		FA48C96B16A1999E008E4F64 /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		FA48C96B16A1999E008E4F64 /* Olive Hill.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Olive Hill.gpx"; sourceTree = "<group>"; };
 		FA49E920166619050048A5C7 /* CMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRemindersViewController.h; sourceTree = "<group>"; };
 		FA49E921166619050048A5C7 /* CMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRemindersViewController.m; sourceTree = "<group>"; };
 		FA4B141716AD79910025986A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -197,6 +197,9 @@
 		FA9E5BDA16A30557005B130E /* CMPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPlaceViewController.m; sourceTree = "<group>"; };
 		FAA3CEBC16B68BE300BB38A1 /* CMPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPlace.h; sourceTree = "<group>"; };
 		FAA3CEBD16B68BE300BB38A1 /* CMPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPlace.m; sourceTree = "<group>"; };
+		FAA8027516F63EFC001B5D69 /* Oak Court.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Oak Court.gpx"; sourceTree = "<group>"; };
+		FAA8027616F63F35001B5D69 /* Stag.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Stag.gpx; sourceTree = "<group>"; };
+		FAA8027716F63F7B001B5D69 /* CS Bham.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CS Bham.gpx"; sourceTree = "<group>"; };
 		FAA9A677166CAFEF009E5D1B /* CMSettingsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSettingsDetailViewController.h; sourceTree = "<group>"; };
 		FAA9A678166CAFEF009E5D1B /* CMSettingsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSettingsDetailViewController.m; sourceTree = "<group>"; };
 		FAAB414416C524CA000B9A6F /* CMPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPair.h; sourceTree = "<group>"; };
@@ -489,7 +492,10 @@
 				FA0454B716AF062F002EB841 /* Views */,
 				FA0454B816AF06DB002EB841 /* Misc */,
 				FA7E1936166696A700A3D890 /* ALLocationReminders */,
-				FA48C96B16A1999E008E4F64 /* Location.gpx */,
+				FA48C96B16A1999E008E4F64 /* Olive Hill.gpx */,
+				FAA8027516F63EFC001B5D69 /* Oak Court.gpx */,
+				FAA8027616F63F35001B5D69 /* Stag.gpx */,
+				FAA8027716F63F7B001B5D69 /* CS Bham.gpx */,
 				FAB95B851663AE8D00A09853 /* Supporting Files */,
 			);
 			path = "Class Mate";
@@ -575,7 +581,7 @@
 				FA04461D1680862100C47BA8 /* toolbar@2x.png in Resources */,
 				FA04462416808E9E00C47BA8 /* pattern.png in Resources */,
 				FA04462516808E9E00C47BA8 /* pattern@2x.png in Resources */,
-				FA48C96C16A1999E008E4F64 /* Location.gpx in Resources */,
+				FA48C96C16A1999E008E4F64 /* Olive Hill.gpx in Resources */,
 				FA02147916A19D30002245C2 /* backbuttonblue.png in Resources */,
 				FA02147A16A19D30002245C2 /* backbuttonblue@2x.png in Resources */,
 				FA02147E16A19D3B002245C2 /* barbuttonblue.png in Resources */,

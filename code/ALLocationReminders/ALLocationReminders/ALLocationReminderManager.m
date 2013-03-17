@@ -417,6 +417,7 @@
             
 - (void)fireReminder:(ALLocationReminder *)reminder
 {
+    ALLocationReminder *oldReminder = reminder.copy;
     if (reminder.repeat != kALRepeatTypeNever) {
         //shedule reminder here...
         NSLog(@"Reminder should repeat");
@@ -439,7 +440,7 @@
         notification.alertBody = reminder.payload;
         notification.soundName = UILocalNotificationDefaultSoundName;
         notification.fireDate = [[NSDate date] dateByAddingTimeInterval:1];
-        notification.userInfo = [reminder userInfoForReminder];
+        notification.userInfo = [oldReminder userInfoForReminder];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
 }
