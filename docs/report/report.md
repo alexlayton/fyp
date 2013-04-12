@@ -68,4 +68,57 @@ TODO: Add section on delegation to objective c and then talk about location upda
 
 Another factor in this project is using maps. Since reminders will use location, using maps will provide a way to give user specified locations context. Apple also provide a MapKit presentation from their WWDC sessions called; 'Getting Around Using MapKit' (Cite presentation). This presentation introduces the new maps released in iOS6 as well as how to implement them into an app. Since MapKit uses the CoreLocation framework itself in order to show the users current location on a map, it is easy  to use the two frameworks together.
 
+Storyboards provide an alternative way to create user interfaces and were originally introduced with iOS5. This method differs to traditionally used methods to design iOS app such as NIBs (NeXT Interface Builder) and creating the interface completely programatically. The WWDC presentation - 'Adopting Storyboards in your app' (cite) provides insight into how to transition from older interface building methods to the newer Storyboards. Pennington states that there are two main concepts involved with Storyboards, one being scenes and the other segues. The scenes are the view controllers that will display the different views in the application, while segues are the connections and transitions between scenes. (show an image with of storyboard)
+
+These storyboards are created graphically, which are then connected to code by specifying a scenes class. For instance a UIViewController could be dragged onto the storyboard, with a class existing called MyViewController that subclasses UIViewController. This subclass can then be set as that scenes class so when the scene is displayed it instantiates that class as opposed to using a standard UIViewController. Segues are also created graphically by dragging an arrow from a user interface element to a destination scene. Segues can be detected programmatically in order to react to the transition, for instance data can be passed to the destination view controller or data could be saved before the view changes. Since a view could have multiple segues to different destinations, a segue can be given an identifier so that it is possible to detect not only the segue but the destination of that segue. The following method is called in a UIViewController subclass when a segue is about to happen;
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+This method takes a segue object and a sender. The sender is the object where the transition is initiated, so if the segue is occurring because of a button press, the sender will be the UIButton that was pressed. The class reference for UIStoryboardSegue (cite ref) shows that it contains a properties for the destination view controller and an identifier. The destination view controller is an an instance of the view that will be displayed to the user, this allows properties of the destination view controller to be set before it is shown to the user. The identifier, like previously mentioned contains the string of the identifier given for that segue.
+
+Since the app will use a custom interface it is important to research how to create an interface using the non standard UI elements available. Apple's WWDC talk on '￼Advanced Appearance Customization on iOS' (cite appearance) demonstrates techniques in order to customise the user interface of an app. The presentation shows that all custom interface elements should be images created at the correct size for the device it is being used on. For instance an image created for a device such as the iPhone 3GS could be called 'myImage.png', while the image for a device such as the iPhone 4 should be called 'myImage@2x.png' and should be twice as big as the original image to account for the increased pixel density of the device. Once the images are named correctly they can be instantiated programmatically simply from the following line of code;
+
+UIImage *myImage = [UIImage imageNamed:@"myImage"];
+
+The presentation also goes on to demonstrate using resizable images as opposed to fixed width ones. One use for resizable images is buttons. Since it is common to have multiple buttons, each with there own text, a resizable image would allow the button to change size depending on the length of text. This is not the case for a button using a fixed width image and the resulting button might be using an image that is much bigger than the text the button holds. A resizable image is created in the following way;
+
+(add resizable image code here and maybe image)
+
+In order to customise the user interface as demonstrated above, the techniques described above would need to every instance of the UIKit objects used in throughout a project. As of iOS5, a UIAppearance property has been added to the various classes found within UIKit (cite NSHipster). UIAppearance offers a way to style the different UI elements once and have them consistent throughout the app. UIAppearance is a protocol that classes in UIKit subscribe to. By calling the appearance class method of a UIKit class, an appearance proxy is returned. The appearance proxy is essentially an another instance of the same class that the appearance method is being called on. This proxy can be customised as if it were a normal object of that class type, but when an instance of that class is created it refers to the appearance instance to customise itself. An example may be a better way to demonstrate this functionality;
+
+(UIAppearance code goes here)
+
+By using UIAppearance it means a lot less code is duplicated in order to create similar looking UI elements throughout the app. Although using this technique allows the majority of properties of UIKit classes to be customised it is not available for some properties, so it may be the case that some particular properties must be customised once instantiated (cite appearance gist).
+
 #Project Specification
+
+From researching existing apps and looking at current programming paradigms and techniques for the iOS platform it may be beneficial to look at the original project aims and redefine them based on this research.
+
+The main aim of this project to implement the proposed reminders functionality. Since this will be an iOS app, this functionality will be implemented in Objective-C, making use of the researched frameworks and techniques. The location component of this app will make use of the CoreLocation framework, using standard location changes in the foreground in order to give the user accurate location data while using the app. Once the app is sent to the background it will transition to significant location change services in order to use as little power as possible. It should also be the case that location is only used when needed and not for the duration the app runs for whether this is in the background or foreground. In order to provide an intuitive interface the app will also use the functionality found in the MapKit framework in order to give the locations received from the location services and given as destinations context to the user. The app will also take advantage of Storyboards to create the user interface as not only will it allow for rapid development of the app, but it allows a clear distinction to be made between user interface and functionality when building the app. The design of the app must be unique while also being consistent to the design language used on the platform, this can be validated from user testing by receiving feedback about the design. The interface should also make use of the previously mentioned UIAppearance protocol in order to create custom yet consistent UI elements throughout.
+
+There are also requirements not directly related to the implementation of the app. The first is that upon completion of building and testing the app, it should be made available for users to download on the App Store. This requirement can be validated by the app being submitted to Apple for review, passing review and being downloaded on a user's device.
+
+#Project Specification MKII
+
+From researching existing apps and looking at current programming paradigms and techniques for the iOS platform it may be beneficial to look at the original project aims and redefine them based on this research.
+
+##Functional Requirements
+
+* Implement reminders functionality in an app
+** Date based reminders
+** Geo-fenced location reminders
+** Preemptive location reminders using time and location
+
+
+#Design
+
+In order to implement an app with the required functionality as previously mentioned in the project specification, it is important to break what needs to be done into its core components. These components include;
+
+* The reminder functionality
+* Adding reminders
+* Reminder View
+* User Interface
+* User Experience
+
+##
+

@@ -1,0 +1,434 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{appreview}{online}{}
+  \field{sortinit}{A}
+  \field{booktitle}{developer.apple.com}
+  \field{title}{App Review Guidelines}
+  \verb{url}
+  \verb https://developer.apple.com/appstore/guidelines.html
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{appstore}{online}{}
+  \field{sortinit}{A}
+  \field{booktitle}{www.apple.com}
+  \field{title}{App Store Downloads on iTunes}
+  \verb{url}
+  \verb https://itunes.apple.com/gb/genre/ios/id36?mt=8
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{applenumbers}{online}{}
+  \field{sortinit}{A}
+  \field{booktitle}{www.apple.com}
+  \field{title}{Apple Updates iOS to 6.1}
+  \verb{url}
+  \verb http://www.apple.com/pr/library/2013/01/28Apple-Updates-iOS-to-6-1.html
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{mvc}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Atwood}{A.}%
+     {Jeff}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{AJ1}
+  \strng{fullhash}{AJ1}
+  \field{sortinit}{A}
+  \field{booktitle}{www.codinghorror.com}
+  \field{title}{Understanding Model-View-Controller}
+  \verb{url}
+  \verb http://www.codinghorror.com/blog/2008/05/understanding-model-view-contr
+  \verb oller.html
+  \endverb
+  \field{year}{2008}
+\endentry
+
+\entry{locationservices}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bruins}{B.}%
+     {Jay}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BJ1}
+  \strng{fullhash}{BJ1}
+  \field{sortinit}{B}
+  \field{booktitle}{apple.com}
+  \field{title}{Staying on Track with Location Services}
+  \verb{url}
+  \verb http://developer.apple.com/devcenter/download.action?path=/wwdc_2012/ww
+  \verb dc_2012_session_pdfs/session_303__staying_on_track_with_location_servic
+  \verb es.pdf
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{checkmark}{online}{}
+  \field{sortinit}{C}
+  \field{booktitle}{builtbysnowman.com}
+  \field{title}{Checkmark - Fast and easy location & time-based reminders for
+  iPhone}
+  \verb{url}
+  \verb http://builtbysnowman.com
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{classmate}{online}{}
+  \field{sortinit}{C}
+  \field{booktitle}{itunes.apple.com}
+  \field{title}{Class Mate - Location Aware Reminders}
+  \verb{url}
+  \verb https://itunes.apple.com/gb/app/class-mate-location-aware/id612395230?m
+  \verb t=8
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{delegates}{online}{}
+  \field{sortinit}{C}
+  \field{booktitle}{developer.apple.com}
+  \field{title}{Concepts in Objective-C Programming: Delegates and Data
+  Sources}
+  \verb{url}
+  \verb http://developer.apple.com/library/ios/#documentation/General/Conceptua
+  \verb l/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.htm
+  \verb l
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{crashlytics}{online}{}
+  \field{sortinit}{C}
+  \field{booktitle}{try.crashlytics.com}
+  \field{title}{Crashlytics}
+  \verb{url}
+  \verb http://try.crashlytics.com
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{tapone}{online}{}
+  \field{sortinit}{G}
+  \field{booktitle}{tapone.ca}
+  \field{title}{Geo-Reminders A Location-based Reminders App}
+  \verb{url}
+  \verb http://tapone.ca/geo-reminders
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{github}{online}{}
+  \field{sortinit}{G}
+  \field{booktitle}{github.com}
+  \field{title}{GitHub - Build software better, together.}
+  \verb{url}
+  \verb https://github.com
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{placesapi}{online}{}
+  \field{sortinit}{G}
+  \field{booktitle}{developers.google.com}
+  \field{title}{Google Places API}
+  \verb{url}
+  \verb https://developers.google.com/places/documentation/
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{playstore}{online}{}
+  \field{sortinit}{G}
+  \field{booktitle}{www.google.com}
+  \field{title}{Google Play Store}
+  \verb{url}
+  \verb https://play.google.com/store
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{devcenter}{online}{}
+  \field{sortinit}{I}
+  \field{booktitle}{developer.apple.com}
+  \field{title}{iOS Dev Center - Apple Developer}
+  \verb{url}
+  \verb https://developer.apple.com/devcenter/ios/
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{urlscheme}{online}{}
+  \field{sortinit}{L}
+  \field{booktitle}{http://iosdevelopertips.com}
+  \field{title}{Launching Your iPhone App Via Custom URL Scheme}
+  \verb{url}
+  \verb http://iosdevelopertips.com/cocoa/launching-your-own-application-via-a-
+  \verb custom-url-scheme.html
+  \endverb
+  \field{year}{2008}
+\endentry
+
+\entry{mapkit}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {law}{l.}%
+     {Brady}{B.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{lB1}
+  \strng{fullhash}{lB1}
+  \field{sortinit}{L}
+  \field{booktitle}{apple.com}
+  \field{title}{Getting Around with Map Kit}
+  \verb{url}
+  \verb http://adcdownload.apple.com//wwdc_2012/wwdc_2012_session_pdfs/session_
+  \verb 300__getting_around_using_map_kit.pdf
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{milwus}{online}{}
+  \field{sortinit}{M}
+  \field{booktitle}{http://www.location-alarm.com}
+  \field{title}{Milwus Location Alarm - best GPS location alarm app for iOS and
+  Android}
+  \verb{url}
+  \verb http://www.location-alarm.com
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{mapview}{online}{}
+  \field{sortinit}{M}
+  \field{booktitle}{developer.apple.com}
+  \field{title}{MKMapView Class Reference}
+  \verb{url}
+  \verb https://developer.apple.com/library/ios/#documentation/MapKit/Reference
+  \verb /MKMapView_Class/MKMapView/MKMapView.html#//apple_ref/doc/uid/TP4000820
+  \verb 5
+  \endverb
+  \field{year}{2011}
+\endentry
+
+\entry{nscoding}{online}{}
+  \field{sortinit}{N}
+  \field{booktitle}{developer.apple.com}
+  \field{title}{NSCoding Protocol Reference}
+  \verb{url}
+  \verb https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/
+  \verb Foundation/Protocols/NSCoding_Protocol/Reference/Reference.html
+  \endverb
+  \field{year}{2009}
+\endentry
+
+\entry{objc2j}{online}{}
+  \field{sortinit}{O}
+  \field{booktitle}{code.google.com}
+  \field{title}{objc2j - Objective-C to Java translator}
+  \verb{url}
+  \verb http://code.google.com/p/objc2j/
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{storyboards}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pennington}{P.}%
+     {Joshua}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PJ1}
+  \strng{fullhash}{PJ1}
+  \field{sortinit}{P}
+  \field{booktitle}{apple.com}
+  \field{title}{Adopting Storyboards in Your App}
+  \verb{url}
+  \verb http://adcdownload.apple.com//wwdc_2012/wwdc_2012_session_pdfs/session_
+  \verb 407__adopting_storyboards_in_your_app.pdf
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{priorityqueue}{online}{}
+  \field{sortinit}{P}
+  \field{booktitle}{cs.wisc.edu}
+  \field{title}{Priority Queues}
+  \verb{url}
+  \verb http://pages.cs.wisc.edu/~vernon/cs367/notes/11.PRIORITY-Q.html
+  \endverb
+  \field{year}{2005}
+\endentry
+
+\entry{raylewallen}{online}{}
+  \field{sortinit}{S}
+  \field{booktitle}{codebetter.com}
+  \field{title}{Software Development Life Cycle Models}
+  \verb{url}
+  \verb http://codebetter.com/raymondlewallen/2005/07/13/software-development-l
+  \verb ife-cycle-models/
+  \endverb
+  \field{year}{2005}
+\endentry
+
+\entry{testflight}{online}{}
+  \field{sortinit}{T}
+  \field{booktitle}{testflightapp.com}
+  \field{title}{TestFlight - Beta Testing On The Fly}
+  \verb{url}
+  \verb https://testflightapp.com
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{distanceapi}{online}{}
+  \field{sortinit}{T}
+  \field{booktitle}{developers.google.com}
+  \field{title}{The Google Distance Matrix API}
+  \verb{url}
+  \verb https://developers.google.com/maps/documentation/distancematrix/
+  \endverb
+  \field{year}{2008}
+\endentry
+
+\entry{geocodingapi}{online}{}
+  \field{sortinit}{T}
+  \field{booktitle}{developers.google.com}
+  \field{title}{The Google Geocoding API}
+  \verb{url}
+  \verb https://developers.google.com/maps/documentation/geocoding
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{gist}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Thompson}{T.}%
+     {Mattt}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TM1}
+  \strng{fullhash}{TM1}
+  \field{sortinit}{T}
+  \field{booktitle}{gist.github.com}
+  \field{title}{A list of methods and properties conforming to 'UIAppearance'
+  as of iOS 6.1}
+  \verb{url}
+  \verb https://gist.github.com/mattt/5135521
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{nshipster}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Thompson}{T.}%
+     {Mattt}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TM1}
+  \strng{fullhash}{TM1}
+  \field{sortinit}{T}
+  \field{booktitle}{nshipster.com}
+  \field{title}{UIAppearance}
+  \verb{url}
+  \verb http://nshipster.com/uiappearance/
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{segue}{online}{}
+  \field{sortinit}{U}
+  \field{booktitle}{apple.com}
+  \field{title}{UIStoryboardSegue Class Reference}
+  \verb{url}
+  \verb http://developer.apple.com/library/ios/#documentation/uikit/reference/U
+  \verb IStoryboardSegue_Class/Reference/Reference.html
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{json}{online}{}
+  \field{sortinit}{U}
+  \field{booktitle}{samsoff.es}
+  \field{title}{Updated iPhone JSON Benchmarks}
+  \verb{url}
+  \verb http://samsoff.es/posts/updated-iphone-json-benchmarks
+  \endverb
+  \field{year}{2010}
+\endentry
+
+\entry{foursquare}{online}{}
+  \field{sortinit}{V}
+  \field{booktitle}{developer.foursquare.com}
+  \field{title}{Venues Platform}
+  \verb{url}
+  \verb https://developer.foursquare.com/overview/venues
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\entry{geofence}{online}{}
+  \field{sortinit}{W}
+  \field{booktitle}{whatis.techtarget.com/}
+  \field{title}{What is geofencing?}
+  \verb{url}
+  \verb http://whatis.techtarget.com/definition/geofencing
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\entry{appearanceios}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Xiao}{X.}%
+     {Jacob}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{XJ1}
+  \strng{fullhash}{XJ1}
+  \field{sortinit}{X}
+  \field{booktitle}{apple.com}
+  \field{title}{Advanced Appearance Customization on iOS}
+  \verb{url}
+  \verb http://adcdownload.apple.com//wwdc_2012/wwdc_2012_session_pdfs/session_
+  \verb 216__advanced_appearance_customization_on_ios.pdf
+  \endverb
+  \field{year}{2012}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

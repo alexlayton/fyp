@@ -1,14 +1,147 @@
-\contentsline {section}{\numberline {0.1}Introduction}{2}
-\contentsline {subsection}{\numberline {0.1.1}Motivation}{2}
-\contentsline {subsection}{\numberline {0.1.2}Aims}{2}
-\contentsline {section}{\numberline {0.2}Analysis and Specification}{3}
-\contentsline {subsection}{\numberline {0.2.1}Existing Apps}{3}
-\contentsline {subsection}{\numberline {0.2.2}Objective-C}{3}
-\contentsline {subsection}{\numberline {0.2.3}Literary Review}{6}
-\contentsline {section}{\numberline {0.3}Design}{7}
-\contentsline {subsection}{\numberline {0.3.1}User Interface}{7}
-\contentsline {subsection}{\numberline {0.3.2}User Experience}{7}
-\contentsline {section}{\numberline {0.4}Implementation and Testing}{7}
-\contentsline {section}{\numberline {0.5}Project Management}{7}
-\contentsline {section}{\numberline {0.6}Results}{7}
-\contentsline {section}{\numberline {0.7}Conclusion}{7}
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Motivation}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Aims}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Analysis}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Existing Apps}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Objective-C}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Data Sources}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.4}Literature Review}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.5}Project Specification}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Project Specification MKII}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Functional Requirements}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Non Functional Requirements}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Development}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Usability}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.3}Peformance}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.4}Reliability}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.5}Security}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.6}Portability}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Design}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Reminder Functionality}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}Reminder}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Data Store}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.3}Reminder Manager}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Preemptive Reminders}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Location Reminders}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Date Reminders}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}App}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Reminder Lists}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Adding Reminders}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.3}Reminders Map}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.4}App Settings}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}User Interface and User Experience}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.1}Storyboards}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.2}Navigation}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.3}UIAppearance}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Implementation and Testing}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Model-View-Controller}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}Model}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.2}View}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.3}Controller}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Reminder Functionality}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.1}Google Distance Matrix API}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.2}Significant Location Changes}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.3}Running in the Background}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.4}Timers}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}App}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.1}Table Views}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.2}Reminder Lists}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.3}Adding Reminders}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Web Services}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.4}Favourites}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}User Interface}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4.1}UIAppearance}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4.2}Reminders Tray}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.5}Testing}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.1}TestFlight}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.2}Crashlytics}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.6}App Store}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.1}Submitting}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.2}Rejection}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.3}Approval}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Project Management}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Software Development Methodology}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Code Management}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Conclusion}{43}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}Project Evaluation}{43}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}Limitations}{44}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.3}Future Enhancements}{44}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.4}Overview}{45}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {.1}User Interface Elements}{49}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {.2}Storyboard}{50}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {.3}App}{51}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {.4}User Guide}{52}

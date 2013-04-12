@@ -31,6 +31,7 @@
 		FA0454BC16AF0C0D002EB841 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0454BB16AF0C0D002EB841 /* SSTextView.m */; };
 		FA04D05C16C80EE300E785F3 /* CMHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D05B16C80EE300E785F3 /* CMHUDView.m */; };
 		FA04D05E16C80F2300E785F3 /* CMHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D05D16C80F2300E785F3 /* CMHUDView.xib */; };
+		FA065F26171217B60083C964 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA065F25171217B60083C964 /* Test.storyboard */; };
 		FA0AB56316D92D200053E11E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56216D92D200053E11E /* Default-568h@2x.png */; };
 		FA0AB56516D92D240053E11E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56416D92D240053E11E /* Default.png */; };
 		FA0AB56716D92D2B0053E11E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AB56616D92D2B0053E11E /* Default@2x.png */; };
@@ -135,6 +136,7 @@
 		FA04D05A16C80EE300E785F3 /* CMHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHUDView.h; sourceTree = "<group>"; };
 		FA04D05B16C80EE300E785F3 /* CMHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHUDView.m; sourceTree = "<group>"; };
 		FA04D05D16C80F2300E785F3 /* CMHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMHUDView.xib; sourceTree = "<group>"; };
+		FA065F25171217B60083C964 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		FA0AB56216D92D200053E11E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA0AB56416D92D240053E11E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FA0AB56616D92D2B0053E11E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				FA664A2516788A72007DC494 /* ALLocationReminderManager.m */,
+				FA065F25171217B60083C964 /* Test.storyboard */,
 				FA664A2616788A72007DC494 /* ALLocationReminderManager.h */,
 				FA664A2716788A72007DC494 /* ALLocationReminders.h */,
 				FA664A2816788A72007DC494 /* ALLocationReminderStore.h */,
@@ -544,7 +547,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CM;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Alex Layton";
 			};
 			buildConfigurationList = FAB95B741663AE8D00A09853 /* Build configuration list for PBXProject "Class Mate" */;
@@ -626,6 +629,7 @@
 				FA77664E16DE9CEB004150D6 /* hud-test@2x.png in Resources */,
 				FA0C37DD16E3E00600AD6D61 /* big-button.png in Resources */,
 				FA0C37DE16E3E00600AD6D61 /* big-button@2x.png in Resources */,
+				FA065F26171217B60083C964 /* Test.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,6 +790,7 @@
 				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
 				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -803,6 +808,7 @@
 				GCC_PREFIX_HEADER = "Class Mate/Class Mate-Prefix.pch";
 				INFOPLIST_FILE = "Class Mate/Class Mate-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

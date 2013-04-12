@@ -63,3 +63,14 @@ int main(void)
 	<array>
 		<string>Appregistersforlocationupdates</string>
 	</array>
+					
+					
+//UIAppearance example
+UIButton *button1 = [[UIButton alloc] init];
+[button1 setTintColor:[UIColor greenColor]];
+UIButton *button2 = [[UIButton alloc] init];
+[button12 setTintColor:[UIColor greenColor]];						
+					
+[[UIButton appearance] setTintColor:[UIColor greenColor]];
+button1 = [[UIButton alloc] init]; //this is a green button
+button2 = [[UIButton alloc] init]; //also a green button
